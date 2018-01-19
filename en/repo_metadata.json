@@ -13,6 +13,34 @@
 			"visible": "true",
 			"tutorials":
 			[	
+                                {
+		                        "name"          : "Using a Compute node to insert data into a DB2 database via ODBC",
+		                        "version"	: "1.0",
+		                        "iibVersions"	: "10.*-11.*",
+		                        "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Compute node to insert a new row into a DB2 database via ODBC, and update the HTTP reply message.",
+		                        "detailsURL"    : "https://ot4i.github.io/db-esql-tutorial/en/details.html",
+		                        "stepsURL"      : "https://ot4i.github.io/db-esql-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/db-esql-tutorial/releases/download/v2.0/PI_DatabaseESQL.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "database",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "Database_ESQL",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/Database_ESQL/Database_ESQL.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Database_ESQL"
+							}						
+					]
+                                },				
 				{
 		        	        "name"          : "Using a Database node to insert data into a DB2 database via ODBC",
 		                        "version"	: "1.0",
