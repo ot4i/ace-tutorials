@@ -14,12 +14,12 @@
 			"tutorials":
 			[
 				{
-		        	"name"          : "Using a Database node to insert data into a DB2 database via ODBC",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Database node to insert a new row into a DB2 database via ODBC, and echo back an HTTP reply.",
-		            "detailsURL"    : "https://ot4i.github.io/db-database-tutorial/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/db-database-tutorial/en/steps.html",
+		        	        "name"          : "Using a Database node to insert data into a DB2 database via ODBC",
+		                        "version"	: "1.0",
+		                        "iibVersions"	: "10.*-11.*",
+		                        "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Database node to insert a new row into a DB2 database via ODBC, and echo back an HTTP reply.",
+		                        "detailsURL"    : "https://ot4i.github.io/db-database-tutorial/en/details.html",
+		                        "stepsURL"      : "https://ot4i.github.io/db-database-tutorial/en/steps.html",
 					"zipURL" 	: "https://github.com/ot4i/db-database-tutorial/releases/download/v1.0/PI_Database_DatabaseNode.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
@@ -42,7 +42,7 @@
 					]
 				},	
 				{
-		        		"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
+		        		"name"          : "Using a LoopBack Request node to insert data into a Cloudant databas",
 		            		"version"	: "1.0",
 		            		"iibVersions"	: "10.*-11.*",
 		            		"shortDesc"     : "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database (requires IBM Integration Bus v10 fixpack 6 or later).",
