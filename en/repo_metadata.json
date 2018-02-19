@@ -13,119 +13,115 @@
 			"visible": "true",
 			"tutorials":
 			[	
-                                {
-		                        "name"          : "Using a Compute node to insert data into a DB2 database via ODBC",
-		                        "version"	: "1.0",
-		                        "iibVersions"	: "10.*-11.*",
-		                        "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Compute node to insert a new row into a DB2 database via ODBC, and update the HTTP reply message.",
-		                        "detailsURL"    : "https://ot4i.github.io/db-esql-tutorial/en/details.html",
-		                        "stepsURL"      : "https://ot4i.github.io/db-esql-tutorial/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/db-esql-tutorial/releases/download/v2.0/PI_DatabaseESQL.zip",
-					"barFile" 	: "",
+								{
+					"name" : "Create an App Connect Enterprise REST API",
+					"version"	: "1.0",
+					"iibVersions"	: "10.*-11.*",
+					"shortDesc" : "Learn how to manage a set of records using a REST API.",
+					"detailsURL" : "http://ekharlamov.github.io/rest-api-tutorial/v11/en/details.html",
+					"stepsURL" : "http://ekharlamov.github.io/rest-api-tutorial/v11/en/steps.html",
+					"zipURL" : "https://github.com/ot4i/rest-api-tutorial/releases/download/V1/CustomerDatabasePI_V1.zip",
+					"barFile" : "<workspace>/BARfiles/CustomerDatabaseV1.bar",
 					"visible"	: "true",
-					"tags"		: "database",
+					"tags"	: "rest api",
 					"isPattern"	: "false",
 					"isFavorite"	: "true",
-					"projects"	: "Database_ESQL",
+					"projects"	: "BARfiles:CustomerDatabaseJava:CustomerDatabaseV1",
 					"editorResPaths": [
 						{
-							"id" : "MainFlow",
+							"id" : "CustomerDatabaseV1",
 							"editor" : "",
-							"wspath" : "<workspace>/Database_ESQL/Database_ESQL.msgflow"
+							"wspath" : "<workspace>/CustomerDatabaseV1/restapi.descriptor"
 						}
 					],
-			    		"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Database_ESQL"
-							}						
-					]
-                                },				
-				{
-		        	        "name"          : "Using a Database node to insert data into a DB2 database via ODBC",
-		                        "version"	: "1.0",
-		                        "iibVersions"	: "10.*-11.*",
-		                        "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Database node to insert a new row into a DB2 database via ODBC, and echo back an HTTP reply.",
-		                        "detailsURL"    : "https://ot4i.github.io/db-database-tutorial/en/details.html",
-		                        "stepsURL"      : "https://ot4i.github.io/db-database-tutorial/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/db-database-tutorial/releases/download/v1.0/PI_Database_DatabaseNode.zip",
-					"barFile" 	: "",
-					"visible"	: "true",
-					"tags"		: "database",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "Database_DatabaseNode",
-					"editorResPaths": [
+			    	"deployedResources" : [
 						{
-							"id" : "MainFlow",
-							"editor" : "",
-							"wspath" : "<workspace>/Database_DatabaseNode/Database_DatabaseNode.msgflow"
+							"type": "restapi",
+							"path": "CustomerDatabaseV1"
 						}
-					],
-			    		"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Database_DatabaseNode"
-							}						
-					]
-				},								
-				{
-		        	"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
-		            "detailsURL"    : "https://ot4i.github.io/loopback-tutorial/v11/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/loopback-tutorial/v11/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/loopback-tutorial/releases/download/v2.0/PI_LoopbackTutorial.zip",
-					"barFile" 	: "",
-					"visible"	: "true",
-					"tags"		: "loopback",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "LoopBack",
-					"editorResPaths": [
-						{
-							"id" : "MainFlow",
-							"editor" : "",
-							"wspath" : "<workspace>/LoopBack/LoopBack_Cloudant.msgflow"
-						}
-					],
-			    		"deployedResources" : [
-							{
-							"type": "application",
-							"path": "LoopBack"
-							}						
-					]
-				},
-				{
-		        	"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use a Workload Management Policy to restrict the maximum rate at which a message flow can run.",
-		            "detailsURL"    : "https://ot4i.github.io/wlm-tutorial/v11/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/wlm-tutorial/v11/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/wlm-tutorial/releases/download/v1.0/PI_WLMTutorial.zip",
-					"barFile"	: "<workspace>/WorkloadManagementApplication/wlm.bar",
-					"visible"	: "true",
-					"tags"		: "policy",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "WorkloadManagementApplication",
-					"editorResPaths": [
-						{
-							"id" : "MainFlow",
-							"editor" : "",
-							"wspath" : "<workspace>/WorkloadManagementApplication/WorkloadManagementFlow.msgflow"
-						}
-					],
-			    		"deployedResources" : [
-							{
-							"type": "application",
-							"path": "WorkloadManagementApplication"
-							}						
 					]
 				},				
+								{
+		        	"name"          : "Integration services (SOAP/HTTP inputs)",
+		            "version"		: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn about integration services that use SOAP/HTTP inputs.",
+		            "detailsURL"    : "http://ot4i.github.io/integration-services-tutorial/v11/en/details.html",
+		            "stepsURL"      : "http://ot4i.github.io/integration-services-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/integration-services-tutorial/releases/download/V1/TemperatureConverter.zip",
+		            "barFile"       : "<workspace>/BARfiles/TemperatureConverter.bar",
+		            "visible"	: "true",
+		            "tags"		: "service;http;soap;transformation",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"		: "TemperatureConverter:BARfiles",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainService",
+		            				"editor" : "service",
+		            				"wspath" : "<workspace>/TemperatureConverter/service.descriptor"
+		            				}	
+		            				],
+			    	"deployedResources" : [
+							{
+							"type": "service",
+							"path": "TemperatureConverter"
+							}
+							]
+				},				
 				{
+		        	"name"          : "HTTP Input to drive a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use an HTTP Input node to parse JSON data in a message flow.",
+		            	"detailsURL"    : "http://ot4i.github.io/http-input-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/http-input-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/http-input-tutorial/releases/download/V1/PI_HTTPInputApplication.zip",
+		            	"barFile"       : "<workspace>/HTTPInputApplication/HTTPInputApplication.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "HTTP;transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "HTTPInputApplication",
+		        	 "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/HTTPInputApplication/HTTPInputMessageFlow.msgflow"
+		            			}
+		            		],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "HTTPInputApplication"
+							}
+						]
+				},								
+								{
+				"name" : "Integration using TCPIP nodes",
+				"version"	: "1.0",
+				"iibVersions"	: "10.*-11.*",
+				"shortDesc" : "Learn how to use TCP/IP nodes for integration with external applications using TCPIP sockets.",
+				"detailsURL" : "http://ot4i.github.io/tcpip-input-tutorial/v11/en/details.html",
+				"stepsURL" : "http://ot4i.github.io/tcpip-input-tutorial/v11/en/steps.html",
+				"zipURL" : "https://github.com/ot4i/tcpip-input-tutorial/releases/download/2.0/TCPIP_Project_Interchange.zip",
+				"barFile" : "",
+				"visible"	: "true",
+				"tags"	: "tcp;tcpip",
+				"isPattern"	: "false",
+				"isFavorite"	: "true",
+				"projects"	: "TCPIPServer:TCPIPClient:DataLibrary",
+				"editorResPaths": [
+					{
+						"id" : "MainFlow",
+						"editor" : "",
+						"wspath" : "<workspace>/TCPIPServer/TCPIPProvider.msgflow"
+					}
+				],
+				"deployedResources": [
+				]
+				},
+								{
 		        	"name"          : "Using a Sequence node to inject a sequence number into a message",
 		            "version"	: "1.0",
 		            "iibVersions"	: "10.*-11.*",
@@ -188,39 +184,7 @@
 							"path": "CommaSeparatedValues"
 							}																					
 					]
-				},				
-				{
-		        	"name"          : "Producing and consuming Kafka messages",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use the KafkaProducer and KafkaConsumer nodes in a message flow",
-		            "detailsURL"    : "https://ot4i.github.io/kafka-tutorial/v11/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/kafka-tutorial/v11/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/kafka-tutorial/releases/download/V1.11/KafkaTutorial.zip",
-					"barFile" 	: "",
-					"visible"	: "true",
-					"tags"		: "kafka",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "KafkaProducerApplication:KafkaConsumerApplication",
-					"editorResPaths": [
-						{
-							"id" : "MainFlow",
-							"editor" : "",
-							"wspath" : "<workspace>/KafkaProducerApplication/KafkaProducerFlow.msgflow"
-						}
-					],
-			    		"deployedResources" : [
-							{
-							"type": "application",
-							"path": "KafkaProducerApplication"
-							},
-							{
-							"type": "application",
-							"path": "KafkaConsumerApplication"
-							}
-					]
-				},
+				},																
 				{
 		        	"name"          : "Call a REST API using the RESTRequest node",
 		            "version"	: "1.0",
@@ -292,64 +256,240 @@
 							"path": "RESTAsyncRequest_SharedLibrary"
 							}						
 					]
-				},								
+				},
 				{
-		        	"name"          : "Using IBM Cloud Product Insights to view App Connect Enterprise Startup and Usage",
+		            "name"          : "Transformation using a Map in a message flow",
 		            "version"	: "1.0",
 		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use the IBM Cloud Product Insights service to get a centralized view of App Connect Enterprise Startup and Usage",
-		            "detailsURL"    : "https://ot4i.github.io/productinsights-service-tutorial/v11/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/productinsights-service-tutorial/v11/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/productinsights-service-tutorial/releases/download/v2.0/ProductInsightsTutorial.zip",
-					"barFile" 	: "",
+		            "shortDesc"     : "Learn how to use a Mapping node to transform data.",
+		            "detailsURL"    : "http://ot4i.github.io/transformation-map-tutorial/v11/en/details.html",
+		            "stepsURL"      : "http://ot4i.github.io/transformation-map-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/transformation-map-tutorial/releases/download/v1.0/TransformMAPPI.zip",
+		            "barFile"       : "<workspace>/TestModeBarFiles/Transformation_Mapproject.TestMode.bar",
+		            "visible"	: "true",
+		            "tags"		: "transformation;map",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "Transformation_Map",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/Transformation_Map/Transformation_Map.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Transformation_Map"
+							}
+						]
+				},				
+				{
+		            "name"          : "Transformation using ESQL in a message flow",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use a Compute node to transform data using ESQL.",
+		            "detailsURL"    : "http://ot4i.github.io/transformation-esql-tutorial/v11/en/details.html",
+		            "stepsURL"      : "http://ot4i.github.io/transformation-esql-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/transformation-esql-tutorial/releases/download/v1.0/TransformESQLPI.zip",
+		            "barFile"       : "<workspace>/TestModeBarFiles/Transformation_ESQLproject.TestMode.bar",
+		            "visible"	: "true",
+		            "tags"		: "transformation;esql",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "Transformation_ESQL",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/Transformation_ESQL/Transformation_ESQL.msgflow"
+		            				}
+		            			],
+		            "deployedResources" : [
+							{
+							"type": "application",
+							"path": "Transformation_ESQL"
+							}
+						]
+				},
+				{
+		            	"name"          : "Transformation using Java in a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use a JavaCompute node to transform data using Java.",
+		            	"detailsURL"    : "http://ot4i.github.io/transformation-java-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/transformation-java-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/transformation-java-tutorial/releases/download/v1.0/TransformJavaPI.zip",
+		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_Javaproject.TestMode.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation;java",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "Transformation_Java:Transformation_JavaJava",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/Transformation_Java/Transformation_Java.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Transformation_Java"
+							}
+						]
+				},
+				{
+		            	"name"          : "Transformation using Java (JAXB) in a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use a JavaCompute node to transform data using Java (JAXB).",
+		            	"detailsURL"    : "http://ot4i.github.io/transformation-javaJAXB-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/transformation-javaJAXB-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/transformation-javaJAXB-tutorial/releases/download/v1.0/TransformJAXBPI.zip",
+		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_JavaJAXBproject.TestMode.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation;java",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "Transformation_JavaJAXB:Transformation_JavaJAXBJava",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/Transformation_JavaJAXB/Transformation_JavaJAXB.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Transformation_JavaJAXB"
+							}
+						]
+				},
+				{
+		            	"name"          : "Transformation using XSL in a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use an XSL Transform node to transform data using XSL.",
+		            	"detailsURL"    : "http://ot4i.github.io/transformation-XSL-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/transformation-XSL-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/transformation-XSL-tutorial/releases/download/v1.0/TransformXSLPI.zip",
+		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_XSLproject.TestMode.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation;xsl",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "Transformation_XSL",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/Transformation_XSL/Transformation_XSL.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Transformation_XSL"
+							}
+						]
+				},
+				{
+		            	"name"          : "Transformation using .NET in a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use a .NETCompute node to transform data using C#.",
+		            	"detailsURL"    : "http://ot4i.github.io/transformation-dotnet-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/transformation-dotnet-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/transformation-dotnet-tutorial/releases/download/v1.0/TransformDOTNETPI.zip",
+		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_DotNetproject.TestMode.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation;.NET",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "Transformation_DotNet:Transformation_DotNet_DotNET",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/Transformation_DotNet/Transformation_DotNet.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Transformation_DotNet"
+							}
+						]
+				},
+				{
+		        	"name"          : "Callable Flows",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to split flow processing using CallableFlow nodes.",
+		            	"detailsURL"    : "http://ot4i.github.io/callable-flows-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/callable-flows-tutorial/v11/en/steps.html",
+				"zipURL" 	: "https://github.com/ot4i/callable-flows-tutorial/releases/download/v1.0/CallableFlowsPI.zip",
+					"barFile" : "<workspace>/CallableFlowBARFiles/callable_flows.bar",
 					"visible"	: "true",
-					"tags"		: "product-insights",
+					"tags"	: "callableflows;map",
 					"isPattern"	: "false",
 					"isFavorite"	: "true",
-					"projects"	: "PrimeNumbers",
+					"projects"	: "CallableFlowBARFiles:CallableTimestamp:CallableTimestampAlternate:CallingParentApplication",
 					"editorResPaths": [
 						{
-							"id" : "MainFlow",
-							"editor" : "",
-							"wspath" : "<workspace>/PrimeNumbers/PrimeNumbers.msgflow"
+							"id" : "TimestampMyJSON",
+							"editor" : "flow",
+							"wspath" : "<workspace>/CallingParentApplication/TimestampMyJSON.msgflow"
 						}
 					],
 			    		"deployedResources" : [
 							{
 							"type": "application",
-							"path": "PrimeNumbers"
+							"path": "CallingParentApplication"
+							},
+							{
+							"type": "application",
+							"path": "CallableTimestamp"
+							},
+							{
+							"type": "application",
+							"path": "CallableTimestampAlternate"
 							}
 					]
 				},
-				{
-		        	"name"          : "Using Bluemix Kibana Dashboards to view IIB Logs",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use a Kibana Dashboard on IBM Cloud to get a centralised view of App Connect Enterprise Logs",
-		            "detailsURL"    : "https://ot4i.github.io/productinsights-logging-tutorial/v11/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/productinsights-logging-tutorial/v11/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/productinsights-logging-tutorial/releases/download/v3.0/ProductInsightsKibanaTutorial.zip",
-					"barFile" 	: "",
-					"visible"	: "true",
-					"tags"		: "Bluemix",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "LogMessages",
-					"editorResPaths": [
-						{
-							"id" : "MainFlow",
-							"editor" : "",
-							"wspath" : "<workspace>/LogMessages/LogMessages.msgflow"
-						}
-					],
-			    		"deployedResources" : [
+								{
+		            	"name"          : "Large message splitting",
+		            	"version"		: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Split a large input message into individual records, using Java transformation code, in a memory-efficient manner.",
+		            	"detailsURL"    : "http://ot4i.github.io/large-messaging-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "http://ot4i.github.io/large-messaging-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/large-messaging-tutorial/releases/download/V1.1/LargeMessagingPI.zip",
+		            	"barFile"       : "<workspace>/BARfiles/LargeMessages.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "java;transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "LargeMessages:LargeMessagesJava:BARfiles",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/LargeMessages/LargeMessages.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
 							{
 							"type": "application",
-							"path": "LogMessages"
+							"path": "LargeMessages"
 							}
-					]
-				},				
-				{
+						]
+				},
+						{
 		        	"name"          : "Aggregation nodes using MQ nodes with back-end services",
 		            "version"	: "1.0",
 		            "iibVersions"	: "10.*-11.*",
@@ -536,408 +676,7 @@
 							"path": "AggregationCallableAsyncBackend2"
 							}
 					]
-				},
-				{
-		        	"name"          : "Integration services (SOAP/HTTP inputs)",
-		            "version"		: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn about integration services that use SOAP/HTTP inputs.",
-		            "detailsURL"    : "http://ot4i.github.io/integration-services-tutorial/v11/en/details.html",
-		            "stepsURL"      : "http://ot4i.github.io/integration-services-tutorial/v11/en/steps.html",
-		            "zipURL"        : "https://github.com/ot4i/integration-services-tutorial/releases/download/V1/TemperatureConverter.zip",
-		            "barFile"       : "<workspace>/BARfiles/TemperatureConverter.bar",
-		            "visible"	: "true",
-		            "tags"		: "service;http;soap;transformation",
-		            "isPattern"	: "false",
-		            "isFavorite"	: "true",
-		            "projects"		: "TemperatureConverter:BARfiles",
-		            "editorResPaths"   : [
-		            				{
-		            				"id" : "MainService",
-		            				"editor" : "service",
-		            				"wspath" : "<workspace>/TemperatureConverter/service.descriptor"
-		            				}	
-		            				],
-			    	"deployedResources" : [
-							{
-							"type": "service",
-							"path": "TemperatureConverter"
-							}
-							]
-				},
-				{
-					"name" : "Create an App Connect Enterprise REST API",
-					"version"	: "1.0",
-					"iibVersions"	: "10.*-11.*",
-					"shortDesc" : "Learn how to manage a set of records using a REST API.",
-					"detailsURL" : "http://ekharlamov.github.io/rest-api-tutorial/v11/en/details.html",
-					"stepsURL" : "http://ekharlamov.github.io/rest-api-tutorial/v11/en/steps.html",
-					"zipURL" : "https://github.com/ot4i/rest-api-tutorial/releases/download/V1/CustomerDatabasePI_V1.zip",
-					"barFile" : "<workspace>/BARfiles/CustomerDatabaseV1.bar",
-					"visible"	: "true",
-					"tags"	: "rest api",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "BARfiles:CustomerDatabaseJava:CustomerDatabaseV1",
-					"editorResPaths": [
-						{
-							"id" : "CustomerDatabaseV1",
-							"editor" : "",
-							"wspath" : "<workspace>/CustomerDatabaseV1/restapi.descriptor"
-						}
-					],
-			    	"deployedResources" : [
-						{
-							"type": "restapi",
-							"path": "CustomerDatabaseV1"
-						}
-					]
-				},
-				{
-		            "name"          : "Transformation using a Map in a message flow",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use a Mapping node to transform data.",
-		            "detailsURL"    : "http://ot4i.github.io/transformation-map-tutorial/v11/en/details.html",
-		            "stepsURL"      : "http://ot4i.github.io/transformation-map-tutorial/v11/en/steps.html",
-		            "zipURL"        : "https://github.com/ot4i/transformation-map-tutorial/releases/download/v1.0/TransformMAPPI.zip",
-		            "barFile"       : "<workspace>/TestModeBarFiles/Transformation_Mapproject.TestMode.bar",
-		            "visible"	: "true",
-		            "tags"		: "transformation;map",
-		            "isPattern"	: "false",
-		            "isFavorite"	: "true",
-		            "projects"	: "Transformation_Map",
-		            "editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/Transformation_Map/Transformation_Map.msgflow"
-		            				}
-		            			],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Transformation_Map"
-							}
-						]
-				},				
-				{
-		            "name"          : "Transformation using ESQL in a message flow",
-		            "version"	: "1.0",
-		            "iibVersions"	: "10.*-11.*",
-		            "shortDesc"     : "Learn how to use a Compute node to transform data using ESQL.",
-		            "detailsURL"    : "http://ot4i.github.io/transformation-esql-tutorial/v11/en/details.html",
-		            "stepsURL"      : "http://ot4i.github.io/transformation-esql-tutorial/v11/en/steps.html",
-		            "zipURL"        : "https://github.com/ot4i/transformation-esql-tutorial/releases/download/v1.0/TransformESQLPI.zip",
-		            "barFile"       : "<workspace>/TestModeBarFiles/Transformation_ESQLproject.TestMode.bar",
-		            "visible"	: "true",
-		            "tags"		: "transformation;esql",
-		            "isPattern"	: "false",
-		            "isFavorite"	: "true",
-		            "projects"	: "Transformation_ESQL",
-		            "editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/Transformation_ESQL/Transformation_ESQL.msgflow"
-		            				}
-		            			],
-		            "deployedResources" : [
-							{
-							"type": "application",
-							"path": "Transformation_ESQL"
-							}
-						]
-				},
-				{
-		            	"name"          : "Transformation using Java in a message flow",
-		            	"version"	: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use a JavaCompute node to transform data using Java.",
-		            	"detailsURL"    : "http://ot4i.github.io/transformation-java-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/transformation-java-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/transformation-java-tutorial/releases/download/v1.0/TransformJavaPI.zip",
-		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_Javaproject.TestMode.bar",
-		            	"visible"	: "true",
-		            	"tags"		: "transformation;java",
-		            	"isPattern"	: "false",
-		            	"isFavorite"	: "true",
-		            	"projects"	: "Transformation_Java:Transformation_JavaJava",
-		            	"editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/Transformation_Java/Transformation_Java.msgflow"
-		            				}
-		            			],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Transformation_Java"
-							}
-						]
-				},
-				{
-		            	"name"          : "Transformation using Java (JAXB) in a message flow",
-		            	"version"	: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use a JavaCompute node to transform data using Java (JAXB).",
-		            	"detailsURL"    : "http://ot4i.github.io/transformation-javaJAXB-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/transformation-javaJAXB-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/transformation-javaJAXB-tutorial/releases/download/v1.0/TransformJAXBPI.zip",
-		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_JavaJAXBproject.TestMode.bar",
-		            	"visible"	: "true",
-		            	"tags"		: "transformation;java",
-		            	"isPattern"	: "false",
-		            	"isFavorite"	: "true",
-		            	"projects"	: "Transformation_JavaJAXB:Transformation_JavaJAXBJava",
-		            	"editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/Transformation_JavaJAXB/Transformation_JavaJAXB.msgflow"
-		            				}
-		            			],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Transformation_JavaJAXB"
-							}
-						]
-				},
-				{
-		            	"name"          : "Transformation using XSL in a message flow",
-		            	"version"	: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use an XSL Transform node to transform data using XSL.",
-		            	"detailsURL"    : "http://ot4i.github.io/transformation-XSL-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/transformation-XSL-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/transformation-XSL-tutorial/releases/download/v1.0/TransformXSLPI.zip",
-		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_XSLproject.TestMode.bar",
-		            	"visible"	: "true",
-		            	"tags"		: "transformation;xsl",
-		            	"isPattern"	: "false",
-		            	"isFavorite"	: "true",
-		            	"projects"	: "Transformation_XSL",
-		            	"editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/Transformation_XSL/Transformation_XSL.msgflow"
-		            				}
-		            			],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Transformation_XSL"
-							}
-						]
-				},
-				{
-		            	"name"          : "Transformation using .NET in a message flow",
-		            	"version"	: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use a .NETCompute node to transform data using C#.",
-		            	"detailsURL"    : "http://ot4i.github.io/transformation-dotnet-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/transformation-dotnet-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/transformation-dotnet-tutorial/releases/download/v1.0/TransformDOTNETPI.zip",
-		            	"barFile"       : "<workspace>/TestModeBarFiles/Transformation_DotNetproject.TestMode.bar",
-		            	"visible"	: "true",
-		            	"tags"		: "transformation;.NET",
-		            	"isPattern"	: "false",
-		            	"isFavorite"	: "true",
-		            	"projects"	: "Transformation_DotNet:Transformation_DotNet_DotNET",
-		            	"editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/Transformation_DotNet/Transformation_DotNet.msgflow"
-		            				}
-		            			],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "Transformation_DotNet"
-							}
-						]
-				},
-				{
-			       	        "name"          : "Retrieving records from a Salesforce system",
-			                "version"	: "1.0",
-			                "iibVersions"	: "10.*-11.*",
-			           	"shortDesc"     : "Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com.",
-			           	"detailsURL"    : "http://ot4i.github.io/salesforce-tutorial/v11/en/details.html",
-			           	"stepsURL"      : "http://ot4i.github.io/salesforce-tutorial/v11/en/steps.html",
-			           	"zipURL"        : "https://github.com/ot4i/salesforce-tutorial/releases/download/v100/iibsalesforce_PI_v1.zip",
-			           	"barFile"       : "<workspace>/TestModeBarFiles/Salesforce_Retrieveproject.TestMode.bar",
-			           	"visible"	: "true",
-			           	"tags"		: "iib;salesforce",
-			           	"isPattern"	: "false",
-			           	"isFavorite"	: "true",
-			           	"projects"	: "Salesforce_Retrieve:Salesforce_Schemas",
-			       	        "editorResPaths": [
-           					{
-       		        	        		"id" : "MainFlow",
-       				                	"editor" : "",
-    			  	                	"wspath" : "<workspace>/Salesforce_Retrieve/Salesforce_Retrieve.msgflow"
-       			                	}
-        		          	],
-					"deployedResources": [
-						{
-							"type": "application",
-							"path": "Salesforce_Retrieve"
-						},
-						{
-							"type": "library",
-							"path": "Salesforce_Schemas"
-						}
-				     	]
-				},
-				{
-		        	"name"          : "Callable Flows",
-		            	"version"	: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to split flow processing using CallableFlow nodes.",
-		            	"detailsURL"    : "http://ot4i.github.io/callable-flows-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/callable-flows-tutorial/v11/en/steps.html",
-				"zipURL" 	: "https://github.com/ot4i/callable-flows-tutorial/releases/download/v1.0/CallableFlowsPI.zip",
-					"barFile" : "<workspace>/CallableFlowBARFiles/callable_flows.bar",
-					"visible"	: "true",
-					"tags"	: "callableflows;map",
-					"isPattern"	: "false",
-					"isFavorite"	: "true",
-					"projects"	: "CallableFlowBARFiles:CallableTimestamp:CallableTimestampAlternate:CallingParentApplication",
-					"editorResPaths": [
-						{
-							"id" : "TimestampMyJSON",
-							"editor" : "flow",
-							"wspath" : "<workspace>/CallingParentApplication/TimestampMyJSON.msgflow"
-						}
-					],
-			    		"deployedResources" : [
-							{
-							"type": "application",
-							"path": "CallingParentApplication"
-							},
-							{
-							"type": "application",
-							"path": "CallableTimestamp"
-							},
-							{
-							"type": "application",
-							"path": "CallableTimestampAlternate"
-							}
-					]
-				},
-				{
-        				"name": "Receiving MQTT messages by subscribing to MQTT topics",
-        				"version": "1.0",
-        				"iibVersions": "10.*-11.*",
-        				"shortDesc": "Learn how to use the MQTTSubscribe node to receive messages from an MQTT server.",
-        				"barFile": "<workspace>/MQTTSubscribe/MQTTSubscribe.bar",
-        				"visible": "true",
-        				"tags": "service;http;soap;transformation",
-        				"isPattern": "false",
-        				"isFavorite": "true",
-         				"projects": "MQTTSubscribe",
-         				"editorResPaths": [
-           				{
-        					"id": "MQTTSubscribe",
-						"editor": "flow",
-						"wspath": "<workspace>/MQTTSubscribe/MQTTSubscribe.msgflow"
-			            	}
-					],
-					"deployedResources": [
-					{
-						"type": "application",
-						"path": "MQTTSubscribe"
-					}
-					],
-					"id": "MQTTSubscribe",
-					"detailsURL": "http://ot4i.github.io/mqtt-subscribe-tutorial/v11/en/details.html",
-					"stepsURL": "http://ot4i.github.io/mqtt-subscribe-tutorial/v11/en/steps.html",
-					"zipURL": "https://github.com/ot4i/mqtt-subscribe-tutorial/releases/download/v1.0/MQTTSubscribe.v1.0.PI.zip"
-				},
-				{
-		        	"name"          : "HTTP Input to drive a message flow",
-		            	"version"	: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use an HTTP Input node to parse JSON data in a message flow.",
-		            	"detailsURL"    : "http://ot4i.github.io/http-input-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/http-input-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/http-input-tutorial/releases/download/V1/PI_HTTPInputApplication.zip",
-		            	"barFile"       : "<workspace>/HTTPInputApplication/HTTPInputApplication.bar",
-		            	"visible"	: "true",
-		            	"tags"		: "HTTP;transformation",
-		            	"isPattern"	: "false",
-		            	"isFavorite"	: "true",
-		            	"projects"	: "HTTPInputApplication",
-		        	 "editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/HTTPInputApplication/HTTPInputMessageFlow.msgflow"
-		            			}
-		            		],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "HTTPInputApplication"
-							}
-						]
-				},
-				{
-				"name" : "Integration using TCPIP nodes",
-				"version"	: "1.0",
-				"iibVersions"	: "10.*-11.*",
-				"shortDesc" : "Learn how to use TCP/IP nodes for integration with external applications using TCPIP sockets.",
-				"detailsURL" : "http://ot4i.github.io/tcpip-input-tutorial/v11/en/details.html",
-				"stepsURL" : "http://ot4i.github.io/tcpip-input-tutorial/v11/en/steps.html",
-				"zipURL" : "https://github.com/ot4i/tcpip-input-tutorial/releases/download/2.0/TCPIP_Project_Interchange.zip",
-				"barFile" : "",
-				"visible"	: "true",
-				"tags"	: "tcp;tcpip",
-				"isPattern"	: "false",
-				"isFavorite"	: "true",
-				"projects"	: "TCPIPServer:TCPIPClient:DataLibrary",
-				"editorResPaths": [
-					{
-						"id" : "MainFlow",
-						"editor" : "",
-						"wspath" : "<workspace>/TCPIPServer/TCPIPProvider.msgflow"
-					}
-				],
-				"deployedResources": [
-				]
-				},
-				{
-		            	"name"          : "Large message splitting",
-		            	"version"		: "1.0",
-		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Split a large input message into individual records, using Java transformation code, in a memory-efficient manner.",
-		            	"detailsURL"    : "http://ot4i.github.io/large-messaging-tutorial/v11/en/details.html",
-		            	"stepsURL"      : "http://ot4i.github.io/large-messaging-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/large-messaging-tutorial/releases/download/V1.1/LargeMessagingPI.zip",
-		            	"barFile"       : "<workspace>/BARfiles/LargeMessages.bar",
-		            	"visible"	: "true",
-		            	"tags"		: "java;transformation",
-		            	"isPattern"	: "false",
-		            	"isFavorite"	: "true",
-		            	"projects"	: "LargeMessages:LargeMessagesJava:BARfiles",
-		            	"editorResPaths"   : [
-		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
-		            			  	"wspath" : "<workspace>/LargeMessages/LargeMessages.msgflow"
-		            				}
-		            			],
-				"deployedResources" : [
-							{
-							"type": "application",
-							"path": "LargeMessages"
-							}
-						]
-				},
+},													
                         	{
                                 "name"          : "Modeling CSV data by using DFDL",
                                 "version"	: "1.0",
@@ -1083,7 +822,271 @@
                                                      ]
 				}
 			]
-		}, 
+		}, 				
+				
+				
+				{
+		                        "name"          : "Using a Compute node to insert data into a DB2 database via ODBC",
+		                        "version"	: "1.0",
+		                        "iibVersions"	: "10.*-11.*",
+		                        "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Compute node to insert a new row into a DB2 database via ODBC, and update the HTTP reply message.",
+		                        "detailsURL"    : "https://ot4i.github.io/db-esql-tutorial/en/details.html",
+		                        "stepsURL"      : "https://ot4i.github.io/db-esql-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/db-esql-tutorial/releases/download/v2.0/PI_DatabaseESQL.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "database",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "Database_ESQL",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/Database_ESQL/Database_ESQL.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Database_ESQL"
+							}						
+					]
+                                },				
+				{
+		        	        "name"          : "Using a Database node to insert data into a DB2 database via ODBC",
+		                        "version"	: "1.0",
+		                        "iibVersions"	: "10.*-11.*",
+		                        "shortDesc"     : "Learn how to receive an HTTP input to a flow, use the Database node to insert a new row into a DB2 database via ODBC, and echo back an HTTP reply.",
+		                        "detailsURL"    : "https://ot4i.github.io/db-database-tutorial/en/details.html",
+		                        "stepsURL"      : "https://ot4i.github.io/db-database-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/db-database-tutorial/releases/download/v1.0/PI_Database_DatabaseNode.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "database",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "Database_DatabaseNode",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/Database_DatabaseNode/Database_DatabaseNode.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Database_DatabaseNode"
+							}						
+					]
+				},								
+				{
+		        	"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
+		            "detailsURL"    : "https://ot4i.github.io/loopback-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/loopback-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/loopback-tutorial/releases/download/v2.0/PI_LoopbackTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "loopback",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "LoopBack",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/LoopBack/LoopBack_Cloudant.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "LoopBack"
+							}						
+					]
+				},
+				{
+		        	"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use a Workload Management Policy to restrict the maximum rate at which a message flow can run.",
+		            "detailsURL"    : "https://ot4i.github.io/wlm-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/wlm-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/wlm-tutorial/releases/download/v1.0/PI_WLMTutorial.zip",
+					"barFile"	: "<workspace>/WorkloadManagementApplication/wlm.bar",
+					"visible"	: "true",
+					"tags"		: "policy",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "WorkloadManagementApplication",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/WorkloadManagementApplication/WorkloadManagementFlow.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "WorkloadManagementApplication"
+							}						
+					]
+				},							
+				{
+		        	"name"          : "Producing and consuming Kafka messages",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the KafkaProducer and KafkaConsumer nodes in a message flow",
+		            "detailsURL"    : "https://ot4i.github.io/kafka-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/kafka-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/kafka-tutorial/releases/download/V1.11/KafkaTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "kafka",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "KafkaProducerApplication:KafkaConsumerApplication",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/KafkaProducerApplication/KafkaProducerFlow.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "KafkaProducerApplication"
+							},
+							{
+							"type": "application",
+							"path": "KafkaConsumerApplication"
+							}
+					]
+				},
+								
+				{
+		        	"name"          : "Using IBM Cloud Product Insights to view App Connect Enterprise Startup and Usage",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the IBM Cloud Product Insights service to get a centralized view of App Connect Enterprise Startup and Usage",
+		            "detailsURL"    : "https://ot4i.github.io/productinsights-service-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/productinsights-service-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/productinsights-service-tutorial/releases/download/v2.0/ProductInsightsTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "product-insights",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "PrimeNumbers",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/PrimeNumbers/PrimeNumbers.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "PrimeNumbers"
+							}
+					]
+				},
+				{
+		        	"name"          : "Using Bluemix Kibana Dashboards to view IIB Logs",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use a Kibana Dashboard on IBM Cloud to get a centralised view of App Connect Enterprise Logs",
+		            "detailsURL"    : "https://ot4i.github.io/productinsights-logging-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/productinsights-logging-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/productinsights-logging-tutorial/releases/download/v3.0/ProductInsightsKibanaTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "Bluemix",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "LogMessages",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/LogMessages/LogMessages.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "LogMessages"
+							}
+					]
+				},				
+				{
+			       	        "name"          : "Retrieving records from a Salesforce system",
+			                "version"	: "1.0",
+			                "iibVersions"	: "10.*-11.*",
+			           	"shortDesc"     : "Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com.",
+			           	"detailsURL"    : "http://ot4i.github.io/salesforce-tutorial/v11/en/details.html",
+			           	"stepsURL"      : "http://ot4i.github.io/salesforce-tutorial/v11/en/steps.html",
+			           	"zipURL"        : "https://github.com/ot4i/salesforce-tutorial/releases/download/v100/iibsalesforce_PI_v1.zip",
+			           	"barFile"       : "<workspace>/TestModeBarFiles/Salesforce_Retrieveproject.TestMode.bar",
+			           	"visible"	: "true",
+			           	"tags"		: "iib;salesforce",
+			           	"isPattern"	: "false",
+			           	"isFavorite"	: "true",
+			           	"projects"	: "Salesforce_Retrieve:Salesforce_Schemas",
+			       	        "editorResPaths": [
+           					{
+       		        	        		"id" : "MainFlow",
+       				                	"editor" : "",
+    			  	                	"wspath" : "<workspace>/Salesforce_Retrieve/Salesforce_Retrieve.msgflow"
+       			                	}
+        		          	],
+					"deployedResources": [
+						{
+							"type": "application",
+							"path": "Salesforce_Retrieve"
+						},
+						{
+							"type": "library",
+							"path": "Salesforce_Schemas"
+						}
+				     	]
+				},
+				{
+        				"name": "Receiving MQTT messages by subscribing to MQTT topics",
+        				"version": "1.0",
+        				"iibVersions": "10.*-11.*",
+        				"shortDesc": "Learn how to use the MQTTSubscribe node to receive messages from an MQTT server.",
+        				"barFile": "<workspace>/MQTTSubscribe/MQTTSubscribe.bar",
+        				"visible": "true",
+        				"tags": "service;http;soap;transformation",
+        				"isPattern": "false",
+        				"isFavorite": "true",
+         				"projects": "MQTTSubscribe",
+         				"editorResPaths": [
+           				{
+        					"id": "MQTTSubscribe",
+						"editor": "flow",
+						"wspath": "<workspace>/MQTTSubscribe/MQTTSubscribe.msgflow"
+			            	}
+					],
+					"deployedResources": [
+					{
+						"type": "application",
+						"path": "MQTTSubscribe"
+					}
+					],
+					"id": "MQTTSubscribe",
+					"detailsURL": "http://ot4i.github.io/mqtt-subscribe-tutorial/v11/en/details.html",
+					"stepsURL": "http://ot4i.github.io/mqtt-subscribe-tutorial/v11/en/steps.html",
+					"zipURL": "https://github.com/ot4i/mqtt-subscribe-tutorial/releases/download/v1.0/MQTTSubscribe.v1.0.PI.zip"
+				},
 		{
 			"name":"Scenarios",
 			"description":"Explore powerful App Connect Enterprise capabilities through integrated scenarios",
