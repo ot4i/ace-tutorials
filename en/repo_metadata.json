@@ -92,7 +92,7 @@
 		            "shortDesc"     : "Learn how to use a Mapping node to transform data.",
 		            "detailsURL"    : "https://ot4i.github.io/transformation-map-tutorial/v11/en/details.html",
 		            "stepsURL"      : "https://ot4i.github.io/transformation-map-tutorial/v11/en/steps.html",
-		            "zipURL"        : "https://github.com/ot4i/transformation-map-tutorial/releases/download/v1.0/TransformMAPPI.zip",
+		            "zipURL"        : "https://github.com/ot4i/transformation-map-tutorial/releases/download/v2.0/TransformMAPPI.zip",
 		            "barFile"       : "<workspace>/TestModeBarFiles/Transformation_Mapproject.TestMode.bar",
 		            "visible"	: "true",
 		            "tags"		: "transformation;map",
