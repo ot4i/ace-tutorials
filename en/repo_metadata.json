@@ -120,7 +120,7 @@
 		            "shortDesc"     : "Learn how to use a Compute node to transform data using ESQL.",
 		            "detailsURL"    : "https://ot4i.github.io/transformation-esql-tutorial/v11/en/details.html",
 		            "stepsURL"      : "https://ot4i.github.io/transformation-esql-tutorial/v11/en/steps.html",
-		            "zipURL"        : "https://github.com/ot4i/transformation-esql-tutorial/releases/download/v1.0/TransformESQLPI.zip",
+		            "zipURL"        : "https://github.com/ot4i/transformation-esql-tutorial/releases/download/v2.0/TransformESQLPI.zip",
 		            "barFile"       : "<workspace>/TestModeBarFiles/Transformation_ESQLproject.TestMode.bar",
 		            "visible"	: "true",
 		            "tags"		: "transformation;esql",
