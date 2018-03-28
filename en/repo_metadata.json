@@ -20,7 +20,7 @@
 		            "shortDesc"     : "Learn how to use a RESTRequest node to call a REST API",
 		            "detailsURL"    : "https://ot4i.github.io/restrequest-tutorial/v11/en/details.html",
 		            "stepsURL"      : "https://ot4i.github.io/restrequest-tutorial/v11/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/restrequest-tutorial/releases/download/v1.0/RESTRequestTutorial.zip",
+					"zipURL" 	: "https://github.com/ot4i/restrequest-tutorial/releases/download/v2.0/PI_RESTRequestTutorial.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
 					"tags"		: "rest",
