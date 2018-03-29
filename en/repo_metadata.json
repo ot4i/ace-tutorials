@@ -252,7 +252,35 @@
 							"path": "Transformation_DotNet"
 							}
 						]
-				},
+				},										
+				{
+		        	"name"          : "Using an Integration Service to receive SOAP/HTTP inputs",
+		            "version"		: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn about integration services that use SOAP/HTTP inputs.",
+		            "detailsURL"    : "https://ot4i.github.io/integration-services-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/integration-services-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/integration-services-tutorial/releases/download/v2.0/TemperatureConverterPI.zip",
+		            "barFile"       : "<workspace>/TemperatureConverter/TemperatureConverter.bar",
+		            "visible"	: "true",
+		            "tags"		: "service;http;soap;transformation",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"		: "TemperatureConverter:BARfiles",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainService",
+		            				"editor" : "service",
+		            				"wspath" : "<workspace>/TemperatureConverter/service.descriptor"
+		            				}	
+		            				],
+			    	"deployedResources" : [
+							{
+							"type": "service",
+							"path": "TemperatureConverter"
+							}
+							]
+				},				
                 {
                     "name"          : "Modeling CSV data by using DFDL",
                                 "version"	: "1.0",
