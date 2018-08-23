@@ -12,7 +12,239 @@
 			"iibVersions": "",
 			"visible": "true",
 			"tutorials":
-			[	
+			[
+			  {
+		            "name"          : "Getting started with ACEv11 - Creating an Integration Server",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn some basics about integration servers and how to use them (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/integration-server-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/integration-server-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/integration-server-tutorial/releases/download/v2.0/PI_IntegrationServerTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "SimpleApp",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/SimpleApp/SimpleFlow.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "SimpleApp"
+							}						
+					]
+				},	
+			  {
+		            "name"          : "Getting started with ACEv11 - Exploring the Web UI",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn some basics about administering ACE using a Web UI (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/webui-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/webui-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/webui-tutorial/releases/download/v1.0/PI_WebuiTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+			  {
+		            "name"          : "Getting started with ACEv11 - Exploring the Admin REST API",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn some basics about administering ACE using its administrative REST API (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/adminrestapi-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/adminrestapi-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/adminrestapi-tutorial/releases/download/v1.0/PI_AdminrestapiTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+			  {
+		            "name"          : "Getting started with ACEv11 - Policy Projects and Policies",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn about configuring ACE behavior using Policies (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/policy-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/policy-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/policy-tutorial/releases/download/v2.0/PI_PolicyTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},					
+			  {
+		            "name"          : "Getting started with ACEv11 - Policy Projects and Policies with Overrides",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn about configuring ACE behavior using Policies and the hierarchy of policy overrides (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/policy-overrides-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/policy-overrides-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/policy-overrides-tutorial/releases/download/v1.0/PI_PolicyOverridesTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "HTTPInputEmailOutput",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/HTTPInputEmailOutput/HTTPInputEmailOutput.msgflow"
+						}
+					],
+			    		"deployedResources" : [						
+					]
+				},	
+			  {
+		            "name"          : "Getting started with ACEv11 - Message Flow Statistics",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to view ACE performance information using Message Flow Statistics (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/flow-stats-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/flow-stats-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/flow-stats-tutorial/releases/download/v2.0/PI_FlowStatsTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+			  {
+		            "name"          : "Getting started with ACEv11 - Resource Statistics",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to view ACE performance information using Resource Statistics (v11.0.0.1)",
+		            "detailsURL"    : "https://ot4i.github.io/resource-stats-tutorial/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/resource-stats-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/resource-stats-tutorial/releases/download/v2.0/PI_ResourceStatsTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},
 				{
 		        	"name"          : "Call a REST API using the RESTRequest node",
 		            "version"	: "1.0",
