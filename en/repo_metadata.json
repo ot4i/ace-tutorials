@@ -461,7 +461,7 @@
 		            	"name"          : "Transformation using .NET in a message flow",
 		            	"version"	: "1.0",
 		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use a .NETCompute node to transform data using C#.",
+		            	"shortDesc"     : "Learn how to use a .NETCompute node to transform data using C#. (Windows platforms only)",
 		            	"detailsURL"    : "https://ot4i.github.io/transformation-dotnet-tutorial/v11/en/details.html",
 		            	"stepsURL"      : "https://ot4i.github.io/transformation-dotnet-tutorial/v11/en/steps.html",
 		            	"zipURL"        : "https://github.com/ot4i/transformation-dotnet-tutorial/releases/download/v2.0/TransformDOTNETPI.zip",
