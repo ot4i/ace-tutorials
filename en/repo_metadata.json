@@ -486,7 +486,7 @@
 						]
 				},										
 				{
-		        	"name"          : "Using an Integration Service to receive SOAP/HTTP inputs",
+		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
 		            "iibVersions"	: "10.*-11.*",
 		            "shortDesc"     : "Learn about integration services that use SOAP/HTTP inputs.",
