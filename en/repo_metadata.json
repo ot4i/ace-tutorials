@@ -245,6 +245,30 @@
 							}						
 					]
 				},
+			        {
+		            	"name"          : "Using a Mapping node to access a Lookup table that is stored in the Global Cache",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use a Mapping node to graphically access a Lookup table stored in the Global Cache (requires IBM App Connect Enterprise v11 fixpack 4 or later).",
+				"detailsURL" 	: "https://ot4i.github.io/mapping-cache-tutorial/v11/en/details.html",
+				"stepsURL" 	: "https://ot4i.github.io/mapping-cache-tutorial/v11/en/steps.html",
+				"zipURL" 	: "https://github.com/ot4i/mapping-cache-tutorial/releases/download/1.0/MappingCachePI.zip",
+				"barFile" 	: "",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation;map;cache",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "LookupTable_UsingMappingGlobalCache",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/LookupTable_UsingMappingGlobalCache/LookupCountyFullName.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+						]
+                                }, 								
 				{
 		        	"name"          : "Call a REST API using the RESTRequest node",
 		            "version"	: "1.0",
