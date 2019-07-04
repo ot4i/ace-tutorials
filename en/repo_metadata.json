@@ -268,7 +268,35 @@
 		            			],
 				"deployedResources" : [
 						]
-                                }, 								
+                                },
+                                {
+		        		"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",
+		            		"shortDesc"     : "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
+		            		"detailsURL"    : "https://ot4i.github.io/loopback-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/loopback-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/loopback-tutorial/releases/download/v2.0/PI_LoopbackTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "loopback",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "LoopBack",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/LoopBack/LoopBack_Cloudant.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "LoopBack"
+							}						
+					]
+                                },				
 				{
 		        	"name"          : "Call a REST API using the RESTRequest node",
 		            "version"	: "1.0",
