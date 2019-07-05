@@ -404,7 +404,47 @@
 							"path": "AggregationMQBackend2"
 							}						
 					]
-                            },				
+                            },
+                            {
+		        		"name"          : "Aggregation nodes using HTTPAsyncRequest nodes with back-end services",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",
+		            		"shortDesc"     : "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous HTTP nodes.",
+		            		"detailsURL"    : "https://ot4i.github.io/aggregation-httpasync-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/aggregation-httpasync-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/aggregation-httpasync-tutorial/releases/download/v1.0/AggregationHTTPAsyncTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "aggregation",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "AggregationHTTPAsync:AggregationHTTPBackend1:AggregationHTTPBackend2",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/AggregationHTTPAsync/AggregationHTTPAsync.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "AggregationHTTPAsync"
+							},
+							{
+							"type": "application",
+							"path": "AggregationHTTPBackend1"
+							},
+							{
+							"type": "application",
+							"path": "AggregationHTTPBackend2"
+							},
+							{
+							"type": "library",
+							"path": "AggregationHTTPAsyncLib"
+							}
+					]
+                            },
 		            {
 		            "name"          : "Transformation using a Map in a message flow",
 		            "version"	: "1.0",
