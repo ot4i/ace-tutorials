@@ -450,8 +450,8 @@
 		            		"version"	: "1.0",
 		            		"iibVersions"	: "10.*-11.*",
 		            		"shortDesc"     : "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous REST nodes (requires IBM Integration Bus v10 fixpack 6 or later).",
-		            		"detailsURL"    : "https://ot4i.github.io/aggregation-restasync-tutorial/en/details.html",
-		            		"stepsURL"      : "https://ot4i.github.io/aggregation-restasync-tutorial/en/steps.html",
+		            		"detailsURL"    : "https://ot4i.github.io/aggregation-restasync-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/aggregation-restasync-tutorial/v11/en/steps.html",
 					"zipURL" 	: "https://github.com/ot4i/aggregation-restasync-tutorial/releases/download/v1.0/AggregationRestAsyncTutorial.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
@@ -480,7 +480,47 @@
 							"path": "AggregationRESTBackend2"
 							}						
 					]
-                            },						
+                            },
+                            {
+		        		"name"          : "Aggregation nodes using SOAPAsyncRequest nodes with back-end services",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",
+		            		"shortDesc"     : "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous SOAP nodes.",
+		            		"detailsURL"    : "https://ot4i.github.io/aggregation-soapasync-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/aggregation-soapasync-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/aggregation-soapasync-tutorial/releases/download/v1.0/AggregationSOAPAsyncTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "aggregation",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "AggregationSOAPAsync:AggregationSOAPBackend1:AggregationSOAPBackend2",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/AggregationSOAPAsync/gen/getAggregatedResponseOperation_Request_Respose.subflow"							
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "AggregationSOAPAsync"
+							},
+							{
+							"type": "application",
+							"path": "AggregationSOAPBackend1"
+							},
+							{
+							"type": "application",
+							"path": "AggregationSOAPBackend2"
+							},
+							{
+							"type": "library",
+							"path": "AggregationSOAPAsyncLib"
+							}						
+					]
+                            },								
 		            {
 		            "name"          : "Transformation using a Map in a message flow",
 		            "version"	: "1.0",
