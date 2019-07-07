@@ -245,6 +245,34 @@
 							}						
 					]
 				},
+                                {
+					"name" : "Using a REST API to manage a set of records",
+					"version"	: "1.0",
+					"iibVersions"	: "10.*-11.*",
+					"shortDesc" : "Learn how to use a REST API with a simple example managing a set of records.",
+					"detailsURL" : "http://ot4i.github.io/rest-api-tutorial/v11/en/details.html",
+					"stepsURL" : "http://ot4i.github.io/rest-api-tutorial/v11/en/steps.html",
+					"zipURL" : "https://github.com/ot4i/rest-api-tutorial/releases/download/V1/CustomerDatabasePI_V1.zip",
+					"barFile" : "<workspace>/BARfiles/CustomerDatabaseV1.bar",
+					"visible"	: "true",
+					"tags"	: "rest api",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "BARfiles:CustomerDatabaseJava:CustomerDatabaseV1",
+					"editorResPaths": [
+						{
+							"id" : "CustomerDatabaseV1",
+							"editor" : "",
+							"wspath" : "<workspace>/CustomerDatabaseV1/restapi.descriptor"
+						}
+					],
+			    	"deployedResources" : [
+						{
+							"type": "restapi",
+							"path": "CustomerDatabaseV1"
+						}
+					]
+                                },								
 			        {
 		            	"name"          : "Using a Mapping node to access a Lookup table that is stored in the Global Cache",
 		            	"version"	: "1.0",
