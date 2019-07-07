@@ -449,7 +449,7 @@
 		        		"name"          : "Aggregation nodes using RESTAsyncRequest nodes with back-end services",
 		            		"version"	: "1.0",
 		            		"iibVersions"	: "10.*-11.*",
-		            		"shortDesc"     : "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous REST nodes (requires IBM Integration Bus v10 fixpack 6 or later).",
+		            		"shortDesc"     : "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous REST nodes.",
 		            		"detailsURL"    : "https://ot4i.github.io/aggregation-restasync-tutorial/v11/en/details.html",
 		            		"stepsURL"      : "https://ot4i.github.io/aggregation-restasync-tutorial/v11/en/steps.html",
 					"zipURL" 	: "https://github.com/ot4i/aggregation-restasync-tutorial/releases/download/v1.0/AggregationRestAsyncTutorial.zip",
