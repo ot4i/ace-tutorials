@@ -445,6 +445,42 @@
 							}
 					]
                             },
+                            {
+		        		"name"          : "Aggregation nodes using RESTAsyncRequest nodes with back-end services",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",
+		            		"shortDesc"     : "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous REST nodes (requires IBM Integration Bus v10 fixpack 6 or later).",
+		            		"detailsURL"    : "https://ot4i.github.io/aggregation-restasync-tutorial/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/aggregation-restasync-tutorial/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/aggregation-restasync-tutorial/releases/download/v1.0/AggregationRestAsyncTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "aggregation",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "AggregationRESTAsync:AggregationRESTBackend1:AggregationRESTBackend2",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/AggregationRESTAsync/getAggregatedResponse.subflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "AggregationRESTAsync"
+							},
+							{
+							"type": "application",
+							"path": "AggregationRESTBackend1"
+							},
+							{
+							"type": "application",
+							"path": "AggregationRESTBackend2"
+							}						
+					]
+                            },						
 		            {
 		            "name"          : "Transformation using a Map in a message flow",
 		            "version"	: "1.0",
