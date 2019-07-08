@@ -356,7 +356,39 @@
 							"path": "Salesforce_Schemas"
 						}
 				     	]
-                                },								
+                                },				
+				{
+		        		"name"          : "Using a Sequence node to inject a sequence number into a message",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",
+		            		"shortDesc"     : "Learn how to use the Sequence node to inject sequence numbers into message data as it goes through a message flow.",
+		            		"detailsURL"    : "https://ot4i.github.io/sequence-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/sequence-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/sequence-tutorial/releases/download/v1.0/PI_SequenceTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "sequence",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "Sequence:CommaSeparatedValues",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/Sequence/Sequence.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Sequence"
+							},
+							{
+							"type": "library",
+							"path": "CommaSeparatedValues"
+							}																					
+					]
+                              },				
 				{
 		        	"name"          : "Call a REST API using the RESTRequest node",
 		            "version"	: "1.0",
