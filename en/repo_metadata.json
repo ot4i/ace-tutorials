@@ -422,7 +422,7 @@
 					]
                                 },
                                 {
-		        		"name"          : "Using the KafkaProducer and KafkaConsumer nodes to produce and consume messages using a Kafka topic",					
+		        		"name"          : "Using the KafkaProducer and KafkaConsumer nodes with a Kafka topic",					
 		            		"version"	: "1.0",
 		            		"iibVersions"	: "10.*-11.*",					
 		            		"shortDesc"     : "Learn how to use a KafkaProducer and KafkaConsumer node to produce and consume messages using a Kafka topic.",
