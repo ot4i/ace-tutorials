@@ -452,7 +452,36 @@
 							"path": "KafkaConsumerApplication"
 							}
 					]
-                                },				
+                                },
+				{
+        				"name": "Using the MQTTSubscribe node to receive MQTT messages from MQTT topics",
+        				"version": "1.0",
+        				"iibVersions": "10.*-11.*",
+        				"shortDesc": "Learn how to use the MQTTSubscribe node to receive messages from an MQTT server.",
+        				"barFile": "<workspace>/MQTTSubscribe/MQTTSubscribe.bar",
+        				"visible": "true",
+        				"tags": "service;http;soap;transformation",
+        				"isPattern": "false",
+        				"isFavorite": "true",
+         				"projects": "MQTTSubscribe",
+         				"editorResPaths": [
+           				{
+        					"id": "MQTTSubscribe",
+						"editor": "flow",
+						"wspath": "<workspace>/MQTTSubscribe/MQTTSubscribe.msgflow"
+			            	}
+					],
+					"deployedResources": [
+					{
+						"type": "application",
+						"path": "MQTTSubscribe"
+					}
+					],
+					"id": "MQTTSubscribe",
+					"detailsURL": "http://ot4i.github.io/mqtt-subscribe-tutorial/v11/en/details.html",
+					"stepsURL": "http://ot4i.github.io/mqtt-subscribe-tutorial/v11/en/steps.html",
+					"zipURL": "https://github.com/ot4i/mqtt-subscribe-tutorial/releases/download/v1.0/MQTTSubscribe.v1.0.PI.zip"
+				},				
 				{
 		        	"name"          : "Using Callable Flows to split synchronous flow processing",
 		            	"version"	: "1.0",
