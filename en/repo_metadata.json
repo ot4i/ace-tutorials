@@ -420,6 +420,38 @@
 							"path": "CommaSeparatedValues"
 							}																					
 					]
+                                },
+                                {
+		        		"name"          : "Using the KafkaProducer and KafkaConsumer nodes to produce and consume messages using a Kafka topic",					
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",					
+		            		"shortDesc"     : "Learn how to use a KafkaProducer and KafkaConsumer node to produce and consume messages using a Kafka topic.",
+		            		"detailsURL"    : "https://ot4i.github.io/kafka-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/kafka-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/kafka-tutorial/releases/download/V1.11/KafkaTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "kafka",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "KafkaProducerApplication:KafkaConsumerApplication",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/KafkaProducerApplication/KafkaProducerFlow.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "KafkaProducerApplication"
+							},
+							{
+							"type": "application",
+							"path": "KafkaConsumerApplication"
+							}
+					]
                                 },				
 				{
 		        	"name"          : "Using Callable Flows to split synchronous flow processing",
