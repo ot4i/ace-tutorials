@@ -297,6 +297,34 @@
 				"deployedResources" : [
 						]
                                 },
+				{
+		            	"name"          : "Using a JavaCompute node to split up a large input file",
+		            	"version"		: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Split a large input message into individual records, using Java transformation code, in a memory-efficient manner.",
+		            	"detailsURL"    : "https://ot4i.github.io/large-messaging-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/large-messaging-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/large-messaging-tutorial/releases/download/V1.1/LargeMessagingPI.zip",
+		            	"barFile"       : "<workspace>/BARfiles/LargeMessages.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "java;transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "LargeMessages:LargeMessagesJava:BARfiles",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/LargeMessages/LargeMessages.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "LargeMessages"
+							}
+						]
+				},				
                                 {
 		        		"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
 		            		"version"	: "1.0",
