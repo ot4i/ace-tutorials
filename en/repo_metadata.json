@@ -272,7 +272,35 @@
 							"path": "CustomerDatabaseV1"
 						}
 					]
-                                },								
+                                },
+				{
+		        	"name"          : "Using a HTTP Input to drive a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use HTTPInput and HTTPReply nodes to expose an http URL that can drive a message flow.",
+		            	"detailsURL"    : "https://ot4i.github.io/http-input-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/http-input-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/http-input-tutorial/releases/download/V1/PI_HTTPInputApplication.zip",
+		            	"barFile"       : "<workspace>/HTTPInputApplication/HTTPInputApplication.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "HTTP;transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "HTTPInputApplication",
+		        	 "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/HTTPInputApplication/HTTPInputMessageFlow.msgflow"
+		            			}
+		            		],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "HTTPInputApplication"
+							}
+						]
+				},				
 			        {
 		            	"name"          : "Using a Mapping node to access a Lookup table that is stored in the Global Cache",
 		            	"version"	: "1.0",
