@@ -350,10 +350,6 @@
 							{
 							"type": "application",
 							"path": "WorkloadManagementApplication"
-							},
-							{
-							"type": "application",
-							"path": "MyPolicies"
 							}						
 					]
 				},				
