@@ -324,6 +324,38 @@
 							"path": "LargeMessages"
 							}
 						]
+				},
+				{
+		        		"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "10.*-11.*",
+		            		"shortDesc"     : "Learn how to use a Workload Management Policy to restrict the maximum rate at which a message flow can run.",
+		            		"detailsURL"    : "https://ot4i.github.io/wlm-tutorial/v11/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/wlm-tutorial/v11/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/wlm-tutorial/releases/download/v2.0/PI_WLMTutorial.zip",
+					"barFile"	: "<workspace>/WorkloadManagementApplication/wlm.bar",
+					"visible"	: "true",
+					"tags"		: "policy",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "WorkloadManagementApplication",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/WorkloadManagementApplication/WorkloadManagementFlow.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "WorkloadManagementApplication"
+							},
+							{
+							"type": "policy",
+							"path": "MyPolicies"
+							}						
+					]
 				},				
                                 {
 		        		"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
