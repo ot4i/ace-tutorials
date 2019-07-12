@@ -352,7 +352,7 @@
 							"path": "WorkloadManagementApplication"
 							},
 							{
-							"type": "policy",
+							"type": "application",
 							"path": "MyPolicies"
 							}						
 					]
