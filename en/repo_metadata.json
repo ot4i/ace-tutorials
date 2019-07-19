@@ -1081,7 +1081,35 @@
 							"path": "ExampleDatabaseRetrieve"
 							}
 						]
-				}, 				
+				}, 
+			  	{
+		            "name"          : "Databases - Using a DatabaseRoute node to route messages based on data from DB2 via JDBC",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the DatabaseRoute node to route messages based on data from DB2 using a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/db-databaseroute-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/db-databaseroute-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/db-databaseroute-tutorial/releases/download/v1.0/PI_DatabaseRoute.zip",
+		            "barFile"       : "<workspace>/ExampleDatabaseRoute/DatabaseRoute.bar",
+		            "visible"	: "true",
+		            "tags"		: "database",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleDatabaseRoute",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleDatabaseRoute/DatabaseRouteFlow.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleDatabaseRoute"
+							}
+						]
+				}, 									
 				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
