@@ -1109,7 +1109,35 @@
 							"path": "ExampleDatabaseRoute"
 							}
 						]
-				}, 									
+				},
+				{
+		            "name"          : "Databases - Using a JavaCompute node to insert data into a DB2 database via JDBC",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the JavaCompute node to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/db-databasejcn-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/db-databasejcn-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/db-databasejcn-tutorial/releases/download/v1.0/PI_DatabaseJCN.zip",
+		            "barFile"       : "<workspace>/ExampleDatabaseJCN/DatabaseJCN.bar",
+		            "visible"	: "true",
+		            "tags"		: "database",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleDatabaseJCN",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleDatabaseJCN/DatabaseJCN.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleDatabaseJCN"
+							}
+						]
+				},
 				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
