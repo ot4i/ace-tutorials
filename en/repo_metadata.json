@@ -1139,6 +1139,34 @@
 						]
 				},
 				{
+		            "name"          : "Databases - Using a Compute node to insert data into a DB2 database via ODBC",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use Compute node ESQL to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/db-databasecompute-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/db-databasecompute-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/db-databasecompute-tutorial/releases/download/v1.0/PI_DatabaseCompute.zip",
+		            "barFile"       : "<workspace>/ExampleDatabaseCompute/DatabaseCompute.bar",
+		            "visible"	: "true",
+		            "tags"		: "database",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleDatabaseCompute",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleDatabaseCompute/DatabaseCompute.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleDatabaseCompute"
+							}
+						]
+				},
+				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
 		            "iibVersions"	: "10.*-11.*",
