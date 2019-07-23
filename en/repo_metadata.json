@@ -1167,6 +1167,34 @@
 						]
 				},
 				{
+		            "name"          : "Databases - Using a Database node to insert data into a DB2 database via ODBC",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use Database node ESQL to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/db-database-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/db-database-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/db-database-tutorial/releases/download/v1.0/PI_Database.zip",
+		            "barFile"       : "<workspace>/ExampleDatabase/Database.bar",
+		            "visible"	: "true",
+		            "tags"		: "database",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleDatabase",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleDatabase/Database.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleDatabase"
+							}
+						]
+				},				
+				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
 		            "iibVersions"	: "10.*-11.*",
