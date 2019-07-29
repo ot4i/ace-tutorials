@@ -1110,6 +1110,34 @@
 							}
 						]
 				},
+			  	{
+		            "name"          : "Databases - Using a Mapping node to insert data into a DB2 database via JDBC",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the Mapping node to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/db-databasemapping-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/db-databasemapping-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/db-databasemapping-tutorial/releases/download/v1.0/PI_DatabaseMapping.zip",
+		            "barFile"       : "<workspace>/ExampleDatabaseMapping/DatabaseMapping.bar",
+		            "visible"	: "true",
+		            "tags"		: "database",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleDatabaseMapping",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleDatabaseMapping/DatabaseMapping.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleDatabaseMapping"
+							}
+						]
+				},
 				{
 		            "name"          : "Databases - Using a JavaCompute node to insert data into a DB2 database via JDBC",
 		            "version"	: "1.0",
