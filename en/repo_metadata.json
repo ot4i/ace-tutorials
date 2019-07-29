@@ -1193,7 +1193,35 @@
 							"path": "ExampleDatabase"
 							}
 						]
-				},				
+				},
+				{
+		            "name"          : "Databases - Using a DatabaseInput node to trigger a flow on insert into DB2 via ODBC",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use a DatabaseInput node to trigger a flow when data is inserted into DB2.",
+		            "detailsURL"    : "https://ot4i.github.io/db-databaseinput-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/db-databaseinput-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/db-databaseinput-tutorial/releases/download/v1.0/PI_DatabaseInput.zip",
+		            "barFile"       : "<workspace>/ExampleDatabaseInput/DatabaseInput.bar",
+		            "visible"	: "true",
+		            "tags"		: "database",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleDatabaseInput",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleDatabaseInput/DatabaseInput.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleDatabaseInput"
+							}
+						]
+				},
 				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
