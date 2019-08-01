@@ -1055,6 +1055,34 @@
 						]
 				},
 				  {
+		            "name"          : "Routing - Using a Route node to route data in a message flow",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the Route node to route messages in a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/routing-route-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/routing-route-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/routing-route-tutorial/releases/download/v1.0/PI_RoutingRoute.zip",
+		            "barFile"       : "<workspace>/ExampleRoutingRoute/RoutingRoute.bar",
+		            "visible"	: "true",
+		            "tags"		: "routing",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleRoutingRoute",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleRoutingRoute/RoutingRoute.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleRoutingRoute"
+							}
+						]
+				},
+				{
 		            "name"          : "Databases - Using a DatabaseRetrieve node to retrieve data from DB2 via JDBC",
 		            "version"	: "1.0",
 		            "iibVersions"	: "10.*-11.*",
