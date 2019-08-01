@@ -1111,6 +1111,34 @@
 						]
 				},				
 				  {
+		            "name"          : "Routing - Using a Filter node to route data in a message flow",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the Filter node to route messages in a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/routing-filter-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/routing-filter-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/routing-filter-tutorial/releases/download/v1.0/PI_RoutingFilter.zip",
+		            "barFile"       : "<workspace>/ExampleRoutingFilter/RoutingFilter.bar",
+		            "visible"	: "true",
+		            "tags"		: "routing",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleRoutingFilter",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleRoutingFilter/RoutingFilter.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleRoutingFilter"
+							}
+						]
+				},				
+				  {
 		            "name"          : "Routing - Using a Compute node to route data in a message flow",
 		            "version"	: "1.0",
 		            "iibVersions"	: "10.*-11.*",
