@@ -1082,6 +1082,34 @@
 							}
 						]
 				},
+				  {
+		            "name"          : "Routing - Using a Compute node to route data in a message flow",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the Compute node to route messages in a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/routing-compute-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/routing-compute-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/routing-compute-tutorial/releases/download/v1.0/PI_RoutingCompute.zip",
+		            "barFile"       : "<workspace>/ExampleRoutingCompute/RoutingCompute.bar",
+		            "visible"	: "true",
+		            "tags"		: "routing",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleRoutingCompute",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleRoutingCompute/RoutingCompute.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleRoutingCompute"
+							}
+						]
+				},				
 				{
 		            "name"          : "Databases - Using a DatabaseRetrieve node to retrieve data from DB2 via JDBC",
 		            "version"	: "1.0",
