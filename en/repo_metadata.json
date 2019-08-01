@@ -1081,7 +1081,35 @@
 							"path": "ExampleRoutingRoute"
 							}
 						]
-				},
+				},				
+				  {
+		            "name"          : "Routing - Using a RouteToLabel node to route data in a message flow",
+		            "version"	: "1.0",
+		            "iibVersions"	: "10.*-11.*",
+		            "shortDesc"     : "Learn how to use the RouteToLabel node to route messages in a message flow driven by a JSON message over HTTP.",
+		            "detailsURL"    : "https://ot4i.github.io/routing-routetolabel-tutorial/v11/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/routing-routetolabel-tutorial/v11/en/steps.html",
+		            "zipURL"        : "https://github.com/ot4i/routing-routetolabel-tutorial/releases/download/v1.0/PI_RoutingRouteToLabel.zip",
+		            "barFile"       : "<workspace>/ExampleRoutingRouteToLabel/RoutingRouteToLabel.bar",
+		            "visible"	: "true",
+		            "tags"		: "routing",
+		            "isPattern"	: "false",
+		            "isFavorite"	: "true",
+		            "projects"	: "ExampleRoutingRouteToLabel",
+		            "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleRoutingRouteToLabel/RoutingRouteToLabel.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleRoutingRouteToLabel"
+							}
+						]
+				},				
 				  {
 		            "name"          : "Routing - Using a Compute node to route data in a message flow",
 		            "version"	: "1.0",
