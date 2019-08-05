@@ -438,6 +438,34 @@
 						]
 				},
 				{
+		            	"name"          : "Using a Throw node to throw an exception in a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the throw node to throw an exception and use the Compute node to navigate the resulting ExceptionList.",
+		            	"detailsURL"    : "https://ot4i.github.io/throw-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/throw-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/throw-tutorial/releases/download/v1.0/PI_ThrowException.zip",
+		            	"barFile"       : "<workspace>/ExampleThrowException/ThrowException.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleThrowException",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleThrowException/ThrowException.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleThrowException"
+							}
+						]
+				},
+				{
 		        		"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
 		            		"version"	: "1.0",
 		            		"iibVersions"	: "10.*-11.*",
