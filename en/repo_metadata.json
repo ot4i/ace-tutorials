@@ -380,7 +380,35 @@
 							"path": "ExampleResetContentDescriptor"
 							}
 						]
-				},
+				},								
+				{
+		            	"name"          : "Using a FlowOrder node to control the order of execution paths in a flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the FlowOrder node to control the order of execution paths in a message flow driven by a JSON message over HTTP.",
+		            	"detailsURL"    : "https://ot4i.github.io/floworder-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/floworder-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/floworder-tutorial/releases/download/V1.0/PI_FlowOrder.zip",
+		            	"barFile"       : "<workspace>/ExampleFlowOrder/FlowOrder.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleFlowOrder",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleFlowOrder/FlowOrder.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleFlowOrder"
+							}
+						]
+				},				
 				{
 		        		"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
 		            		"version"	: "1.0",
