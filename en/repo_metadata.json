@@ -352,6 +352,34 @@
 							"path": "LargeMessages"
 							}
 						]
+				},				
+				{
+		            	"name"          : "Using a ResetContentDescriptor node to associate a new parser with a message in a flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the ResetContentDescriptor node to associate a new parser with a message, shown in this example of reacting to a parser exception on input to a flow.",
+		            	"detailsURL"    : "https://ot4i.github.io/rcd-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/rcd-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/rcd-tutorial/releases/download/V1.0/PI_ResetContentDescriptor.zip",
+		            	"barFile"       : "<workspace>/ExampleResetContentDescriptor/ResetContentDescriptor.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleResetContentDescriptor",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleResetContentDescriptor/ResetContentDescriptor.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleResetContentDescriptor"
+							}
+						]
 				},
 				{
 		        		"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
