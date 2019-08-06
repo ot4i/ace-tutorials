@@ -673,6 +673,34 @@
 							}
 						]
 				},
+				{
+		            	"name"          : "Using a Timeout Control node to start a flow after an interval",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the Timeout Control node to control timed flow starts using propagations from a Timeout Notification node.",
+		            	"detailsURL"    : "https://ot4i.github.io/timeout-control-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/timeout-control-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/timeout-control-tutorial/releases/download/v1.0/PI_TimeoutControl.zip",
+		            	"barFile"       : "<workspace>/ExampleTimeoutControl/TimeoutControl.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleTimeoutControl",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleTimeoutControl/TimeoutControl.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleTimeoutControl"
+							}
+						]
+				},
                                 {
 		        		"name"          : "Using the KafkaProducer and KafkaConsumer nodes with a Kafka topic",					
 		            		"version"	: "1.0",
