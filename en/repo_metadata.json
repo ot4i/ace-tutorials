@@ -261,8 +261,8 @@
 		            	"projects"	: "ExampleApplication",
 		            	"editorResPaths"   : [
 		            				{
-		            				"id" : "MainFlow",
-		            				"editor" : "flow",
+		            				"id" : "MainJava",
+		            				"editor" : "java",
 		            			  	"wspath" : "<workspace>/ExampleIIBV10AdminProgram/src/com/ibm/dev/ExampleIIBV10AdminProgram.java"
 		            				}
 		            			],
