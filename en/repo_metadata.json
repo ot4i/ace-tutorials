@@ -246,6 +246,34 @@
 					]
 				},				
 				{
+		            	"name"          : "Using the Java IBM Integration API - ACEv11 strategic classes",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's strategic com.ibm.integration.admin.proxy.* classes.",
+		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-model-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-model-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-model-tutorial/releases/download/v1.0/PI_IntegrationAPIModel.zip",
+		            	"barFile"       : "<workspace>/ExampleApplication/DeployApplication.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "administration",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleApplication:ExampleACEV11AdminProgram",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainJava",
+		            				"editor" : "",
+		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleApplication"
+							}
+						]
+				},				
+				{
 		            	"name"          : "Using the Java IBM Integration API - IIBv10 deprecated classes",
 		            	"version"	: "1.0",
 		            	"iibVersions"	: "10.*-11.*",
@@ -258,7 +286,7 @@
 		            	"tags"		: "administration",
 		            	"isPattern"	: "false",
 		            	"isFavorite"	: "true",
-		            	"projects"	: "ExampleApplication",
+		            	"projects"	: "ExampleApplication:ExampleIIBV10AdminProgram",
 		            	"editorResPaths"   : [
 		            				{
 		            				"id" : "MainJava",
