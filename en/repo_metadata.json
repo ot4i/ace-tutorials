@@ -262,7 +262,7 @@
 		            	"editorResPaths"   : [
 		            				{
 		            				"id" : "MainJava",
-		            				"editor" : "",
+		            				"editor" : "java",
 		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
 		            				}
 		            			],
