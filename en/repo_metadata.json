@@ -259,10 +259,10 @@
 		            	"isPattern"	: "false",
 		            	"isFavorite"	: "true",
 		            	"projects"	: "ExampleApplication:ExampleACEV11AdminProgram",
-		            	"editorResPaths"   : [
+		            	"editorResPaths": [
 		            				{
 		            				"id" : "MainJava",
-		            				"editor" : "text",
+		            				"editor" : "esql",
 		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
 		            				}
 		            			],
