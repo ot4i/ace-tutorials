@@ -249,7 +249,7 @@
 		            	"name"          : "Using the Java IBM Integration API - ACEv11 strategic classes",
 		            	"version"	: "1.0",
 		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's strategic com.ibm.integration.admin.proxy.* classes.",
+		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's strategic com.ibm.integration.admin.proxy.* classes (requires v11.0.0.5 or higher).",
 		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-model-tutorial/v11/en/details.html",
 		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-model-tutorial/v11/en/steps.html",
 		            	"zipURL"        : "https://github.com/ot4i/intapiv11-model-tutorial/releases/download/v1.0/PI_IntegrationAPIModel.zip",
@@ -261,7 +261,7 @@
 		            	"projects"	: "ExampleApplication:ExampleACEV11AdminProgram",
 		            	"editorResPaths": [
 		            				{
-		            				"id" : "MainFlow",
+		            				"id" : "MainJava",
 		            				"editor" : "java",
 		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
 		            				}
@@ -274,10 +274,34 @@
 						]
 				},				
 				{
+		            	"name"          : "Using the Java IBM Integration API - ACEv11 HTTP classes",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's strategic com.ibm.integration.admin.http.* classes (requires v11.0.0.5 or higher)",
+		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-http-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-http-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-http-tutorial/releases/download/v1.0/PI_IntegrationAPIHTTP.zip",
+		            	"barFile"       : "",
+		            	"visible"	: "true",
+		            	"tags"		: "administration",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleACEV11AdminProgram_HTTPClient",
+		            	"editorResPaths": [
+		            				{
+		            				"id" : "MainJava",
+		            				"editor" : "java",
+		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEV11AdminProgram_HTTPClient.java"
+		            				}
+		            			],
+				"deployedResources" : [
+						]
+				},				
+				{
 		            	"name"          : "Using the Java IBM Integration API - IIBv10 deprecated classes",
 		            	"version"	: "1.0",
 		            	"iibVersions"	: "10.*-11.*",
-		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's deprecated com.ibm.broker.config.proxy.* classes. This tutorial demonstrates how existing applications for adminstering IIBv10 can easily be updated to administer ACEv11.",
+		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's deprecated com.ibm.broker.config.proxy.* classes (requires v11.0.0.5 or higher). This tutorial demonstrates how existing applications for adminstering IIBv10 can easily be updated to administer ACEv11.",
 		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-migrate-tutorial/v11/en/details.html",
 		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-migrate-tutorial/v11/en/steps.html",
 		            	"zipURL"        : "https://github.com/ot4i/intapiv11-migrate-tutorial/releases/download/v1.0/PI_IntegrationAPIMigrate.zip",
@@ -289,7 +313,7 @@
 		            	"projects"	: "ExampleApplication:ExampleIIBV10AdminProgram",
 		            	"editorResPaths"   : [
 		            				{
-		            				"id" : "MainFlow",
+		            				"id" : "MainJava",
 		            				"editor" : "java",
 		            			  	"wspath" : "<workspace>/ExampleIIBV10AdminProgram/src/com/ibm/dev/ExampleIIBV10AdminProgram.java"
 		            				}
