@@ -263,7 +263,7 @@
 		            				{
 		            				"id" : "MainJava",
 		            				"editor" : "java",
-		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
+		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/ExampleACEV11AdminProgram.java"
 		            				}
 		            			],
 				"deployedResources" : [
