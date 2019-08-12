@@ -1695,6 +1695,34 @@
 						]
 				},
 				{
+		            	"name"          : "MQ - Using the Publication node to publish messages on a topic",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the Publication node to publish messages on an MQ topic defined on a local queue manager.",
+		            	"detailsURL"    : "https://ot4i.github.io/mq-publication-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/mq-publication-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/mq-publication-tutorial/releases/download/v1.0/PI_Publication.zip",
+		            	"barFile"       : "<workspace>/ExamplePublication/PublishSubscribe.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExamplePublication",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExamplePublication/Publication.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExamplePublication"
+							}
+						]
+				},	
+				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
 		            "iibVersions"	: "10.*-11.*",
