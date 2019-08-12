@@ -261,8 +261,8 @@
 		            	"projects"	: "ExampleApplication:ExampleACEV11AdminProgram",
 		            	"editorResPaths": [
 		            				{
-		            				"id" : "MainJava",
-		            				"editor" : "dfdl",
+		            				"id" : "MainFlow",
+		            				"editor" : "java",
 		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
 		            				}
 		            			],
@@ -289,8 +289,8 @@
 		            	"projects"	: "ExampleApplication:ExampleIIBV10AdminProgram",
 		            	"editorResPaths"   : [
 		            				{
-		            				"id" : "MainJava",
-		            				"editor" : "",
+		            				"id" : "MainFlow",
+		            				"editor" : "java",
 		            			  	"wspath" : "<workspace>/ExampleIIBV10AdminProgram/src/com/ibm/dev/ExampleIIBV10AdminProgram.java"
 		            				}
 		            			],
