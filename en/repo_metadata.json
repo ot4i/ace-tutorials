@@ -244,7 +244,35 @@
 							"path": "RESTRequest_SharedLibrary"
 							}						
 					]
-				},
+				},				
+				{
+		            	"name"          : "Using the Java IBM Integration API - IIBv10 deprecated classes",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the ACEv11 Java IBM Integration API's com.ibm.broker.config.proxy.* classes. These classes are supported but deprecated in ACEv11, but this tutorial demonstrates how an IIBv10 application can easily be moved to run against ACEv11.",
+		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-migrate-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-migrate-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-migrate-tutorial/releases/download/v1.0/PI_IntegrationAPIMigrate.zip",
+		            	"barFile"       : "<workspace>/ExampleApplication/DeployApplication.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "administration",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleApplication",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleIIBV10AdminProgram/src/com/ibm/dev/ExampleIIBV10AdminProgram.java"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleApplication"
+							}
+						]
+				},				
                                 {
 					"name" : "Using a REST API to manage a set of records",
 					"version"	: "1.0",
