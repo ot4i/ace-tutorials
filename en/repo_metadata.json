@@ -262,7 +262,7 @@
 		            	"editorResPaths": [
 		            				{
 		            				"id" : "MainJava",
-		            				"editor" : "esql",
+		            				"editor" : "dfdl",
 		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
 		            				}
 		            			],
