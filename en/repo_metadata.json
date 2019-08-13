@@ -1721,7 +1721,35 @@
 							"path": "ExampleMQ"
 							}
 						]
-				},					
+				},
+				{
+		            	"name"          : "MQ - Using the LocalEnvironment and MQEndpoint Policy to override MQOutput configuration",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the LocalEnvironment tree to dynamically configure the output queue written to by the MQOutput node and how to use an MQEndpoint Policy to override its queue manager connection.",
+		            	"detailsURL"    : "https://ot4i.github.io/mq-outputoverrides-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/mq-outputoverrides-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/mq-outputoverrides-tutorial/releases/download/v1.0/PI_ExampleMQOutput.zip",
+		            	"barFile"       : "<workspace>/ExampleMQOutput/MQOutputDeploy1.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleMQOutput",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleMQOutput/MQOutput.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleMQOutput"
+							}
+						]
+				},
 				{
 		            	"name"          : "MQ - Using the Publication node to publish messages on a topic",
 		            	"version"	: "1.0",
