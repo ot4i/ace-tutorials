@@ -1693,7 +1693,35 @@
 							"path": "ExampleDatabaseInput"
 							}
 						]
-				},
+				},				
+				{
+		            	"name"          : "MQ - Using the MQInput, MQGet and MQOutput nodes with messages and queues",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the MQInput, MQGet and MQOutput nodes to interact with queues defined on a local queue manager.",
+		            	"detailsURL"    : "https://ot4i.github.io/mq-outputinputget-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/mq-outputinputget-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/mq-outputinputget-tutorial/releases/download/v1.0/PI_ExampleMQ.zip",
+		            	"barFile"       : "<workspace>/ExampleMQ/ExampleMQ.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleMQ",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleMQ/MQOutput.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleMQ"
+							}
+						]
+				},					
 				{
 		            	"name"          : "MQ - Using the Publication node to publish messages on a topic",
 		            	"version"	: "1.0",
