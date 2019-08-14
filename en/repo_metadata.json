@@ -1777,7 +1777,35 @@
 							"path": "ExamplePublication"
 							}
 						]
-				},	
+				},				
+				{
+		            	"name"          : "JMS - Using the JMSOutput and JMSInput nodes with messages and queues",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the JMSOutput and JMSInput nodes to interact with queues defined on an IBM MQ queue manager.",
+		            	"detailsURL"    : "https://ot4i.github.io/jms-outputinput-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/jms-outputinput-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/jms-outputinput-tutorial/releases/download/v1.0/PI_JMSOutputInput.zip",
+		            	"barFile"       : "<workspace>/ExampleJMSOutput/JMSOutput.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleJMSOutput:ExampleJMSInput",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleJMSOutput/JMSOutput.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleJMSOutput"
+							}
+						]
+				},
 				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
