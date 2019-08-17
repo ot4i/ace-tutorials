@@ -893,7 +893,39 @@
 					],
 					"deployedResources": [
 					]
-				},		
+				},
+				{
+					"name" : "Using HTTPS and certificates with the HTTPInput, HTTPReply and HTTPRequest nodes",
+					"version"	: "1.0",
+					"iibVersions"	: "10.*-11.*",
+					"shortDesc" : "Learn how to create a Public Key Infrastructure with ACEv11 using self-signed certificates in order to send data securely across HTTPS.",
+					"detailsURL" : "https://ot4i.github.io/https-certificates-tutorial/v11/en/details.html",
+					"stepsURL" : "https://ot4i.github.io/https-certificates-tutorial/v11/en/steps.html",
+					"zipURL" : "https://github.com/ot4i/https-certificates-tutorial/releases/download/v1.0/PI_HTTPSCertificates.zip",
+					"barFile" : "",
+					"visible"	: "true",
+					"tags"	: "http",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "ExampleClient:ExampleServer",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/ExampleClient/ExampleClient.msgflow"
+						}
+					],
+					"deployedResources": [
+							{
+							"type": "application",
+							"path": "ExampleClient"
+							},
+							{
+							"type": "application",
+							"path": "ExampleServer"
+							}
+					]
+				},					
 				{
 		        	"name"          : "Using Callable Flows to split synchronous flow processing",
 		            	"version"	: "1.0",
