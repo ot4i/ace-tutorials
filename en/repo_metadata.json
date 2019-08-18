@@ -816,7 +816,7 @@
 		            	"shortDesc"     : "Learn how to deploy user-defined nodes using a provided example which reads values from a user-defined policy (requires v11.0.0.5 or higher).",
 		            	"detailsURL"    : "https://ot4i.github.io/userdefinednode-tutorial/v11/en/details.html",
 		            	"stepsURL"      : "https://ot4i.github.io/userdefinednode-tutorial/v11/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/userdefinednode-tutorial/releases/download/v1.0/PI_Collector.zip",
+		            	"zipURL"        : "https://github.com/ot4i/userdefinednode-tutorial/releases/download/v1.0/PI_UserDefinedNode.zip",
 		            	"barFile"       : "<workspace>/ExampleAppUsingUDN/AppUsingUDN.bar",
 		            	"visible"	: "true",
 		            	"tags"		: "transformation",
