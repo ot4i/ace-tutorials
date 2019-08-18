@@ -898,7 +898,7 @@
 					"name" : "Using custom keywords with message flows",
 					"version"	: "1.0",
 					"iibVersions"	: "10.*-11.*",
-					"shortDesc" : "Learn how to assign custom keywords to message flows and then once deployed, read the keywords using the Java Integration API.",
+					"shortDesc" : "Learn how to assign custom keywords to message flows and then once deployed, read the keywords using the Java Integration API (requires v11.0.0.5 or higher).",
 					"detailsURL" : "https://ot4i.github.io/keywords-tutorial/v11/en/details.html",
 					"stepsURL" : "https://ot4i.github.io/keywords-tutorial/v11/en/steps.html",
 					"zipURL" : "https://github.com/ot4i/keywords-tutorial/releases/download/v1.0/PI_Keywords.zip",
