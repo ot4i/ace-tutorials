@@ -1220,7 +1220,7 @@
 						{
 							"id" : "MainFlow",
 							"editor" : "",
-							"wspath" : "<workspace>/AggregationSOAPAsync/gen/getAggregatedResponseOperation_Request_Respose.subflow"							
+							"wspath" : "<workspace>/AggregationSOAPAsync/gen/getAggregatedResponseOperation_Request_Response.subflow"							
 						}
 					],
 			    		"deployedResources" : [
