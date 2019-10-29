@@ -1923,6 +1923,122 @@
 						]
 				},				
 				{
+		            	"name"          : "File - Using the FileInput node with Whole File record detection",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the FileInput node to parse the whole content of a file.",
+		            	"detailsURL"    : "https://ot4i.github.io/file-inputwholefile-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/file-inputwholefile-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/file-inputwholefile-tutorial/releases/download/v1.0/PI_FileInputWholeFile.zip",
+		            	"barFile"       : "<workspace>/ExampleFileInputWholeFile/FileInputWholeFile.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleFileInputWholeFile:FileCSV",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleFileInputWholeFile/FileInputWholeFile.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleFileInputWholeFile"
+							},
+							{
+							"type": "library",
+							"path": "FileCSV"
+							}
+						]
+				},
+				{
+		            	"name"          : "File - Using the FileInput node with Fixed Length record detection",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the FileInput node to parse fixed length records from a file.",
+		            	"detailsURL"    : "https://ot4i.github.io/file-inputfixedlength-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/file-inputfixedlength-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/file-inputfixedlength-tutorial/releases/download/v1.0/PI_FileInputFixedLength.zip",
+		            	"barFile"       : "<workspace>/ExampleFileInputFixedLength/FileInputFixedLength.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleFileInputFixedLength",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleFileInputFixedLength/FileInputFixedLength.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleFileInputFixedLength"
+							}
+						]
+				},		
+				{
+		            	"name"          : "File - Using the FileInput node with Delimited record detection",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the FileInput node to parse delimited records from a file.",
+		            	"detailsURL"    : "https://ot4i.github.io/file-inputdelimited-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/file-inputdelimited-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/file-inputdelimited-tutorial/releases/download/v1.0/PI_FileInputDelimited.zip",
+		            	"barFile"       : "<workspace>/ExampleFileInputDelimited/FileInputDelimited.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleFileInputDelimited",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleFileInputDelimited/FileInputDelimited.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleFileInputDelimited"
+							}
+						]
+				},		
+				{
+		            	"name"          : "File - Using the FileInput node with Parsed Record Sequence record detection",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "10.*-11.*",
+		            	"shortDesc"     : "Learn how to use the FileInput node to parse records from a file using a message model.",
+		            	"detailsURL"    : "https://ot4i.github.io/file-inputparsedrecordsequence-tutorial/v11/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/file-inputparsedrecordsequence-tutorial/v11/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/file-inputparsedrecordsequence-tutorial/releases/download/v1.0/PI_FileInputParsedRecordSequence.zip",
+		            	"barFile"       : "<workspace>/ExampleFileInputParsedRecordSequence/FileInputParsedRecordSequence.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleFileInputParsedRecordSequence",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleFileInputParsedRecordSequence/FileInputParsedRecordSequence.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleFileInputParsedRecordSequence"
+							}
+						]
+				},
+				{
 		        	"name"          : "Integration services (SOAP/HTTP inputs)",
 		            "version"		: "1.0",
 		            "iibVersions"	: "10.*-11.*",
