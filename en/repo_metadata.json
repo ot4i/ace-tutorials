@@ -20,7 +20,7 @@
 		            "shortDesc"     : "Learn how to quickly create a very simple message flow (recommended v11.0.0.7 or higher)",
 		            "detailsURL"    : "https://ot4i.github.io/simple-flow-tutorial/en/details.html",
 		            "stepsURL"      : "https://ot4i.github.io/simple-flow-tutorial/en/steps.html",
-					"zipURL" 	: "https://github.com/ot4i/simple-flow-tutorial/releases/download/v1.0/PI_SimpleFlowTutorial.zip",
+					"zipURL" 	: "",
 					"barFile" 	: "",
 					"visible"	: "true",
 					"tags"		: "rest",
