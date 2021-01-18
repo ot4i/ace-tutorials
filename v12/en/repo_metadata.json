@@ -57,8 +57,8 @@
 					"projects"	: "SimpleApp",
 					"editorResPaths": [
 						{
-							"id" : "MainFlow",
-							"editor" : "",
+							"id" : "SimpleFlow",
+							"editor" : "flow",
 							"wspath" : "<workspace>/SimpleApp/SimpleFlow.msgflow"
 						}
 					],
