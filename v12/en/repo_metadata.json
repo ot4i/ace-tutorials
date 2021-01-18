@@ -70,7 +70,7 @@
 					]
 				},
 			    {
-		            "name"          : "Getting started with ACEv12 - Creating a Simple Unit Test",
+		            "name"          : "Getting started with ACEv12 - Creating a Simpl Unit Test",
 		            "version"	: "1.0",
 		            "iibVersions"	: "12.*-12.*",
 		            "shortDesc"     : "Learn some basics about integration servers and how to use them",
