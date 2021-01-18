@@ -86,7 +86,7 @@
 					"editorResPaths": [
 						{
 							"id" : "MainFlow",
-							"editor" : "",
+							"editor" : "flow",
 							"wspath" : "<workspace>/MyApplication/MyMessageFlow.msgflow"
 						}
 					],
