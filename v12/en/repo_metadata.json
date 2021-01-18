@@ -79,13 +79,13 @@
 					"zipURL" 	: "https://github.ibm.com/BTHOMPS/unit-test-simple-tutorial/releases/download/v1.0/PI_UnitTestSimple.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
-					"tags"		: "rest",
+					"tags"		: "unittest",
 					"isPattern"	: "false",
 					"isFavorite"	: "true",
 					"projects"	: "MyApplication",
 					"editorResPaths": [
 						{
-							"id" : "MyMessageFlow",
+							"id" : "MainFlow",
 							"editor" : "",
 							"wspath" : "<workspace>/MyApplication/MyMessageFlow.msgflow"
 						}
