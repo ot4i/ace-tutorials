@@ -76,18 +76,18 @@
 		            "shortDesc"     : "Learn some basics about integration servers and how to use them",
 		            "detailsURL"    : "https://pages.github.ibm.com/BTHOMPS/unit-test-simple-tutorial/v12/details.html",
 		            "stepsURL"      : "https://pages.github.ibm.com/BTHOMPS/unit-test-simple-tutorial/v12/steps.html",				    
-					"zipURL" 	: "https://github.ibm.com/BTHOMPS/unit-test-simple-tutorial/releases/download/v1.0/PI_UnitTestSimple.zip",
+					"zipURL" 	: "https://github.com/ot4i/integration-server-tutorial/releases/download/v2.0/PI_IntegrationServerTutorial.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
 					"tags"		: "unittest",
 					"isPattern"	: "false",
 					"isFavorite"	: "true",
-					"projects"	: "MyApplication",
+					"projects"	: "SimpleApp",
 					"editorResPaths": [
 						{
 							"id" : "MainFlow",
 							"editor" : "",
-							"wspath" : "<workspace>/MyApplication/MyMessageFlow.msgflow"
+							"wspath" : "<workspace>/SimpleApp/SimpleFlow.msgflow"
 						}
 					],
 			    		"deployedResources" : [
