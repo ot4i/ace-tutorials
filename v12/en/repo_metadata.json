@@ -70,24 +70,24 @@
 					]
 				},
 			    {
-		            "name"          : "Getting started with ACEv12 - Creating a Simpl Unit Test",
+		            "name"          : "Getting started with ACEv12 - Creating a Simple Unit Test",
 		            "version"	: "1.0",
 		            "iibVersions"	: "12.*-12.*",
 		            "shortDesc"     : "Learn some basics about integration servers and how to use them",
 		            "detailsURL"    : "https://pages.github.ibm.com/BTHOMPS/unit-test-simple-tutorial/v12/details.html",
 		            "stepsURL"      : "https://pages.github.ibm.com/BTHOMPS/unit-test-simple-tutorial/v12/steps.html",				    
-					"zipURL" 	: "https://github.com/ot4i/integration-server-tutorial/releases/download/v2.0/PI_IntegrationServerTutorial.zip",
+					"zipURL" 	: "https://github.ibm.com/BTHOMPS/unit-test-simple-tutorial/releases/download/v1.0/PI_UnitTestSimple.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
 					"tags"		: "unittest",
 					"isPattern"	: "false",
 					"isFavorite"	: "true",
-					"projects"	: "SimpleApp",
+					"projects"	: "MyApplication",
 					"editorResPaths": [
 						{
 							"id" : "MainFlow",
 							"editor" : "",
-							"wspath" : "<workspace>/SimpleApp/SimpleFlow.msgflow"
+							"wspath" : "<workspace>/MyApplication/MyMessageFlow.msgflow"
 						}
 					],
 			    		"deployedResources" : [
@@ -96,11 +96,7 @@
 							"path": "MyApplication"
 							}						
 					]
-				}
-
-			
-			
-			
+				}			
 			]
 		},
 		{
