@@ -452,8 +452,12 @@
 						{
 							"id" : "MainFlow",
 							"editor" : "",
-							"wspath" : "<workspace>/AggregationSOAPAsync/gen/getAggregatedResponseOperation_Request_Response.subflow"							
-=======
+							"wspath" : "<workspace>/AggregationSOAPAsync/gen/getAggregatedResponseOperation_Request_Response.subflow"
+						}
+					],
+					"deployedResources" : []
+							},
+					{
 		            "name"          : "Getting started with ACEv12 - Creating a Simple Unit Test",
 		            "version"	: "1.0",
 		            "iibVersions"	: "12.*-12.*",
@@ -1463,9 +1467,7 @@
                                                      ]							
 							}						
 					]
-				}			
-			]
-		},
+				},		
 		{
 			"name":"Scenarios",
 			"description":"Explore powerful App Connect Enterprise capabilities through integrated scenarios",
