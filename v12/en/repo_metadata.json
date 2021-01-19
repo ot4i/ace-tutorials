@@ -70,7 +70,6 @@
 					]
 				},
 			    {
-<<<<<<< HEAD
 		        		"name"          : "Using the KafkaProducer and KafkaConsumer nodes with a Kafka topic",					
 		            		"version"	: "1.0",
 		            		"iibVersions"	: "12.*-12.*",					
@@ -473,13 +472,12 @@
 							"id" : "MyMessageFlow",
 							"editor" : "flow",
 							"wspath" : "<workspace>/MyApplication/MyMessageFlow.msgflow"
->>>>>>> 555cd3539725ab84849eac56ab351ca2c2631c64
+
 						}
 					],
 			    		"deployedResources" : [
 							{
 							"type": "application",
-<<<<<<< HEAD
 							"path": "AggregationSOAPAsync"
 							},
 							{
@@ -1462,12 +1460,9 @@
                                                         }
                                                   ],
                                 "deployedResources": [
-                                                     ]
-=======
-							"path": "MyApplication"
+                                                     ]							
 							}						
 					]
->>>>>>> 555cd3539725ab84849eac56ab351ca2c2631c64
 				}			
 			]
 		},
