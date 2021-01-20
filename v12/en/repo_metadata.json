@@ -410,7 +410,7 @@
 		            	"name"          : "Using a Mapping node to access a Lookup table that is stored in the Global Cache",
 		            	"version"	: "1.0",
 		            	"iibVersions"	: "12.*-12.*",
-		            	"shortDesc"     : "Learn how to use a Mapping node to graphically access a Lookup table stored in the Global Cache (requires IBM App Connect Enterprise v11 fixpack 4 or later).",
+		            	"shortDesc"     : "Learn how to use a Mapping node to graphically access a Lookup table stored in the Global Cache",
 				"detailsURL" 	: "https://ot4i.github.io/mapping-cache-tutorial/v12/en/details.html",
 				"stepsURL" 	: "https://ot4i.github.io/mapping-cache-tutorial/v12/en/steps.html",
 				"zipURL" 	: "https://github.com/ot4i/mapping-cache-tutorial/releases/download/1.0/MappingCachePI.zip",
