@@ -94,7 +94,774 @@
 			    		"deployedResources" : [
 					]
 					},
-			
+			  {
+		            "name"          : "Getting started with ACEv12 - Exploring the Web UI",
+		            "version"	: "1.0",
+		            "iibVersions"	: "12.*-12.*",
+		            "shortDesc"     : "Learn some basics about administering ACE using a Web UI",
+		            "detailsURL"    : "https://ot4i.github.io/webui-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/webui-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/webui-tutorial/releases/download/v2.0/PI_WebUITutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+			  {
+		            "name"          : "Getting started with ACEv12 - Exploring the Admin REST API",
+		            "version"	: "1.0",
+		            "iibVersions"	: "12.*-12.*",
+		            "shortDesc"     : "Learn some basics about administering ACE using its administrative REST API (recommended v11.0.0.1 or higher)",
+		            "detailsURL"    : "https://ot4i.github.io/adminrestapi-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/adminrestapi-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/adminrestapi-tutorial/releases/download/v2.0/PI_AdminrestapiTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+			  {
+		            "name"          : "Getting started with ACEv12 - Policy Projects and Policies",
+		            "version"	: "1.0",
+		            "iibVersions"	: "12.*-12.*",
+		            "shortDesc"     : "Learn about configuring ACE behavior using Policies",
+		            "detailsURL"    : "https://ot4i.github.io/policy-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/policy-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/policy-tutorial/releases/download/v2.0/PI_PolicyTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},					
+			  {
+		            "name"          : "Getting started with ACEv12 - Policy Projects and Policies with Overrides",
+		            "version"	: "1.0",
+		            "iibVersions"	: "12.*-12.*",
+		            "shortDesc"     : "Learn about configuring ACE behavior using Policies and the hierarchy of policy overrides",
+		            "detailsURL"    : "https://ot4i.github.io/policy-overrides-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/policy-overrides-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/policy-overrides-tutorial/releases/download/v1.0/PI_PolicyOverridesTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "HTTPInputEmailOutput",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/HTTPInputEmailOutput/HTTPInputEmailOutput.msgflow"
+						}
+					],
+			    		"deployedResources" : [						
+					]
+				},	
+			  {
+		            "name"          : "Getting started with ACEv12 - Message Flow Statistics",
+		            "version"	: "1.0",
+		            "iibVersions"	: "12.*-12.*",
+		            "shortDesc"     : "Learn how to view ACE performance information using Message Flow Statistics",
+		            "detailsURL"    : "https://ot4i.github.io/flow-stats-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/flow-stats-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/flow-stats-tutorial/releases/download/v2.0/PI_FlowStatsTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+			  {
+		            "name"          : "Getting started with ACEv12 - Resource Statistics",
+		            "version"	: "1.0",
+		            "iibVersions"	: "12.*-12.*",
+		            "shortDesc"     : "Learn how to view ACE performance information using Resource Statistics",
+		            "detailsURL"    : "https://ot4i.github.io/resource-stats-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/resource-stats-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/resource-stats-tutorial/releases/download/v2.0/PI_ResourceStatsTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "rest",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "RESTRequest_Client"
+							},
+							{
+							"type": "application",
+							"path": "RESTRequest_API"
+							},
+							{
+							"type": "library",
+							"path": "RESTRequest_SharedLibrary"
+							}						
+					]
+				},				
+				{
+		            	"name"          : "Using the Java IBM Integration API - Strategic classes",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the ACE Java IBM Integration API's strategic com.ibm.integration.admin.proxy.* classes",
+		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-model-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-model-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-model-tutorial/releases/download/v1.0/PI_IntegrationAPIModel.zip",
+		            	"barFile"       : "<workspace>/ExampleApplication/DeployApplication.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "administration",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleApplication:ExampleACEV11AdminProgram",
+		            	"editorResPaths": [
+		            				{
+		            				"id" : "MainJava",
+		            				"editor" : "java",
+		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleApplication"
+							}
+						]
+				},				
+				{
+		            	"name"          : "Using the Java IBM Integration API - HTTP classes",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the ACE Java IBM Integration API's strategic com.ibm.integration.admin.http.* classes",
+		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-http-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-http-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-http-tutorial/releases/download/v1.0/PI_IntegrationAPIHTTP.zip",
+		            	"barFile"       : "",
+		            	"visible"	: "true",
+		            	"tags"		: "administration",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleACEV11AdminProgram_HTTPClient",
+		            	"editorResPaths": [
+		            				{
+		            				"id" : "MainJava",
+		            				"editor" : "java",
+		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEV11AdminProgram_HTTPClient.java"
+		            				}
+		            			],
+				"deployedResources" : [
+						]
+				},				
+                                {
+					"name" : "Using a REST API to manage a set of records",
+					"version"	: "1.0",
+					"iibVersions"	: "12.*-12.*",
+					"shortDesc" : "Learn how to use a REST API with a simple example managing a set of records.",
+					"detailsURL" : "http://ot4i.github.io/rest-api-tutorial/v12/en/details.html",
+					"stepsURL" : "http://ot4i.github.io/rest-api-tutorial/v12/en/steps.html",
+					"zipURL" : "https://github.com/ot4i/rest-api-tutorial/releases/download/V1/CustomerDatabasePI_V1.zip",
+					"barFile" : "<workspace>/BARfiles/CustomerDatabaseV1.bar",
+					"visible"	: "true",
+					"tags"	: "rest api",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "BARfiles:CustomerDatabaseJava:CustomerDatabaseV1",
+					"editorResPaths": [
+						{
+							"id" : "CustomerDatabaseV1",
+							"editor" : "",
+							"wspath" : "<workspace>/CustomerDatabaseV1/restapi.descriptor"
+						}
+					],
+			    	"deployedResources" : [
+						{
+							"type": "restapi",
+							"path": "CustomerDatabaseV1"
+						}
+					]
+                                },
+				{
+		        	"name"          : "Using a HTTP Input to drive a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use HTTPInput and HTTPReply nodes to expose an http URL that can drive a message flow.",
+		            	"detailsURL"    : "https://ot4i.github.io/http-input-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/http-input-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/http-input-tutorial/releases/download/V1/PI_HTTPInputApplication.zip",
+		            	"barFile"       : "<workspace>/HTTPInputApplication/HTTPInputApplication.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "HTTP;transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "HTTPInputApplication",
+		        	 "editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/HTTPInputApplication/HTTPInputMessageFlow.msgflow"
+		            			}
+		            		],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "HTTPInputApplication"
+							}
+						]
+				},				
+			        {
+		            	"name"          : "Using a Mapping node to access a Lookup table that is stored in the Global Cache",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use a Mapping node to graphically access a Lookup table stored in the Global Cache (requires IBM App Connect Enterprise v11 fixpack 4 or later).",
+				"detailsURL" 	: "https://ot4i.github.io/mapping-cache-tutorial/v12/en/details.html",
+				"stepsURL" 	: "https://ot4i.github.io/mapping-cache-tutorial/v12/en/steps.html",
+				"zipURL" 	: "https://github.com/ot4i/mapping-cache-tutorial/releases/download/1.0/MappingCachePI.zip",
+				"barFile" 	: "",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation;map;cache",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "LookupTable_UsingMappingGlobalCache",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/LookupTable_UsingMappingGlobalCache/LookupCountyFullName.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+						]
+                                },
+				{
+		            	"name"          : "Using a JavaCompute node to split up a large input file",
+		            	"version"		: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Split a large input message into individual records, using Java transformation code, in a memory-efficient manner.",
+		            	"detailsURL"    : "https://ot4i.github.io/large-messaging-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/large-messaging-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/large-messaging-tutorial/releases/download/V1.1/LargeMessagingPI.zip",
+		            	"barFile"       : "<workspace>/BARfiles/LargeMessages.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "java;transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "LargeMessages:LargeMessagesJava:BARfiles",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/LargeMessages/LargeMessages.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "LargeMessages"
+							}
+						]
+				},				
+				{
+		            	"name"          : "Using a ResetContentDescriptor node to associate a new parser with a message in a flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the ResetContentDescriptor node to associate a new parser with a message, shown in this example of reacting to a parser exception on input to a flow.",
+		            	"detailsURL"    : "https://ot4i.github.io/rcd-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/rcd-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/rcd-tutorial/releases/download/v1.0/PI_ResetContentDescriptor.zip",
+		            	"barFile"       : "<workspace>/ExampleResetContentDescriptor/ResetContentDescriptor.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleResetContentDescriptor",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleResetContentDescriptor/ResetContentDescriptor.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleResetContentDescriptor"
+							}
+						]
+				},								
+				{
+		            	"name"          : "Using a FlowOrder node to control the order of execution paths in a flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the FlowOrder node to control the order of execution paths in a message flow driven by a JSON message over HTTP.",
+		            	"detailsURL"    : "https://ot4i.github.io/floworder-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/floworder-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/floworder-tutorial/releases/download/v1.0/PI_FlowOrder.zip",
+		            	"barFile"       : "<workspace>/ExampleFlowOrder/FlowOrder.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleFlowOrder",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleFlowOrder/FlowOrder.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleFlowOrder"
+							}
+						]
+				},
+				{
+		            	"name"          : "Using a Validate node to check a message against an XML schema",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the Validate node to check a message against an XML schema in a message flow driven by an XML message over HTTP.",
+		            	"detailsURL"    : "https://ot4i.github.io/validate-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/validate-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/validate-tutorial/releases/download/v1.0/PI_Validate.zip",
+		            	"barFile"       : "<workspace>/ExampleValidate/Validate.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleValidate",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleValidate/Validate.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleValidate"
+							}
+						]
+				},
+				{
+		            	"name"          : "Using a Throw node to throw an exception in a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the throw node to throw an exception and use the Compute node to navigate the resulting ExceptionList.",
+		            	"detailsURL"    : "https://ot4i.github.io/throw-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/throw-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/throw-tutorial/releases/download/v1.0/PI_ThrowException.zip",
+		            	"barFile"       : "<workspace>/ExampleThrowException/ThrowException.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleThrowException",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleThrowException/ThrowException.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleThrowException"
+							}
+						]
+				},				
+				{
+		            	"name"          : "Using a TryCatch node to catch an exception thrown within a section of a message flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the TryCatch node to isolate exceptions which are thrown from different parts of a message flow.",
+		            	"detailsURL"    : "https://ot4i.github.io/trycatch-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/trycatch-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/trycatch-tutorial/releases/download/v1.0/PI_TryCatch.zip",
+		            	"barFile"       : "<workspace>/ExampleTryCatch/TryCatch.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleTryCatch",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleTryCatch/TryCatch.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleTryCatch"
+							}
+						]
+				},				
+				{
+		        		"name"          : "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "12.*-12.*",
+		            		"shortDesc"     : "Learn how to use a Workload Management Policy to restrict the maximum rate at which a message flow can run.",
+		            		"detailsURL"    : "https://ot4i.github.io/wlm-tutorial/v12/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/wlm-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/wlm-tutorial/releases/download/v2.0/PI_WLMTutorial.zip",
+					"barFile"	: "<workspace>/WorkloadManagementApplication/wlm.bar",
+					"visible"	: "true",
+					"tags"		: "policy",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "WorkloadManagementApplication",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/WorkloadManagementApplication/WorkloadManagementFlow.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "WorkloadManagementApplication"
+							}						
+					]
+				},				
+                                {
+		        		"name"          : "Using a LoopBack Request node to insert data into a Cloudant database",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "12.*-12.*",
+		            		"shortDesc"     : "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
+		            		"detailsURL"    : "https://ot4i.github.io/loopback-tutorial/v12/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/loopback-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/loopback-tutorial/releases/download/v2.0/PI_LoopbackTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "loopback",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "LoopBack",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/LoopBack/LoopBack_Cloudant.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "LoopBack"
+							}						
+					]
+                                },
+		                {					
+			       	        "name"          : "Using a SalesforceRequest node to retrieve records from Salesforce.com",
+			                "version"	: "1.0",
+			                "iibVersions"	: "12.*-12.*",
+			           	"shortDesc"     : "Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com",
+			           	"detailsURL"    : "http://ot4i.github.io/salesforce-tutorial/v12/en/details.html",
+			           	"stepsURL"      : "http://ot4i.github.io/salesforce-tutorial/v12/en/steps.html",
+			           	"zipURL"        : "https://github.com/ot4i/salesforce-tutorial/releases/download/v100/iibsalesforce_PI_v1.zip",
+			           	"barFile"       : "<workspace>/TestModeBarFiles/Salesforce_Retrieveproject.TestMode.bar",
+			           	"visible"	: "true",
+			           	"tags"		: "iib;salesforce",
+			           	"isPattern"	: "false",
+			           	"isFavorite"	: "true",
+			           	"projects"	: "Salesforce_Retrieve:Salesforce_Schemas",
+			       	        "editorResPaths": [
+           					{
+       		        	        		"id" : "MainFlow",
+       				                	"editor" : "",
+    			  	                	"wspath" : "<workspace>/Salesforce_Retrieve/Salesforce_Retrieve.msgflow"
+       			                	}
+        		          	],
+					"deployedResources": [
+						{
+							"type": "application",
+							"path": "Salesforce_Retrieve"
+						},
+						{
+							"type": "library",
+							"path": "Salesforce_Schemas"
+						}
+				     	]
+                                },				
+				{
+		        		"name"          : "Using a Sequence node to inject a sequence number into a message",
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "12.*-12.*",
+		            		"shortDesc"     : "Learn how to use the Sequence node to inject sequence numbers into message data as it goes through a message flow.",
+		            		"detailsURL"    : "https://ot4i.github.io/sequence-tutorial/v12/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/sequence-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/sequence-tutorial/releases/download/v1.0/PI_SequenceTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "sequence",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "Sequence:CommaSeparatedValues",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/Sequence/Sequence.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Sequence"
+							},
+							{
+							"type": "library",
+							"path": "CommaSeparatedValues"
+							}																					
+					]
+                              },
+                              {
+		        		"name"          : "Using a Resequence node to reorder messages going through a flow",					
+		            		"version"	: "1.0",
+		            		"iibVersions"	: "12.*-12.*",
+		            		"shortDesc"     : "Learn how to use the Resequence node to control the sequence in which a group of incoming messages are propagated through the message flow.",
+		            		"detailsURL"    : "https://ot4i.github.io/resequence-tutorial/v12/en/details.html",
+		            		"stepsURL"      : "https://ot4i.github.io/resequence-tutorial/v12/en/steps.html",
+					"zipURL" 	: "https://github.com/ot4i/resequence-tutorial/releases/download/v1.0/PI_ResequenceTutorial.zip",
+					"barFile" 	: "",
+					"visible"	: "true",
+					"tags"		: "sequence",
+					"isPattern"	: "false",
+					"isFavorite"	: "true",
+					"projects"	: "Resequence:CommaSeparatedValues",
+					"editorResPaths": [
+						{
+							"id" : "MainFlow",
+							"editor" : "",
+							"wspath" : "<workspace>/Resequence/Resequence.msgflow"
+						}
+					],
+			    		"deployedResources" : [
+							{
+							"type": "application",
+							"path": "Resequence"
+							},
+							{
+							"type": "library",
+							"path": "CommaSeparatedValues"
+							}																					
+					]
+                                },								
+				{
+		            	"name"          : "Using a Timeout Notification node to automatically start a flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the Timeout Notification node to automatically start a flow after a regular configurable time interval.",
+		            	"detailsURL"    : "https://ot4i.github.io/timeout-notification-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/timeout-notification-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/timeout-notification-tutorial/releases/download/v1.0/PI_TimeoutNotification.zip",
+		            	"barFile"       : "<workspace>/ExampleTimeoutNotification/TimeoutNotification.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleTimeoutNotification",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleTimeoutNotification/TimeoutNotification.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleTimeoutNotification"
+							}
+						]
+				},
+				{
+		            	"name"          : "Using a Timeout Control node to start a flow after an interval",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the Timeout Control node to control timed flow starts using propagations from a Timeout Notification node.",
+		            	"detailsURL"    : "https://ot4i.github.io/timeout-control-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/timeout-control-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/timeout-control-tutorial/releases/download/v1.0/PI_TimeoutControl.zip",
+		            	"barFile"       : "<workspace>/ExampleTimeoutControl/TimeoutControl.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleTimeoutControl",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleTimeoutControl/TimeoutControl.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleTimeoutControl"
+							}
+						]
+				},
+				{
+		            	"name"          : "Using a Collector node to gather together messages in a flow",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to use the Collector node to gather together two separate HTTP input messages which arrive in to a message flow at different times.",
+		            	"detailsURL"    : "https://ot4i.github.io/collector-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/collector-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/collector-tutorial/releases/download/v1.0/PI_Collector.zip",
+		            	"barFile"       : "<workspace>/ExampleCollector/Collector.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleCollector",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleCollector/Collector.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleCollector"
+							}
+						]
+				},
+				{
+		            	"name"          : "Using a Java User-Defined Node which reads a User-Defined Policy",
+		            	"version"	: "1.0",
+		            	"iibVersions"	: "12.*-12.*",
+		            	"shortDesc"     : "Learn how to deploy user-defined nodes using a provided example which reads values from a user-defined policy.",
+		            	"detailsURL"    : "https://ot4i.github.io/userdefinednode-tutorial/v12/en/details.html",
+		            	"stepsURL"      : "https://ot4i.github.io/userdefinednode-tutorial/v12/en/steps.html",
+		            	"zipURL"        : "https://github.com/ot4i/userdefinednode-tutorial/releases/download/v1.0/PI_UserDefinedNode.zip",
+		            	"barFile"       : "<workspace>/ExampleAppUsingUDN/AppUsingUDN.bar",
+		            	"visible"	: "true",
+		            	"tags"		: "transformation",
+		            	"isPattern"	: "false",
+		            	"isFavorite"	: "true",
+		            	"projects"	: "ExampleAppUsingUDN:ExampleUserDefinedPolicyProject:PolicyQuery:PolicyQueryImpl",
+		            	"editorResPaths"   : [
+		            				{
+		            				"id" : "MainFlow",
+		            				"editor" : "flow",
+		            			  	"wspath" : "<workspace>/ExampleAppUsingUDN/ExampleFlowUsingUDN.msgflow"
+		            				}
+		            			],
+				"deployedResources" : [
+							{
+							"type": "application",
+							"path": "ExampleAppUsingUDN"
+							}
+						]
+				},								
 			{
 		        		"name"          : "Using the KafkaProducer and KafkaConsumer nodes with a Kafka topic",					
 		            		"version"	: "1.0",
