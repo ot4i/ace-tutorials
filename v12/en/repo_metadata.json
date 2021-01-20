@@ -979,7 +979,7 @@
 					"name" : "Using HTTPS and certificates with the HTTPInput, HTTPReply and HTTPRequest nodes",
 					"version"	: "1.0",
 					"iibVersions"	: "12.*-12.*",
-					"shortDesc" : "Learn how to create a Public Key Infrastructure with ACEv11 using self-signed certificates in order to send data securely across HTTPS.",
+					"shortDesc" : "Learn how to create a Public Key Infrastructure with ACE using self-signed certificates in order to send data securely across HTTPS.",
 					"detailsURL" : "https://ot4i.github.io/https-certificates-tutorial/v12/en/details.html",
 					"stepsURL" : "https://ot4i.github.io/https-certificates-tutorial/v12/en/steps.html",
 					"zipURL" : "https://github.com/ot4i/https-certificates-tutorial/releases/download/v1.0/PI_HTTPSCertificates.zip",
