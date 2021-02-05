@@ -1,0 +1,261 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a LoopBack Request node to insert data into a Cloudant database",
+      "shortDescription":"Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"EventRoutingFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"LoopBackRequest node"
+        },
+        {
+          "title":"Cloudant DB"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use a LoopBackRequest node to insert JSON documents into a Cloudant database"
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that receives a JSON message over HTTP, and uses a LoopBackRequest node to insert the document into a NoSQL Cloudant database. This tutorial describes how to use npm to install a LoopBack connector for Cloudant, and the required configuration to let the LoopBackRequest node locate and authenticate a connection with a Cloudant database instance running on IBM Bluemix."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Working with LoopBack Connectors",
+            "description":"Working with LoopBack Connectors",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+            "type":"web"
+          },
+          {
+            "title":"More detailed LoopBackRequest node tutorial",
+            "description":"More detailed LoopBackRequest node Tutorial (written for IIBv10)",
+            "link":"https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, an application will be created in your workspace named <span class='application'>LoopBack</span>."
+            },
+            {
+              "section":"The application <span class='application'>LoopBack</span> contains a message flow named <span class='msgflow'>LoopBack_Cloudant.msgflow</span> which contains an HTTPInput node, LoopBackRequest node and HTTPReply node."
+            },
+            {
+              "section":"The HTTPInput node has a path suffix <code>/LoopBack_Cloudant</code>."
+            },
+            {
+              "section":"The LoopBackRequest node has a datasource property of <code>CLOUDANT</code>, and is configured to interact with a LoopBack object named <code>share_price</code> (in our example this is the name of the Cloudant database). The <code>Create</code> operation is selected so that the JSON structure passed in to the LoopBackRequest node is inserted into the Cloudant database."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Working with LoopBack Connectors",
+              "description":"Working with LoopBack Connectors",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+              "type":"web"
+            },
+            {
+              "title":"More detailed LoopBackRequest node tutorial",
+              "description":"More detailed LoopBackRequest node Tutorial (written for IIBv10)",
+              "link":"https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"",
+          "_prepareComment":"A description of the required preparation steps.",
+          "sections":[
+            {
+              "section":"<h4>Create the Cloudant Database</h4>",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"This tutorial assumes the availability of a non-partitioned Cloudant database. You can use IBM Cloud to provide this (free of charge). Sign into IBM Cloud, find Cloudant in the Databases section of the Catalog, and create an instance of the Cloudant service. "
+                  },
+                  {
+                    "details":"Navigate to the Service Credentials section. If this is a new instance of Cloudant you will need to generate some new Service credentials. If you are generating new credentials you can choose the default options. When you view the Service credentials, you will find connection details that we will be using to tell ACE how to communicate with your IBM Cloud Cloudant instance. They will look similar to the following JSON (don't be surprised if you see some additional fields listed as well - for example related to the use of IAM):<br><span class='resource'>{<br>&quot;username&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix&quot;,<br>  &quot;password&quot;: &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&quot;,<br>  &quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,<br>  &quot;port&quot;: 443,<br>  &quot;url&quot;: &quot;https://aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;<br>}</span>"
+                  },
+                  {
+                    "details":"Switch to the Cloudant dashboard part of the service and create a database called <code>share_price</code>."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"<h4>Configure the ACE LoopBack connector</h4>",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"To use the LoopBackRequest node in this tutorial, you must install the Cloudant LoopBack connector. Open the App Connect Enterprise Command Console:<br><code><span class='cmdname'> cd</span> <span class='varname'> %MQSI_WORKPATH%\\node_modules </span></code><br><code><span class='cmdname'> npm install loopback-connector-cloudant </span></code>"
+                  },
+                  {
+                    "details":"If you don't already have one, create a datasources.json file in the connectors/loopback folder of your ACE workpath (by default on Windows, this will be at C:\\ProgramData\\IBM\\MQSI\\connectors\\loopback). This is where ACE stores connection information for Loopback Request node instances."
+                  },
+                  {
+                    "details":"Add a stanza to the datasources.json file:<br><code><span class='cmdname'> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,&quot;port&quot;: 443,&quot;connector&quot;: &quot;cloudant&quot;}}</code>"
+                  },
+                  {
+                    "details":"From your command console, create an integration node (if you don't already have one):<code><span class='cmdname'> mqsicreatebroker TESTNODE</span></code>"
+                  },
+                  {
+                    "details":"From your command console, configure ACE with your Cloudant security credentials like this:<br><code><span class='cmdname'> mqsisetdbparms TESTNODE -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>"
+                  },
+                  {
+                    "details":"From your command console, start your node: <code><span class='cmdname'> mqsistart TESTNODE</span></code>"
+                  },
+                  {
+                    "details":"From your command console, create an integration server (if you don't already have one): <code><span class='cmdname'> mqsicreateexecutiongroup TESTNODE -e default</span></code>"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Working with LoopBack Connectors",
+              "description":"Working with LoopBack Connectors",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+              "type":"web"
+            },
+            {
+              "title":"More detailed LoopBackRequest node tutorial",
+              "description":"More detailed LoopBackRequest node Tutorial (written for IIBv10)",
+              "link":"https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+              "type":"web"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Use the Flow Exerciser to test the tutorial scenario",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Having prepared the scenario, the following steps describe how to use the Flow Exerciser to test the message flow:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>LoopBack_Cloudant.msgflow</span>."
+                  },
+                  {
+                    "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow"
+                  },
+                  {
+                    "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                  },
+                  {
+                    "details":"Select the saved message which has been provided, named <span class='resource'>InputMessage</span>, and click Send:<br><span class='resource'>{&quot;companyID&quot;:&quot;100&quot;,&quot;company&quot;:&quot;IBM UK Ltd&quot;,&quot;price&quot;:199}</span><br>Your message is sent to the HTTPInput node."
+                  },
+                  {
+                    "details":"A response should be shown, which now includes an id that the database has created and given to the document, which should look like this:<br><span class='resource'>{&quot;id&quot;:&quot;de28e5b037b01a3670d9b9f8d459deb5&quot;,&quot;companyID&quot;:&quot;100&quot;,&quot;company&quot;:&quot;IBM UK Ltd&quot;,&quot;price&quot;:199}</span>"
+                  },
+                  {
+                    "details":"After you close the dialog, the paths taken through the messageflow are highlighted. Click on the message icon on each connection to see how the tree has been updated by each node."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the LoopBackRequest node creating a JSON document in a Cloudant database."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Working with LoopBack Connectors",
+              "description":"Working with LoopBack Connectors",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90800_.htm",
+              "type":"web"
+            },
+            {
+              "title":"More detailed LoopBackRequest node tutorial",
+              "description":"More detailed LoopBackRequest node Tutorial (written for IIBv10)",
+              "link":"https://developer.ibm.com/integration/blog/2016/10/13/iib-v10-0-0-6-loopback-request-node-tutorial/",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

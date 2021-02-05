@@ -1,0 +1,245 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a Timeout Control node to start a flow after an interval",
+      "shortDescription":"Learn how to use the Timeout Control node to control timed flow starts using propagations from a Timeout Notification node.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Timeout Notification node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to control the execution of a message flow on a timed basis."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that is made from two distinct sections. The flow is started using a JSON input message over HTTP which is received by an HTTPInput node. The HTTPInput is wired to a Mapping node to construct a reply message which is returned using an HTTPReply. The HTTPInput node also drives a second branch in the message flow which uses a Compute node to configure Timeout request settings in the LocalEnvironment which control the TimeoutControl node. The TimeoutControl node introduces a delay of 30 seconds (this time period is based upon a field in the input message) before the TimeoutNotification node will fire and write some simple trace information to a file. The TimeoutControl node and the TimeoutNotification node (which are linked using an identifier property) work together to generate flow propagation events at particular times or at regular intervals. For simplicity, this scenario places the TimeoutControl and TimeoutNotification nodes in the same message flow, but they could be separated into different flows if the flows are deployed to the same integration server."
+          },
+          {
+            "section":"The tutorial requires an ACE integration node owned server, or a standalone server."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. This scenario uses the TimeoutControl node which requires your integration node or server to be associated with a local queue manager, so an MQ installation is required. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, a project will be created in your workspace: An application named <span class='application'>ExampleTimeoutControl</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleTimeoutControl</span> provides a single message flow named <span class='resource'>TimeoutControl</span>. The flow is started using a JSON input message over HTTP which is received by an HTTPInput node. A following Mapping node constructs a reply message which is returned using an HTTPReply. The HTTPInput node also drives a second branch in the message flow which uses a Compute node to configure Timeout request settings in the LocalEnvironment which control the TimeoutControl node. The TimeoutControl node introduces a delay of 30 seconds (this time period is based upon a field in the input message) before the TimeoutNotification node will fire and then invoke a Trace node. The trace node appends text to a trace file which records the time when the trace node was reached, the Timeout interval which was configured and the message data."
+            },
+            {
+              "section":"Once imported using the link on the right, the application <span class='application'>ExampleTimeoutControl</span> is ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare a trace directory, create a queue manager and integration node, and then deploy the message flow",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"The Trace node uses a trace directory and the Timeout Control and Notification nodes require MQ queues to operate, so execute the following steps to prepare your environment accordingly:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"The message flow's Trace node will attempt to write a trace file to the directory <code><span class='cmdname'>C:\\temp</span></code>. Create this directory if it does not already exist, or edit the Trace node in the message flow to use a different directory suitable for your runtime environment."
+                  },
+                  {
+                    "details":"Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
+                    "substeps":{
+                      "type":"ordered",
+                      "details":[
+                        {
+                          "details":"Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'> qmgr</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'> qmgr</span></code>"
+                        },
+                        {
+                          "details":"Next create the queues by typing the following command:<br><code>server\\sample\\wmq\\iib_createqueues <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Create an integration node which is associated with the above queue manager by completing the following steps:",
+                    "substeps":{
+                      "type":"ordered",
+                      "details":[
+                        {
+                          "details":"In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>qmgr</span></code>"
+                        },
+                        {
+                          "details":"Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
+                        },
+                        {
+                          "details":"Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>TimeoutControl.bar</span> which you will find inside the <span class='application'>ExampleTimeoutControl</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>TimeoutControl.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                        },
+                        {
+                          "details":"A saved input message is provided named <span class='resource'>InputMessage_Delay30secs</span> which contains this data:<br><span class='resource'>{\"Message\":{\"Delay\":30,\"Data\":\"Hello World\"}}</span><br>Select the input message and click Send and your message is sent to the HTTPInput node."
+                        },
+                        {
+                          "details":"You should immediately receive an HTTPReply message which looks like this:<br><span class='resource'>{\"ReplyMessage\":\"The Timeout Control message is acknowledged. The message will be propagated from the Timeout Notification node after a delay of 30 seconds\"}</span><br>When you click close, a green line should be displayed indicating the path taken by the message through the first section of the flow. The flow is designed for there to be a 30 second delay between this initial section of the flow being invoked over HTTP, and the second propagation which fires from the Timeout Notification node. If you are impatient, you can check the trace directory which was configured on the Prepare tab for the presence of the trace file named <span class='resource'>TraceTimeoutControl.txt</span>. After 30 seconds have passed, click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/viewPath.png' alt='' /> and you should then see a second green path highlighted between the TimeoutNotification node and the Trace node."
+                        },
+                        {
+                          "details":"Once the second part of the flow has fired, using a text editor open the trace file <span class='resource'>C:\\temp\\TraceTimeoutControl.txt</span>, which should contain an entry that looks like this:<br><code>The flow propagation controlled by the Timeout Control node has reached the Trace node at 2019-08-06 17:16:03.629563</code><br><code>The Timeout StartTime was set to '17:16:03.328807'</code><br><code>The message data was:</code><br><code>( ['json' : 0x230a3a8f270]</code><br><code>  (0x01000000:Object):Message = (</code><br><code>    (0x03000000:NameValue):Delay = 30 (INTEGER)</code><br><code>    (0x03000000:NameValue):Data  = 'Hello World' (CHARACTER)</code><br><code>  )</code><br><code>)</code>"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the Timeout Notification node automatically start a flow on a regular timed interval."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Timeout Control node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac20800_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Timeout Notification node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac20802_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

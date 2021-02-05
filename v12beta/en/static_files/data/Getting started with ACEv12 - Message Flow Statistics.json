@@ -1,0 +1,174 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Getting started with ACEv12 - Message Flow Statistics",
+      "shortDescription":"Learn how to view ACE performance information using Message Flow Statistics",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"5 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"EventRoutingFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Finding and editing the server's configuration file"
+        },
+        {
+          "title":"Accessing the WebUI"
+        },
+        {
+          "title":"Viewing the message flow statistics panels"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Understand how to locate the server's configuration file, turn on message flow statistics and view them in real-time using the Web UI."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial shows how to turn on message flow statistics and then view the statistics information in real-time using the ACE administrative Web UI. This tutorial uses a simple message flow deployed to an integration server in order to demonstrate these concepts."
+          },
+          {
+            "section":"A configuration file, known as 'server.conf.yaml', is used to control the integration server's statistics settings. In this example we will only focus on the statistics settings in this file, but many other options are available in order to control the server's configuration."
+          },
+          {
+            "section":"Once an integration server has been created with statistics enabled, a simple flow will be deployed. A few messages will be sent to the message flow over HTTP, before launching the product's administrative Web UI where the statistics can be viewed in real-time."
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"Click <span class='uicontrol'>Import</span> and the <span class='application'>StatsApp</span> application will be imported into your workspace."
+            },
+            {
+              "section":"This simple application contains a message flow which receives HTTP data and echoes it back to the requesting client. Once we have created an Integration Server we will deploy this example flow later in the tutorial. This flow will enable us to respond to some small load on the integration server as we view the server's performance statistics in the Web UI."
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare an Integration Server",
+          "_prepareComment":"Enable message flow statistics",
+          "sections":[
+            {
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open an App Connect Enterprise Command Console and run the mqsicreateworkdir command to create a working directory which will be used to store the files which the runtime integration server needs:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\\StatsServer</code><br> where <b>C:\\StatsServer</b> will be the working directory for your integration server.</li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/StatsServer</code><br> where <b>/home/exampleuser/StatsServer</b> will be the working directory for your integration server.</li></ul>"
+                  },
+                  {
+                    "details":"Navigate to your server's working directory (<code>C:\\StatsServer</code> in Windows and <code>/home/exampleuser/StatsServer</code> on UNIX) and locate the file <span class='uicontrol'>server.conf.yaml</span>. Open it using your preferred text editor, locate the Statistics section and edit the settings (the comments in the sample help with allowed values, and you will need to remove some # comment characters). Depending on the precise version of App Connect Enterprise v11 which you are using you will find that these settings are slightly different. In version 11.0.0.8 for example, the settings were changed to have statistics turned on by default:<br><code>Statistics:&nbsp;<br>&nbsp;&nbsp;Snapshot:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;accountingOrigin: 'basic'&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;nodeDataLevel: 'advanced'&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;outputFormat: 'json'&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;publicationOn: 'active'&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;threadDataLevel: 'basic'&nbsp;</code><br> Save and close the file."
+                  },
+                  {
+                    "details":"Back in the App Connect Enterprise Command Console window, start the server:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --work-dir C:\\StatsServer --name StatsServer --admin-rest-api 7600 --http-port-number 7800 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --work-dir /home/exampleuser/StatsServer --name StatsServer --admin-rest-api 7600 --http-port-number 7800 --console-log</code></li></ul>"
+                  },
+                  {
+                    "details":"In the App Connect Enterprise Toolkit, locate the Integration Explorer view (by default this is located in the bottom left corner), right click on the <span class='uicontrol'>Integration Servers</span> label and select <span class='uicontrol'>Connect to an Integration Server</span>. Enter the <span class='uicontrol'>Host Name</span> as <span class='uicontrol'>localhost</span> and the <span class='uicontrol'>port</span> as <span class='uicontrol'>7600</span> and click <span class='uicontrol'>Finish</span>."
+                  },
+                  {
+                    "details":"Locate the Broker Archive file named <span class='uicontrol'>StatsBar.bar</span> inside the Application project which you imported earlier named <span class='uicontrol'>StatsApp</span>, then drag and drop it onto your server named <span class='uicontrol'>StatsServer</span>."
+                  },
+                  {
+                    "details":"Right click on the server in the Toolkit and select <span class='uicontrol'>Start Web User Interface</span>"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to complete the tutorial",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Send some messages to the message flow and view statistics in the Web User Interface",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Navigate to a Command Prompt and run this command a handful of times:<br><code>curl -X POST http://localhost:7800/request -d HelloWorld</code><br>Each execution should receive the same fixed reply message:<br><code>{\"OutputMessage\":\"This is a fixed reply message!\"}</code>"
+                  },
+                  {
+                    "details":"Return to the administrative WebUI for the server which you opened in the Prepare stage."
+                  },
+                  {
+                    "details":"When you first open the WebUI you will be looking at information at the Server level. Select the <span class='uicontrol'>Flow Statistics</span> tab on the navigation bar at the top."
+                  },
+                  {
+                    "details":"After a brief pause you should see a tabular <span class='uicontrol'>Message flow statistics</span> view which summarises activity at the flow level. Notice that the value in the <span class='uicontrol'>Total input messages</span> column corresponds to the number of curl requests you made to the server."
+                  },
+                  {
+                    "details":"To get a more detailed view of how data is passing through your flows, change to the <span class='uicontrol'>Flow node statistics</span> view to see a breakdown for each node in the flow."
+                  },
+                  {
+                    "details":"In both views, the message flow name links you to another page with information about the message flow. This also has a <span class='uicontrol'>Flow Statistics</span> tab which includes some graphs which you may like to explore."
+                  },
+                  {
+                    "details":"When you're ready to conclude this tutorial, stop the Integration Server in the Command Console and close your browser."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

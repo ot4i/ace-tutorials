@@ -1,0 +1,211 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a ResetContentDescriptor node to associate a new parser with a message in a flow",
+      "shortDescription":"Learn how to use the ResetContentDescriptor node to associate a new parser with a message, shown in this example of reacting to a parser exception on input to a flow.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"ResetContentDescriptor node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to re-parse messages within a flow."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that receives a deliberately badly formed XML input message over HTTP. When the fail terminal of the HTTPInput node is triggered, a ResetContentDescriptor node is used to re-parse the input message as a BLOB (Binary Large OBject). The scenario demonstrates the ResetContentDescriptor node's ability to associate a new parser with the input message bitstream. This can be helpful in scenarios like the one demonstrated, when input data does not conform to the expected model and so down a fail / catch branch it can be reassociated with a less stringent data model and then used to generate a helpful error message for the consumer of the flow. Note that contrary to some popular misconceptions, the ResetContentDescriptor node does not change the message content, nor does it actually convert the message from one format to another."
+          },
+          {
+            "section":"The tutorial requires an ACE integration node owned server, or a standalone server."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleResetContentDescriptor</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleResetContentDescriptor</span> provides a single message flow named <span class='resource'>ResetContentDescriptor</span> which uses an HTTPInput node to receive a deliberately badly formed XML input message, which is sent down its Fail terminal. The following ResetContentDescriptor node re-associates the input message with the BLOB domain and then a Compute node takes this data and includes it within a CDATA section in a well formed XML message which is sent back to the original client as an HTTPReply at the end of the flow."
+            },
+            {
+              "section":"Once imported using the link on the right, the provided project is ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Create an integration node and deploy the message flow",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Prepare the scenario by executing the following steps:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code>"
+                  },
+                  {
+                    "details":"Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>ResetContentDescriptor.bar</span> which you will find inside the <span class='application'>ExampleResetContentDescriptor</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>ResetContentDescriptor.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                        },
+                        {
+                          "details":"One saved input message named <span class='resource'>InputMessage</span> is provided. Select it and click Send and your message is sent to the HTTPInput node."
+                        },
+                        {
+                          "details":"<span class='resource'>InputMessage</span> contains this data:<br><span class='resource'>&lt;message&gt;This message is invalid due to the closing tag&lt;message&gt;</span>"
+                        },
+                        {
+                          "details":"Click on the reply message and you will see that it contains this data:<br><span class='resource'>&lt;Reply&gt;<br>&lt;Explanation>There was a problem doing an XML parse of the input data&lt;/Explanation&gt;<br>&lt;OriginalInput&gt;&lt;![CDATA[&lt;message&gt;This message is invalid due to the closing tag&lt;message&gt;]]&gt;&lt;/OriginalInput&gt;<br>&lt;/Reply&gt;</span>"
+                        },
+                        {
+                          "details":"After you close the dialog, the path taken through the message flow is highlighted."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the ResetContentDescriptor node being used to associate a new parser with a message in a flow."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"ResetContentDescriptor node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac04810_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"File - Using the FileInput node with Whole File record detection",
+      "shortDescription":"Learn how to use the FileInput node to parse the whole content of a file.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"FileInput node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to read the whole content of an input file."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that parses a whole input XML file using a FileInput node, and propagates all of the data as a single propagation downstream through the flow. A Mapping node transforms the XML format data to a comma separated output format, and writes it to an output file with a specified file name and directory, using a FileOutput node."
+          },
+          {
+            "section":"The tutorial requires an IBM App Connect Enterprise integration node owned server, or a standalone server."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions from scratch",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, two projects will be created in your workspace: An application named <span class='application'>ExampleFileInputWholeFile</span> and a shared library named <span class='application'>FileCSV</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleFileInputWholeFile</span> provides a single message flow named <span class='resource'>FileInputWholeFile</span> which uses a FileInput node to receive an input XML file and propagate the data downstream through the flow. The XML data is transformed into a comma separated output format and written to an output file using a FileOutput node."
+            },
+            {
+              "section":"Once imported using the link on the right, the provided projects are ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions from scratch",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare an output directory, create an integration node and deploy the message flow",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Prepare the scenario by executing the following steps:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"The message flow's FileInput node will attempt to read input files from the directory <code><span class='cmdname'>C:\\temp\\FileInput</span></code>. Create this directory if it does not already exist, or edit the FileInput node in the message flow to read from a different directory suitable for your runtime environment."
+                  },
+                  {
+                    "details":"The message flow's FileOutput node will attempt to write output files to the directory <code><span class='cmdname'>C:\\temp\\FileOutput</span></code>. Create this directory if it does not already exist, or edit the FileOutput node in the message flow to write to a different directory suitable for your runtime environment."
+                  },
+                  {
+                    "details":"Next, create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code>"
+                  },
+                  {
+                    "details":"Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>FileInputWholeFile.bar</span> which you will find inside the <span class='application'>ExampleFileInputWholeFile</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>FileInputWholeFile.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Copy the provided input message from <code>&lt;Integration Toolkit workspace&gt;/ExampleFileInputWholeFile/WholeFileInput.xml</code> to the input directory that you created on your file system. The file will be processed by the message flow and then deleted."
+                        },
+                        {
+                          "details":"In the Flow Exerciser toolbar, click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> to highlight the message path through the message flow. You can click on any highlighted connection to see the message data that passed through that connection."
+                        },
+                        {
+                          "details":"<span class='resource'>WholeFileInput.xml</span> contains this data:<br><code>&lt;Message xmlns=&quot;http://www.ibm.com/ace/dev/FileXML&quot;&gt;<br>&lt;Field1&gt;United Kingdom&lt;/Field1&gt;<br>&lt;Field2&gt;USA&lt;/Field2&gt;<br>&lt;Field3&gt;Germany&lt;/Field3&gt;<br>&lt;Field4&gt;France&lt;/Field4&gt;<br>&lt;Field5&gt;India&lt;/Field5&gt;<br>&lt;/Message&gt;</code>"
+                        },
+                        {
+                          "details":"The flow should create an output file named <span class='resource'>C:\\temp\\FileOutput\\WholeFileOutput.txt</span> which contains this data:<br><code>United Kingdom,USA,Germany,France,India</code>"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the FileInput node parsing the whole content of a file."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"FileInput node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac55150_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

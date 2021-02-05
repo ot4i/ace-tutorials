@@ -1,0 +1,275 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using HTTPS and certificates with the HTTPInput, HTTPReply and HTTPRequest nodes",
+      "shortDescription":"Learn how to create a Public Key Infrastructure with ACEv11 using self-signed certificates in order to send data securely across HTTPS.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainJava",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"HTTPInput node"
+        },
+        {
+          "title":"HTTPReply node"
+        },
+        {
+          "title":"HTTPRequest node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Generate self-signed certificates, keystores and truststores to secure communication between message flows over HTTPS."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates two simple message flows, which are deployed to two separate stand-alone integration servers. One flow contains an HTTPRequest node which invokes the HTTPInput node in the other flow across HTTPS. The tutorial also provides step-by-step instructions for setting up keystores and truststores using both keytool and the IBM Global Security Kit."
+          },
+          {
+            "section":"The tutorial requires two ACE standalone integration servers which are created as part of the tutorial."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Setting up a Public Key Infrastructure",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ap34020_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"<center><img src='http://ot4i.github.io/https-certificates-tutorial/v11/en/Overview.png' alt='' /></center>"
+            },
+            {
+              "section":"When you click Import, two projects will be created in your workspace: An application named <span class='application'>ExampleClient</span> and an application named <span class='application'>ExampleServer</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleClient</span> provides a message flow named <span class='resource'>ExampleClient</span> which is driven by an HTTPInput node configured to receive any input message across HTTP. An HTTPRequest node makes an HTTPS mutual authentication connection to the ExampleServer flow."
+            },
+            {
+              "section":"<span class='application'>ExampleServer</span> provides a message flow named <span class='resource'>ExampleServer</span> which receives HTTPS data from the first flow."
+            },
+            {
+              "section":"Once imported using the link on the right, the provided applications are ready to be deployed and tested. Before doing this, the Prepare tab contains instructions for creating the self-signed certificates and keystores which are required to secure the HTTPS communications between the flows."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Setting up a Public Key Infrastructure",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ap34020_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Create the keystores, truststores and certificates followed by two stand alone integration servers.",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"The following instructions are written assuming a Windows environment. Applying equivalent instructions for other platforms is left to the reader - for assistance in this regard the additional links to the full Knowledge Center product documentation will be helpful. The instructions show how to use two different utilities for the creation of keystores. Keytool is provided in the Java Development Kit (provided as part of your ACE installation) and gsk8capicmd_64 is provided as part of IBM's Global Security Kit (located in your IBM MQ installation).",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create myclient_keystore.jks to contain a self-signed certificate for myclient:<br><code>keytool -genkeypair -keystore myclient_keystore.jks -storepass p4ssword -storetype jks -alias myclientcert -dname \"CN=myclient,O=IBM,OU=DEV,L=Hursley,C=GB\"</code>"
+                  },
+                  {
+                    "details":"Export a public key certificate for myclient:<br><code>keytool -exportcert -keystore myclient_keystore.jks -storepass p4ssword -storetype jks -alias myclientcert -file myclientcert.arm</code>"
+                  },
+                  {
+                    "details":"Create myserver_truststore.jks to contain the public key certificate for myclient:<br><code>keytool -importcert -keystore myserver_truststore.jks -storepass passw0rd -storetype jks -alias myclientcert -file myclientcert.arm</code>"
+                  },
+                  {
+                    "details":"Create myserver_keystore.p12:<br><code>gsk8capicmd_64 -keydb -create -db myserver_keystore.p12 -type p12 -pw passw0rd</code>"
+                  },
+                  {
+                    "details":"Create a self-signed certificate for myserver:<br><code>gsk8capicmd_64 -cert -create -db myserver_keystore.p12 -dn \"CN=myserver,O=IBM,OU=DEV,L=Hursley,C=GB\" -pw passw0rd -label myservercert</code>"
+                  },
+                  {
+                    "details":"Export a public key certificate for myserver:<br><code>gsk8capicmd_64 -cert -extract -db myserver_keystore.p12 -pw passw0rd -label myservercert -target myservercert.arm -format ascii</code>"
+                  },
+                  {
+                    "details":"Create myclient_truststore.jks to contain the public key certificate for myserver:<br><code>keytool -importcert -keystore myclient_truststore.jks -storepass p4ssword -storetype jks -alias myservercert -file myservercert.arm</code>"
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Create and configure the Integration Server which will play the role of client:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create the work directory:<br><code>mqsicreateworkdir C:\\temp\\workdirclient</code>"
+                  },
+                  {
+                    "details":"Set the integration server's credentials for accessing its keystore and truststore:<br><code>mqsisetdbparms -w C:\\temp\\workdirclient -n client::keystorePass -u notused -p p4ssword</code>"
+                  },
+                  {
+                    "details":"Configure the integration server. In the C:\\temp\\workdirclient\\server.conf.yaml file, edit the ResourceManagers / JVM section:<br><code>    keystoreType: 'JKS'</code><br><code>    keystoreFile: 'C:\\temp\\myclient_keystore.jks'</code><br><code>    keystorePass: 'client::keystorePass'</code><br><code>    truststoreType: 'JKS'</code><br><code>    truststoreFile: 'C:\\temp\\myclient_truststore.jks'</code><br><code>    truststorePass: 'client::keystorePass'</code>"
+                  },
+                  {
+                    "details":"Start the integration server:<br><code>IntegrationServer -w C:\\temp\\workdirclient --admin-rest-api 7600 --http-port-number 7900</code>"
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Create and configure the Integration Server which will play the role of server:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create the work directory:<br><code>mqsicreateworkdir C:\\temp\\workdirserver</code>"
+                  },
+                  {
+                    "details":"Set the integration server's credentials for accessing its keystore and truststore:<br><code>mqsisetdbparms -w C:\\temp\\workdirserver -n server::keystorePass -u notused -p passw0rd</code>"
+                  },
+                  {
+                    "details":"Configure the integration server. In the C:\\temp\\workdirserver\\server.conf.yaml file, edit the ResourceManagers / HTTPSConnector section:<br><code>    ListenerPort: 7843</code><br><code>    ReqClientAuth: true</code><br><code>    KeyAlias: 'server1cert'</code><br><code>    KeyPassword: 'server::keystorePass'</code><br><code>    KeystoreFile: 'C:\\temp\\myserver_keystore.p12'</code><br><code>    KeystorePassword: 'server::keystorePass'</code><br><code>    KeystoreType: 'p12'</code><br><code>    TruststoreFile: 'C:\\temp\\myserver_truststore.jks'</code><br><code>    TruststorePassword: 'server::keystorePass'</code><br><code>    TruststoreType: 'JKS'</code>"
+                  },
+                  {
+                    "details":"Start the integration server:<br><code>IntegrationServer -w C:\\temp\\workdirserver --admin-rest-api 7601 --http-port-number 7901</code>"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Deploy the message flows and then use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"In following these instructions ensure you deploy the correct flow to the correct integration server, as instructed:",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"In the Toolkit, connect to the stand-alone integration server on administration port 7601 (which is based upon the work directory C:\\temp\\workdirserver) and drag and drop deploy the BAR file named <span class='application'>Server.bar</span> which you will find inside the application <span class='resource'>ExampleServer</span>."
+                        },
+                        {
+                          "details":"Open <span class='resource'>ExampleClient.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow, ensuring that you deploy this flow to the stand-alone integration server available on administration port 7600 (which is based upon the work directory C:\\temp\\workdirclient)."
+                        },
+                        {
+                          "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                        },
+                        {
+                          "details":"One saved input message named <span class='resource'>InputMessage</span> is provided. Select it and click Send and your message is sent to the HTTPInput node."
+                        },
+                        {
+                          "details":"<span class='resource'>InputMessage</span> contains this data:<br><span class='resource'>This can be anything</span>"
+                        },
+                        {
+                          "details":"This message flow invokes <span class='resource'>ExampleServer.msgflow</span> across HTTPS and then when the reply message is returned back to the test client you will see that it contains this data:<br><span class='resource'>{\"Message\":\"If you see this response your test succeeded!\"}</span>"
+                        },
+                        {
+                          "details":"After you close the dialog, the path taken through the message flow is highlighted."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown how to create a Public Key Infrastructure with ACEv11 using self-signed certificates in order to send data securely across HTTPS."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Setting up a Public Key Infrastructure",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ap34020_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

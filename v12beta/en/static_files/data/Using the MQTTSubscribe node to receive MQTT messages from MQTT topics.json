@@ -1,0 +1,405 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"Back to Overview",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using the MQTTSubscribe node to receive MQTT messages from MQTT topics",
+      "shortDescription":"Learn how to use the MQTTSubscribe node to receive messages from an MQTT server.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MQTTSubscribe",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"MQTTSubscribe node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Receive messages from an MQTT server by using IBM App Connect Enterprise."
+        },
+        {
+          "title":"Understand the basic configuration of the MQTTSubscribe node."
+        },
+        {
+          "title":"Understand the information written to the Local Environment when receiving data over MQTT."
+        },
+        {
+          "title":"Gain an introduction to the IBM IoT Foundation."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that connects to the IBM Internet of Things (IoT) Foundation, and receives messages published by a device simulator over the MQ Telemetry Transport (MQTT) protocol. The message flow writes the message data to a file."
+          },
+          {
+            "section":"MQTT is an open protocol for remote communication using a publish and subscribe model. Devices and applications can publish messages on named topics, and other applications or devices can subscribe to receive messages that are published on particular topics."
+          },
+          {
+            "section":"The IBM IoT Foundation hosts an MQTT server on the internet and provides a quickstart demonstration service. This tutorial connects to that service and illustrates how to use a message flow to receive messages over MQTT. To publish the messages, you will use the device simulator provided by the IBM IoT Foundation."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"MQTT.ORG",
+            "description":"Information about the MQTT open standard",
+            "link":"http://mqtt.org/",
+            "type":"web"
+          },
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Processing MQTT messages in IBM App Connect Enterprise",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc62000_.htm",
+            "type":"web"
+          },
+          {
+            "title":"Knowledge Center link to ",
+            "description":"MQTTSubscribe node",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc46000_.htm",
+            "type":"web"
+          },
+          {
+            "title":"Website link to ",
+            "description":"IBM Internet of Things Foundation",
+            "link":"https://internetofthings.ibmcloud.com/#/",
+            "type":"web"
+          },
+          {
+            "title":"Website link to ",
+            "description":"Connecting applications to IoT Foundation quickstart",
+            "link":"https://developer.ibm.com/iot/recipes/application-development-quickstart/",
+            "type":"web"
+          },
+          {
+            "title":"Website link to ",
+            "description":"Device simulator for IoT Foundation quickstart",
+            "link":"https://developer.ibm.com/iot/recipes/simulator/",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Create the message flow and the device",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"Create a device that is connected to the IoT Foundation and will publish data on a topic that the message flow can subscribe to.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"On your smartphone/tablet/computer, start the simulator by browsing to <a href='http://quickstart.internetofthings.ibmcloud.com/iotsensor' target='_blank'>http://quickstart.internetofthings.ibmcloud.com/iotsensor</a>. The simulator connects automatically and starts publishing data. Keep your simulator window active and in the foreground."
+                  },
+                  {
+                    "details":"Note the MAC address of the simulated device (displayed in the top right corner of the device screen; for example a9a557601865). You will need this to complete the configuration of the message flow."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Import and complete the configuration of the message flow.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Click the <span class='uicontrol'>Import</span> button on the right of this view. The MQTTSubscribe application, which includes a partially complete message flow, will be imported into your workspace."
+                  },
+                  {
+                    "details":"The <span class='uicontrol'>MQTTSubscribe</span> message flow should be open in the Message Flow editor. If it is not, locate the message flow under the Flows section of the <span class='application'>MQTTSubscribe</span> application, and double click it to open for editing."
+                  },
+                  {
+                    "details":"Select the MQTTSubscribe node in the message flow and look at the <span class='uicontrol'>Properties</span> view.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"<b>Tip:</b> To allow you to see the properties view and the tutorial steps at the same time, move this current tutorial steps view to the right side of the message flow editor, by dragging and dropping the <span class='uicontrol'>Tutorial Steps View</span> tab at the top of this view."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Some of the MQTTSubscribe node properties have already been configured with values. The <span class='parmname'>Host name</span> and  <span class='parmname'>Port</span> are configured to connect to the IoT Foundation MQTT server that is hosted on the internet."
+                  },
+                  {
+                    "details":"The <span class='parmname'>Client ID</span> property is blank and must be configured with a valid value. Enter the value <span class='userinput'>a:quickstart:&lt;unique-name&gt;</span> where <span class='userinput'>&lt;unique-name&gt;</span> is a value you choose that is unlikely to be chosen by anyone else. For example, you might choose your name and birth year to avoid clashing with other people, such as <span class='userinput'>a:quickstart:hosie75</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"<b>You might like to know:</b> In the MQTT protocol, the client ID is used to uniquely identify a device or an instance of an application that is connected to an MQTT server. Each device or application must specify a different client ID. In any particular instance of an MQTT server, there might be a defined convention to follow when choosing the client ID. In the case of the IBM IoT Foundation quickstart, the convention is that applications must specify a client ID with the form <span class='code'>a:quickstart:&lt;unique-name&gt;</span> where <span class='code'>&lt;unique-name&gt</span> is a value chosen by the application to be unique across all applications connecting to the quickstart service. This convention must be followed, otherwise the application will fail to connect to the IoT Foundation."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"The <span class='parmname'>Topic name</span> property is blank and must be configured with a valid value. Enter the value <span class='userinput'>iot-2/type/+/id/&lt;deviceid&gt;/evt/+/fmt/+</span> where <span class='userinput'>&lt;deviceid&gt;</span> identifies the MAC address of the device that you simulated in the earlier step (in the tutorial example a9a557601865, which is entered into the Topic name as <span class='userinput'>iot-2/type/+/id/a9a557601865/evt/+/fmt/+</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"<b>You might like to know:</b> When message data is published over MQTT, it is published on a particular topic. The topic string is hierarchical, and is normally used to indicate some categorization of the data that is meaningful in the particular domain. Receiving applications subscribe to particular topics and can use wildcards to subscribe to many topics within a single topic string. In the case of the IoT Foundation quickstart, the topic name includes the ID of the device that published the data. Subscribing applications must specify the device ID explicitly, although a wildcard (<span class='code'>+</span>) may be used elsewhere in the topic string, as shown in this tutorial."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Save the message flow."
+                  },
+                  {
+                    "details":"Ensure that there are no errors associated with the message flow."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"MQTT.ORG",
+              "description":"Information about the MQTT open standard",
+              "link":"http://mqtt.org/",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Processing MQTT messages in IBM App Connect Enterprise",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc62000_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"MQTTSubscribe node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc46000_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Website link to ",
+              "description":"IBM Internet of Things Foundation",
+              "link":"https://internetofthings.ibmcloud.com/#/",
+              "type":"web"
+            },
+            {
+              "title":"Website link to ",
+              "description":"Connecting applications to IoT Foundation quickstart",
+              "link":"https://developer.ibm.com/iot/recipes/application-development-quickstart/",
+              "type":"web"
+            },
+            {
+              "title":"Website link to ",
+              "description":"Device simulator for IoT Foundation quickstart",
+              "link":"https://developer.ibm.com/iot/recipes/simulator/",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Deploy Application",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Before deploying the application, you must ensure that the file system is ready for the data to be written to the output file by the message flow."
+            },
+            {
+              "section":"The FileOutput node is configured to write the data to a file in the output directory <span class='userinput'>C:\\fileout</span>",
+              "steps":{
+                "type":"unordered",
+                "details":[
+                  {
+                    "details":"Create the output directory <span class='userinput'>C:\\fileout</span> on your local file system, or change the <span class='parmname'>Directory</span> property of the FileOutput node to a directory that exists and that your current user ID has write access to.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"If you are using Linux, then you will need to change the <span class='parmname'>Directory</span> property."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Once you have completed these steps, drag the <span class='application'>MQTTSubscribe</span> application from the <span class='uicontroll'>Application Development</span> view and drop it on an integration server in the <span class='uicontroll'>Integration Nodes</span> view. The application will be deployed to the integration server and the message flow will connect to the IoT Foundation, ready to receive the data published by your device.",
+              "steps":{
+                "type":"unordered",
+                "details":[
+                  {
+                    "details":"If you have a firewall on your computer, you might be asked to allow the <span class='code'>DataFlowEngine.exe</span> process to connect to <span class='code'>quickstart.messaging.internetofthings.ibmcloud.com</span>. You must allow this connection in order to complete this tutorial."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Working with files",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac55170_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"How to deploy and test message flows",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/aa40160_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions-remove":{
+          "comment":" as the user needs to configure some of the properties on the flow in the create step, we cannot have a pre-built bar file, therefore cannot use the deploy action",
+          "title":"Prepare Actions",
+          "details":[
+            {
+              "name":"Deploy",
+              "method":"deployArtifacts()"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to complete the tutorial",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"The message flow will immediately start receiving data that is published by the device simulator that you launched in the <span class='uicontrol'>Create</span> step, and will write that data to a file in the directory that you created in the <span class='uicontrol'>Prepare</span> step."
+            },
+            {
+              "section":"Change some of the metrics (temperature/humidity) on the device simulator and open the output file to see new events with those values appended to the end of the file."
+            },
+            {
+              "section":"In addition to this, you can use the Flow Exerciser to inspect other publication information that is available in the message flow.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open the MQTTSubscribe message flow, and click the Flow Exerciser icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"<b>Take care:</b> If you have more than one integration server available, then you will have to choose which integration server to use to record this message flow.  Ensure that you choose the same one that you deployed to in the <span class='uicontrol'>Prepare</span> step, otherwise you will have two separate instances of the message flow trying to connect to the MQTT server with the same client ID, and that will cause errors."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Wait a few seconds to ensure that at least one event is published."
+                  },
+                  {
+                    "details":"In the Flow Exerciser toolbar, click the View Path icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> to highlight the message path through the message flow. Click on the connection to see the message data that passed between the MQTTSubscribe node and the FileOutput node."
+                  },
+                  {
+                    "details":"In the <span class='code'>Message</span> tree of the data, you will see the <span class='code'>Properties</span> folder followed by a <span class='code'>JSON</span> folder, and this shows the same data that was written to the output file.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"NOTE: the data is formatted as XML by the UI for the purpose of rendering it through the Flow Exerciser, but in fact it remains as JSON as it passes from the IoT Foundation, through the message flow, and into the output file."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Expand the <span class='code'>LocalEnvironment</span> folder and you will see extra information about the publication. It is possible to add other nodes to the message flow that could process this information or even copy it to the output file."
+                  },
+                  {
+                    "details":"Click the <span class='uicontrol'>Clean Up</span> button at the top right of this page.  If you do not do this then the message flow will continue to append data to the output file."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Using local environment variables with MQTT nodes",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc62011_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "exits":{
+          "title":"Run Exits",
+          "details":[
+            {
+              "name":"Clean Up",
+              "description":"Clean up and remove any changes in your workspace made by the tutorial.",
+              "method":"cleanUp()"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

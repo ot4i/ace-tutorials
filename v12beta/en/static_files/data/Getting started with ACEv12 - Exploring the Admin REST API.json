@@ -1,0 +1,203 @@
+{
+    "version":"0.6",
+    "pageContent":{
+      "_comments":"JSON object that contains data for page labels, buttons, etc.",
+      "navItems":{
+        "_common":{
+          "buttonBackToGallery":{
+            "name":"Back To Gallery",
+            "method":"backToGallery()",
+            "idName":"backToGallery"
+          },
+          "buttonStartTutorial":{
+            "name":"Start Tutorial",
+            "method":"startTutorialFromDetailsScreen()",
+            "idName":"startTutorial"
+          },
+          "buttonViewDetails":{
+            "name":"View Details",
+            "method":"viewDetails()",
+            "idName":"stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial":{
+      "_common":{
+        "name":"Getting started with ACEv12 - Exploring the Admin REST API",
+        "shortDescription":"Learn some basics about administering ACE using its administrative REST API",
+        "durationText":"This tutorial takes approximately",
+        "durationTime":"15 minutes",
+        "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen":"EventRoutingFlow",
+        "helpLink":{
+          "text":"IBM Knowledge Center",
+          "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+        }
+      },
+      "pageDetails":{
+        "topicsName":"Tutorial Topics",
+        "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList":[
+          {
+            "title":"Using the administrative REST API to interact with a standalone Integration Server"
+          },
+          {
+            "title":"Using the administrative REST API to interact with an Integration Node and its child Integration Servers"
+          }
+        ],
+        "outcomesName":"Learning outcomes",
+        "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList":[
+          {
+            "title":"Learning how to find the administrative REST API and use its interactive features to directly invoke the API."
+          },
+          {
+            "title":"Understand the available features of the administrative REST API"
+          }
+        ],
+        "summary":{
+          "overviewName":"OVERVIEW",
+          "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections":[
+            {
+              "section":"This tutorial shows how to find the documentation for the App Connect Enterprise administrative REST API and use it to interact with Integration Servers which are associated with an Integration Node, and those which are defined independently."
+            },
+            {
+              "section":"We will access the documentation which is served directly from the App Connect Enterprise runtime. The tutorial will guide you through the similarities and differences depending on whether you are communicating with an Integration Node or Integration Server. Example REST API invocations will be used to accomplish some basic tasks like creation of servers, deployment of a BAR file, and viewing descriptive information about what is running."
+            },
+            {
+              "section":"This new style of documentation introduced in App Connect Enterprise v11 is even easier to find and makes it simpler to interact with the product. "
+            }
+          ]
+        }
+      },
+      "pageSteps":{
+        "create":{
+          "overview":{
+            "name":"Create",
+            "heading":"Import projects",
+            "_createComment":"A description of what will happen when the user clicks Import.",
+            "sections":[
+              {
+                "section":"Click Import and the <span class='application'>ExampleApp</span> application project will be imported into your workspace. It contains three message flows <span class='application'>HTTPEcho1</span>, <span class='application'>HTTPEcho2</span> and <span class='application'>HTTPEcho3</span>, and the BAR file named <span class='application'>ExampleDeploy.bar</span>."
+              }
+            ]
+          },
+          "actions":{
+            "title":"Create Actions",
+            "details":[
+              {
+                "name":"Import",
+                "method":"importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare":{
+          "overview":{
+            "name":"Prepare",
+            "heading":"Prepare an Integration Server",
+            "_prepareComment":"Enable resource statistics tracking:",
+            "sections":[
+              {
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog. Well done, you've just created a standalone Integration Server hosted locally on your own machine!"
+                    },
+                    {
+                      "details":"<b>This step is only required if you are using a Toolkit earlier than version 11.0.0.7</b>. If you're using a Toolkit earlier than version 11.0.0.7, then you will not find a menu option to <span class='uicontrol'>Create a local integration server</span>. Instead, you will need to open an App Connect Enterprise Command Console and start an integration server in that console session. This alternate option is also detailed in the <a href='https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn03995_.html'>Knowledge Center</a>. Open an App Connect Enterprise Command Console and start an integration server using the following command:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --work-dir C:\\MyServer --name MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code> <br>where <b>C:\\MyServer</b> is a folder on your file system that the server will use for its working directory.</li><li>If you are using a UNIX platform: <code>IntegrationServer --work-dir /home/exampleuser/MyServer --name MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code> <br>where <b>/home/exampleuser/MyServer</b> is a folder on your file system that the server will use for its working directory.</li></ul> After a few seconds the server should report that it has finished initialization and that its HTTP Listener has started listening for connections."
+                    },
+                    {
+                      "details":"You can deploy the provided BAR file to your Integration Server using the Toolkit. This technique is described in several other tutorials, but to demonstrate the administrative REST API (which the App Connect Enterprise Toolkit and administrative Web UI both utilise), in this example we will deploy using the following cURL command:<br><ul><li>If you are using a Windows platform: <code>curl -X POST http://localhost:7600/apiv2/deploy --data-binary @C:\\YourToolkitWorkspace\\ExampleApp\\ExampleDeploy.bar  -H \"Content-Type: application/octet-stream\" </code> where <b>C:\\YourToolkitWorkspace</b> is the directory location of your App Connect Enterprise Toolkit's workspace.</li><li>If you are using a UNIX platform: <code>curl -X POST http://localhost:7600/apiv2/deploy --data-binary /YourToolkitWorkspace/ExampleApp/ExampleDeploy.bar</code> where <b>/YourToolkitWorkspace</b> is the directory location of your App Connect Enterprise Toolkit's workspace.</li></ul>"
+                    },
+                    {
+                      "details":"Open up your preferred web browser and go to this URL:<br><code>http://localhost:7600/apidocs</code><br>You will be presented a page containing comprehensive documentation on the administrative REST API, which can be used to control your Integration Server."
+                    },
+                    {
+                      "details":"Launch a separate App Connect Enterprise Command Console.  Create and start an Integration Node by typing the following commands:<br><code>mqsicreatebroker MyNode<br>&nbsp;mqsistart MyNode<br>&nbsp;mqsilist</code><br>The last mqsilist command should return a message like this:<br><code>BIP1325I: Integration node 'MyNode' with administration URI 'http://YourHostName:YourPortNumber' is running.</code> where YourHostName is your machine's hostname and YouPortNumber is an available port, starting from 4414."
+                    },
+                    {
+                      "details":"Back in your preferred web browser, open a new tab and go to your URL which will be similar to this:<br><code>http://localhost:4414/apidocs</code><br>You will be presented a similar documentation page, however there are a few key differences in the actions provided by the administrative REST API when dealing with a node as opposed to a server, which we will explore in the Run stage of the tutorial."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "run":{
+          "overview":{
+            "name":"Run",
+            "heading":"Exercise the administrative REST API",
+            "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections":[
+              {
+                "section":"<b>Interact with the Integration Server:</b",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"In the web browser tab for your Integration Server (http://localhost:7600/apidocs), on the left side you will see all the available actions in the API. In this part of the tutorial we will view the details for this server, view details about the deployed application, stop the deployed application and then start it again; all from within the interactive documentation."
+                    },
+                    {
+                      "details":"Click on the <code>GET /apiv2</code> tab in the list of actions. The body of the docs should change to present you with all the details on this particular action. You'll be presented with the description of the action, its parameters (and their structure), example requests from different languages (curl, python etc.) and examples of the standard responses. At the top of the web page, select the 'Try it' tab."
+                    },
+                    {
+                      "details":"Here you can run the action against your server as an example. Don't change anything from the defaults, and just click 'Send' in the bottom right. You will see the real request to your server and its response."
+                    },
+                    {
+                      "details":"Scroll down and inspect the JSON response, and you will see a few sections:<br> - The name and type of your server at the very top<br> - A section called 'actions' which shows you all the valid actions which can be conducted on the server<br> - Further sections showing content which has been deployed to the server, such as 'applications', 'restApis', 'services' and 'policies', with details on whether they contain any further children."
+                    },
+                    {
+                      "details":"Run a <code>GET /apiv2/applications</code> to view the currently deployed applications. You will see the application which you deployed earlier, named 'ExampleApp'"
+                    },
+                    {
+                      "details":"Run a <code>GET /apiv2/applications/{application}</code> (changing the Application parameter to be 'ExampleApp') to view details about a particular deployed application."
+                    },
+                    {
+                      "details":"Run a <code>POST /apiv2/applications/{application}/stop</code> (changing the Application parameter to be 'ExampleApp') to stop the ExampleApp application."
+                    },
+                    {
+                      "details":"Run a <code>POST /apiv2/applications/{application}/start</code> (changing the Application parameter to be 'ExampleApp') to start the ExampleApp application."
+                    }
+                  ]
+                }
+              },
+              {
+                "section":"<b>Interact with the Integration Node:</b>",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"In the web browser tab for your Integration Node (http://localhost:4414/apidocs) for your integration node, on the left side you will see all the available actions in the API. In this part of the tutorial we will create a server under the node, view the server's properties and then delete the server; all from within the interactive documentation."
+                    },
+                    {
+                      "details":"Navigate to <code>GET /apiv2/servers</code> and proceed to the 'Try it' section. Send the request to the Integration Node and you will receive a response, showing that there are currently no child Integration Servers."
+                    },
+                    {
+                      "details":"Navigate to <code>POST /apiv2/servers</code> and proceed to the 'Try it' section. In the Body field use the following JSON to specify the name of an integration server which will be created: <code>{\"name\":\"MyNodeOwnedServer\"}</code>. Click 'Send' and then run another <code>GET /servers</code> to see the updated list of servers."
+                    },
+                    {
+                      "details":"Navigate to <code>GET /apiv2/servers/{server}</code> and the 'Try it' section. Copy the name <code>MyNodeOwnedServer</code> of your newly created server into the 'Path' field and click 'Send'. The response at the bottom of the page will show all the properties of the newly created server."
+                    },
+                    {
+                      "details":"Navigate to <code>POST /apiv2/servers/{server}/stop</code> and the 'Try it' section. Copy the name <code>MyNodeOwnedServer</code> of your newly created server into the 'Path' field and click 'Send'. This may take a while, so please be patient."
+                    },
+                    {
+                      "details":"Navigate to <code>DELETE /apiv2/servers/{server}</code> and the 'Try it' section. Input the name of the stopped server, <code>MyNodeOwnedServer</code> and click 'Send' to delete it."
+                    },
+                    {
+                      "details":"Run one last <code>GET /apiv2/servers</code> request to check that the server has been successfully deleted."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }

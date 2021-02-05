@@ -1,0 +1,360 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a Mapping node to access a Lookup table that is stored in the Global Cache",
+      "shortDescription":"Learn how to use a Mapping node to graphically access a Lookup table that is stored in the Global Cache by exploring this simple example.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"6 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Cache Get and Cache Put transforms in a Mapping node"
+        },
+        {
+          "title":"Global Cache"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"Use IBM App Connect Enterprise Mapping node Cache Get and Cache Put transforms to graphically access and load a Lookup table stored in the Global Cache.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to graphically access a Lookup table stored in the Global Cache using a Mapping node."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"This tutorial demonstrates graphically accessing the Global Cache. It shows the use of a Mapping node to replace an abbreviated value in a message with an associated full name from a Lookup table that is held in the Global Cache. Another Mapping node shows the loading of the Lookup table.",
+        "sections":[
+          {
+            "section":"Note: This tutorial requires the IBM App Connect Enterprise Toolkit Version 11.0.0.4 or later and an integration node or integration server that is running IBM App Connect Enterprise Version 11.0.0.4 or later."
+          },
+          {
+            "section":"This tutorial demonstrates how to graphically access the Global Cache in a Mapping node by using the Cache Get and Cache Put transforms."
+          },
+          {
+            "section":"One Mapping node demonstrates the use of a Cache Get transform to replace an abbreviated value in the input message with the associated full name from a Lookup table that is in the Global Cache."
+          },
+          {
+            "section":"Another Mapping node demonstrates the use of a Cache Put transform to populate a Lookup table in the Global Cache with data that is read from a comma-separated-values file."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, message flows can be used to transform and enrich input data structures into output data structures. Several transformation options are provided including a Mapping node, which allows the transformation and enrichment to be completed graphically. The Global Cache is a repository for data that you want to reuse regularly. The Mapping node can get, put, and remove data from the Global Cache."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions from scratch",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          },
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Data caching overview",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn23730_.htm",
+            "type":"web"
+          },
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Accessing a global cache by using a Mapping node",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/br26101_.htm",
+            "type":"web"
+          },
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Global cache scenario: Caching static data",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn23732_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import the application",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"Click <span class='application'>Import</span> to import the application into your workspace. Note: You must have IBM App Connect Enterprise Toolkit Version 11.0.0.4 or later."
+            },
+            {
+              "section":"The <span class='application'>LookupTable_UsingMappingGlobalCache</span> application is now shown in the Application Development view of your workspace. The <span class='msgflow'>LookupCountyFullName</span> message flow is opened in the Message Flow editor."
+            },
+            {
+              "section":"The <span class='msgflow'>LookupCountyFullName</span> message flow contains a number of nodes:",
+              "steps":{
+                "type":"unordered",
+                "details":[
+                  {
+                    "details":"<span class='uicontrol'>HTTP Input</span>: An Input node that receives an input message that contains an abbreviated county name."
+                  },
+                  {
+                    "details":"<span class='uicontrol'>LookupCountyFullName</span>: A Mapping node that accesses the global cache to interrogate the Lookup table for the full county name."
+                  },
+                  {
+                    "details":"<span class='uicontrol'>FoundCountyFullName</span>: A Route node that determines the path that the message should take depending on whether the full county name was retrieved from the global cache."
+                  },
+                  {
+                    "details":"<span class='uicontrol'>File Read</span>: A FileRead node that reads the file that contains the Lookup table data."
+                  },
+                  {
+                    "details":"<span class='uicontrol'>LoadCache</span>: A Mapping node that loads the Lookup table data into the global cache."
+                  },
+                  {
+                    "details":"<span class='uicontrol'>HTTP Reply</span>: A Reply node that returns a message that contains the full county name."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"You can explore the configuration of these nodes later in the tutorial."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions from scratch",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Data caching overview",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn23730_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Accessing a global cache by using a Mapping node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/br26101_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Accessing user-defined properties from a Mapping node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/br34267_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Preparing to run the application",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Perform the following steps to prepare your environment to run the <span class='application'>LookupTable_UsingMappingGlobalCache</span> application.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "name":"Enable the default Global Cache",
+                    "details":"Enable the embedded global cache by copying the GlobalCache entry in the <code>basic_1_catalog_1_container\\server.conf.yaml</code> found in the <code>ace-install-directory\\server\\sample\\globalcache</code> directory into your integration server server.conf.yaml file and following the instructions in this directory. Note: The integration node or server must be running IBM App Connect Enterprise Version 11.0.0.4 or later."
+                  },
+                  {
+                    "name":"Setup the location of the lookup table initialization data file",
+                    "details":"Setup the location of the lookup table initialization data file by completing one of the following steps:",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"On Windows: Create the input directory <code>C:\\temp</code>."
+                        },
+                        {
+                          "details":"On Linux: Change the Input directory property of the 'File Read' node to a Linux path."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "name":"Copy the lookup table initialization data file",
+                    "details":"Copy the <span class='filepath'>CountyAbbrNames.csv</span> file from the 'Other Resources' folder in the <span class='application'>LookupTable_UsingMappingGlobalCache</span> application to the input directory that you created in step 2."
+                  },
+                  {
+                    "details":"Drag and drop deploy the shared library <span class='application'>LookupTableCSVdata</span> on to your integration server."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Next you will use the Flow exerciser to send HTTP requests to the message flow."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"FileRead node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc34090_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions-removed":{
+          "title":"Prepare Actions",
+          "details":[
+            {
+              "name":"Deploy",
+              "method":"deployArtifacts()"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to run the application",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Open the <span class='uicontrol'>LookupCountyFullName</span> message flow from the application and complete the following steps:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Click the <span class='icon'>Flow Exerciser</span> icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow."
+                  },
+                  {
+                    "details":"Click the <span class='icon'>Send Message</span> icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select the first message to send to the flow."
+                  },
+                  {
+                    "details":"Select the 'Berks' input message, and click <span class='uicontrol'>Send</span>.<br/>The request message is sent to the HTTP Input node, and the response message containing the full name, 'Berkshire', is received."
+                  },
+                  {
+                    "details":"Close the Send message dialog. <br/>The message path is automatically highlighted on the message flow. Note: The message path shows that the message was sent through the 'File Read' and 'LoadCache' Mapping nodes. Because the Lookup table was not in the Global Cache, the 'LookupCountyFullName' Mapping node cannot find a match."
+                  },
+                  {
+                    "details":"Click on any connection to see the data that passed through that connection."
+                  },
+                  {
+                    "details":"Click the <span class='icon'>Send Message</span> icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> again, to select the 'Hants' message and send it to the flow by clicking <span class='uicontrol'>Send</span>."
+                  },
+                  {
+                    "details":"Review the received message and close the Send message dialog to see the message path.<br/>Note: The message path shows that the message was sent directly to the 'HTTP Reply' node. Because the Lookup table is in the Global Cache, the 'LookupCountyFullName' Mapping node found a match and set the 'CountyFullName'."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"If you restart the integration node or integration server, or issue a <span class='cmdname'>mqsicacheadmin</span> command to clear the Global Cache, the next message is sent through the 'File Read' and 'LoadCache' Mapping nodes again. (For example: <code>mqsicacheadmin --admin-host localhost --admin-port 7600 -c clearGrid -m CountyAbbrNames</code>)"
+            },
+            {
+              "section":"<span class='uicontrol'>The following optional steps help you explore and understand the application</span>"
+            },
+            {
+              "section":"The <span class='msgflow'>LookupCountyFullName</span> message flow uses an HTTP Input node to receive a JSON message that contains a 'CountyAbbr' value. The 'CountyAbbr' value is used in the 'LookupCountyFullName' Mapping node to lookup the replacement full county name from the Global Cache.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Double click the 'LookupCountyFullName' Mapping node to open the associated Graphical Data Map that includes the 'Cache Get' transform."
+                  },
+                  {
+                    "details":"Click the 'Local map' to enter the nested mapping. Note: The value for the input element, 'CountyAbbr', is placed in the 'Environment' so that it is not overwritten by the data that is retrieved from the <span class='filepath'>'CountyAbbrNames.csv</span> file."
+                  },
+                  {
+                    "details":"Click the 'Cache Get' transform to enter the nested mapping for the transform and review the mapping of the 'Key' that is used to select the entry in the Lookup table. Note: 'MapName' is set by using a CustomXPath transform to configure a user-defined property."
+                  },
+                  {
+                    "details":"Click the up arrow <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/exitNestedMapping.png' alt='' /> to exit the nested mapping, then click the 'Cache Return' transform to enter the nested mapping for the transform and review the mapping from the 'Value' that is returned from the Global Cache."
+                  },
+                  {
+                    "details":"Click the 'Move' transform and view the Condition tab in the Properties, to see that the 'Value' element is created only if an entry is found in the Global Cache."
+                  },
+                  {
+                    "details":"Return to the message flow editor.<br/>The 'FoundCountyFullName' Route node checks for the presence of the 'CountyFullName' value:",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"If the 'CountyFullName' value exists, the message is routed directly to the 'HTTP Reply' node."
+                        },
+                        {
+                          "details":"If the 'CountyFullName' value does not exist (for example, if the Lookup table in the Global Cache is not populated), the message is routed to the 'File Read' node. The 'File Read' node retrieves name-value pairs from a comma-separated-values file that is parsed by using a DFDL CSV model. The name-value data is passed to the 'LoadCache' Mapping node, where the data is loaded into a Lookup table in the Global Cache. The 'LoadCache' mapping node also sets the 'CountyFullName' value in the output message."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Double click the 'LoadCache' Mapping node to open and explore the map and review the use of the 'Cache Put' transform within the 'For each' transform. Note: The value of 'CountyFullName' for the current lookup request is taken directly from the data that is read from the comma-separated-values file."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"mqsicacheadmin command",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn23783_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

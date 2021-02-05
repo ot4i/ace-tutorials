@@ -1,0 +1,262 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a SalesforceRequest node to retrieve records from Salesforce.com",
+      "shortDescription":"Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"15 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"SalesforceRequest node"
+        },
+        {
+          "title":"Configuring a connection to Salesforce"
+        },
+        {
+          "title":"Mapping using JSON schema"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"An understanding of how IBM App Connect Enterprise can be used to ...",
+      "outcomeList":[
+        {
+          "title":"An understanding of how IBM App Connect Enterprise can be used to access records in Salesforce systems."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"This tutorial demonstrates a simple message flow which ...",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow which retrieves existing Account records from a Salesforce system using the SalesforceRequest node. The flow exposes a HTTP service which accepts some filter properties to limit the number of Account records returned. The records are returned as an array of JSON objects."
+          },
+          {
+            "section":"The SalesforceRequest node in IBM App Connect Enterprise allows message flows to be developed that can Create, Retrieve, Update and Delete records for the different objects that exist in a Salesforce system, such as Account, Contact and Lead. Records may be retrieved by Salesforce ID, by custom external ID, or by SOQL WHERE clause. Records may be updated by Salesforce ID or by custom external ID. Records may be deleted by Salesforce ID."
+          },
+          {
+            "section":"The SalesforceRequest node uses the Force.com REST API to exchange data with Salesforce, and so the input and output message trees for the SalesforceRequest node are in the JSON domain."
+          },
+          {
+            "section":"Each Salesforce object is described by a JSON schema, which may be used as the input or output schema for a Mapping node. The JSON schema for Salesforce objects are provided in the server/sample/Salesforce folder of your IBM Integration Bus installation, and must be copied into a shared library or REST API project. The map using the JSON schema must reside in the same container as the schema."
+          },
+          {
+            "section":"You will import an application and a shared library into your Toolkit workspace, configure the connection to the Salesforce system, and invoke the message flow using the Flow Exerciser."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Working with Salesforce",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90600_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import project",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"Click <span class='uicontrol'>Import</span> and the <span class='application'>Salesforce_Retrieve</span> application and <span class='library'>Salesforce_Schemas</span> shared library will be imported into your workspace."
+            },
+            {
+              "section":"The <span class='msgflow'>Salesforce_Retrieve</span> message flow will be opened for you."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Working with Salesforce",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90600_.htm",
+              "type":"weB"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Imported projects",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"The <span class='application'>Salesforce_Retrieve</span> application and <span class='library'>Salesforce_Schemas</span> shared library are now shown in the Application Development view of your workspace."
+            },
+            {
+              "section":"Click on the <span class='icon'>Salesforce Request</span> node in the message flow. In the Properties view, the <span class='property'>Operation</span> is <span class='userinput'>Retrieve</span> and the <span class='property'>Salesforce object</span> is <span class='userinput'>Account</span>."
+            },
+            {
+              "section":"Change the <span class='property'>Salesforce URL</span> property to the URL of a Salesforce system to which you have access. "
+            },
+            {
+              "section":"In order for the SalesforceRequest node to communicate with Salesforce, a Connected App must be created in the Salesforce system and a Security Identity must be created in IBM App Connect Enterprise using <span class='cmdname'>mqsisetdbparms</span>. Follow the <span class='uicontrol'>Configuring a secure connection to Salesforce.com</span> link in the <span class='uicontrol'>Find out more</span> section to perform these tasks. The Security Identity should be called <span class='resource'>sf1</span> to match the <span class='icon'>Salesforce Request</span> node property, or you can create one with your own name and update the node property.<br>If you are using a standalone integration server (where C:\\MyServer is the server's work directory) then the command will look similar to this:<br/><code><span class='cmdname'>mqsisetdbparms</span> -w C:\\MyServer -n salesforce::sf1 -u myUserID -p myPassword -c myClientIdentity -s myClientSecret</code><br/>If you are using a node-owned integration server (where TESTNODE is the name of the integration node) then the command will look similar to this:<br><code><span class='cmdname'>mqsisetdbparms</span> TESTNODE -n salesforce::sf1 -u myUserID -p myPassword -c myClientIdentity -s myClientSecret</code>"
+            },
+            {
+              "section":"Restart your integration node (or server) for the mqsisetdbparms command to take effect."
+            },
+            {
+              "section":"Next you will use the Flow exerciser to send HTTP requests to the message flow."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Configuring a secure connection to Salesforce.com",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90640_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Working with Salesforce",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90600_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Creating or transforming a JSON output message by using a JSON schema",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/sm12036_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to complete the tutorial",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Having set-up the required security identity, we will now deploy and test the scenario:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Drag and drop deploy the shared libarary named <span class='application'>Salesforce_Schemas</span> on to your integration server."
+                  },
+                  {
+                    "details":"Open the <span class='msgflow'>Salesforce_Retrieve</span> message flow and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy the flow and start recording."
+                  },
+                  {
+                    "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                  },
+                  {
+                    "details":"Choose <span class='filepath'>Input.json</span>. The JSON message data contains two filter parameters, <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span>. These will be set in the LocalEnvironment section used for the SalesforceRequest node, and control the number of records that are returned. Change the values if you want more than 10 records, or if you want to skip records."
+                  },
+                  {
+                    "details":"Click Send. Your message is sent to the <span class='icon'>HTTP Input</span> node."
+                  },
+                  {
+                    "details":"In the Progress Information dialog, click on <span class='property'>Received HTTP reply message ...</span> to view the output message from the flow. The Account records have been returned as a JSON array."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"After you close the dialog, the message path is automatically highlighted on the message flow. Click on any connection to see the data that passed through that connection. You can see that:",
+              "steps":{
+                "type":"unordered",
+                "details":[
+                  {
+                    "details":"The <span class='icon'>Prepare Filter Map</span> node set the <span class='parmname'>Limit</span> and <span class='parmname'>Skip</span> values in the LocalEnvironment section used for the SalesforceRequest node."
+                  },
+                  {
+                    "details":"The <span class='icon'>Salesforce Request</span> node retrieved up to the number of Account records specified by <span class='parmname'>Limit</span>  and <span class='parmname'>Skip</span>, and propagated them as a JSON array."
+                  },
+                  {
+                    "details":"The <span class='icon'>Select Fields Map</span> node removed unwanted fields from each record in the array, using a map built from the JSON schema for the Account object."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Repeat the steps above, but this time choose message <span class='filepath'>InputWithWhere.json</span>. The JSON message data additionally contains a <span class='parmname'>where</span> filter parameter, which is a Salesforce Object Query Language (SOQL) expression. This is also set in the LocalEnvironment, and further limits the returned records to those Accounts created since 1st January 2015. Change the value if you want to use an alternative SOQL expression."
+            },
+            {
+              "section":"If the Flow Exerciser failed to deploy the projects, or the flow failed to retrieve the records from the Salesforce system, follow the <span class='uicontrol'>Resolving problems when you use Salesforce nodes</span> link in the <span class='uicontrol'>Find out more</span> section to diagnose the problem."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Resolving problems when you use Salesforce nodes",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90710_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Working with Salesforce",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bz90600_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

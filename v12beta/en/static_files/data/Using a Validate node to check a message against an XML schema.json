@@ -1,0 +1,205 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a Validate node to check a message against an XML schema",
+      "shortDescription":"Learn how to use the Validate node to check a message against an XML schema in a message flow driven by an XML message over HTTP.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Validate node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to validate XML message data in a flow using an XML schema."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that receives an XML input message over HTTP, and checks the data against an XML schema using a Validate node. Two example input messages are provided, one which will fail validation and one which will pass validation. Graphical mapping nodes are used in both cases to construct a reply message which is returned to the requesting client using an HTTPReply node."
+          },
+          {
+            "section":"The tutorial requires an ACE integration node owned server, or a standalone server."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleValidate</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleValidate</span> provides a single message flow named <span class='resource'>Validate</span> which receives data using an HTTPInput node. This node is configured to expect an XML message which conforms to <span class='resource'>ExampleModel.xsd</span> although the HTTPInput node itself is not set up to validate the message immediately. The next node in the flow is a Validate node which checks the input XML against the XML schema. The message is sent down the Match or Failure terminal depending on whether validation passes or fails. Next the graphical mapping node generates a suitable reply which is returned using the HTTPReply node at the end of the flow."
+            },
+            {
+              "section":"Once imported using the link on the right, the provided project is ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Create an integration node and deploy the message flow",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Prepare the scenario by executing the following steps:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code>"
+                  },
+                  {
+                    "details":"Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>Validate.bar</span> which you will find inside the <span class='application'>ExampleValidate</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>Validate.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                        },
+                        {
+                          "details":"Two saved messages are provided.<br>The input message <span class='resource'>ExampleFAIL</span> contains this data:<br><span class='resource'>&lt;Message&gt;&lt;InvalidName&gt;This message will FAIL validation&lt;/InvalidName&gt;&lt;/Message&gt;</span><br>The input message <span class='resource'>ExamplePASS</span> contains this data:<br><span class='resource'>&lt;Message&gt;&lt;Child&gt;This message will PASS validation&lt;/Child&gt;&lt;/Message&gt;</span><br>Select one of these input messages and click Send and your message is sent to the HTTPInput node."
+                        },
+                        {
+                          "details":"After you close the dialog, the path taken through the messageflow is highlighted. Try out both the input messages and note that the reply message reports the result of whether the validation passed or failed."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the Validate node check a message against an XML schema."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Validate node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac20803_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

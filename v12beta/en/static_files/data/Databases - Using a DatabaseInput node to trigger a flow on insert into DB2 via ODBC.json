@@ -1,0 +1,258 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Databases - Using a DatabaseInput node to trigger a flow on insert into DB2 via ODBC",
+      "shortDescription":"Learn how to use a DatabaseInput node to trigger a flow when data is inserted into DB2.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"DatabaseInput node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to trigger flows when data is inserted into a database."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that is driven by a DatabaseInput node which is triggered when a new row is inserted into a DB2 database table. The DatabaseInput node communicates with the database through an ODBC connection which is configured as part of this tutorial."
+          },
+          {
+            "section":"The tutorial requires an ACE integration node owned server, or a standalone server. In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. The instructions also describe how to create the DB2 database which is used by the scenario. This includes two database tables (an Application table named EMPLOYEES and an Event table named EVENTS) and a Database Trigger."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Interaction with databases using ESQL",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ak05800_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, two projects will be created in your workspace: An application named <span class='application'>ExampleDatabaseInput</span> and a data design project named <span class='application'>ExampleDataDesign</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleDatabaseInput</span> provides a single message flow named <span class='resource'>DatabaseInput</span> which uses a DatabaseInput node which is triggered when a new row is created in a nominated Event table. The Event table row is created by a DB2 Trigger, whenever a new row is inserted into an Application table. Once the message flow is triggered it will simply propagate data to a FileOutput node which is configured to write a simple JSON message to the file system."
+            },
+            {
+              "section":"Once imported using the link on the right, the provided projects are ready to be deployed and tested. The projects will be deployed to the integration server using a provided BAR file. Before you do this, you will need to create the required DB2 database tables and trigger, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare the database, set up your credentials, create the output directory and deploy",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"This tutorial uses DB2 to create a database, which the App Connect Enterprise message flow will interact with. It is assumed you have DB2 already installed successfully, and that you have access to a userid which has the required level of DB2 administrative privileges. Create a new example database for this tutorial named USERS:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Start a DB2 Command Window and execute the command:<br><code><span class='cmdname'>db2 create database USERS</span></code>"
+                  },
+                  {
+                    "details":"Next we will connect to the database which was just created and create two tables and a trigger. From the same window, start an interactive command session by typing <code><span class='cmdname'>db2</span></code> and then execute these commands:<br><code><span class='cmdname'>CONNECT TO USERS</span></code><br><code><span class='cmdname'>CREATE TABLE MYSCHEMA.EMPLOYEES (PKEY INTEGER NOT NULL, FIRSTNAME VARCHAR(30), LASTNAME VARCHAR(30), COUNTRY VARCHAR(2), PRIMARY KEY(PKEY))</span></code><br><code><span class='cmdname'>CREATE TABLE MYSCHEMA.EVENTS (EVENT_ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 NO CYCLE NO CACHE), OBJECT_KEY INTEGER NOT NULL, OBJECT_VERB VARCHAR(6), OBJECT_NAME VARCHAR(20), EVENT_PRIORITY INTEGER, EVENT_TIME TIMESTAMP, EVENT_STATUS INTEGER, PRIMARY KEY(EVENT_ID))</span></code><br><code><span class='cmdname'>CREATE TRIGGER MYSCHEMA.EMPLOYEES_TRIGGER AFTER INSERT ON MYSCHEMA.EMPLOYEES REFERENCING NEW AS N FOR EACH ROW INSERT INTO MYSCHEMA.EVENTS (OBJECT_KEY, OBJECT_VERB, OBJECT_NAME, EVENT_PRIORITY, EVENT_TIME, EVENT_STATUS) VALUES (N.PKEY,'CREATE','EMPLOYEE',1,CURRENT_TIMESTAMP,0)</span></code>"
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Set up an ODBC connection in the operating system:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"This tutorial assumes you are using Windows, but if this is not the case, full instructions are provided for configuring ODBC in the Knowledge Center links at the base of this section. On Windows, open the <span class='resource'>ODBC Data Source Administrator (64-bit)</span>, switch to the <span class='resource'>System DSN</span> tab, click the Add button, and select a driver for your database."
+                  },
+                  {
+                    "details":"Using DB2 in a default set-up, you should find an entry in the list labelled <span class='resource'>IBM DB2 ODBC Driver - DB2COPY1</span>. Select this entry and click Finish."
+                  },
+                  {
+                    "details":"In the resulting Add dialog, set the <span class='resource'>Data source name = USERS</span>, leave the <span class='resource'>Database alias = USERS</span> and click OK. You will be returned to the <span class='resource'>ODBC Data Source Administrator (64-bit)</span> window and you should clikc OK again to close this window too."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Create an integration node, and set up your credentials by completing the following steps:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Start an App Connect Enterprise command console and execute the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code><br><code><span class='cmdname'>mqsistop TESTNODE</span></code><br><code><span class='cmdname'>mqsisetdbparms TESTNODE -n odbc::USERS -u db2admin -p pass123</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code>"
+                  },
+                  {
+                    "details":"The above mqsisetdbparms command configures the runtime with the required credentials to access the USERS database."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"Create the required output directory on your file system and then deploy:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"The message flow assumes a Windows runtime platform will be used and will attempt to write an output file to the directory <code>C:\\temp</code>. If you are using Linux, change the <span class='application'>Directory</span> property on the <span class='application'>Basic</span> tab of the <span class='application'>FileOutput</span> node in the message flow <span class='application'>DatabaseInput</span>"
+                  },
+                  {
+                    "details":"If you have changed the flow to use a different directory then rebuild the provided BAR file named <span class='application'>DatabaseInput.bar</span> which you will find inside the <span class='application'>ExampleDatabaseInput</span> application. Drag and drop deploy the BAR file on to your integration server."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Enabling ODBC Connections to the databases",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ah14440_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>DatabaseInput.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Return to your DB2 Command Window and make an insert into the EMPLOYEES table using this command:<br><code><span class='cmdname'>INSERT INTO MYSCHEMA.EMPLOYEES (PKEY, FIRSTNAME, LASTNAME, COUNTRY) VALUES (1, 'Ben', 'Thompson', 'GB')</span></code>"
+                        },
+                        {
+                          "details":"Click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> to show the path taken through the message flow. This should show a green line highlighting that the DatabaseInput node propagated data to the FileOutput node."
+                        },
+                        {
+                          "details":"Check the output directory <span class='resource'>C:\\temp</span> and you should find an output file named <span class='resource'>Output.xml</span> has been created which contains this data:<br><span class='resource'>&lt;NS1:EMPLOYEES xmlns:NS1=\"http://users/myschema\"&gt;&lt;PKEY&gt;1&lt;/PKEY&gt;&lt;FIRSTNAME&gt;Ben&lt;/FIRSTNAME&gt;&lt;LASTNAME&gt;Thompson&lt;/LASTNAME&gt;&lt;COUNTRY&gt;GB&lt;/COUNTRY&gt;&lt;/NS1:EMPLOYEES&gt;</span>"
+                        },
+                        {
+                          "details":"You may wish to explore the row entry which has been left in the EVENTS table. Once an event record has been processed, its EVENT_STATUS column will be updated from the value 0 to the value 1. "
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the DatabaseInput node which communicates with a DB2 database using ODBC in order to be triggered when data is inserted."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Configuring a DatabaseInput node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bc34042_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

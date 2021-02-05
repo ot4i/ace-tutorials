@@ -1,0 +1,250 @@
+{
+    "version":"0.1",
+    "pageContent":{
+      "_comments":"object that contains data for page labels, buttons, etc.",
+      "navItems":{
+        "_common":{
+          "buttonBackToGallery":{
+            "name":"Back To Gallery",
+            "method":"backToGallery()",
+            "idName":"backToGallery"
+          },
+          "buttonStartTutorial":{
+            "name":"Start Tutorial",
+            "method":"startTutorialFromDetailsScreen()",
+            "idName":"startTutorial"
+          },
+          "buttonViewDetails":{
+            "name":"View Details",
+            "method":"viewDetails()",
+            "idName":"stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial":{
+      "_common":{
+        "name":"Databases - Using a Database node to insert data into a DB2 database via ODBC",
+        "shortDescription":"Learn how to use Database node ESQL to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
+        "durationText":"This tutorial takes approximately",
+        "durationTime":"10 minutes",
+        "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen":"MainFlow",
+        "helpLink":{
+          "text":"IBM Knowledge Center",
+          "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+        }
+      },
+      "pageDetails":{
+        "topicsName":"Tutorial Topics",
+        "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList":[
+          {
+            "title":"Database node"
+          }
+        ],
+        "outcomesName":"Learning outcomes",
+        "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList":[
+          {
+            "title":"Use IBM App Connect Enterprise to insert data into a database."
+          }
+        ],
+        "summary":{
+          "overviewName":"OVERVIEW",
+          "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections":[
+            {
+              "section":"This tutorial demonstrates a simple message flow that receives a JSON input message over HTTP, and takes data from four fields in the JSON to insert values into four corresponding columns of a DB2 database. The Database node's ESQL communicates with the database through an ODBC connection which is configured as part of the tutorial."
+            },
+            {
+              "section":"The tutorial requires an ACE integration node owned server, or a standalone server. In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. The instructions also describe how to create the empty DB2 database which is then used by the scenario."
+            }
+          ]
+        },
+        "helpLinks":{
+          "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Interaction with databases using ESQL",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ak05800_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      },
+      "pageSteps":{
+        "create":{
+          "overview":{
+            "name":"Create",
+            "heading":"Import projects",
+            "_createComment":"A description of what will happen when the user clicks Import.",
+            "sections":[
+              {
+                "section":"When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleDatabase</span>."
+              },
+              {
+                "section":"<span class='application'>ExampleDatabase</span> provides a single message flow named <span class='resource'>Database</span> which uses an HTTPInput node to receive a JSON input message, a Database node to communicate with DB2, and an HTTPReply node."
+              },
+              {
+                "section":"Once imported using the link on the right, the provided project is ready to be deployed and tested. The project will be deployed to the integration server using a provided BAR file. Before you do this, you will need to create the required DB2 database, as described on the Prepare tab."
+              }
+            ]
+          },
+          "helpLinks":{
+            "title":"Find out more",
+            "details":[
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Developing integration solutions by using applications",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type":"web"
+              }
+            ]
+          },
+          "actions":{
+            "title":"Create Actions",
+            "details":[
+              {
+                "name":"Import",
+                "method":"importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare":{
+          "overview":{
+            "name":"Prepare",
+            "heading":"Prepare the database, set up your credentials and deploy",
+            "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections":[
+              {
+                "section":"This tutorial uses DB2 to create a database, which the App Connect Enterprise message flow will interact with. It is assumed you have DB2 already installed successfully, and that you have access to a userid which has the required level of DB2 administrative privileges. Create a new example database for this tutorial named USERS:",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Start a DB2 Command Window and execute the command:<br><code><span class='cmdname'>db2 create database USERS</span></code>"
+                    },
+                    {
+                      "details":"Next we will connect to the database which was just created and create a table. From the same window, start an interactive command session by typing <code><span class='cmdname'>db2</span></code> and then execute these commands:<br><code><span class='cmdname'>CONNECT TO USERS</span></code><br><code><span class='cmdname'>CREATE TABLE MYSCHEMA.EMPLOYEES (PKEY INTEGER NOT NULL, FIRSTNAME VARCHAR(30), LASTNAME VARCHAR(30), COUNTRY VARCHAR(2), PRIMARY KEY(PKEY))</span></code>"
+                    }
+                  ]
+                }
+              },
+              {
+                "section":"Set up an ODBC connection in the operating system:",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"This tutorial assumes you are using Windows, but if this is not the case, full instructions are provided for configuring ODBC in the Knowledge Center links at the base of this section. On Windows, open the <span class='resource'>ODBC Data Source Administrator (64-bit)</span>, switch to the <span class='resource'>System DSN</span> tab, click the Add button, and select a driver for your database."
+                    },
+                    {
+                      "details":"Using DB2 in a default set-up, you should find an entry in the list labelled <span class='resource'>IBM DB2 ODBC Driver - DB2COPY1</span>. Select this entry and click Finish."
+                    },
+                    {
+                      "details":"In the resulting Add dialog, set the <span class='resource'>Data source name = USERS</span>, leave the <span class='resource'>Database alias = USERS</span> and click OK. You will be returned to the <span class='resource'>ODBC Data Source Administrator (64-bit)</span> window and you should clikc OK again to close this window too."
+                    }
+                  ]
+                }
+              },
+              {
+                "section":"Create an integration node, set up your credentials and deploy by completing the following steps:",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Start an App Connect Enterprise command console and execute the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code><br><code><span class='cmdname'>mqsistop TESTNODE</span></code><br><code><span class='cmdname'>mqsisetdbparms TESTNODE -n odbc::USERS -u db2admin -p pass123</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code>"
+                    },
+                    {
+                      "details":"The above mqsisetdbparms command configures the runtime with the required credentials to access the USERS database."
+                    },
+                    {
+                      "details":"Drag and drop deploy the provided BAR file named <span class='application'>Database.bar</span> which you will find inside the <span class='application'>ExampleDatabase</span> application."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks":{
+            "title":"Find out more",
+            "details":[
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Enabling ODBC Connections to the databases",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ah14440_.htm",
+                "type":"web"
+              }
+            ]
+          }
+        },
+        "run":{
+          "overview":{
+            "name":"Run",
+            "heading":"",
+            "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections":[
+              {
+                "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Open <span class='resource'>Database.msgflow</span>.",
+                      "substeps":{
+                        "type":"unordered",
+                        "details":[
+                          {
+                            "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                          },
+                          {
+                            "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                          },
+                          {
+                            "details":"Five saved messages are provided. Each message will drive the message flow to insert a row into the database table. Each message provides a JSON structure which has an equivalent field for each column in the database table. Select <span class='resource'>InputMessage1</span> and click Send and your message is sent to the HTTPInput node."
+                          },
+                          {
+                            "details":"<span class='resource'>InputMessage1</span> contains this data:<br><span class='resource'>{\"PrimaryKey\": 1,\"FirstName\":\"Ben\",\"LastName\":\"Thompson\",\"Country\":\"GB\"}</span>"
+                          },
+                          {
+                            "details":"The Database node interacts with the database but does not impact the format of the message passing through the flow. For this reason, you will find the same JSON has been returned to the test client from the HTTPReply node."
+                          },
+                          {
+                            "details":"After you close the dialog, the paths taken through the messageflow are highlighted. Repeat the test with the other four input messages, then check the database to see the data has been inserted successfully."
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "section":"This tutorial has shown the Database node using ESQL to communicate with a DB2 database using ODBC in order to insert data."
+              }
+            ]
+          },
+          "helpLinks":{
+            "title":"Find out more",
+            "details":[
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Interaction with databases using ESQL",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ak05800_.htm",
+                "type":"web"
+              },
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Testing your message flow by using the Flow exerciser",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type":"web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }

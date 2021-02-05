@@ -1,0 +1,184 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Getting started with ACEv12 - Resource Statistics",
+      "shortDescription":"Learn how to view ACE performance information using Resource Statistics",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"15 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"EventRoutingFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Finding and editing the server's configuration file"
+        },
+        {
+          "title":"Accessing the WebUI"
+        },
+        {
+          "title":"Viewing the resource statistics graphs"
+        },
+        {
+          "title":"Configuring the FileInput and FileOutput message flow nodes"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Understand how to locate the server's configuration file, turn on resource statistics and view them in real time using the Web UI. "
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial shows how to turn on resource statistics and then view the statistics information in real-time using the ACE administrative Web UI. This tutorial uses a message flow containing a FileInput and FileOutput message flow node to demonstrate these concepts."
+          },
+          {
+            "section":"A configuration file, known as 'server.conf.yaml', is used to control the integration server's resource statistics settings. In this example we will only focus on the resource statistics settings in this file, but many other options are available in order to control the server's configuration. "
+          },
+          {
+            "section":"Once an integration server has been created with resource statistics enabled, a simple message flow will be deployed and sent an input file for processing. The resource statistics regarding the file transfer inbound and outbound (statistics for Files Read, Records Read, Bytes Read, Files Created, Records Written, Bytes Written) will be viewed in real-time using the product's administrative Web UI. "
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          },
+          {
+            "title":"GitHub link to ",
+            "description":"DFDL Schemas",
+            "link":"http://github.com/DFDLSchemas",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"Click <span class='application'>Import</span> and the <span class='application'>ResourceStatsApp</span> application will be imported into your workspace. The project contains a message flow named <span class='application'>FileRecordSplitter</span>, and the BAR file <span class='application'>ResourceStatsDeploy.bar</span>."
+            },
+            {
+              "section":"The message flow is designed to read in a file, record by record, splitting the records from one another using the end of line character.  Each record contains either a JSON or XML structure. The message flow examines the first character of the line in order to decide which one it is, and routes it to the relevant FileOutput node. Each output file name is provided a number which reflects the line number of the record in the input file. This scenario lets us view varying File resource statistics in the web UI."
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare an Integration Server",
+          "_prepareComment":"Enable resource statistics tracking:",
+          "sections":[
+            {
+              "section":"You can use resource statistics with node owned integration servers and also independent integration servers. In this tutorial we will use an independent integration server.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open an App Connect Enterprise Command Console and create a working directory for an Integration Server using the following command: :<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\\ResourceStatsServer</code><br> where <b>C:\\ResourceStatsServer</b> will be the working directory for your integration server.</li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/ResourceStatsServer</code><br> where <b>/home/exampleuser/ResourceStatsServer</b> will be the working directory for your integration server.</li></ul>"
+                  },
+                  {
+                    "details":"Navigate to your working directory and locate the file 'server.conf.yaml' (following the above suggestion, this will be <code>C:\\ResourceStatsServer</code> on Windows and <code>/home/exampleuser/ResourceStatsServer</code> on UNIX). Open it using your preferred text editor, locate the Resource Statistics section and edit the settings (the comments in the sample help with allowed values, and you may need to remove some # comment characters).  Depending on the precise version of App Connect Enterprise v11 which you are using you will find that these settings are slightly different. In version 11.0.0.8 for example, the settings were changed to have resource statistics turned on by default:<br><code>Statistics<br>&nbsp;&nbsp;Resource:<br>&nbsp;&nbsp;&nbsp;&nbsp;reportingOn: true</code><br>Save and close the file."
+                  },
+                  {
+                    "details":"In the ACE Command Console, start an Integration Server:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --work-dir C:\\ResourceStatsServer --name StatsServer --admin-rest-api 7600 --http-port-number 7800 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --work-dir /home/exampleuser/ResourceStatsServer --name StatsServer --admin-rest-api 7600 --http-port-number 7800 --console-log</code></li></ul> Connect to the integration server from your Toolkit's Integration Explorer view (in the bottom left corner by default)."
+                  },
+                  {
+                    "details":"In the Toolkit, open the message flow <span class='application'>FileRecordSplitter</span>. Examine the FileInput node properties, and on the Basic properties tab edit the <code>Input Directory</code> property to a local directory on your file system. By default this has been set to <code>C:\\ResourceStatsInput</code>, but on UNIX for example you might choose <code>/home/exampleuser/ResourceStatsInput</code>. Do the same thing for the two FileOutput nodes, whose output directory has been defaulted to <code>C:\\ResourceStatsOutput</code>, but on UNIX for example you might choose <code>/home/exampleuser/ResourceStatsOutput</code>. From the Application Development view in the Toolkit, drag and drop deploy the project <span class='application'>ResourceStatsApp</span>, to the server."
+                  },
+                  {
+                    "details":"Right click on the server in the Toolkit and select <span class='application'>Start Web User Interface</span>."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to complete the tutorial",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Follow the following steps to complete the tutorial.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open a web browser to view the Web UI for the server (http://localhost:7600) and navigate to the display of 'Resource Statistics'. For detailed navigation help, please refer to the <a href=\"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bj43320_.html\">Knowledge Center</a> tab on the top navigation bar. When statistics start to appear, view the 'File' statistics."
+                  },
+                  {
+                    "details":"From your Toolkit workspace, look inside the <span class='application'>ResourceStatsApp</span> project and copy the provided input file <span class='application'>InputData.txt</span> and paste it into the input directory on your file system."
+                  },
+                  {
+                    "details":"Check the output file directory, and you should find several JSON output files and several XML output files. Open these and view the contents if you wish."
+                  },
+                  {
+                    "details":"Return to the Web UI for the server, and after a moment you should see several graphs with file statistics (such as Files Read, Records Read, Bytes Read, Files Created, Records Written, Bytes Written) begin to rise with direct correlation to the amount of data read, processed and written by the server."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

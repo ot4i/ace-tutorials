@@ -1,0 +1,217 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Using a Java User-Defined Node which reads a User-Defined Policy",
+      "shortDescription":"Learn how to deploy user-defined nodes using a provided example which reads values from a user-defined policy (requires v11.0.0.5 or higher).",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"User-defined nodes"
+        },
+        {
+          "title":"User-defined policies"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use a Java user-defined node to query values from a user-defined policy."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates user-defined policies and Java user-defined nodes. The source code for the user-defined node (both the Eclipse plugin and the runtime plugin) is provided as well as a built PAR (plugin archive) file. The tutorial describes where to place the runtime package and how to reference it from an integration node owned server. The user-defined node's properties specify the name of a property of a user-defined policy, and the policy project in which it resides. An application is provided which contains a single message flow driven by an HTTP input. The next node in the flow is an instance of the user-defined node which reads the prescribed property from the user-defined policy and reports it back in an HTTP reply."
+          },
+          {
+            "section":"The tutorial requires an ACE integration node owned server, which will be created and configured as part of the tutorial's instructions."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, four projects will be created in your workspace: An application named <span class='application'>ExampleAppUsingUDN</span>, a policy project named <span class='application'>ExampleUserDefinedPolicyProject</span>, a User-Defined Node project named <span class='application'>PolicyQuery</span> and a Java project named <span class='application'>PolicyQueryImpl</span>."
+            },
+            {
+              "section":"The User-Defined Node project <span class='application'>PolicyQuery</span> provides the files describing the toolkit part of the user-defined node. Its files provide the icons for the node and describe the names of its properties and terminals. The Java project <span class='application'>PolicyQueryImpl</span> contains code for the implementation of the runtime of the node. The code provides getters and setters for the node properties and the main evaluate method is found inside <span class='application'>PolicyQueryNode.java</span>. The other two projects provide an example message flow (in <span class='application'>ExampleUserDefinedPolicyProject</span>) and policy(in <span class='application'>ExampleUserDefinedPolicyProject</span>) which can be used to test the user-defined node implementation."
+            },
+            {
+              "section":"Once imported using the link on the right, the application named <span class='application'>ExampleAppUsingUDN</span> is ready to be deployed and tested. Before doing so, the instructions on the Prepare tab describe how to set up the runtime with the code for the user-defined node."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Create an integration node owned server, configure it with the User-defined node and then deploy a flow to test it",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Prepare the scenario by executing the following steps which assume a Windows platform:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code>"
+                  },
+                  {
+                    "details":"Inside <span class='application'>PolicyQueryImpl</span> you will find the built node as a plugin archive named <span class='application'>PolicyQuery.par</span>. This file needs to be made available to the ACE runtime. Copy the file to a directory named <span class='application'>C:\\temp\\ExampleLilPath</span>. Next, open the runtime integration node's configuration file (node.conf.yaml) which you will find in the ACE workpath. By default this will be at location <span class='application'>C:\\ProgramData\\IBM\\MQSI\\components\\TESTNODE</span>.Edit the node.conf.yaml by uncommenting the line shown below, and specifying the directory where you just copied your par file:<br><code>lilPath: 'C:\\temp\\ExampleLilPath'                 # A list of paths from where User-defined node LIL/JAR files are loaded. (multiple directories are separated by platform path separator)</code><br>Restart the integration node."
+                  },
+                  {
+                    "details":"Drag and drop deploy the provided BAR file named <span class='application'>AppUsingUDN.bar</span> which you will find inside the <span class='application'>ExampleAppUsingUDN</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>ExampleFlowUsingUDN.msgflow</span>",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"You will see red crosses showing problems in the flow because at this stage your Toolkit won't know anything about the user-defined node."
+                        },
+                        {
+                          "details":"Right click the <span class='resource'>PolicyQuery</span> User-defined node project, and select the option <span class='resource'>Start simulation</span> which will cause the Toolkit to load the user-defined node plugin. In the message flow, the instance of the PolicyQuery user-defined node will now be showing with its correct icon and the red crosses will have been resolved."
+                        },
+                        {
+                          "details":"At the top of the message flow, click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy and start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Once the flow has deployed, click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                        },
+                        {
+                          "details":"One saved input message named <span class='resource'>InputMessage</span> is provided. Select it and click Send and your message is sent to the HTTPInput node."
+                        },
+                        {
+                          "details":"<span class='resource'>InputMessage</span> contains this data:<br><span class='resource'>This can be anything</span>"
+                        },
+                        {
+                          "details":"Click on the reply message and you will see that it contains this data:<br><span class='resource'>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;<br>&lt;ResponseMessage&gt;<br>&nbsp;&nbsp;&lt;UserDefinedPolicyProject&gt;ExampleUserDefinedPolicyProject&lt;/UserDefinedPolicyProject&gt;<br>&nbsp;&nbsp;&lt;UserDefinedPolicy&gt;ExampleUserDefinedPolicy&lt;/UserDefinedPolicy&gt;<br>&nbsp;&nbsp;&lt;UserDefinedPolicyProperty&gt;Property2&lt;/UserDefinedPolicyProperty&gt;<br>&nbsp;&nbsp;&lt;UserDefinedPolicyPropertyValue&gt;ValueOfTwo&lt;/UserDefinedPolicyPropertyValue&gt;<br>&lt;/ResponseMessage&gt;</span>"
+                        },
+                        {
+                          "details":"After you close the dialog, the path taken through the message flow is highlighted."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown how to deploy user-defined nodes using a provided example which reads values from a user-defined policy."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"User-defined nodes",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/as37475_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

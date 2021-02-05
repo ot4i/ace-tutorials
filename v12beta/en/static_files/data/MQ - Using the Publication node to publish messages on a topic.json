@@ -1,0 +1,242 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"MQ - Using the Publication node to publish messages on a topic",
+      "shortDescription":"Learn how to use the Publication node to publish messages on an MQ topic defined on a local queue manager.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Publication node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to publish messages on an MQ topic defined on a local queue manager."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that is driven from a JSON input message over HTTP. An HTTPInput node receives the message and passes it unchanged to an HTTPReply node which echoes the same message back to the Requestor. The HTTPInput node also drives an HTTP Header node which deletes the HTTP input header, before invoking a Mapping node whose role is to set a message topic in the logical tree. Finally, a Publication node publishes to the defined MQ topic. A second message flow is provided which receives messages from three separate input queues, each of which receive messages courtesy of MQ subscriptions to the same topic used by the publication flow."
+          },
+          {
+            "section":"The tutorial requires an ACE integration node owned server, or a standalone server."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. This scenario uses the Publication node which requires your integration node or server to be associated with a local queue manager, so an MQ installation is required. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, a project will be created in your workspace: An application named <span class='application'>ExamplePublication</span>."
+            },
+            {
+              "section":"<span class='application'>ExamplePublication</span> provides two message flows named <span class='resource'>Publication</span> and <span class='resource'>Subscription</span>."
+            },
+            {
+              "section":"The <span class='resource'>Publication</span> message flow is driven by an HTTPInput nodes configured to receive a JSON input message. The HTTPInput is wired to an HTTPHeader node which deletes the input HTTP header and then drives a Mapping node to set the Topic name in the logical tree. The last node in the flow is the Publication node which publishes the message on the MQ topic."
+            },
+            {
+              "section":"The <span class='resource'>Subscription</span> message flow contains three separate MQInput nodes which each read from separate queues. Each MQInput is wired to the same Trace node which records information from the message to a local file."
+            },
+            {
+              "section":"Once imported using the link on the right, the application <span class='application'>ExamplePublication</span> is ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare a trace directory, create a queue manager and integration node, and then deploy the message flows",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"The tutorial includes a Trace node which uses a trace directory. The tutorial also requires MQ definitions for three queues and three subscriptions.  Execute the following steps to prepare your environment accordingly:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"The message flow's Trace node will attempt to write a trace file to the directory <code><span class='cmdname'>C:\\temp</span></code>. Create this directory if it does not already exist, or edit the Trace node in the message flow to use a different directory suitable for your runtime environment."
+                  },
+                  {
+                    "details":"Create an IBM MQ queue manager and configure it by completing the following steps:",
+                    "substeps":{
+                      "type":"ordered",
+                      "details":[
+                        {
+                          "details":"Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'>TESTQM</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'>TESTQM</span></code>"
+                        },
+                        {
+                          "details":"Next create the three queues and three subscriptions by typing the following commands:<br><code>runmqsc <span class='varname'>TESTQM</span></code><br><code>define ql(SUBQ1)</code><br><code>define ql(SUBQ2)</code><br><code>define ql(SUBQ3)</code><br><code>define sub(SUB1) TOPICSTR(EXAMPLE_TOPIC) DEST(SUBQ1)</code><br><code>define sub(SUB2) TOPICSTR(EXAMPLE_TOPIC) DEST(SUBQ2)</code><br><code>define sub(SUB3) TOPICSTR(EXAMPLE_TOPIC) DEST(SUBQ3)</code>"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Create an integration node which is associated with the above queue manager by completing the following steps:",
+                    "substeps":{
+                      "type":"ordered",
+                      "details":[
+                        {
+                          "details":"In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>TESTQM</span></code>"
+                        },
+                        {
+                          "details":"Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
+                        },
+                        {
+                          "details":"Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>PublishSubscribe.bar</span> which you will find inside the <span class='application'>ExamplePublication</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>Publication.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
+                        },
+                        {
+                          "details":"A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>{\"Message\":\"Hello World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. The same data should be echoed in the response. Close the dialog and a green line is shown plotting the full path of the message through the flow."
+                        },
+                        {
+                          "details":"Using a text editor open the trace file <span class='resource'>C:\\temp\\TracePublication.txt</span>, which should contain three entries, one for each of the paths in the Subscription flow:<br><code>================================================================================</code><br><code>A message arrived at the Trace node at 2019-08-12 21:53:11.597892</code><br><code>The flow propagation arrived through input queue 'SUBQ3'</code><br><code>The received message contained this data: 'Hello World'</code><br><code>================================================================================</code><br><code>================================================================================</code><br><code>A message arrived at the Trace node at 2019-08-12 21:53:11.597892</code><br><code>The flow propagation arrived through input queue 'SUBQ2'</code><br><code>The received message contained this data: 'Hello World'</code><br><code>================================================================================</code><br><code>================================================================================</code><br><code>A message arrived at the Trace node at 2019-08-12 21:53:11.597892</code><br><code>The flow propagation arrived through input queue 'SUBQ1'</code><br><code>The received message contained this data: 'Hello World'</code><br><code>================================================================================</code>"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the Publication node publishing messages on an MQ topic defined on a local queue manager."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Publication node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac04590_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

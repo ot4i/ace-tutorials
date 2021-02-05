@@ -1,0 +1,283 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Aggregation nodes using SOAPAsyncRequest nodes with back-end services",
+      "shortDescription":"Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous SOAP nodes.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"5 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Aggregation nodes"
+        },
+        {
+          "title":"Asynchronous SOAP/HTTP"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to fan-out requests over SOAP/HTTP and aggregate their responses."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple Integration Service that receives a SOAP/HTTP message, and fans-out two separate asynchronous SOAP/HTTP request messages (after simple transformations using a Mapping node). Two separate example back-end Integration Services are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the Integration Service aggregates values from the two response messages together."
+          },
+          {
+            "section":"This tutorial requires an ACE integration node (or standalone server) which is associated with a local queue manager."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. An Integration Service is a specialized form of an application with a defined interface and structure that acts as a container for a web services solution. This tutorial provides an Integration Service which holds the fan-out / fan-in aggregation flow, and two other back-end Integration Services. A shared library is used to hold the associated WSDL and XSD files describing the back-end services which is required by the main Integration Service."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using integration services",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12001_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, three Integration Services and one shared library will be created in your workspace:",
+              "steps":{
+                "type":"unordered",
+                "details":[
+                  {
+                    "details":"The Integration Service <span class='application'>AggregationSOAPAsync</span> provides a single operation named getAggregatedResponseOperation. The subflow representation of this operation uses SOAPAsyncRequest nodes to fan-out two requests. Two SOAPAsyncResponse nodes are used to fan-in reply messages from the back-end message flows. This Integration Service references the shared library named <span class='application'>AggregationSOAPAsyncLib</span> which contains WSDL and XSD definitions of the backend services."
+                  },
+                  {
+                    "details":"The Integration Service <span class='application'>AggregationSOAPBackend1</span> provides a single operation named backendOperation1 whose subflow representation uses a Mapping node to upper-case the input data."
+                  },
+                  {
+                    "details":"The Integration Service <span class='application'>AggregationSOAPBackend2</span> provides a single operation named backendOperation2 whose subflow representation uses a Mapping node to upper-case the input data."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"For simplicity, the three Integration Services can all be deployed to the same integration server. If you wish, you could deploy <span class='application'>AggregationSOAPBackend1</span> and <span class='application'>AggregationSOAPBackend2</span> to different integration servers. Once you import the tutorial, the provided applications are ready to be deployed and tested. Before you do this, you need to create the required MQ queues, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using integration services",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12001_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Create queues",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Although this solution uses HTTP to route messages between the Integration Services, the aggregation nodes require MQ queues to operate.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
+                    "substeps":{
+                      "type":"ordered",
+                      "details":[
+                        {
+                          "details":"Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'> qmgr</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'> qmgr</span></code>"
+                        },
+                        {
+                          "details":"Next create the queues by typing the following command:<br><code>server\\sample\\wmq\\iib_createqueues <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Create an integration node which is associated with the above queue manager by completing the following steps:",
+                    "substeps":{
+                      "type":"ordered",
+                      "details":[
+                        {
+                          "details":"In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>qmgr</span></code>"
+                        },
+                        {
+                          "details":"Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
+                        },
+                        {
+                          "details":"Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Deploy the required Shared Library</h4>",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Deploy the <span class='application'>AggregationSOAPAsyncLib</span> Shared Library, by dragging and dropping it on to the default integration server."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"<h4>Deploy the back-end Integration Services</h4>",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Deploy the <span class='application'>AggregationSOAPBackend1</span> Integration Service, by dragging and dropping it on to the default integration server."
+                  },
+                  {
+                    "details":"Deploy the <span class='application'>AggregationSOAPBackend2</span> Integration Service, by dragging and dropping it on to the default integration server."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"<h4>Test the scenario using the Flow Exerciser",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Look inside the <span class='resource'>AggregationSOAPAsync</span> Integration Service, and inside the Integration Servie Description folder, double-click the getAggregatedResponseOperation to open it.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow. If your Toolkit is connected to multiple servers, you may be asked which one you would like to use. Select an Integration Server under the node which you prepared to work with MQ in the Prepare section."
+                        },
+                        {
+                          "details":"Click the Send Message icon <img src='https://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />, choose the provided TestInputMessage and click Send."
+                        },
+                        {
+                          "details":"Note that the input message includes a SOAP Body which has string values in lower case:"
+                        },
+                        {
+                          "details":"In getAggregatedResponseOperation: <span class='resource'>...&lt;input1&gt;value1&lt;/input1&gt;&lt;input2&gt;value2&lt;/input2&gt;...</span>"
+                        },
+                        {
+                          "details":"The Flow Exerciser should report that a SOAP Reply message has been received. Note that this response message has string values in upper case which has occurred as a result of the aggregation's invocation of the backend services:"
+                        },
+                        {
+                          "details":"In getAggregatedResponseOperationResponse: <span class='resource'>...&lt;NS1:output1&gt;VALUE1&lt;/NS1:output1&gt;&lt;NS1:output2&gt;VALUE2&lt;/NS1:output2&gt;..."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "details":"Close the Flow Exerciser and navigate back to the graphical subflow view of getAggregatedResponseOperation: ",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"You should be able to see the path which the message followed through the flow."
+                        },
+                        {
+                          "details":"Click on the flow connections to see what the message tree looked like as it traversed through the Integration Service."
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the Aggregation nodes orchestrating an asynchronous fan-out and an associated fan-in of messages using the SOAP/HTTP transport to back-end services."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Message Flow Aggregation",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac00660_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

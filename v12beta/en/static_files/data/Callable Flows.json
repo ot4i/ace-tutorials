@@ -1,0 +1,248 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Callable Flows",
+      "shortDescription":"Learn how to use the CallableFlowInvoke, CallableInput and CallableReply nodes to divide processing between message flows.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"15 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"EventRoutingFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"CallableFlowInvoke node"
+        },
+        {
+          "title":"CallableInput and CallableReply nodes"
+        },
+        {
+          "title":"Testing Callable Flows locally"
+        },
+        {
+          "title":"Dynamically controlling the CallableFlowInvoke node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Understand how to make synchronous remote calls between message flows, on a single server and between integration nodes."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial shows how different parts of an application can be split between different processes using Callable Flow nodes.  The example uses an application which provides a raw HTTP/JSON service, and two separate applications which provide differently formatted timestamps for use in other flows."
+          },
+          {
+            "section":"This example uses a Callable Flow to provide that timestamp service, so it can be invoked from one or more message flows, but is not exposed outside the Integration Bus environment. A Mapping node is used to include the result of invoking the callable flow in the JSON response from the main flow."
+          },
+          {
+            "section":"A further extension to this scenario is that the calling flow can dynamically switch which flow it calls based on input data. You can also deploy updates to the Callable Flows without changing or redeploying the invoking flow."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions by using applications",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          },
+          {
+            "title":"GitHub link to ",
+            "description":"DFDL Schemas",
+            "link":"http://github.com/DFDLSchemas",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, three applications will be created in your workspace: <span class='application'>CallingParentApplication</span>, <span class='application'>CallableTimestamp</span> and <span class='application'>CallableTimestampAlternate</span>."
+            },
+            {
+              "section":"<span class='application'>CallableTimestamp</span> and <span class='application'>CallableTimestampAlternate</span> each implement a single message flow with a CallableInput and CallableReply node. Both applications are configured with the same Endpoint Name. In this tutorial, these two applications will run in the same integration server as the other flows. With additional configuration they can run on different servers or even on different machines."
+            },
+            {
+              "section":"<span class='application'>CallingParentApplication</span> has a single flow called <span class='msgflow'>TimestampMyJSON</span>. This exposes a raw HTTP service and uses a CallableFlowInvoke node to call one of the possible Timestamp flows. <span class='msgflow'>TimestampMyJSON</span> also allows a value in the input JSON to be specified which allows you to dynamically invoke a callable flow from a different application, overriding the default value specified on the CallableFlowInvoke node."
+            },
+            {
+              "section":"These are explained in more detail when you move on to the Prepare tab, along with setup steps you need to complete before running the flows."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using applications",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Callable message flows",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/cl23141_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Imported projects",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Look inside application <span class='application'>CallingParentApplication</span>. There is a message flow <span class='msgflow'>TimestampMyJSON</span> which has a CallableFlowInvoke node, with a label starting <span class='resource'>Call Timestamp Flow, updates body</span>. This is configured with two names: the Target Application and the Target Endpoint Name. These are used to resolve which callable flow is used."
+            },
+            {
+              "section":"The mapping node <span class='resource'>Apply any LE overrides</span> will set the value of <span class='varname'>LocalEnvironment/Destination/CallableFlow/Invoke/targetApplication</span> if set in the input JSON message. This allows a differently named application to be called from the <span class='resource'>CallableFlowInvoke</span> node, overriding the node option."
+            },
+            {
+              "section":"The two applications providing callable flows are built into a BAR file <span class='resource'>callable_flows.bar</span>. Deploy this BAR file now. The rest of this tutorial's instructions will assume the use of the default integration server owned by TESTNODE. Move on to the Run tab to exercise the flows and see them working."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions by using integration services",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing callable message flows",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/cl23143_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to complete the tutorial",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Use the <span class='resource'>TimestampMyJSON.msgflow</span> in application <span class='application'>CallingParentApplication</span> to run this tutorial. You should have already deployed the <span class='resource'>callable_flows.bar</span> to the default integration server on your TESTNODE.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>TimestampMyJSON.msgflow</span>, and click the Flow Exerciser icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to deploy and start testing the flow. If you are prompted where to deploy, ensure you deploy to the same integration server as the <span class='application'>CallableTimestamp</span> applications."
+                  },
+                  {
+                    "details":"Click the Send Message icon <img src='https://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                  },
+                  {
+                    "details":"Choose the input message <span class='resource'>JSON message, no overrides</span>, and click Send. Your request message is sent to the HTTP input node."
+                  },
+                  {
+                    "details":"When the list of actions is shown, click on the Received HTTP reply message... item to show the output from the flow. Note that a timestamp has been added into the output message."
+                  },
+                  {
+                    "details":"After you close the dialog, the path taken through the messageflow is highlighted. Click on the message icon on each connection to see how the tree is updated by each node."
+                  },
+                  {
+                    "details":"Once you have tried the first message, click Send Message <img src='https://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> again and select the <span class='resource'>JSON message, override target application</span> message. Note that it contains an additional tag <span class='userinput'>overriddenApplicationName</span> with value <span class='userinput'>CallableTimestampAlternate</span>."
+                  },
+                  {
+                    "details":"Send that through the flow and note the output contains <span class='userinput'>Alternate timestamp</span>. If you look at the message tree before the CallableFlowInvoke node, note that a value is set in LocalEnvironment to override the targetApplication, which makes the flow under test invoke a different Callable Flow."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"You can further experiment with this scenario by changing the <span class='application'>CallableTimestamp</span> application and redeploying it, and then sending a message through the unchanged <span class='application'>CallingParentApplication</span>. Note that the behaviour changes immediately without needing to change or redeploy the invoking flow."
+            },
+            {
+              "section":"This tutorial shows the invoking and callable flow running in the same integration server, which requires no additional setup. You can also use these applications to experiment with running the invoking flow and the callable flow on different integration servers or different machines, but some additional configuration is required to enable cross-server communication. Look at the Knowledge Center links below for information on topologies in which these flows can run, and how to set them up."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing callable message flows",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/cl23143_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Preparing the environment for callable flows",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/cl23148_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

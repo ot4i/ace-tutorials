@@ -1,0 +1,194 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Getting started with ACEv12 - Exploring the Web UI",
+      "shortDescription":"Learn some basics about administering ACE using a Web UI",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"15 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"EventRoutingFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Connecting to the ACE Web UI for an Integration Node"
+        },
+        {
+          "title":"Connecting to the ACE Web UI for an Integration Server (which is defined independently from an Integration Node)"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Become familiar with the key similarities and differences in the ACE Web UI views, depending on whether you are connected to an Integration Node, or an Integration Server."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial helps you explore the App Connect Enterprise Web UI which is used for administering installations of the software product. If you are not already familiar with the concept of an Integration Node and an Integration Server, you should start by looking through another tutorial named Getting Started with ACEv11 - Creating an Integration Server, which will help explain these concepts."
+          },
+          {
+            "section":"The App Connect Enterprise Web UI contains slightly different options depending on whether you connect to an Integration Node, or an Integration Server (which is defined independently from an Integration Node). This example uses a few simple flows to populate the WebUI enough to demonstrate the basics of it."
+          },
+          {
+            "section":"In this tutorial you will deploy several message flows to Integration Servers (both those associated with an Integration Node and those which are independent) and you will then use the Web UI to view what has been deployed."
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, the following projects will be created in your workspace:",
+              "steps":{
+                "type":"unordered",
+                "details":[
+                  {
+                    "details":"The Application <span class='application'>Transformation_Map</span> provides a simple HTTP driven message flow which transforms an XML message."
+                  },
+                  {
+                    "details":"The Integration Service <span class='application'>TemperatureConverter</span> provides an HTTP web service (based on a WSDL definition) which offers two operations for converting temperatures in celsius to fahrenheit and vice versa."
+                  },
+                  {
+                    "details":"The REST API <span class='application'>CustomerDatabaseV1</span> provides a REST interface for managing a set of customer records."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"These three types of project provide examples of the main kinds of integration which users deploy to the ACE runtime. Later in the tutorial we will deploy them and view them in the Web UI. The import process also provides a Broker Archive file named <span class='application'>Everything.bar</span> inside the project named <span class='application'>BARfiles</span>"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare an example ACE environment",
+          "_prepareComment":"Enable resource statistics tracking:",
+          "sections":[
+            {
+              "section":"<b>Prepare a server to host the ACE Web UI for administering an Integration Server</b>",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open an App Connect Enterprise Command Console and create a working directory by running the mqsicreateworkdir command:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\\MyServer</code></li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/MyServer</li></ul>"
+                  },
+                  {
+                    "details":"Edit the <code>server.conf.yaml</code> file which the above command will have created in the directory <code>C:\\MyServer</code> on Windows, or <code>/home/exampleuser/MyServer</code> on UNIX. To turn on Basic Authentication for users logging in to the ACE Web UI, find the line <code>&nbsp;&nbsp;#basicAuth: true</code> and uncomment the line by removing the leading # symbol. Remember to save the <code>server.conf.yaml</code> file."
+                  },
+                  {
+                    "details":"Use the mqsiwebuseradmin command to specify a web userid and password which will be used to login to the Web UI:<br><ul><li>If you are using a Windows platform: <code>mqsiwebuseradmin -w C:\\MyServer -c -u webuser -a password123</code></li><li>If you are using a UNIX platform: <code>mqsiwebuseradmin -w /home/exampleuser/MyServer -c -u webuser -a password123</code></li></ul>"
+                  },
+                  {
+                    "details":"Start an integration server using the following command: <br><ul><li>If you are using a Windows platform: <code>IntegrationServer --name MyServer --work-dir C:\\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --name MyServer --work-dir /home/exampleuser/MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li></ul>"
+                  },
+                  {
+                    "details":"We will use a web browser to explore the Web UI in the Run section of this tutorial."
+                  }
+                ]
+              }
+            },
+            {
+              "section":"<b>Prepare a server to host the ACE Web UI for administering an Integration Node</b>",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Now create an Integration Node and create three integration servers which will be owned by it. Open a new ACE Command Console and type:<br><code>mqsicreatebroker MyNode -P 4414</code><br><code>mqsistart MyNode</code><br><code>mqsicreateexecutiongroup MyNode -e MyNodeOwnedServer1</code><br>Repeat the final command and replace the 'MyNodeOwnedServer1' to create a 'MyNodeOwnedServer2', and 'MyNodeOwnedServer3'."
+                  },
+                  {
+                    "details":"We will use a web browser to explore the Web UI in the Run section of this tutorial."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Explore the ACE Web UI",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open a tab in a web browser and connect to the URL <code>http://localhost:7600</code>. This will present the WebUI for your standalone integration server, which we configured to use Basic Authentication.  When challenged type the username <code>webuser</code> and password <code>password123</code>.  Log-in should succeed and you should see several tabs along the top of the page (eg Contents), and a Deploy button on the right."
+                  },
+                  {
+                    "details":"Now we'll deploy the example BAR file using the Web UI. Click the 'Deploy' button on the right of the page. Click on 'Select a BAR file' and navigate to your toolkit's workspace. Select <code>Everything.bar</code> inside the <code>BARfiles</code> directory, and deploy it."
+                  },
+                  {
+                    "details":"Under the Contents tab you should now see the Application called Transformation_Map, the Integration Service called TemperatureConverter and the REST API called CustomerDatabaseV1. "
+                  },
+                  {
+                    "details":"Explore the other areas of the Web UI yourself.  Separate tutorials on the topic of Policies and Statistics are also provided in the Tutorials Gallery."
+                  },
+                  {
+                    "details":"Open another tab in your web browser and connect to the URL <code>http://localhost:4414</code>. This will show you information about the Integration Node named MyNode, and its three servers MyNodeOwnedServer1, MyNodeOwnedServer2 and MyNodeOwnedServer3 which you created earlier. You should see a tile representing each server, which you can click into to display their content, which will be empty to start with until you deploy something, which you might like to try!"
+                  },
+                  {
+                    "details":"In the server view of the Integration Node Web UI, on the right you will find a button labelled 'Create a Server'. You can use this option to create another integration server which is owned by the node."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

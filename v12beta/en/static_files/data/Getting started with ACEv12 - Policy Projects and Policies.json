@@ -1,0 +1,198 @@
+{
+  "version":"0.6",
+  "pageContent":{
+    "_comments":"JSON object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"Getting started with ACEv12 - Policy Projects and Policies",
+      "shortDescription":"Learn about configuring ACE behavior using Policies",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"15 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"EventRoutingFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"Creating a Policy Project"
+        },
+        {
+          "title":"Creating a Policy within a Policy Project"
+        },
+        {
+          "title":"Configuring a simple Policy"
+        },
+        {
+          "title":"Deploying and seeing the effects of a Policy"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Understand how to create a Policy within a Policy Project, configure it and then build it into a Bar file for deployment."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates how to create a simple Policy within a Policy Project. The example guides you through the creation of an Activity Log Policy which is deployed alongside a simple flow. The Activity Log Policy specifies how App Connect Enterprise should log activity associated with the deployed flow, saved directly to a local file."
+          },
+          {
+            "section":"App Connect Enterprise v11 introduces the concept of a Policy Project which can be created in the Toolkit, and is used to hold one or more policies. Policies are used to control connection properties and operational properties which are required by the ACE runtime. A policy can be used by an administrator to override or abstract some specific property values. For example sensitive data  which might differ between runtime environments such as Dev / Test / Production."
+          },
+          {
+            "section":"Policies can also be used to provide global properties that have wider scope than a message flow node, such as the Activity Log example in this tutorial.  To understand more about policy overrides, a separate specific tutorial on this topic has been provided."
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"Click <span class='uicontrol'>Import</span> and the <span class='application'>SimpleApp</span> application and the <span class='application'>SimplePolicyProject</span> policy project will be imported into your workspace"
+            },
+            {
+              "section":"This simple application contains a single messageflow named <span class='application'>HTTPEcho</span> which listens for HTTP data and just echoes the same data back in response. <span class='application'>SimplePolicyProject</span> contains a single policy which is of type <span class='application'>Activity Log</span>. "
+            },
+            {
+              "section":"Activity Log information helps you to understand what your message flows are doing by providing a high-level overview of interactions with external resources. Activity Log messages are concise and avoid technical complexity, although more information is provided in the message detail. Because the log entries are short, uncomplicated, and focused on single activities, they can be quickly scanned and understood. Patterns of behavior and changes to such patterns are easier to identify than in more extensive product trace. Activity Logs can be written to a circular file system. The ActivityLog policy is used to set up file logging if you want continuous logging of activities over a long period. In the next section we will deploy the policy and message flow and observe their behavior."
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare an Integration Server",
+          "_prepareComment":"Enable resource statistics tracking:",
+          "sections":[
+            {
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open the policy named <span class='application'>MyActivityLogPolicy.policyxml</span> inside the <span class='application'>SimplePolicyProject</span>"
+                  },
+                  {
+                    "details":"Edit the <code>File name</code> property of the policy:<br><ul><li>If you are using a Windows platform, set the <code>File name</code> property value to <code>C:\\MyServer\\ActivityLog.txt</code> and save the policy.</li><li>If you are using a UNIX platform, set the <code>File name</code> property value to <code>/MyServer/ActivityLog.txt</code> and save the policy.</li></ul>"
+                  },
+                  {
+                    "details":"Create a Broker Archive file inside <span class='application'>SimplePolicyProject</span> named <span class='application'>SimpleDeploy.bar</span>"
+                  },
+                  {
+                    "details":"Build the application and policy projects into the BAR file:<br> - Select the Applications radio button and select the <span class='application'>SimpleApp</span> application<br> - Select the Policies radio button and select the <span class='application'>SimplePolicyProject<br> - Click the 'Build and Save' button to generate the contents in the BAR file."
+                  },
+                  {
+                    "details":"If you are using Toolkit version 11.0.0.7 or later, then you can exploit the option to create a local integration server to test this tutorial. However the more detailed instructions which follow, work on earlier versions as well. Open an App Connect Enterprise Command Console and create a working directory by running the mqsicreateworkdir command:<br><ul><li>If you are using a Windows platform: <code>mqsicreateworkdir C:\\MyServer</code></li><li>If you are using a UNIX platform: <code>mqsicreateworkdir /home/exampleuser/MyServer</li></ul>"
+                  },
+                  {
+                    "details":"Start an Integration Server by typing the following command into the ACE Command Console:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --name MyServer --work-dir C:\\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --name MyServer --work-dir /home/exampleuser/MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li></ul>"
+                  },
+                  {
+                    "details":"Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class='application'>SimpleDeploy.bar</span>"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Creating a BAR file",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/af03870_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Adding resources to a BAR file",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/af03880_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Starting an integration server",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/be10140_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"Follow these steps to complete the tutorial",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"Follow the following steps to complete the tutorial.",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Test the message flow by sending HTTP data to it using a client such as cURL:<br><code>curl -X POST http://localhost:7900/HTTPEcho -d HelloWorld</code><br>The message flow should echo back the same HelloWorld message to the HTTP client. Repeat this test a few times."
+                  },
+                  {
+                    "details":"Navigate to the directory location which was specified when editting the Activity Log policy:<br><ul><li>If you are using a Windows platform, navigate to <code>C:\\MyServer</code> and you should see a text file with the name ActivityLog.txt</li><li>If you are using a UNIX platform, navigate to <code>/MyServer</code> and you should see a text file with the name ActivityLog.txt</li></ul>"
+                  },
+                  {
+                    "details":"Open this file in your preferred text editor and you should see log entries formatted as comma separated data. Each log line corresponds to one of the curl requests which you just made."
+                  },
+                  {
+                    "details":"This concludes our simple example demonstrating how to use an Activity Log Policy."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

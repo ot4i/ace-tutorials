@@ -1,0 +1,214 @@
+{
+  "version":"0.1",
+  "pageContent":{
+    "_comments":"object that contains data for page labels, buttons, etc.",
+    "navItems":{
+      "_common":{
+        "buttonBackToGallery":{
+          "name":"Back To Gallery",
+          "method":"backToGallery()",
+          "idName":"backToGallery"
+        },
+        "buttonStartTutorial":{
+          "name":"Start Tutorial",
+          "method":"startTutorialFromDetailsScreen()",
+          "idName":"startTutorial"
+        },
+        "buttonViewDetails":{
+          "name":"View Details",
+          "method":"viewDetails()",
+          "idName":"stepsViewDetails"
+        }
+      }
+    }
+  },
+  "tutorial":{
+    "_common":{
+      "name":"File - Using the FileInput node with Fixed Length record detection",
+      "shortDescription":"Learn how to use the FileInput node to parse fixed length records from a file.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+      "resourceToOpen":"MainFlow",
+      "helpLink":{
+        "text":"IBM Knowledge Center",
+        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+      }
+    },
+    "pageDetails":{
+      "topicsName":"Tutorial Topics",
+      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":[
+        {
+          "title":"FileInput node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":[
+        {
+          "title":"Use IBM App Connect Enterprise to read fixed length input data from a file."
+        }
+      ],
+      "summary":{
+        "overviewName":"OVERVIEW",
+        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+        "sections":[
+          {
+            "section":"This tutorial demonstrates a simple message flow that receives fixed length data from an input file using a FileInput node, and propagates records downstream through the flow one at a time. A Mapping node transforms each data record into an XML format, and adds it to a staging file using a FileOutput node. Once all records have been taken from the input file, the FileInput node sends a propagation out of the End of Data terminal, which is routed into the Finish File input terminal of the FileOutput node. This causes the staging file to be finished and moved to the specified output file name and directory."
+          },
+          {
+            "section":"The tutorial requires an IBM App Connect Enterprise integration node owned server, or a standalone server."
+          },
+          {
+            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. There are no other pre-requisites needed by the scenario."
+          }
+        ]
+      },
+      "helpLinks":{
+        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+        "title":"Find out more",
+        "details":[
+          {
+            "title":"Knowledge Center link to ",
+            "description":"Developing integration solutions from scratch",
+            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+            "type":"web"
+          }
+        ]
+      }
+    },
+    "pageSteps":{
+      "create":{
+        "overview":{
+          "name":"Create",
+          "heading":"Import projects",
+          "_createComment":"A description of what will happen when the user clicks Import.",
+          "sections":[
+            {
+              "section":"When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleFileInputFixedLength</span>."
+            },
+            {
+              "section":"<span class='application'>ExampleFileInputFixedLength</span> provides a single message flow named <span class='resource'>FileInputFixedLength</span> which uses a FileInput node to receive fixed length data from an input file and propagate the records downstream through the flow one at a time. Each record is transformed into XML and added to a staging file using a FileOutput node. After the last record has been taken from the input file, the FileInput node sends a propagation out of the End of Data terminal, which is routed into the Finish File input terminal of the FileOutput node. This causes the staging file to be finished and moved to the specified output file name and directory."
+            },
+            {
+              "section":"Once imported using the link on the right, the provided project is ready to be deployed and tested. To deploy, you can use a provided BAR file, as described on the Prepare tab."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Developing integration solutions from scratch",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type":"web"
+            }
+          ]
+        },
+        "actions":{
+          "title":"Create Actions",
+          "details":[
+            {
+              "name":"Import",
+              "method":"importArtifacts()"
+            }
+          ]
+        }
+      },
+      "prepare":{
+        "overview":{
+          "name":"Prepare",
+          "heading":"Prepare an output directory, create an integration node and deploy the message flow",
+          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+          "sections":[
+            {
+              "section":"Prepare the scenario by executing the following steps:",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"The message flow's FileInput node will attempt to read input files from the directory <code><span class='cmdname'>C:\\temp\\FileInput</span></code>. Create this directory if it does not already exist, or edit the FileInput node in the message flow to read from a different directory suitable for your runtime environment."
+                  },
+                  {
+                    "details":"The message flow's FileOutput node will attempt to write output files to the directory <code><span class='cmdname'>C:\\temp\\FileOutput</span></code>. Create this directory if it does not already exist, or edit the FileOutput node in the message flow to write to a different directory suitable for your runtime environment."
+                  },
+                  {
+                    "details":"Next, create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e server</span></code>"
+                  },
+                  {
+                    "details":"Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>FileInputFixedLength.bar</span> which you will find inside the <span class='application'>ExampleFileInputFixedLength</span> application."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "helpLinks":{
+          
+        }
+      },
+      "run":{
+        "overview":{
+          "name":"Run",
+          "heading":"",
+          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+          "sections":[
+            {
+              "section":"<h4>Use the Flow Exerciser to test the tutorial scenario",
+              "steps":{
+                "type":"ordered",
+                "details":[
+                  {
+                    "details":"Open <span class='resource'>FileInputFixedLength.msgflow</span>.",
+                    "substeps":{
+                      "type":"unordered",
+                      "details":[
+                        {
+                          "details":"Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                        },
+                        {
+                          "details":"Copy the provided input message from <code>&lt;Integration Toolkit workspace&gt;/ExampleFileInputFixedLength/FixedLengthInput.txt</code> to the input directory that you created on your file system. The file will be processed by the message flow and then deleted."
+                        },
+                        {
+                          "details":"In the Flow Exerciser toolbar, click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> to highlight the message path through the message flow. You can click on any highlighted connection to see the message data that passed through that connection."
+                        },
+                        {
+                          "details":"<span class='resource'>FixedLengthInput.txt</span> contains this data:<br><code>UnitedKingdom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Germany&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;France&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;India&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>"
+                        },
+                        {
+                          "details":"The flow should create an output file named <span class='resource'>C:\\temp\\FileOutput\\FixedLengthOutput.txt</span> which contains this data:<br><code>&lt;Message&gt;&lt;RecordNumber&gt;1&lt;/RecordNumber&gt;&lt;RecordData&gt;UnitedKingdom&lt;/RecordData&gt;&lt;/Message&gt;<br>&lt;Message&gt;&lt;RecordNumber&gt;2&lt;/RecordNumber&gt;&lt;RecordData&gt;USA&lt;/RecordData&gt;&lt;/Message&gt;<br>&lt;Message&gt;&lt;RecordNumber&gt;3&lt;/RecordNumber&gt;&lt;RecordData&gt;Germany&lt;/RecordData&gt;&lt;/Message&gt;<br>&lt;Message&gt;&lt;RecordNumber&gt;4&lt;/RecordNumber&gt;&lt;RecordData&gt;France&lt;/RecordData&gt;&lt;/Message&gt;<br>&lt;Message&gt;&lt;RecordNumber&gt;5&lt;/RecordNumber&gt;&lt;RecordData&gt;India&lt;/RecordData&gt;&lt;/Message&gt;</code>"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "section":"This tutorial has shown the FileInput node parsing fixed length records from a file."
+            }
+          ]
+        },
+        "helpLinks":{
+          "title":"Find out more",
+          "details":[
+            {
+              "title":"Knowledge Center link to ",
+              "description":"FileInput node",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac55150_.htm",
+              "type":"web"
+            },
+            {
+              "title":"Knowledge Center link to ",
+              "description":"Testing your message flow by using the Flow exerciser",
+              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/rt26110_.htm",
+              "type":"web"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
