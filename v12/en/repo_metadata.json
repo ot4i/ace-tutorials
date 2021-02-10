@@ -2176,7 +2176,7 @@
                                 "iibVersions"	: "12.*-12.*",
            	                "shortDesc"     : "Learn how to model Toshiba 4690 Point of Sale Transaction Log data by using Data Format Description Language (DFDL).",
            	                "detailsURL"    : "https://ot4i.github.io/dfdl-tlog-tutorial/v12/en/details.html",
-           	                "stepsURL"      : "https://ot4i.github.io/dfdl-tlog-tutorial/v12/en/steps.html",
+           	                "stepsURL"      : "https://ot4i.github.io/dfdl-tlog-tutorial/v12/en/steps7.html",
            	                "zipURL"        : "https://github.com/ot4i/dfdl-tlog-tutorial/releases/download/v1.0.0/dfdltlog_PI_v1.zip",
            	                "barFile"       : "",
            	                "visible"	: "true",
