@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <g id="icon-tree-file" >
+      <rect width="10" height="12" transform="translate(3 2)" fill="#fff"/>
+      <rect width="6" height="1" transform="translate(5 7)" fill="#525252"/>
+      <rect width="6" height="1" transform="translate(5 4)" fill="#525252"/>
+      <rect width="6" height="1" transform="translate(5 10)" fill="#525252"/>
+      <path d="M14,1V15H2V1ZM13,2H3V14H13Z" fill="#979797"/>
+  </g>
+</svg>
