@@ -18,8 +18,8 @@
 		            "version"	: "1.0",
 		            "iibVersions"	: "12.*-12.*",
 		            "shortDesc"     : "Learn how to quickly create a very simple message flow",
-		            "detailsURL"    : "https://ot4i.github.io/simple-flow-tutorial/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/simple-flow-tutorial/en/steps.html",
+		            "detailsURL"    : "https://ot4i.github.io/simple-flow-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/simple-flow-tutorial/v12/en/steps.html",
 					"zipURL" 	: "",
 					"barFile" 	: "",
 					"visible"	: "true",
@@ -46,8 +46,8 @@
 		            "version"	: "1.0",
 		            "iibVersions"	: "12.*-12.*",
 		            "shortDesc"     : "Learn some basics about integration servers and how to use them",
-		            "detailsURL"    : "https://ot4i.github.io/integration-server-tutorial/en/details.html",
-		            "stepsURL"      : "https://ot4i.github.io/integration-server-tutorial/en/steps.html",
+		            "detailsURL"    : "https://ot4i.github.io/integration-server-tutorial/v12/en/details.html",
+		            "stepsURL"      : "https://ot4i.github.io/integration-server-tutorial/v12/en/steps.html",
 					"zipURL" 	: "https://github.com/ot4i/integration-server-tutorial/releases/download/v2.0/PI_IntegrationServerTutorial.zip",
 					"barFile" 	: "",
 					"visible"	: "true",
@@ -305,18 +305,18 @@
 		            	"shortDesc"     : "Learn how to use the ACE Java IBM Integration API's strategic com.ibm.integration.admin.proxy.* classes",
 		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-model-tutorial/v12/en/details.html",
 		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-model-tutorial/v12/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/intapiv11-model-tutorial/releases/download/v1.0/PI_IntegrationAPIModel.zip",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-model-tutorial/releases/download/v2.0/PI_IntegrationAPIModel.zip",
 		            	"barFile"       : "<workspace>/ExampleApplication/DeployApplication.bar",
 		            	"visible"	: "true",
 		            	"tags"		: "administration",
 		            	"isPattern"	: "false",
 		            	"isFavorite"	: "true",
-		            	"projects"	: "ExampleApplication:ExampleACEV11AdminProgram",
+		            	"projects"	: "ExampleApplication:ExampleACEAdminProgram",
 		            	"editorResPaths": [
 		            				{
 		            				"id" : "MainJava",
 		            				"editor" : "java",
-		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
+		            			  	"wspath" : "<workspace>/ExampleACEAdminProgram/src/com/ibm/dev/ExampleACEAdminProgram.java"
 		            				}
 		            			],
 				"deployedResources" : [
@@ -333,18 +333,18 @@
 		            	"shortDesc"     : "Learn how to use the ACE Java IBM Integration API's strategic com.ibm.integration.admin.http.* classes",
 		            	"detailsURL"    : "https://ot4i.github.io/intapiv11-http-tutorial/v12/en/details.html",
 		            	"stepsURL"      : "https://ot4i.github.io/intapiv11-http-tutorial/v12/en/steps.html",
-		            	"zipURL"        : "https://github.com/ot4i/intapiv11-http-tutorial/releases/download/v1.0/PI_IntegrationAPIHTTP.zip",
+		            	"zipURL"        : "https://github.com/ot4i/intapiv11-http-tutorial/releases/download/v2.0/PI_IntegrationAPIHTTP.zip",
 		            	"barFile"       : "",
 		            	"visible"	: "true",
 		            	"tags"		: "administration",
 		            	"isPattern"	: "false",
 		            	"isFavorite"	: "true",
-		            	"projects"	: "ExampleACEV11AdminProgram_HTTPClient",
+		            	"projects"	: "ExampleACEAdminProgram_HTTPClient",
 		            	"editorResPaths": [
 		            				{
 		            				"id" : "MainJava",
 		            				"editor" : "java",
-		            			  	"wspath" : "<workspace>/ExampleACEV11AdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEV11AdminProgram_HTTPClient.java"
+		            			  	"wspath" : "<workspace>/ExampleACEAdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEAdminProgram_HTTPClient.java"
 		            				}
 		            			],
 				"deployedResources" : [
