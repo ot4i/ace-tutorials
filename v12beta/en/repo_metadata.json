@@ -45,7 +45,7 @@
           "iibVersions":"12.*-12.*",
           "shortDesc":"Learn some basics about integration servers and how to use them",
           "detailsURL":"https://ot4i.github.io/integration-server-tutorial/en/details.html",
-          "stepsURL":"https://ot4i.github.io/integration-server-tutorial/en/steps.html",
+          "stepsURL":"https://ot4i.github.io/ace-tutorials/v12beta/en/TutorialManager.html#/./tutorials/integration-server-tutorial",
           "zipURL":"https://github.com/ot4i/integration-server-tutorial/releases/download/v2.0/PI_IntegrationServerTutorial.zip",
           "barFile":"",
           "visible":"true",
