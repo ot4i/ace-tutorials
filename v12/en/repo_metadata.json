@@ -2235,24 +2235,24 @@
           "shortDesc":"Learn how to use a Compute node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
           "detailsURL":"http://ot4i.github.io/jsonobject-compute-tutorial/v12/en/details.html",
           "stepsURL":"https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-compute-tutorial",
-          "zipURL":"https://github.com/ot4i/rest-api-tutorial/releases/download/V1/CustomerDatabasePI_V1.zip",
-          "barFile":"<workspace>/BARfiles/CustomerDatabaseV1.bar",
+          "zipURL":"https://github.com/ot4i/jsonobject-compute-tutorial/releases/download/V1/PI_jsonobjectcompute.zip",
+          "barFile":"",
           "visible":"true",
-          "tags":"rest api",
+          "tags":"JSON",
           "isPattern":"false",
           "isFavorite":"true",
-          "projects":"BARfiles:CustomerDatabaseJava:CustomerDatabaseV1",
-          "editorResPaths":[
+          "projects":"Example_JSONObject_ESQL",
+		  "editorResPaths":[
             {
-              "id":"CustomerDatabaseV1",
-              "editor":"",
-              "wspath":"<workspace>/CustomerDatabaseV1/restapi.descriptor"
+              "id":"MainFlow",
+              "editor":"flow",
+              "wspath":"<workspace>/Example_JSONObject_ESQL/Example_JSONObject_ESQL.msgflow"
             }
           ],
           "deployedResources":[
             {
-              "type":"restapi",
-              "path":"CustomerDatabaseV1"
+              "type":"application",
+              "path":"Example_JSONObject_ESQL"
             }
           ]
         }
