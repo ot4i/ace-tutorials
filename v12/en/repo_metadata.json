@@ -2233,9 +2233,9 @@
           "version":"1.0",
           "iibVersions":"12.*-12.*",
           "shortDesc":"Learn how to use a Compute node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
-          "detailsURL":"http://ot4i.github.io/jsonobject-compute-tutorial/v12/en/details.html",
+          "detailsURL":"https://ot4i.github.io/jsonobject-compute-tutorial/v12/en/details.html",
           "stepsURL":"https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-compute-tutorial",
-          "zipURL":"https://github.com/ot4i/jsonobject-compute-tutorial/releases/download/V1/PI_jsonobjectcompute.zip",
+          "zipURL":"https://github.com/ot4i/jsonobject-compute-tutorial/releases/download/v1.0/PI_jsonobjectcompute.zip",
           "barFile":"",
           "visible":"true",
           "tags":"JSON",
@@ -2255,9 +2255,37 @@
               "path":"Example_JSONObject_ESQL"
             }
           ]
+        },
+		{
+          "name":"JSON - Using a Compute node to create a JSON Array message",
+          "version":"1.0",
+          "iibVersions":"12.*-12.*",
+          "shortDesc":"Learn how to use a Compute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
+          "detailsURL":"https://ot4i.github.io/jsonarray-compute-tutorial/v12/en/details.html",
+          "stepsURL":"https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-compute-tutorial",
+          "zipURL":"https://github.com/ot4i/jsonarray-compute-tutorial/releases/download/v1.0/PI_jsonarraycompute.zip",
+          "barFile":"",
+          "visible":"true",
+          "tags":"JSON",
+          "isPattern":"false",
+          "isFavorite":"true",
+          "projects":"Example_JSONArray_ESQL",
+		  "editorResPaths":[
+            {
+              "id":"MainFlow",
+              "editor":"flow",
+              "wspath":"<workspace>/Example_JSONArray_ESQL/Example_JSONArray_ESQL.msgflow"
+            }
+          ],
+          "deployedResources":[
+            {
+              "type":"application",
+              "path":"Example_JSONArray_ESQL"
+            }
+          ]
         }
 	    ]
-    },
+    },	
     {
       "name":"Scenarios",
       "description":"Explore powerful App Connect Enterprise capabilities through integrated scenarios",
