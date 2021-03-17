@@ -1,5 +1,5 @@
 {
-  "(V11.0.0.4) Using a Mapping node to graphically access a Lookup table that is stored in the Global Cache": {
+  "(V11.0.0.4) Using a Mapping node to graphically access a Lookup table that is stored in the Global Cache":{
     "version":"0.6",
     "pageContent":{
       "_comments":"JSON object that contains data for page labels, buttons, etc.",
@@ -359,117 +359,78 @@
       }
     }
   },
-  "Aggregation nodes using CallableFlowAsyncInvoke nodes with back-end services": {
+  "Aggregation nodes using CallableFlowAsyncInvoke nodes with back-end services":{
     "version":"0.1",
-  "pageContent":{
-    "_comments":"object that contains data for page labels, buttons, etc.",
-    "navItems":{
+    "pageContent":{
+      "_comments":"object that contains data for page labels, buttons, etc.",
+      "navItems":{
+        "_common":{
+          "buttonBackToGallery":{
+            "name":"Back To Gallery",
+            "method":"backToGallery()",
+            "idName":"backToGallery"
+          },
+          "buttonStartTutorial":{
+            "name":"Start Tutorial",
+            "method":"startTutorialFromDetailsScreen()",
+            "idName":"startTutorial"
+          },
+          "buttonViewDetails":{
+            "name":"View Details",
+            "method":"viewDetails()",
+            "idName":"stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial":{
       "_common":{
-        "buttonBackToGallery":{
-          "name":"Back To Gallery",
-          "method":"backToGallery()",
-          "idName":"backToGallery"
-        },
-        "buttonStartTutorial":{
-          "name":"Start Tutorial",
-          "method":"startTutorialFromDetailsScreen()",
-          "idName":"startTutorial"
-        },
-        "buttonViewDetails":{
-          "name":"View Details",
-          "method":"viewDetails()",
-          "idName":"stepsViewDetails"
+        "name":"Aggregation nodes using CallableFlowAsyncInvoke nodes with back-end services",
+        "shortDescription":"Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous Callable Flow nodes.",
+        "durationText":"This tutorial takes approximately",
+        "durationTime":"5 minutes",
+        "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen":"MainFlow",
+        "helpLink":{
+          "text":"IBM Knowledge Center",
+          "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
         }
-      }
-    }
-  },
-  "tutorial":{
-    "_common":{
-      "name":"Aggregation nodes using CallableFlowAsyncInvoke nodes with back-end services",
-      "shortDescription":"Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous Callable Flow nodes.",
-      "durationText":"This tutorial takes approximately",
-      "durationTime":"5 minutes",
-      "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
-      "resourceToOpen":"MainFlow",
-      "helpLink":{
-        "text":"IBM Knowledge Center",
-        "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
-      }
-    },
-    "pageDetails":{
-      "topicsName":"Tutorial Topics",
-      "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
-      "topicList":[
-        {
-          "title":"Aggregation nodes"
-        },
-        {
-          "title":"Asynchronous Callable Flows"
-        }
-      ],
-      "outcomesName":"Learning outcomes",
-      "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
-      "outcomeList":[
-        {
-          "title":"Use IBM App Connect Enterprise to fan-out asynchronous Callable Flow invocations and aggregate their responses."
-        }
-      ],
-      "summary":{
-        "overviewName":"OVERVIEW",
-        "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
-        "sections":[
-          {
-            "section":"This tutorial demonstrates a simple REST API that receives an HTTP GET, and fans-out two separate asynchronous Callable Flow invocations (after simple transformations using a Mapping node). Two separate example back-end message flows are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the REST API aggregates values from the two response messages together."
-          },
-          {
-            "section":"This tutorial requires an ACE integration node (or standalone server) which is associated with a local queue manager."
-          },
-          {
-            "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. A REST API is a specialized form of an application which describes a set of resources, and a set of operations that can be called on those resources from any HTTP client. This tutorial provides a REST API which holds the fan-out / fan-in aggregation flow, and two other applications for the back-end callable flows."
-          }
-        ]
       },
-      "helpLinks":{
-        "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
-        "title":"Find out more",
-        "details":[
+      "pageDetails":{
+        "topicsName":"Tutorial Topics",
+        "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList":[
           {
-            "title":"Knowledge Center link to ",
-            "description":"Developing integration solutions by using applications",
-            "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
-            "type":"web"
+            "title":"Aggregation nodes"
+          },
+          {
+            "title":"Asynchronous Callable Flows"
           }
-        ]
-      }
-    },
-    "pageSteps":{
-      "create":{
-        "overview":{
-          "name":"Create",
-          "heading":"Import projects",
-          "_createComment":"A description of what will happen when the user clicks Import.",
+        ],
+        "outcomesName":"Learning outcomes",
+        "_outcomesComment":"A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList":[
+          {
+            "title":"Use IBM App Connect Enterprise to fan-out asynchronous Callable Flow invocations and aggregate their responses."
+          }
+        ],
+        "summary":{
+          "overviewName":"OVERVIEW",
+          "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
           "sections":[
             {
-              "section":"When you click Import, one REST API and two applications will be created in your workspace:"
+              "section":"This tutorial demonstrates a simple REST API that receives an HTTP GET, and fans-out two separate asynchronous Callable Flow invocations (after simple transformations using a Mapping node). Two separate example back-end message flows are provided which receive these requests, do a trivial transformation to upper-case the data, and reply. The fan-in part of the REST API aggregates values from the two response messages together."
             },
             {
-              "section":"The REST API <span class='application'>AggregationCallableAsync</span> provides a single GET operation on a resource named AggregationResponse. The subflow representation of the operation, <span class='application'>getAggregatedResponse.subflow</span>, uses CallableFlowAsyncInvoke nodes to fan-out two requests. Two CallableFlowAsyncResponse nodes are used to fan-in reply messages from the back-end message flows."
+              "section":"This tutorial requires an ACE integration node (or standalone server) which is associated with a local queue manager."
             },
             {
-              "section":"The Application <span class='application'>AggregationCallableAsyncBackend1</span> provides a single message flow with CallableInput, Mapping and CallableReply nodes."
-            },
-            {
-              "section":"The Application <span class='application'>AggregationCallableAsyncBackend2</span> provides a single message flow with CallableInput, Mapping and CallableReply nodes."
-            },
-            {
-              "section":"For simplicity, the REST API and two back-end applications can all be deployed to the same integration server. If you wish, you could deploy AggregationCallableAsyncBackend1 and AggregationCallableAsyncBackend2 to different integration servers (assuming you configure a Switch component to link the callable flows)."
-            },
-            {
-              "section":"Once you import the tutorial, the provided applications are ready to be deployed and tested. Before you do this, you need to create the required MQ queues, as described on the Prepare tab."
+              "section":"In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. A REST API is a specialized form of an application which describes a set of resources, and a set of operations that can be called on those resources from any HTTP client. This tutorial provides a REST API which holds the fan-out / fan-in aggregation flow, and two other applications for the back-end callable flows."
             }
           ]
         },
         "helpLinks":{
+          "_helpLinksComment":"Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
           "title":"Find out more",
           "details":[
             {
@@ -479,162 +440,201 @@
               "type":"web"
             }
           ]
-        },
-        "actions":{
-          "title":"Create Actions",
-          "details":[
-            {
-              "name":"Import",
-              "method":"importArtifacts()"
-            }
-          ]
         }
       },
-      "prepare":{
-        "overview":{
-          "name":"Prepare",
-          "heading":"Create queues",
-          "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
-          "sections":[
-            {
-              "section":"Although this solution uses Callable Flows to route messages between the REST API and applications, the aggregation nodes require MQ queues to operate.",
-              "steps":{
-                "type":"ordered",
-                "details":[
-                  {
-                    "details":"Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
-                    "substeps":{
-                      "type":"ordered",
-                      "details":[
-                        {
-                          "details":"Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'> qmgr</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'> qmgr</span></code>"
-                        },
-                        {
-                          "details":"Next create the queues by typing the following command:<br><code>server\\sample\\wmq\\iib_createqueues <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name."
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "details":"Create an integration node which is associated with the above queue manager by completing the following steps:",
-                    "substeps":{
-                      "type":"ordered",
-                      "details":[
-                        {
-                          "details":"In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>qmgr</span></code>"
-                        },
-                        {
-                          "details":"Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
-                        },
-                        {
-                          "details":"Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
-                        }
-                      ]
-                    }
-                  }
-                ]
+      "pageSteps":{
+        "create":{
+          "overview":{
+            "name":"Create",
+            "heading":"Import projects",
+            "_createComment":"A description of what will happen when the user clicks Import.",
+            "sections":[
+              {
+                "section":"When you click Import, one REST API and two applications will be created in your workspace:"
+              },
+              {
+                "section":"The REST API <span class='application'>AggregationCallableAsync</span> provides a single GET operation on a resource named AggregationResponse. The subflow representation of the operation, <span class='application'>getAggregatedResponse.subflow</span>, uses CallableFlowAsyncInvoke nodes to fan-out two requests. Two CallableFlowAsyncResponse nodes are used to fan-in reply messages from the back-end message flows."
+              },
+              {
+                "section":"The Application <span class='application'>AggregationCallableAsyncBackend1</span> provides a single message flow with CallableInput, Mapping and CallableReply nodes."
+              },
+              {
+                "section":"The Application <span class='application'>AggregationCallableAsyncBackend2</span> provides a single message flow with CallableInput, Mapping and CallableReply nodes."
+              },
+              {
+                "section":"For simplicity, the REST API and two back-end applications can all be deployed to the same integration server. If you wish, you could deploy AggregationCallableAsyncBackend1 and AggregationCallableAsyncBackend2 to different integration servers (assuming you configure a Switch component to link the callable flows)."
+              },
+              {
+                "section":"Once you import the tutorial, the provided applications are ready to be deployed and tested. Before you do this, you need to create the required MQ queues, as described on the Prepare tab."
               }
-            }
-          ]
+            ]
+          },
+          "helpLinks":{
+            "title":"Find out more",
+            "details":[
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Developing integration solutions by using applications",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type":"web"
+              }
+            ]
+          },
+          "actions":{
+            "title":"Create Actions",
+            "details":[
+              {
+                "name":"Import",
+                "method":"importArtifacts()"
+              }
+            ]
+          }
         },
-        "helpLinks":{
+        "prepare":{
+          "overview":{
+            "name":"Prepare",
+            "heading":"Create queues",
+            "_prepareComment":"A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections":[
+              {
+                "section":"Although this solution uses Callable Flows to route messages between the REST API and applications, the aggregation nodes require MQ queues to operate.",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
+                      "substeps":{
+                        "type":"ordered",
+                        "details":[
+                          {
+                            "details":"Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'> qmgr</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'> qmgr</span></code>"
+                          },
+                          {
+                            "details":"Next create the queues by typing the following command:<br><code>server\\sample\\wmq\\iib_createqueues <span class='varname'>qmgr</span></code><br>where<br><span class='varname'>qmgr</span> is the queue manager name."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details":"Create an integration node which is associated with the above queue manager by completing the following steps:",
+                      "substeps":{
+                        "type":"ordered",
+                        "details":[
+                          {
+                            "details":"In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>qmgr</span></code>"
+                          },
+                          {
+                            "details":"Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
+                          },
+                          {
+                            "details":"Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks":{
 
-        }
-      },
-      "run":{
-        "overview":{
-          "name":"Run",
-          "heading":"",
-          "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
-          "sections":[
-            {
-              "section":"<h4>Deploy the back-end Callable Flow Applications</h4>",
-              "steps":{
-                "type":"ordered",
-                "details":[
-                  {
-                    "details":"Deploy the <span class='application'>AggregationCallableAsyncBackend1</span> application, by dragging and dropping it on to the default integration server."
-                  },
-                  {
-                    "details":"Deploy the <span class='application'>AggregationCallableAsyncBackend2</span> application, by dragging and dropping it on to the default integration server."
-                  }
-                ]
-              }
-            },
-            {
-              "section":"<h4>Use any web browser to simply test the REST API",
-              "steps":{
-                "type":"ordered",
-                "details":[
-                  {
-                    "details":"Look inside the <span class='resource'>AggregationCallableAsync</span> REST API, right-click the <span class='resource'>AggregationCallableAsync.msgflow</span> and select <span class='resource'>Open with > Message Flow Editor</span>.",
-                    "substeps":{
-                      "type":"unordered",
-                      "details":[
-                        {
-                          "details":"Click the Flow Exerciser icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "details":"Open any web browser. We will be using this to send an HTTP GET into the REST API <span class='resource'>AggregationCallableAsync</span>.",
-                    "substeps":{
-                      "type":"unordered",
-                      "details":[
-                        {
-                          "details":"In the address bar of the browser paste in the URL for the HTTP GET operation. If you have used default settings, then this is likely to be:"
-                        },
-                        {
-                          "details":"http://localhost:7080/aggregationcallableasync/v1/AggregatedResponse?Field1=value1&Field2=value2"
-                        },
-                        {
-                          "details":"Note that this URL includes query parameters with the values <span class='resource'>value1</span> and <span class='resource'>value2</span>. One of these values will be sent to each back-end flow. The back end flows will uppercase the values and reply."
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "details":"Return to <span class='resource'>AggregationCallableAsync.msgflow</span>.",
-                    "substeps":{
-                      "type":"unordered",
-                      "details":[
-                        {
-                          "details":"Click the View Path icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> to see the path which the message took through the flow and see the message content on the path. You can open the subflow <span class='resource'>getAggregatedResponse.subflow</span> and click on the flow connections to see what the message tree looked like as it traversed through the REST API."
-                        },
-                        {
-                          "details":"Back in the web browser, you should see the final output message carries return data from both of the back-end callable message flows which has been changed to upper case. It should look like this:"
-                        },
-                        {
-                          "details":"<span class='resource'>{&quot;ResponseBackend1&quot;:&quot;VALUE1&quot;,&quot;ResponseBackend2&quot;:&quot;VALUE2&quot;}</span>"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "section":"This tutorial has shown the Aggregation nodes orchestrating an asynchronous fan-out and an associated fan-in of messages to Callable Flows."
-            }
-          ]
+          }
         },
-        "helpLinks":{
-          "title":"Find out more",
-          "details":[
-            {
-              "title":"Knowledge Center link to ",
-              "description":"Message Flow Aggregation",
-              "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac00660_.htm",
-              "type":"web"
-            }
-          ]
+        "run":{
+          "overview":{
+            "name":"Run",
+            "heading":"",
+            "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections":[
+              {
+                "section":"<h4>Deploy the back-end Callable Flow Applications</h4>",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Deploy the <span class='application'>AggregationCallableAsyncBackend1</span> application, by dragging and dropping it on to the default integration server."
+                    },
+                    {
+                      "details":"Deploy the <span class='application'>AggregationCallableAsyncBackend2</span> application, by dragging and dropping it on to the default integration server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section":"<h4>Use any web browser to simply test the REST API",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Look inside the <span class='resource'>AggregationCallableAsync</span> REST API, right-click the <span class='resource'>AggregationCallableAsync.msgflow</span> and select <span class='resource'>Open with > Message Flow Editor</span>.",
+                      "substeps":{
+                        "type":"unordered",
+                        "details":[
+                          {
+                            "details":"Click the Flow Exerciser icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details":"Open any web browser. We will be using this to send an HTTP GET into the REST API <span class='resource'>AggregationCallableAsync</span>.",
+                      "substeps":{
+                        "type":"unordered",
+                        "details":[
+                          {
+                            "details":"In the address bar of the browser paste in the URL for the HTTP GET operation. If you have used default settings, then this is likely to be:"
+                          },
+                          {
+                            "details":"http://localhost:7080/aggregationcallableasync/v1/AggregatedResponse?Field1=value1&Field2=value2"
+                          },
+                          {
+                            "details":"Note that this URL includes query parameters with the values <span class='resource'>value1</span> and <span class='resource'>value2</span>. One of these values will be sent to each back-end flow. The back end flows will uppercase the values and reply."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details":"Return to <span class='resource'>AggregationCallableAsync.msgflow</span>.",
+                      "substeps":{
+                        "type":"unordered",
+                        "details":[
+                          {
+                            "details":"Click the View Path icon <img src='https://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> to see the path which the message took through the flow and see the message content on the path. You can open the subflow <span class='resource'>getAggregatedResponse.subflow</span> and click on the flow connections to see what the message tree looked like as it traversed through the REST API."
+                          },
+                          {
+                            "details":"Back in the web browser, you should see the final output message carries return data from both of the back-end callable message flows which has been changed to upper case. It should look like this:"
+                          },
+                          {
+                            "details":"<span class='resource'>{&quot;ResponseBackend1&quot;:&quot;VALUE1&quot;,&quot;ResponseBackend2&quot;:&quot;VALUE2&quot;}</span>"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "section":"This tutorial has shown the Aggregation nodes orchestrating an asynchronous fan-out and an associated fan-in of messages to Callable Flows."
+              }
+            ]
+          },
+          "helpLinks":{
+            "title":"Find out more",
+            "details":[
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Message Flow Aggregation",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/ac00660_.htm",
+                "type":"web"
+              }
+            ]
+          }
         }
       }
     }
-  }
   },
-  "Aggregation nodes using HTTPAsyncRequest nodes with back-end services": {
+  "Aggregation nodes using HTTPAsyncRequest nodes with back-end services":{
     "version":"0.1",
     "pageContent":{
       "_comments":"object that contains data for page labels, buttons, etc.",
@@ -19640,6 +19640,162 @@
                 "name":"Clean Up",
                 "description":"Clean up and remove any changes in your workspace made by the tutorial.",
                 "method":"cleanUp()"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "JSON - Using a Compute node to create a JSON Object message":{
+    "version":"0.1",
+    "pageContent":{
+      "_comments":"JSON object that contains data for page labels, buttons, etc.",
+      "navItems":{
+        "_common":{
+          "buttonBackToGallery":{
+            "name":"Back To Gallery",
+            "method":"backToGallery()",
+            "idName":"backToGallery"
+          },
+          "buttonStartTutorial":{
+            "name":"Start Tutorial",
+            "method":"startTutorialFromDetailsScreen()",
+            "idName":"startTutorial"
+          },
+          "buttonViewDetails":{
+            "name":"View Details",
+            "method":"viewDetails()",
+            "idName":"stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial":{
+      "_common":{
+        "name":"JSON - Using a Compute node to create a JSON Object message",
+        "shortDescription":"Learn how to use a Compute node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
+        "durationText":"This tutorial takes approximately",
+        "durationTime":"5 minutes",
+        "_resourceToOpenComment":"The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen":"Example_JSONArray_ESQL",
+        "helpLink":{
+          "text":"IBM Knowledge Center",
+          "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
+        }
+      },
+      "pageDetails":{
+        "topicsName":"Tutorial Topics",
+        "_topicListComment":"A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList":[
+          {
+            "title":"Compute node"
+          },
+          {
+            "title":"JSON writing"
+          }
+        ],
+        "outcomesName":"Learning outcomes",
+        "_outcomesComment":"Start learning some product basics with a very simple Toolkit use case",
+        "outcomeList":[
+          {
+            "title":"Use App Connect Enterprise to create and drive a message flow which transforms XML to JSON data using ESQL."
+          }
+        ],
+        "summary":{
+          "overviewName":"OVERVIEW",
+          "_overviewComment":"A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections":[
+            {
+              "section":"This tutorial demonstrates a simple message flow which receives XML data over HTTP. The flow transforms the input XML structure into a JSON Object output structure using a Compute node (whose behaviour is based on ESQL), and sends this back to the HTTP request."
+            },
+            {
+              "section":"In App Connect Enterprise, message flows can be used to transform input data structures into output data structures, or create entirely new data structures from scratch. Several transformation options are provided including a Compute node (which uses ESQL), a Mapping node (which uses a graphical user interface) and a JavaCompute node (which uses Java). This tutorial focusses on creating a JSON Object payload from scratch. Other tutorials similar to this one focus on a JSON Array payload and other transformation mechanisms."
+            }
+          ]
+        }
+      },
+      "pageSteps":{
+        "create":{
+          "overview":{
+            "name":"Create",
+            "heading":"Import project",
+            "_createComment":"A description of what will happen when the user clicks Import.",
+            "sections":[
+              {
+                "section":"Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>Example_JSONObject_ESQL</span> application will be imported into your workspace."
+              },
+              {
+                "section":"The <span class='uicontrol'>Example_JSONObject_ESQL</span> message flow will be opened for you."
+              }
+            ]
+          },
+          "helpLinks":{
+            "title":"Find out more",
+            "details":[
+              {
+                "title":"Knowledge Center link to ",
+                "description":"Developing integration solutions from scratch",
+                "link":"https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type":"web"
+              }
+            ]
+          },
+          "actions":{
+            "title":"Create Actions",
+            "details":[
+              {
+                "name":"Import",
+                "method":"importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare":{
+          "overview":{
+            "name":"Prepare",
+            "heading":"Prepare an Integration Server to test the message flow",
+            "_prepareComment":"Creating an IntegrationServer:",
+            "sections":[
+              {
+                "section":"<b>Create an Integration Server</b>",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"Next you will test the message flow using a local integration server, which is created from within the Toolkit. If you're using a Toolkit earlier than version 11.0.0.7, then you will need to open an App Connect Enterprise Command Console and start an integration server that way. This alternate option is detailed in the <a href='https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.etools.mft.doc/bn03995_.html'>Knowledge Center</a>, but we will progress in this tutorial assuming you're using our most up to date Toolkit capabilities."
+                    },
+                    {
+                      "details":"From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "run":{
+          "overview":{
+            "name":"Run",
+            "heading":"Test the message flow using the local Integration Server",
+            "_runComment":"The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections":[
+              {
+                "section":"<b>Testing using the Flow Exerciser</b>",
+                "steps":{
+                  "type":"ordered",
+                  "details":[
+                    {
+                      "details":"The imported message flow <span class='application'>Example_JSONObject_ESQL</span> should still be open. At the top of the flow canvas, click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' />. If prompted (which you will be if your Toolkit has known connections to more than one server), select the <span class='application'>TEST_SERVER</span> integration server that you just created and agree to the confirmation dialog which warns that the message flow is owned by an Application. After a few seconds another confirmation dialog will appear with a Ready to record message status. Read through the information on the dialog and click Close."
+                    },
+                    {
+                      "details":"Back at the top of the flow, click on the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> and when the dialog opens, select the provided input message:<br><code>&lt;Message&gt;&lt;Country&gt;&lt;Name&gt;UK&lt;/Name&gt;&lt;Greeting&gt;Hello&lt;/Greeting&gt;&lt;/Country&gt;&lt;/Message&gt;</code><br>Click Send to push the data into the flow."
+                    },
+                    {
+                      "details":"You should receive a reply message from the flow. The XML will have been transformed into a JSON Object messag :<br><code>{\"Message\":{\"Country\":{\"Name\":\"UK\",\"Greeting\":\"Hello\"}}}</code>"
+                    }
+                  ]
+                }
               }
             ]
           }
