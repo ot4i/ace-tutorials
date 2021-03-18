@@ -2259,6 +2259,34 @@
               "path": "Example_JSONArray_ESQL"
             }
           ]
+        },
+		{
+          "name":"JSON - Using a Mapping node to create a JSON Object message",
+          "version":"1.0",
+          "iibVersions":"12.*-12.*",
+          "shortDesc":"Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
+          "detailsURL":"https://ot4i.github.io/jsonobject-mapping-tutorial/v12/en/details.html",
+          "stepsURL":"https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-mapping-tutorial",
+          "zipURL":"https://github.com/ot4i/jsonobject-mapping-tutorial/releases/download/v1.0/PI_jsonobjectmapping.zip",
+          "barFile":"",
+          "visible":"true",
+          "tags":"JSON",
+          "isPattern":"false",
+          "isFavorite":"true",
+          "projects":"Example_JSONObject_Mapping",
+		  "editorResPaths":[
+            {
+              "id":"MainFlow",
+              "editor":"flow",
+              "wspath":"<workspace>/Example_JSONObject_Mapping/Example_JSONObject_Mapping.msgflow"
+            }
+          ],
+          "deployedResources":[
+            {
+              "type":"application",
+              "path":"Example_JSONObject_Mapping"
+            }
+          ]
         }
       ]
     },
