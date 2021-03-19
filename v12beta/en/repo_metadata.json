@@ -103,26 +103,26 @@
           "tags": "rest",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+          "projects": "CustomerDatabaseV1:CustomerDatabaseJava:TemperatureConverter:Transformation_Map",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+              "wspath": "<workspace>/Transformation_Map/Transformation_Map.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "RESTRequest_Client"
+              "path": "Transformation_Map"
             },
             {
               "type": "application",
-              "path": "RESTRequest_API"
+              "path": "CustomerDatabaseV1"
             },
             {
-              "type": "library",
-              "path": "RESTRequest_SharedLibrary"
+              "type": "application",
+              "path": "TemperatureConverter"
             }
           ]
         },
@@ -139,26 +139,18 @@
           "tags": "rest",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+          "projects": "ExampleApp",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+              "wspath": "<workspace>/ExampleApp/HTTPEcho1.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "RESTRequest_Client"
-            },
-            {
-              "type": "application",
-              "path": "RESTRequest_API"
-            },
-            {
-              "type": "library",
-              "path": "RESTRequest_SharedLibrary"
+              "path": "ExampleApp"
             }
           ]
         },
@@ -175,26 +167,18 @@
           "tags": "rest",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+          "projects": "SimpleApp:SimplePolicyProject",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+              "wspath": "<workspace>/SimpleApp/HTTPEcho.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "RESTRequest_Client"
-            },
-            {
-              "type": "application",
-              "path": "RESTRequest_API"
-            },
-            {
-              "type": "library",
-              "path": "RESTRequest_SharedLibrary"
+              "path": "SimpleApp"
             }
           ]
         },
@@ -234,26 +218,18 @@
           "tags": "rest",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+          "projects": "StatsApp",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+              "wspath": "<workspace>/StatsApp/StatsFlow.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "RESTRequest_Client"
-            },
-            {
-              "type": "application",
-              "path": "RESTRequest_API"
-            },
-            {
-              "type": "library",
-              "path": "RESTRequest_SharedLibrary"
+              "path": "StatsApp"
             }
           ]
         },
@@ -270,26 +246,18 @@
           "tags": "rest",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "RESTRequest_Client:RESTRequest_API:RESTRequest_SharedLibrary",
+          "projects": "ResourceStatsApp",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/RESTRequest_Client/RESTRequest_Client.msgflow"
+              "wspath": "<workspace>/ResourceStatsApp/FileRecordSplitter.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "RESTRequest_Client"
-            },
-            {
-              "type": "application",
-              "path": "RESTRequest_API"
-            },
-            {
-              "type": "library",
-              "path": "RESTRequest_SharedLibrary"
+              "path": "ResourceStatsApp"
             }
           ]
         },
