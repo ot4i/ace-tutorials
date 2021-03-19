@@ -2964,7 +2964,7 @@
     },
     "tutorial": {
       "_common": {
-        "name": "Using the Sequence node in a message flow, to insert a sequence number in a message",
+        "name": "Using a Sequence node to inject a sequence number into a message",
         "shortDescription": "Learn how to use the Sequence node to inject sequence numbers in to message data as it goes through a message flow.",
         "durationText": "This tutorial takes approximately",
         "durationTime": "5 minutes",
