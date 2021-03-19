@@ -2319,7 +2319,7 @@
           "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonarray-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-jcn-tutorial",
-          "zipURL": "https://github.com/ot4i/jsonarray-compute-tutorial/releases/download/v1.0/PI_jsonarrayjcn.zip",
+          "zipURL": "https://github.com/ot4i/jsonarray-jcn-tutorial/releases/download/v1.0/PI_jsonarrayjcn.zip",
           "barFile": "",
           "visible": "true",
           "tags": "JSON",
