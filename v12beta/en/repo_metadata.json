@@ -2255,7 +2255,93 @@
               "path":"Example_JSONObject_Mapping"
             }
           ]
+        },
+		{
+          "name": "JSON - Using a Mapping node to create a JSON Array message",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use a Mapping node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
+          "detailsURL": "https://ot4i.github.io/jsonarray-mapping-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-mapping-tutorial",
+          "zipURL": "https://github.com/ot4i/jsonarray-mapping-tutorial/releases/download/v1.0/PI_jsonarraymapping.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Example_JSONArray_Mapping",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Example_JSONArray_Mapping/Example_JSONArray_Mapping.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Example_JSONArray_Mapping"
+            }
+          ]
+        },
+		{
+          "name": "JSON - Using a JavaCompute node to create a JSON Object message",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
+          "detailsURL": "https://ot4i.github.io/jsonobject-jcn-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-jcn-tutorial",
+          "zipURL": "https://github.com/ot4i/jsonobject-jcn-tutorial/releases/download/v1.0/PI_jsonobjectjcn.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Example_JSONObject_Java",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Example_JSONObject_Java/Example_JSONObject_Java.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Example_JSONObject_Java"
+            }
+          ]
+        },
+        {
+          "name": "JSON - Using a JavaCompute node to create a JSON Array message",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
+          "detailsURL": "https://ot4i.github.io/jsonarray-jcn-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-jcn-tutorial",
+          "zipURL": "https://github.com/ot4i/jsonarray-compute-tutorial/releases/download/v1.0/PI_jsonarrayjcn.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Example_JSONArray_Java",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Example_JSONArray_Java/Example_JSONArray_Java.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Example_JSONArray_Java"
+            }
+          ]
         }
+		
+		
       ]
     },
     {
