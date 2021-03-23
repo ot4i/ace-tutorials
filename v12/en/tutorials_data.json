@@ -3915,12 +3915,12 @@
     },
     "tutorial": {
       "_common": {
-        "name": "LoopBack Request node",
+        "name": "Using a LoopBack Request node to insert data into a Cloudant database",
         "shortDescription": "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database",
         "durationText": "This tutorial takes approximately",
         "durationTime": "10 minutes",
         "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
-        "resourceToOpen": "EventRoutingFlow",
+        "resourceToOpen": "MainFlow",
         "helpLink": {
           "text": "IBM Knowledge Center",
           "link": "https://www.ibm.com/support/knowledgecenter/en/SSTTDS_11.0.0/com.ibm.ace.home.doc/help_home.htm"
