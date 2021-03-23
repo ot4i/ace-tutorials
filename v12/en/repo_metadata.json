@@ -510,7 +510,7 @@
           "shortDesc": "Learn how to use the Validate node to check a message against a JSON schema in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/validate-json-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/validate-json-tutorial",
-          "zipURL": "https://github.com/ot4i/validate-json-tutorial/releases/download/v1.0/PI_ValidateJSON.zip",
+          "zipURL": "https://github.com/ot4i/validate-json-tutorial/releases/download/v1.0/PI_ExampleValidateJSON.zip",
           "barFile": "",
           "visible": "true",
           "tags": "JSON",
