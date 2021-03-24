@@ -623,9 +623,9 @@
           "detailsURL": "https://ot4i.github.io/loopback-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/loopback-tutorial",
           "zipURL": "https://github.com/ot4i/loopback-tutorial/releases/download/v3.0/PI_LB.zip",
-          "barFile": "<workspace>/TestModeBarFiles/Salesforce_Retrieveproject.TestMode.bar",
+          "barFile": "",
           "visible": "true",
-          "tags": "iib;salesforce",
+          "tags": "loopback",
           "isPattern": "false",
           "isFavorite": "true",
           "projects": "LoopBack",
@@ -639,11 +639,7 @@
           "deployedResources": [
             {
               "type": "application",
-              "path": "Salesforce_Retrieve"
-            },
-            {
-              "type": "library",
-              "path": "Salesforce_Schemas"
+              "path": "LoopBack"
             }
           ]
         },
