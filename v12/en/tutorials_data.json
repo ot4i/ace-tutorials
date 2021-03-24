@@ -7510,7 +7510,7 @@
     },
     "tutorial": {
       "_common": {
-        "name": "(V11.0.0.4) Using a Mapping node to graphically access a Lookup table that is stored in the Global Cache",
+        "name": "Using a Mapping node to graphically access a Lookup table that is stored in the Global Cache",
         "shortDescription": "Learn how to use a Mapping node to graphically access a Lookup table that is stored in the Global Cache by exploring this simple example.",
         "durationText": "This tutorial takes approximately",
         "durationTime": "6 minutes",
