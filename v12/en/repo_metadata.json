@@ -633,7 +633,7 @@
             {
               "id": "MainFlow",
               "editor": "flow",
-              "wspath": ""
+              "wspath": "<workspace>/LoopBack/Loopback_Cloudant.msgflow"
             }
           ],
           "deployedResources": [
