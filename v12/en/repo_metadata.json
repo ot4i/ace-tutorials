@@ -632,7 +632,7 @@
           "editorResPaths": [
             {
               "id": "MainFlow",
-              "editor": "",
+              "editor": "flow",
               "wspath": "<workspace>/LoopBack/LoopBack_Cloudant.msgflow"
             }
           ],
