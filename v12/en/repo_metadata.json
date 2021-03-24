@@ -622,18 +622,18 @@
           "shortDesc": "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
           "detailsURL": "https://ot4i.github.io/loopback-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/loopback-tutorial",
-          "zipURL": "https://github.com/ot4i/salesforce-tutorial/releases/download/v100/iibsalesforce_PI_v1.zip",
+          "zipURL": "https://github.com/ot4i/loopback-tutorial/releases/download/v2.0/PI_LoopbackTutorial.zip",
           "barFile": "<workspace>/TestModeBarFiles/Salesforce_Retrieveproject.TestMode.bar",
           "visible": "true",
           "tags": "iib;salesforce",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "Salesforce_Retrieve:Salesforce_Schemas",
+          "projects": "LoopBack",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/Salesforce_Retrieve/Salesforce_Retrieve.msgflow"
+              "wspath": "<workspace>/LoopBack/Loopback_Cloudant.msgflow"
             }
           ],
           "deployedResources": [
