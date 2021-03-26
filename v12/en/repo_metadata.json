@@ -68,7 +68,7 @@
           ]
         },
         {
-          "name": "Getting started - Creating a Simple Unit Test",
+          "name": "Getting started with ACEv12 - Creating a Simple Unit Test",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
           "shortDesc": "Learn some basics about how to do test driven development and create unit tests",
@@ -503,34 +503,6 @@
             }
           ]
         },
-		{
-          "name": "Using a Validate node to check a message against a JSON schema",
-          "version": "1.0",
-          "iibVersions": "12.*-12.*",
-          "shortDesc": "Learn how to use the Validate node to check a message against a JSON schema in a message flow driven by a JSON message over HTTP.",
-          "detailsURL": "https://ot4i.github.io/validate-json-tutorial/v12/en/details.html",
-          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/validate-json-tutorial",
-          "zipURL": "https://github.com/ot4i/validate-json-tutorial/releases/download/v1.0/PI_ExampleValidateJSON.zip",
-          "barFile": "",
-          "visible": "true",
-          "tags": "JSON",
-          "isPattern": "false",
-          "isFavorite": "true",
-          "projects": "ExampleValidateJSON",
-          "editorResPaths": [
-            {
-              "id": "MainFlow",
-              "editor": "flow",
-              "wspath": "<workspace>/ExampleValidateJSON/ValidateJSON.msgflow"
-            }
-          ],
-          "deployedResources": [
-            {
-              "type": "application",
-              "path": "ExampleValidateJSON"
-            }
-          ]
-        },		
         {
           "name": "Using a Throw node to throw an exception in a message flow",
           "version": "1.0",
@@ -622,7 +594,7 @@
           "shortDesc": "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
           "detailsURL": "https://ot4i.github.io/loopback-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/loopback-tutorial",
-          "zipURL": "https://github.com/ot4i/loopback-tutorial/releases/download/v3.0/PI_LB.zip",
+          "zipURL": "https://github.com/ot4i/loopback-tutorial/releases/download/v2.0/PI_LoopbackTutorial.zip",
           "barFile": "",
           "visible": "true",
           "tags": "loopback",
@@ -633,7 +605,7 @@
             {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/LoopBack/Loopback_Cloudant.msgflow"
+              "wspath": "<workspace>/LoopBack/LoopBack_Cloudant.msgflow"
             }
           ],
           "deployedResources": [
@@ -2347,7 +2319,7 @@
           "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonarray-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-jcn-tutorial",
-          "zipURL": "https://github.com/ot4i/jsonarray-jcn-tutorial/releases/download/v1.0/PI_jsonarrayjcn.zip",
+          "zipURL": "https://github.com/ot4i/jsonarray-compute-tutorial/releases/download/v1.0/PI_jsonarrayjcn.zip",
           "barFile": "",
           "visible": "true",
           "tags": "JSON",
