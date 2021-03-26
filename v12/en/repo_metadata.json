@@ -68,7 +68,7 @@
           ]
         },
         {
-          "name": "Getting started with ACEv12 - Creating a Simple Unit Test",
+          "name": "Getting started - Creating a Simple Unit Test",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
           "shortDesc": "Learn some basics about how to do test driven development and create unit tests",
