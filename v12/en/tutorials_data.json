@@ -207,7 +207,7 @@
       }
     }
   },
-  "Getting started with ACEv12 - Creating a Simple Unit Test": {
+  "Getting started - Creating a Simple Unit Test": {
     "version": "0.1",
     "pageContent": {
       "_comments": "object that contains data for page labels, buttons, etc.",
@@ -233,7 +233,7 @@
     },
     "tutorial": {
       "_common": {
-        "name": "Getting started with ACEv12 - Creating a Simple Unit Test",
+        "name": "Getting started - Creating a Simple Unit Test",
         "shortDescription": "Learn how ACE unit tests help you with rapid Test Driven Development by creating and executing a simple Java Unit Test.",
         "durationText": "This tutorial takes approximately",
         "durationTime": "10 minutes",
