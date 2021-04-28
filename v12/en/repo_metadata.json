@@ -274,12 +274,12 @@
           "tags": "java;administration",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "ExampleApplication:ExampleACEV11AdminProgram",
+          "projects": "ExampleApplication:ExampleACEAdminProgram",
           "editorResPaths": [
             {
               "id": "MainJava",
               "editor": "java",
-              "wspath": "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
+              "wspath": "<workspace>/ExampleACEAdminProgram/src/com/ibm/dev/ExampleACEAdminProgram.java"
             }
           ],
           "deployedResources": [
@@ -302,12 +302,12 @@
           "tags": "java;administration",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "ExampleACEV11AdminProgram_HTTPClient",
+          "projects": "ExampleACEAdminProgram_HTTPClient",
           "editorResPaths": [
             {
               "id": "MainJava",
               "editor": "java",
-              "wspath": "<workspace>/ExampleACEV11AdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEV11AdminProgram_HTTPClient.java"
+              "wspath": "<workspace>/ExampleACEAdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEAdminProgram_HTTPClient.java"
             }
           ],
           "deployedResources": []
@@ -504,6 +504,34 @@
           ]
         },
         {
+          "name": "Using a Validate node to check a message against a JSON schema",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Validate node to check a message against a JSON schema in a message flow driven by a JSON message over HTTP.",
+          "detailsURL": "https://ot4i.github.io/validate-json-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/validate-json-tutorial",
+          "zipURL": "https://github.com/ot4i/validate-json-tutorial/releases/download/v3.0/PI_ExampleValidateJSON.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "validation",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleValidateJSON",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleValidateJSON/ValidateJSON.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleValidateJSON"
+            }
+          ]
+        },	      
+	{
           "name": "Using a Throw node to throw an exception in a message flow",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
