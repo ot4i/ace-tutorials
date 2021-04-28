@@ -274,12 +274,12 @@
           "tags": "java;administration",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "ExampleApplication:ExampleACEV11AdminProgram",
+          "projects": "ExampleApplication:ExampleACEAdminProgram",
           "editorResPaths": [
             {
               "id": "MainJava",
               "editor": "java",
-              "wspath": "<workspace>/ExampleACEV11AdminProgram/src/com/ibm/dev/ExampleACEV11AdminProgram.java"
+              "wspath": "<workspace>/ExampleACEAdminProgram/src/com/ibm/dev/ExampleACEAdminProgram.java"
             }
           ],
           "deployedResources": [
@@ -302,12 +302,12 @@
           "tags": "java;administration",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "ExampleACEV11AdminProgram_HTTPClient",
+          "projects": "ExampleACEAdminProgram_HTTPClient",
           "editorResPaths": [
             {
               "id": "MainJava",
               "editor": "java",
-              "wspath": "<workspace>/ExampleACEV11AdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEV11AdminProgram_HTTPClient.java"
+              "wspath": "<workspace>/ExampleACEAdminProgram_HTTPClient/src/com/ibm/dev/ExampleACEAdminProgram_HTTPClient.java"
             }
           ],
           "deployedResources": []
