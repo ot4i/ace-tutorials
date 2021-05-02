@@ -2367,9 +2367,35 @@
               "path": "Example_JSONArray_Java"
             }
           ]
-        }
-		
-		
+        },
+        {
+          "name": "Unit Testing - Generating test data and unit tests from the ACE runtime",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to record messages passing through the runtime, and use them to automate the generation of large volumes of unit tests.",
+          "detailsURL": "https://ot4i.github.io/unit-test-record-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-record-tutorial",
+          "zipURL": "https://github.com/ot4i/unit-test-record-tutorial/releases/download/v3.0/PI_UnitTestRecord.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "test",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleRouterApp",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleRouterApp/ExampleRouterFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleRouterApp"
+            }
+          ]
+        }		
       ]
     },
     {
