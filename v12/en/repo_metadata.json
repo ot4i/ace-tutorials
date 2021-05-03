@@ -2395,6 +2395,34 @@
               "path": "ExampleRouterApp"
             }
           ]
+        },
+        {
+          "name": "Unit Testing - Creating a Message Assembly file for use with Test Driven Development",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Message Assembly Editor for viewing, creating and updating Message Assembly (.mxml) files for use with Test Driven Development.",
+          "detailsURL": "https://ot4i.github.io/unit-test-messageassembly-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-messageassembly-tutorial",
+          "zipURL": "https://github.com/ot4i/unit-test-messageassembly-tutorial/releases/download/v3.0/PI_UnitTestTDD.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "test",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleTestDrivenDevelopment",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleTestDrivenDevelopment/PurchaseFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleTestDrivenDevelopment"
+            }
+          ]
         }		
       ]
     },
