@@ -2451,6 +2451,34 @@
               "path": "MyApplicationToBeTested"
             }
           ]
+        },
+        {
+          "name": "Unit Testing - Testing multiple message flow nodes using propagate and evaluate",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how unit tests can be used for testing a sequence of multiple message flow nodes.",
+          "detailsURL": "https://ot4i.github.io/unit-test-multiple-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-multiple-tutorial",
+          "zipURL": "https://github.com/ot4i/unit-test-multiple-tutorial/releases/download/v3.0/PI_UnitTestMultipleNodes.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "test",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "MySimpleApplication",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/MySimpleApplication/MyMessageFlowWithTwoComputeNodes.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "MySimpleApplication"
+            }
+          ]
         }
       ]
     },
