@@ -2423,7 +2423,35 @@
               "path": "ExampleTestDrivenDevelopment"
             }
           ]
-        }		
+        },
+        {
+          "name": "Unit Testing - Building and executing unit tests outside the Toolkit",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to build and execute IBM App Connect Enterprise unit tests outside the Toolkit development environment.",
+          "detailsURL": "https://ot4i.github.io/unit-test-gradle-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-gradle-tutorial",
+          "zipURL": "https://github.com/ot4i/unit-test-gradle-tutorial/releases/download/v3.0/PI_UnitTestGradleOutsideToolkit.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "test",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "MyApplicationToBeTested",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/MyApplicationToBeTested/MyMessageFlowToBeTested.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "MyApplicationToBeTested"
+            }
+          ]
+        }
       ]
     },
     {
