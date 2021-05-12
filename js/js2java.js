@@ -98,7 +98,7 @@
 		   //reset the description text
 		   var tutDesc = document.getElementById("tutorialDesc_" +  selectName);
 		   //alert(result[0] + "   " + result[1]);
-		   tutDesc.innerHTML = result[1];
+		   tutDesc.innerText = result[1];
 	   }//try
 	   catch(e)
 	   {
@@ -124,7 +124,7 @@
 	   if (tutorials !== undefined) 
 	   {
 	   		//alert ("shortDesc :" + tutorials[tutorialSelectValue].shortDesc);
-		   tutDesc.innerHTML = tutorials[tutorialSelectValue].shortDesc;
+		   tutDesc.innerText = tutorials[tutorialSelectValue].shortDesc;
 	   }     
 		
 	   //
