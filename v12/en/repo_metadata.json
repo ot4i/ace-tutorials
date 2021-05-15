@@ -2479,6 +2479,34 @@
               "path": "MySimpleApplication"
             }
           ]
+        },
+        {
+          "name": "Unit Testing - Running Test Cases in Test Projects and Integration Server JUnit configuration",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to structure Test Cases inside Test projects, and how to configure test execution options for Integration Server JUnits.",
+          "detailsURL": "https://ot4i.github.io/unit-test-testproject-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-testproject-tutorial",
+          "zipURL": "https://github.com/ot4i/unit-test-testproject-tutorial/releases/download/v3.0/PI_UnitTest_TestConfigurations.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "test",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "MyApplicationUnderTest",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/MyApplicationUnderTest/MyMessageFlowUnderTest.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "MyApplicationUnderTest"
+            }
+          ]
         }
       ]
     },
