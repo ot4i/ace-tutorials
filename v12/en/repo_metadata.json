@@ -91,6 +91,29 @@
           "deployedResources": []
         },
         {
+          "name": "Getting Started - Cloning a Github repository in the Toolkit",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to clone a repository from Github which contains an IBM App Connect Enterprise Toolkit project",
+          "detailsURL": "https://ot4i.github.io/egit-tutorial/v12/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/egit-tutorial",
+          "zipURL": "",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Getting started",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "MyExampleApplication",
+          "editorResPaths": [
+            {
+              "id": "MyExampleFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/MyExampleApplication/MyExampleFlow.msgflow"
+            }
+          ],
+          "deployedResources": []
+        },	      
+        {
           "name": "Getting started - Exploring the Web UI",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
