@@ -334,7 +334,7 @@
             }
           ],
           "deployedResources": []
-        },        
+        },
         {
           "name": "OpenAPI Specification v3 - Using an example REST API",
           "version": "1.0",
