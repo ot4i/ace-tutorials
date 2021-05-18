@@ -334,6 +334,34 @@
             }
           ],
           "deployedResources": []
+        },        
+        {
+          "name": "OpenAPI Specification v3 - Using an example REST API",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use an IBM App Connect Enterprise REST API, which has been built to conform to the OpenAPI Specification",
+          "detailsURL": "http://ot4i.github.io/openapi-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-tutorial",
+          "zipURL": "https://github.com/ot4i/openapi-tutorial/releases/download/v3.0/PI_CountryAPI.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "REST",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "CountryAPI:CountryAPIJava",
+          "editorResPaths": [
+            {
+              "id": "CountryAPI",
+              "editor": "",
+              "wspath": "<workspace>/CountryAPI/restapi.descriptor"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "restapi",
+              "path": "CountryAPI"
+            }
+          ]
         },
         {
           "name": "Using a REST API to manage a set of records",
