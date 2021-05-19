@@ -2420,7 +2420,7 @@
           ]
         },
         {
-          "name": "Unit Testing - Generating test data and unit tests from the ACE runtime",
+          "name": "Unit Testing - Generating test data and unit tests from the runtime",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
           "shortDesc": "Learn how to record messages passing through the runtime, and use them to automate the generation of large volumes of unit tests.",
