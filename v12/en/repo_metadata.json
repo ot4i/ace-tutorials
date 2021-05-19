@@ -2569,7 +2569,7 @@
           "zipURL": "https://github.com/ot4i/ibmint-tutorial/releases/download/v3.0/PI_Demo_ibmint.zip",
           "barFile": "",
           "visible": "true",
-          "tags": "test",
+          "tags": "commands",
           "isPattern": "false",
           "isFavorite": "true",
           "projects": "MyDemoApplication",
