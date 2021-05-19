@@ -2549,7 +2549,7 @@
             {
               "id": "MainFlow",
               "editor": "flow",
-              "wspath": "<workspace>/MyApplicationUnderTest/MyMessageFlowUnderTest.msgflow"
+              "wspath": "<workspace>/MyApplicationUnderTest/MyFlowUnderTest.msgflow"
             }
           ],
           "deployedResources": [
