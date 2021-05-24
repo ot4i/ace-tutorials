@@ -364,6 +364,62 @@
           ]
         },
         {
+          "name": "OpenAPI Specification v3 - Creating a REST API from a document import",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create an IBM App Connect Enterprise REST API, by importing a document which conforms to the OpenAPI Specification v3",
+          "detailsURL": "http://ot4i.github.io/openapi-import-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-import-tutorial",
+          "zipURL": "https://github.com/ot4i/openapi-import-tutorial/releases/download/v3.0/PI_OpenAPIImport.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "REST",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "TutorialHelperFiles",
+          "editorResPaths": [
+            {
+              "id": "CountryAPI",
+              "editor": "",
+              "wspath": ""
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "restapi",
+              "path": "ShoppingListAPI"
+            }
+          ]
+        },
+        {
+          "name": "Open API Specification v3 - Adding an operation to a REST API using the API Editor",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the API Editor to add an operation to an IBM App Connect Enterprise REST API which conforms to the OpenAPI Specification v3",
+          "detailsURL": "http://ot4i.github.io/openapi-addoperation-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-addoperation-tutorial",
+          "zipURL": "https://github.com/ot4i/openapi-addoperation-tutorial/releases/download/v3.0/PI_OpenAPIAddOperation.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "REST",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "TutorialHelperFiles",
+          "editorResPaths": [
+            {
+              "id": "ShoppingListAPI",
+              "editor": "",
+              "wspath": "<workspace>/ShoppingListAPI/restapi.descriptor"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "restapi",
+              "path": "ShoppingListAPI"
+            }
+          ]
+        },
+        {
           "name": "Using a REST API to manage a set of records",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2586,7 +2642,119 @@
               "path": "MyDemoApplication"
             }
           ]
-        }
+        },
+		{
+          "name": "JSON Input Validation using an OpenAPI Specification in JSON format",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against an OpenAPI Specification document in JSON format.",
+          "detailsURL": "https://ot4i.github.io/json-validation-oasjson-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-oasjson-tutorial",
+          "zipURL": "https://github.com/ot4i/json-validation-oasjson-tutorial/releases/download/v3.0/PI_Validate_Using_OAS_JSON.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON;validation",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Validate_Using_OAS_JSON",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Validate_Using_OAS_JSON/Validate_Using_OAS_JSON.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Validate_Using_OAS_JSON"
+            }
+          ]
+        },
+		{
+          "name": "JSON Input Validation using an OpenAPI Specification in YAML format",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against an OpenAPI Specification document in YAML format.",
+          "detailsURL": "https://ot4i.github.io/json-validation-oasyaml-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-oasyaml-tutorial",
+          "zipURL": "https://github.com/ot4i/json-validation-oasyaml-tutorial/releases/download/v3.0/PI_Validate_Using_OAS_YAML.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON;validation",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Validate_Using_OAS_YAML",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Validate_Using_OAS_YAML/Validate_Using_OAS_YAML.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Validate_Using_OAS_YAML"
+            }
+          ]
+        },
+		{
+          "name": "JSON Input Validation using a JSON Schema in JSON format",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against a JSON schema in JSON format.",
+          "detailsURL": "https://ot4i.github.io/json-validation-schemajson-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-schemajson-tutorial",
+          "zipURL": "https://github.com/ot4i/json-validation-schemajson-tutorial/releases/download/v3.0/PI_Validate_Using_Schema_JSON.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON;validation",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Validate_Using_Schema_JSON",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Validate_Using_Schema_JSON/Validate_Using_Schema_JSON.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Validate_Using_Schema_JSON"
+            }
+          ]
+        },
+		{
+          "name": "JSON Input Validation using a JSON Schema in YAML format",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against a JSON schema in YAML format.",
+          "detailsURL": "https://ot4i.github.io/json-validation-schemayaml-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-schemayaml-tutorial",
+          "zipURL": "https://github.com/ot4i/json-validation-schemayaml-tutorial/releases/download/v3.0/PI_Validate_Using_Schema_YAML.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "JSON;validation",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Validate_Using_Schema_YAML",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Validate_Using_Schema_YAML/Validate_Using_Schema_YAML.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Validate_Using_Schema_YAML"
+            }
+          ]
+        }		
       ]
     },
     {
