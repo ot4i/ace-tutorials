@@ -2643,7 +2643,7 @@
             }
           ]
         },
-		{
+        {
           "name": "JSON Input Validation using an OpenAPI Specification in JSON format",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2671,7 +2671,7 @@
             }
           ]
         },
-		{
+        {
           "name": "JSON Input Validation using an OpenAPI Specification in YAML format",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2699,7 +2699,7 @@
             }
           ]
         },
-		{
+        {
           "name": "JSON Input Validation using a JSON Schema in JSON format",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2727,7 +2727,7 @@
             }
           ]
         },
-		{
+        {
           "name": "JSON Input Validation using a JSON Schema in YAML format",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2754,7 +2754,7 @@
               "path": "Validate_Using_Schema_YAML"
             }
           ]
-        }		
+        }
       ]
     },
     {
