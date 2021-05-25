@@ -2657,13 +2657,7 @@
           "isPattern": "false",
           "isFavorite": "true",
           "projects": "MigrationTutorialHelperFiles",
-          "editorResPaths": [
-            {
-              "id": "MainFlow",
-              "editor": "",
-              "wspath": ""
-            }
-          ],
+          "editorResPaths": [],
           "deployedResources": []
         },
         {
