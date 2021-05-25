@@ -2658,12 +2658,12 @@
           "isFavorite": "true",
           "projects": "MigrationTutorialHelperFiles",
           "editorResPaths": [
-            {
+			  {
               "id": "MainFlow",
               "editor": "",
-              "wspath": "<workspace>/MigrationTutorialHelperFiles/BARFiles/Transformation_ESQL.bar"
+              "wspath": "<workspace>/MigrationTutorialHelperFiles/BARfiles/Transformation_ESQL.bar"
             }
-          ],
+		  ],
           "deployedResources": []
         },
         {
