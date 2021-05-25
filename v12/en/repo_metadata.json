@@ -2644,6 +2644,29 @@
           ]
         },
         {
+          "name": "Commands - Migrate from earlier product versions using the mqsiextractcomponents command",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the mqsiextractcomponents command to create integration nodes and servers based on existing IBM Integration Bus 10 and IBM App Connect Enterprise 11 topologies.",
+          "detailsURL": "https://ot4i.github.io/migrate-extract-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/migrate-extract-tutorial",
+          "zipURL": "https://github.com/ot4i/migrate-extract-tutorial/releases/download/v3.0/PI_MigrateExtract.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "commands;migration",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "MigrationTutorialHelperFiles",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "",
+              "wspath": ""
+            }
+          ],
+          "deployedResources": []
+        },
+        {
           "name": "JSON Input Validation using an OpenAPI Specification in JSON format",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
