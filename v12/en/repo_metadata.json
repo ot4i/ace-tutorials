@@ -379,10 +379,10 @@
           "projects": "TutorialHelperFiles",
           "editorResPaths": [
             {
-              "id": "CountryAPI",
+              "id": "MainFlow",
               "editor": "",
-              "wspath": ""
-            }
+              "wspath": "<workspace>/TutorialHelperFiles/ShoppingListAPI.json"
+            }            
           ],
           "deployedResources": [
             {
