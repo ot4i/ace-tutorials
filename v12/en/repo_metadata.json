@@ -1102,6 +1102,34 @@
             }
           ]
         },
+		{
+          "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application.",
+          "detailsURL": "https://ot4i.github.io/coordinated-reqreply-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/coordinated-reqreply-tutorial",
+          "zipURL": "https://github.com/ot4i/coordinated-reqreply-tutorial/releases/download/v3.0/PI_CoordinatedRequestReply.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "HTTP;MQ",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "CoordinatedRequestReplyTutorial",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "",
+              "wspath": "<workspace>/CoordinatedRequestReplyTutorial/RequestFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "CoordinatedRequestReplyTutorial"
+            }
+          ]
+        },
         {
           "name": "Using Callable Flows to split synchronous flow processing",
           "version": "1.0",
@@ -1546,6 +1574,34 @@
             {
               "type": "application",
               "path": "Transformation_DotNet"
+            }
+          ]
+        },
+		{
+          "name": "Transformation using the auto map feature",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
+          "detailsURL": "https://ot4i.github.io/automap-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/automap-tutorial",
+          "zipURL": "https://github.com/ot4i/automap-tutorial/releases/download/v3.0/PI_AutoMapping.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "transformation;map",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "AutoMappingExample",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/AutoMappingExample/AutoMappingExample1.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "AutoMappingExample"
             }
           ]
         },
