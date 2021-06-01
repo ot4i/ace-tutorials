@@ -370,18 +370,18 @@
           "shortDesc": "Learn how to create an IBM App Connect Enterprise REST API, by importing a document which conforms to the OpenAPI Specification v3",
           "detailsURL": "http://ot4i.github.io/openapi-import-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-import-tutorial",
-          "zipURL": "https://github.com/ot4i/openapi-import-tutorial/releases/download/v3.0/PI_OpenAPIImport.zip",
+          "zipURL": "https://github.com/ot4i/openapi-import-tutorial/releases/download/v3.0/PI_ImportOpenAPI.zip",
           "barFile": "",
           "visible": "true",
           "tags": "REST;OpenAPI",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "TutorialHelperFiles2",
+          "projects": "TutorialHelperFiles",
           "editorResPaths": [
             {
-              "id": "TutorialHelperFiles2",
+              "id": "MainFlow",
               "editor": "text",
-              "wspath": "<workspace>/TutorialHelperFiles2/json/ShoppingListAPI.json"
+              "wspath": "<workspace>/TutorialHelperFiles/json/ShoppingListAPI.json"
             }            
 		  ],
           "deployedResources": [
