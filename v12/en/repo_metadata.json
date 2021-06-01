@@ -382,8 +382,8 @@
               "id": "TutorialHelperFiles",
               "editor": "text",
               "wspath": "<workspace>/TutorialHelperFiles1/ShoppingListAPI.json"
-            }            
-		  ],
+            }
+          ],
           "deployedResources": [
             {
               "type": "restapi",
@@ -1102,7 +1102,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -1577,7 +1577,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Transformation using the auto map feature",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
