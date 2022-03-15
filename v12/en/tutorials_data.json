@@ -3922,6 +3922,332 @@
       }
     }
   },
+  "Using a Compute node to access a Lookup table stored in a shared variable in memory": {
+    "version": "0.6",
+    "pageContent": {
+      "_comments": "JSON object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Using a Compute node to access a Lookup table stored in a shared variable in memory",
+        "shortDescription": "Learn how to use ESQL shared variables to access a Lookup table that is cached in memory by exploring this simple example.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "6 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "ESQL shared variables"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Use IBM App Connect Enterprise ESQL shared variables to access and load a Lookup table cached in memory.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to access a Lookup table, which is cached in memory, by using ESQL shared variables."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to implement a shared variable in-memory cache in a message flow. It shows using a Compute node to replace an abbreviated value in a message with an associated full name from a Lookup table that is cached in memory. Another Compute node shows how to load the Lookup table based upon CSV content stored in a local file.",
+          "sections": [
+            {
+              "section": "This tutorial demonstrates how to access in-memory ESQL shared variables using a Compute node."
+            },
+            {
+              "section": "A Compute node demonstrates reading from an ESQL shared variable cached in memory, to replace an abbreviated value in an input message with the associated full name from a Lookup table."
+            },
+            {
+              "section": "Another Compute node demonstrates writing to an ESQL shared variable cached in memory, to populate the Lookup table using data that has been read from a comma-separated-values file."
+            },
+            {
+              "section": "In IBM App Connect Enterprise, ESQL shared variables can be used to implement an in-memory cache in a message flow. This technique is suitable for fast access to data that you want to reuse regularly. The Compute node can get, put, and remove data from shared variables."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Developing integration solutions from scratch",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=solutions-developing-integration-from-scratch",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Data caching overview",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=caching-data-overview",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Long-lived variables",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-long-lived-variables",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import the application",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='application'>Import</span> to import the application into your workspace."
+              },
+              {
+                "section": "The <span class='application'>LookupTable_UsingESQLSharedVariable</span> application is now shown in the Application Development view of your workspace. The <span class='msgflow'>LookupCountyFullName</span> message flow is opened in the Message Flow editor."
+              },
+              {
+                "section": "The <span class='msgflow'>LookupCountyFullName</span> message flow contains six message flow nodes which can be traversed in two ways depending on whether or not the cache needs loading:",
+                "steps": {
+                  "type": "unordered",
+                  "details": [
+                    {
+                      "details": "<span class='uicontrol'>HTTP Input</span>: An Input node that receives an input message across HTTP that contains an abbreviated county name."
+                    },
+                    {
+                      "details": "<span class='uicontrol'>LookupCountyFullName</span>: A Compute node that uses an ESQL shared variable of ROW type as an in-memory cache providing a Lookup facility to retrieve the full county name, by using the abbreviated county name as a key."
+                    },
+                    {
+                      "details": "<span class='uicontrol'>FoundCountyFullName</span>: A Route node that determines the path that the message should take depending on whether the full county name was retrieved from the shared variable (if not, the flow attempts to re-populate the cache by reading from a file)"
+                    },
+                    {
+                      "details": "<span class='uicontrol'>File Read</span>: A FileRead node that reads the file that contains the Lookup table data."
+                    },
+                    {
+                      "details": "<span class='uicontrol'>LoadCache</span>: A Compute node that uses loads the Lookup table data which was read from the file into the ESQL shared variable."
+                    },
+                    {
+                      "details": "<span class='uicontrol'>HTTP Reply</span>: A Reply node that returns a message across HTTP that contains the full county name."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "You can explore the configuration of these nodes later in the tutorial."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions from scratch",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=solutions-developing-integration-from-scratch",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Data caching overview",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=caching-data-overview",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Long-lived variable",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-long-lived-variables",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Preparing to run the application",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "Perform the following steps to prepare your environment to run the <span class='application'>LookupTable_UsingESQLSharedVariable</span> application.",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "name": "Setup the location of the lookup table initialization data file",
+                      "details": "Setup the location of the lookup table initialization data file by completing one of the following steps:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "On Windows: Create the input directory <code>C:\\temp</code>."
+                          },
+                          {
+                            "details": "On Linux: Create a suitable input directory such as <code>/tmp</code> and change the Input directory property of the 'File Read' node accordingly to point to the same directory."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "Copy the lookup table initialization data file",
+                      "details": "Copy the <span class='filepath'>CountyAbbrNames.csv</span> file from the 'Other Resources' folder in the <span class='application'>LookupTable_UsingESQLSharedVariable</span> application in your Toolkit workspace, to the input directory on your file system that you created in step 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Next you will use the Flow exerciser to send HTTP requests to the message flow."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "FileRead node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-fileread-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions-removed": {
+            "title": "Prepare Actions",
+            "details": [
+              {
+                "name": "Deploy",
+                "method": "deployArtifacts()"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "Follow these steps to run the application",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "Open the <span class='uicontrol'>LookupCountyFullName</span> message flow from the application and complete the following steps:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Drag and drop deploy the shared library <span class='application'>LookupTableCSVdata</span> on to your integration server."
+                    },
+                    {
+                      "details": "Click the <span class='icon'>Flow Exerciser</span> icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow."
+                    },
+                    {
+                      "details": "Click the <span class='icon'>Send Message</span> icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> to select the first message to send to the flow."
+                    },
+                    {
+                      "details": "Select the 'Berks' input message, and click <span class='uicontrol'>Send</span>.<br/>The request message is sent to the HTTP Input node, and the response message containing the full name, 'Berkshire', is received."
+                    },
+                    {
+                      "details": "Close the Send message dialog. <br/>The message path is automatically highlighted on the message flow. Note: The message path shows that the message was sent through the 'File Read' and 'LoadCache' Compute nodes. Because the Lookup table was not yet cached in memory by the ESQL shared variables, the 'LookupCountyFullName' Compute node cannot find a match."
+                    },
+                    {
+                      "details": "Click on any connection to see the data that passed through that connection."
+                    },
+                    {
+                      "details": "Click the <span class='icon'>Send Message</span> icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> again, to select the 'Hants' message and send it to the flow by clicking <span class='uicontrol'>Send</span>."
+                    },
+                    {
+                      "details": "Review the received message and close the Send message dialog to see the message path.<br/>Note: The message path shows that the message was sent directly to the 'HTTP Reply' node. Because the Lookup table is cached in memory, the 'LookupCountyFullName' Compute node found a match and set the 'CountyFullName'."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "If you restart the integration node or integration server, the next message is sent through the 'File Read' and 'LoadCache' Compute nodes again."
+              },
+              {
+                "section": "<span class='uicontrol'>The following optional steps help you explore and understand the application</span>"
+              },
+              {
+                "section": "The <span class='msgflow'>LookupCountyFullName</span> message flow uses an HTTP Input node to receive a JSON message that contains a 'CountyAbbr' value. The 'CountyAbbr' value is used in the 'LookupCountyFullName' Compute node to look up the replacement full county name from the in-memory cache.",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Double-click the 'LookupCountyFullName' Compute node to open the 'LookupCountyFullName.esql' file."
+                    },
+                    {
+                      "details": "In the 'LookupCountyFullName_Compute' ESQL module, the 'CountyFullName' element is created only if an entry is found in the in-memory cache.  The cache is defined as the 'countyNameCache' ESQL Shared Row variable.  The value for the input element, 'CountyAbbr', is placed in the 'Environment' so that it is not overwritten by the data that is retrieved from the <span class='filepath'>'CountyAbbrNames.csv'</span> file."
+                    },
+                    {
+                      "details": "Return to the message flow editor.<br/>The 'FoundCountyFullName' Route node checks for the presence of the 'CountyFullName' value:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "If the 'CountyFullName' value exists, the message is routed directly to the 'HTTP Reply' node."
+                          },
+                          {
+                            "details": "If the 'CountyFullName' value does not exist (for example, if the Lookup table is not yet cached in memory), the message is routed to the 'File Read' node. The 'File Read' node retrieves name-value pairs from a comma-separated-values file that is parsed by using a DFDL CSV model. The name-value data is passed to the 'LoadCache' Compute node, where the data is loaded into the 'countyNameCache` Lookup table. The 'LoadCache' Compute node also sets the 'CountyFullName' value in the output message."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "Double-click the 'LoadCache' Compute node to open the 'LookupCountyFullName.esql' file."
+                    },
+                    {
+                      "details": "In the 'LoadCache_Compute' ESQL module, the Lookup table is created from the data that is read from the comma-separated-values file.  Within the table, each record is stored as a 'key' and 'value' pair, where the 'key' is an abbreviated county name and the 'value' is the related full county name.  The value of 'CountyAbbr' for the current lookup request is taken directly from the 'Environment'."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=ttmf-testing-your-message-flow-by-using-flow-exerciser",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
   "Using a JavaCompute node to split up a large input file": {
     "version": "0.1",
     "pageContent": {
@@ -9151,258 +9477,6 @@
       }
     }
   },
-  "Using MQ and HTTP to link message flows in a coordinated request-reply scenario": {
-    "version": "0.1",
-    "pageContent": {
-      "_comments": "object that contains data for page labels, buttons, etc.",
-      "navItems": {
-        "_common": {
-          "buttonBackToGallery": {
-            "name": "Back To Gallery",
-            "method": "backToGallery()",
-            "idName": "backToGallery"
-          },
-          "buttonStartTutorial": {
-            "name": "Start Tutorial",
-            "method": "startTutorialFromDetailsScreen()",
-            "idName": "startTutorial"
-          },
-          "buttonViewDetails": {
-            "name": "View Details",
-            "method": "viewDetails()",
-            "idName": "stepsViewDetails"
-          }
-        }
-      }
-    },
-    "tutorial": {
-      "_common": {
-        "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
-        "shortDescription": "Learn how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application",
-        "durationText": "This tutorial takes approximately",
-        "durationTime": "15 minutes",
-        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
-        "resourceToOpen": "MainFlow",
-        "helpLink": {
-          "text": "IBM Documentation",
-          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
-        }
-      },
-      "pageDetails": {
-        "topicsName": "Tutorial topics",
-        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
-        "topicList": [
-          {
-            "title": "HTTPInput node"
-          },
-          {
-            "title": "HTTPReply node"
-          },
-          {
-            "title": "MQGet node"
-          }
-        ],
-        "outcomesName": "Learning outcomes",
-        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
-        "outcomeList": [
-          {
-            "title": "Use IBM App Connect Enterprise to link together HTTP clients with a back-end application using MQ queues defined on a local queue manager."
-          }
-        ],
-        "summary": {
-          "overviewName": "OVERVIEW",
-          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
-          "sections": [
-            {
-              "section": "This tutorial demonstrates a simple architectural pattern for coordinating HTTP request and reply messages when exchanging information with a back-end application via MQ queues.  There are three message flows - a RequestFlow, a BackendApplicationFlow and a ReplyFlow. RequestFlow receives JSON data over HTTP, and stores the initial input data on a queue, before passing part of the data on to the BackendApplicationFlow using an MQ queue. The MQ message is written using the HTTP Reply Identifier as the MsgId value. When the BackendReplyApp responds, it follows the very common MQ Request-Reply convention of copying this identifier into the CorrelId of the MQ reply message. This means that the final ReplyFlow can recover the stored initial input data and unify part of this data with the repsonse from the backend and return it to the initial requesting HTTP client."
-            },
-            {
-              "section": "To simulate how a similar pattern might apply to real world scenarios, RequestFlow and ReplyFlow also execute simple message transformation from JSON to XML and vice versa. In this example, BackendApplicationFlow represents some kind of voting application. Personal information like a voter's name and address is held by the RequestFlow and ReplyFlow but is not passed to the BackendApplicationFlow."
-            },
-            {
-              "section": "The tutorial instructions are structured for an integration node owned server, that is associated with a local queue manager, but could be easily amended to run in an independent integration server if you prefer.There are no other pre-requisites needed by the scenario."
-            }
-          ]
-        },
-        "helpLinks": {
-          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
-          "title": "Find out more",
-          "details": [
-            {
-              "title": "IBM Documentation link to ",
-              "description": "Developing integration solutions from scratch",
-              "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
-              "type": "web"
-            }
-          ]
-        }
-      },
-      "pageSteps": {
-        "create": {
-          "overview": {
-            "name": "Create",
-            "heading": "Import projects",
-            "_createComment": "A description of what will happen when the user clicks Import.",
-            "sections": [
-              {
-                "section": "When you click Import, a single project will be created in your workspace: An application named <span class='application'>CoordinatedRequestReplyTutorial</span>. The application contains three message flows: <span class='application'>RequestFlow</span>, <span class='application'>BackendApplicationFlow</span> and <span class='application'>ReplyFlow</span>."
-              },
-              {
-                "section": "<span class='application'>RequestFlow</span> receives a JSON input message over HTTP. The subflow named <span class='application'>StoreOriginalMessage</span> converts from HTTP to MQ and stores a copy of the input data on a queue named <b>STORE.QUEUE</b>. The following Compute node transforms into an XML output message and writes to BACKEND.QUEUE."
-              },
-              {
-                "section": "<span class='application'>BackendApplicationFlow</span> receives the XML message and stores the voting intention (A or B!) in an in-memory variable. The output message is given a field to represent the time at which the data was processed by carrying the current time value. The MQReply node at the end of the flow writes the message to the queue BACKEND.REPLY"
-              },
-              {
-                "section": "<span class='application'>ReplyFlow</span> parses the XML reply message, and uses its CorrelId to retrieve the original input message stored on <b>STORE.QUEUE</b> using an MQGet node in the subflow named <span class='application'>RetrieveOriginalMessage</span>, and combines the name of the voter with the ProcessingTime value that was returned by the back-end.  The reply message is returned back to the original requesting client over HTTP."
-              },
-              {
-                "section": "Once imported using the link on the right, the application <span class='application'>CoordinatedRequestReplyTutorial</span> is ready to be deployed and tested. Before doing this, we will configure an integration node using the instructions on the Prepare tab."
-              }
-            ]
-          },
-          "helpLinks": {
-            "title": "Find out more",
-            "details": [
-              {
-                "title": "IBM Documentation link to ",
-                "description": "Developing integration solutions from scratch",
-                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
-                "type": "web"
-              }
-            ]
-          },
-          "actions": {
-            "title": "Create Actions",
-            "details": [
-              {
-                "name": "Import",
-                "method": "importArtifacts()"
-              }
-            ]
-          }
-        },
-        "prepare": {
-          "overview": {
-            "name": "Prepare",
-            "heading": "Create a queue manager and integration node, and then deploy the message flows",
-            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
-            "sections": [
-              {
-                "section": "The tutorial requires MQ definitions for three queues.  Execute the following steps to prepare your environment accordingly:",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Create an IBM MQ queue manager and configure it by completing the following steps:",
-                      "substeps": {
-                        "type": "ordered",
-                        "details": [
-                          {
-                            "details": "Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'>TESTQM</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'>TESTQM</span></code>"
-                          },
-                          {
-                            "details": "Next create the two queues by typing the following commands:<br><code>runmqsc <span class='varname'>TESTQM</span></code><br><code>define ql(BACKEND.QUEUE)</code><br><code>define ql(BACKEND.REPLY)</code><br><code>define ql(STORE.QUEUE)</code>"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "details": "Create an integration node which is associated with the above queue manager by completing the following steps:",
-                      "substeps": {
-                        "type": "ordered",
-                        "details": [
-                          {
-                            "details": "In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>TESTQM</span></code>"
-                          },
-                          {
-                            "details": "Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
-                          },
-                          {
-                            "details": "Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "details": "Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>CoordinatedRequestReplyTutorial.bar</span> which you will find inside the <span class='application'>CoordinatedRequestReplyTutorial</span> application."
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "helpLinks": {}
-        },
-        "run": {
-          "overview": {
-            "name": "Run",
-            "heading": "",
-            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
-            "sections": [
-              {
-                "section": "<h4>Use the Flow Exerciser to test the tutorial scenario",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Open <span class='application'>RequestFlow.msgflow</span>.",
-                      "substeps": {
-                        "type": "unordered",
-                        "details": [
-                          {
-                            "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
-                          },
-                          {
-                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow. Choose <b>VoteA</b>. The message data looks like this:<br><br><code>{<br>&nbsp;&nbsp;\"VoterName\": \"Joe Bloggs\",<br>&nbsp;&nbsp;\"VoterAddress\":\"Hursley Park Southampton SO21 2JN\",<br>&nbsp;&nbsp;\"VotingIntention\": \"A\"<br>}<br></code>"
-                          },
-                          {
-                            "details": "The HTTP Reply message will look like this:<br><code>{<br>&nbsp;&nbsp;\"Reply\": \"Thank you Joe Bloggs for voting. Your intention has been successfully registered! It was processed at 20:38:32\"<br>}</code><br>This scenario needs no further MQ output, so you can safely ignore the Listening for response status message and just click Close."
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "This tutorial has shown how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application."
-              }
-            ]
-          },
-          "helpLinks": {
-            "title": "Find out more",
-            "details": [
-              {
-                "title": "IBM Documentation link to ",
-                "description": "HTTPInput node",
-                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac04560_.htm",
-                "type": "web"
-              },
-              {
-                "title": "IBM Documentation link to ",
-                "description": "HTTPReply node",
-                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac04585_.htm",
-                "type": "web"
-              },
-              {
-                "title": "IBM Documentation link to ",
-                "description": "MQGet node",
-                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac20806_.htm",
-                "type": "web"
-              },
-              {
-                "title": "IBM Documentation link to ",
-                "description": "Testing your message flow by using the Flow exerciser",
-                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
-                "type": "web"
-              }
-            ]
-          }
-        }
-      }
-    }
-  },
   "Using Callable Flows to split synchronous flow processing": {
     "version": "0.6",
     "pageContent": {
@@ -12776,233 +12850,6 @@
                 "name": "Clean Up",
                 "description": "Clean up and remove any changes in your workspace made by the tutorial.",
                 "method": "cleanUp()"
-              }
-            ]
-          }
-        }
-      }
-    }
-  },
-  "Transformation using the auto map feature": {
-    "version": "0.1",
-    "pageContent": {
-      "_comments": "JSON object that contains data for page labels, buttons, etc.",
-      "navItems": {
-        "_common": {
-          "buttonBackToGallery": {
-            "name": "Back To Gallery",
-            "method": "backToGallery()",
-            "idName": "backToGallery"
-          },
-          "buttonStartTutorial": {
-            "name": "Start Tutorial",
-            "method": "startTutorialFromDetailsScreen()",
-            "idName": "startTutorial"
-          },
-          "buttonViewDetails": {
-            "name": "View Details",
-            "method": "viewDetails()",
-            "idName": "stepsViewDetails"
-          }
-        }
-      }
-    },
-    "tutorial": {
-      "_common": {
-        "name": "Transformation using the auto map feature",
-        "shortDescription": "Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
-        "durationText": "This tutorial takes approximately",
-        "durationTime": "5 minutes",
-        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
-        "resourceToOpen": "AutoMappingExample",
-        "helpLink": {
-          "text": "IBM Documentation",
-          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
-        }
-      },
-      "pageDetails": {
-        "topicsName": "Tutorial Topics",
-        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
-        "topicList": [
-          {
-            "title": "Mapping node"
-          }
-        ],
-        "outcomesName": "Learning outcomes",
-        "_outcomesComment": "Start learning some product basics with a very simple Toolkit use case",
-        "outcomeList": [
-          {
-            "title": "Use App Connect Enterprise to automatically map between source and target data structures using a graphical mapping tool which bases its auto map feature upon matching similar names and knowledge of synonyms."
-          }
-        ],
-        "summary": {
-          "overviewName": "OVERVIEW",
-          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
-          "sections": [
-            {
-              "section": "This tutorial focusses on how to use the auto map capabilities of the IBM App Connect Enterprise Graphical Mapping Node. It provides JSON schema and XML schema metadata for input and output message structures which include fields with similar but non-matching names. The detailed configuration for auto map is described and the mapped outcomes demonstrated."
-            }
-          ]
-        }
-      },
-      "pageSteps": {
-        "create": {
-          "overview": {
-            "name": "Create",
-            "heading": "Import project",
-            "_createComment": "A description of what will happen when the user clicks Import.",
-            "sections": [
-              {
-                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>AutoMappingExample</span> application will be imported into your workspace. The application contains two message flows named <span class='uicontrol'>AutoMappingExample1</span> and <span class='uicontrol'>AutoMappingExample2</span>. Each of these flows contains a mapping node, which has its source and target structures pre-configured, but the detailed mapping of individual fields has not yet been completed. This is deliberate as the instructions in the Run section will demonstrate how to use the auto-map feature in a variety of ways for completing the creation of these maps."
-              },
-              {
-                "section": "The <span class='uicontrol'>AutoMappingExample1</span> message flow will be opened for you."
-              }
-            ]
-          },
-          "helpLinks": {
-            "title": "Find out more",
-            "details": [
-              {
-                "title": "IBM Documentation link to ",
-                "description": "Developing integration solutions from scratch",
-                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
-                "type": "web"
-              }
-            ]
-          },
-          "actions": {
-            "title": "Create Actions",
-            "details": [
-              {
-                "name": "Import",
-                "method": "importArtifacts()"
-              }
-            ]
-          }
-        },
-        "prepare": {
-          "overview": {
-            "name": "Prepare",
-            "heading": "Prepare an Integration Server to test the message flow",
-            "_prepareComment": "Creating an IntegrationServer:",
-            "sections": [
-              {
-                "section": "<b>Create an Integration Server</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Later in this tutorial we will test the message flows using a local integration server, which is created from within the Toolkit. If you're using a Toolkit earlier than version 11.0.0.7, then you will need to open an App Connect Enterprise Command Console and start an integration server that way. This alternate option is detailed in the <a href='https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bn03995_.html'>IBM Documentation</a>, but we will progress in this tutorial assuming you're using our most up to date Toolkit capabilities."
-                    },
-                    {
-                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        "run": {
-          "overview": {
-            "name": "Run",
-            "heading": "Try out the auto map feature in a variety of ways which demonstrate its detailed capabilities",
-            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
-            "sections": [
-              {
-                "section": "<b>Demonstrate the option for exact matching</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Double click the mapping node in the <b>AutoMappingExample1</b> message flow and the map will open. In the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>MYLASTNAME</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. At the top of the dialog page a red cross will appear with the error <b>There are no matches satisfying the selected options</b>. Click Cancel."
-                    },
-                    {
-                      "details": "<b>Explanation for what we just saw:</b><br>The Name Matching options have specified that the names of input and output must be the same, although the check is not case sensitive. <code>MYLASTNAME</code> in the input JSON schema has no direct match in the output XML schema, whose closest match is <code>MYLASXXXX</code>."
-                    },
-                    {
-                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Demonstrate the option for non-exact matching, using a percentage match</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Back in the map (AutoMappingExample_Mapping.map), in the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>MYLASTNAME</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = SELECTED (Place the slider at the default 60%)<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. At the top of the dialog page a red cross will appear with the error <b>There are no matches satisfying the selected options</b>. Click Cancel."
-                    },
-                    {
-                      "details": "Move the slider from 60% down to 40%. Click Next. The dialog will now show a matching transform to <code>MYLASXXXXX</code>."
-                    },
-                    {
-                      "details": "<b>Explanation for what we just saw:</b><br>The Name Matching options have specified that the names of input and output do not need to be exactly the same.<br>In the first part of the test, with the slider set to a demand of 60%, there were no matches<br>In the second part of the test, with the slider set to a demand of 40%, there was a match to <code>MYLASXXXX</code> (5 out of 10 letters is greater than 40% similarity)."
-                    },
-                    {
-                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Demonstrate the option for case sensitive matching</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Back in the map (AutoMappingExample_Mapping.map), in the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>MyLaSxXxXx</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. At the top of the dialog page a red cross will appear with the error <b>There are no matches satisfying the selected options</b>."
-                    },
-                    {
-                      "details": "Change the options as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. The dialog will now show a matching transform to <code>MYLASXXXXX</code>."
-                    },
-                    {
-                      "details": "<b>Explanation for what we just saw:</b><br>In the first test, we were seeking an exact match to the letters, compared in a case sensitive fashion and so there was no exact match for <code>MyLaSxXxXx</code><br>In the second test, we changed the comparison to not be case sensitive and so there was a match between <code>MyLaSxXxXx</code> and <code>MYLASXXXXX</code>."
-                    },
-                    {
-                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Demonstrate the option for using a file of synonyms</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Back in the map (AutoMappingExample_Mapping.map), in the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>name</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Filename = &lt;YourToolkitWorkspaceLocation&gt;\\AutoMappingExample\\MySynonyms.txt</code><br><br>Click Next. The dialog will now show a matching transform to <code>label</code></b>."
-                    },
-                    {
-                      "details": "<b>Explanation for what we just saw:</b><br>The file <code>MySynonyms.txt</code> was used to correlate the source message field named <code>name</code> with the field in the target message named <code>label</code>."
-                    },
-                    {
-                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Auto-map the message flow AutoMappingExample2 and then test using the Flow Exerciser</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Close <b>AutoMappingExample1_Mapping</b> and open <b>AutoMappingExample2_Mapping</b>. In the map source data structure, right click the <b>Data</b> element beneath the <b>JSON</b> message domain and select the <b>Auto Map</b> option. Leave the default setting for the Mapping Scope which is <b>Map all simple descendants of the selected elements</b>. In the Mapping Criteria section, select the option named <b>Create transforms when the names of inputs and outputs are more similar than</b> and move the slider to <b>40% match</b>. click Next and the dialog should report that it has successfully found 11 mapping suggestions. Click Finish and save the map."
-                    },
-                    {
-                      "details": "Switch to the message flow <b>AutoMappingExample2</b>. At the top of the flow canvas, click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' />. If prompted (which you will be if your Toolkit has known connections to more than one server), select the <span class='application'>TEST_SERVER</span> integration server that you just created and agree to the confirmation dialog which warns that the message flow is owned by an Application. After a few seconds another confirmation dialog will appear with a Ready to record message status. Read through the information on the dialog and click Close."
-                    },
-                    {
-                      "details": "Back at the top of the flow, click on the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> and when the dialog opens, select the provided input message:<br><code>{<br>&nbsp;&nbsp;\"courtesytitle\": \"Mr\",<br>&nbsp;&nbsp;\"firstname\": \"Joe\",<br>&nbsp;&nbsp;\"middlename\": \"Fred\",<br>&nbsp;&nbsp;\"lastname\": \"Bloggs\",<br>&nbsp;&nbsp;\"firstaddressline\": \"1 Normal Road\",<br>&nbsp;&nbsp;\"secondaddressline\": \"Average-ville\",<br>&nbsp;&nbsp;\"city\": \"Hursley\",<br>&nbsp;&nbsp;\"zipcode\": \"SO53 2JN\",<br>&nbsp;&nbsp;\"item-descr\": \"Laptop\",<br>&nbsp;&nbsp;\"item-quant\": \"1\",<br>&nbsp;&nbsp;\"item-price\": \"599.99\"<br>}<br></code><br>Click Send to push the data into the flow."
-                    },
-                    {
-                      "details": "You should receive a reply message from the flow. The JSON will have been transformed into an XML message:<br><code>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;<br>&lt;out:OrderMessage xmlns:out=\"http://www.example.org/Order\"&gt;<br>&nbsp;&lt;out:Person&gt;<br>&nbsp;&nbsp;&lt;out:Title&gt;Mr&lt;/out:Title&gt;<br>&nbsp;&nbsp;&lt;out:Firstname&gt;Joe&lt;/out:Firstname&gt;<br>&nbsp;&nbsp;&lt;out:Middlename&gt;Fred&lt;/out:Middlename&gt;<br>&nbsp;&nbsp;&lt;out:Lastname&gt;Bloggs&lt;/out:Lastname&gt;<br>&nbsp;&lt;/out:Person&gt;<br>&nbsp;&lt;out:Address&gt;<br>&nbsp;&nbsp;&lt;out:FirstLine&gt;1 Normal Road&lt;/out:FirstLine&gt;<br>&nbsp;&nbsp;&lt;out:SecondLine&gt;Average-ville&lt;/out:SecondLine&gt;<br>&nbsp;&nbsp;&lt;out:City&gt;Hursley&lt;/out:City&gt;<br>&nbsp;&nbsp;&lt;out:Postcode>SO53 2JN&lt;/out:Postcode&gt;<br>&nbsp;&lt;/out:Address&gt;<br>&nbsp;&lt;out:Item&gt;<br>&nbsp;&nbsp;&lt;out:Description&gt;Laptop&lt;/out:Description&gt;<br>&nbsp;&nbsp;&lt;out:Quantity&gt;1&lt;/out:Quantity&gt;<br>&nbsp;&nbsp;&lt;out:Price&gt;599.99&lt;/out:Price&gt;<br>&nbsp;&lt;/out:Item&gt;<br>&lt;/out:OrderMessage&gt;</code>"
-                    }
-                  ]
-                }
               }
             ]
           }

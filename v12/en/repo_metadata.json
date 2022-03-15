@@ -521,7 +521,7 @@
           ],
           "deployedResources": []
         },
-		{
+        {
           "name": "Using a JavaCompute node to split up a large input file",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
