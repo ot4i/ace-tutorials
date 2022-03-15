@@ -175,7 +175,7 @@
                       "details": "A Progress Information dialog will appear showing the message has been sent, and a reply received. The same data should be echoed back in the reply."
                     },
                     {
-                      "details": "Congratulations, you have just successfully tested your first message flow! Click on the Close button and a green line should show the path the message took between the HTTPInput and HTTPReply nodes. Use the Flow Exerciser buttons at the top of the message flow to either send more test data or to return the flow to editting mode."
+                      "details": "Congratulations, you have just successfully tested your first message flow! Click on the Close button and a blue line should show the path the message took between the HTTPInput and HTTPReply nodes. Use the Flow Exerciser buttons at the top of the message flow to either send more test data or to return the flow to editting mode."
                     }
                   ]
                 }
@@ -457,7 +457,7 @@
               "section": "This tutorial uses a simple message flow in an application that receives an XML input message over HTTP and converts the data into JSON using a Mapping node. The output JSON data is returned to the requesting client using an HTTPReply node. An example input message is provided."
             },
             {
-              "section": "The tutorial provides the user with the message flow already constructed and describes the step-by-step instructions for writing and executing a unit test for the flow. The new test is created in a Test Project (a new project type added for the first time in IBM App Connect Enterprise 12) using the New Java Unit Test wizard. Once created the unit test is executed inside an independent integration server which is configured as part of the tutorial."
+              "section": "The tutorial provides the user with the message flow already constructed and describes the step-by-step instructions for writing and executing a unit test for the flow. The new test is created in a Test Project (a new project type added for the first time in IBM App Connect Enterprise 12) using the New Java Unit Test wizard. When created the unit test is run inside an independent integration server which is configured as part of the tutorial."
             },
             {
               "section": "In IBM App Connect Enterprise, a Test Project (which has a reference to the application under test) is a container for all the resources that are required to run unit tests. There are no other pre-requisites needed by the scenario."
@@ -545,7 +545,7 @@
                   "type": "ordered",
                   "details": [
                     {
-                      "details": "The imported message flow <span class='application'>MyMessageFlow</span> should still be open. At the top of the flow canvas, click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' />. If prompted (which you will be if your Toolkit has known connections to more than one server), select the <span class='application'>TEST_SERVER</span> integration server that you just created and agree to the confirmation dialog which warns that the message flow is owned by an Application. After a few seconds another confirmation dialog will appear with a Ready to record message status. Read through the information on the dialog and click Close."
+                      "details": "The imported message flow <span class='application'>MyMessageFlow</span> should still be open. At the top of the flow canvas, click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' />. If prompted (which you will be if your Toolkit has known connections to more than one server), select the <span class='application'>TEST_SERVER</span> integration server that you just created and agree to the confirmation dialog which warns that the message flow is owned by an Application. After a few seconds another confirmation dialog will appear with a Ready to record message status. Read through the information on the dialog and then click Close."
                     },
                     {
                       "details": "Back at the top of the flow, click on the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> and when the dialog opens, select the provided input message:<br><code>&lt;Message&gt;&lt;Child&gt;hello world&lt;/Child&gt;&lt;/Message&gt;</code><br>Click Send to push the data into the flow."
@@ -574,7 +574,7 @@
                       "details": "In the section labelled <span class='application'>Select matchers to be included in the generated test</span>, options are ticked for <span class='application'>Assert node call count</span> and <span class='application'>Assert terminal propagate count</span>.In the section labelled <span class='application'>Select message trees to compare in the generated test</span>, the <span class='application'>Message body</span> will have been selected. You can scroll through the preview pane to see what the generated unit test will look like. The preview is updated when you change the selected options on the left, but for this tutorial leave everything as the defaults, and click the <span class='Application'>Finish</span> button to generate the test."
                     },
                     {
-                      "details": "You will find that a Test Project named <span class='application'>MyApplication_IntegrationTest</span> is generated for you. The generated java unit test is opened for you (you can also find it in <span class='application'>MyApplication_MyMessageFlow_Mapping_0001_IntegrationTest.java</span>). The project has a resources folder where your input and output data files will have been created. The generated Test Project has a project reference configured which points the Test Project at the application <span class='application'>MyApplication</span>. In the next section we will describe how to run the unit test you have just created."
+                      "details": "You will find that a Test Project named <span class='application'>MyApplication_Test</span> is generated for you. The generated java unit test is opened for you (you can also find it in <span class='application'>MyApplication_MyMessageFlow_Mapping_0001_Test.java</span>). The project has a resources folder where your input and output data files will have been created. The generated Test Project has a project reference configured which points the Test Project at the application <span class='application'>MyApplication</span>. In the next section we will describe how to run the unit test you have just created."
                     }
                   ]
                 }
@@ -598,10 +598,10 @@
                       "details": "In the <span class='Application'>Application Development</span> view (by default in the top left of the Toolkit), locate the Test Project which you just created."
                     },
                     {
-                      "details": "Right click the Test Project named <span class='Application'>MyApplication_IntegrationTest</span> and choose the option  <span class='Application'>Run as &gt; Integration Server JUnit Test Runner</span>."
+                      "details": "Right click the Test Project named <span class='application'>MyApplication_Test</span> and choose the option  <span class='application'>Run Test Project</span>."
                     },
                     {
-                      "details": "After a few seconds, the Console view should be opened, which will show an independent integration server  being started in order to execute the unit test. There is no deployment step required - This is taken care of for you so that the application under test, and the Test Project which we just created are automatically available to the server."
+                      "details": "After a few seconds, the Console view should be opened, which will show an independent integration server  being started in order to run the unit test. There is no deployment step required - This is taken care of for you so that the application under test, and the Test Project which we just created are automatically available to the server."
                     },
                     {
                       "details": "The JUnit view will open in the top left corner (just to the right of the Application Development view and the Patterns Explorer) and will show that the test which was generated ran successfully and passed."
@@ -1316,7 +1316,7 @@
                   "type": "ordered",
                   "details": [
                     {
-                      "details": "Open the policy named <span class='application'>MyActivityLogPolicy.policyxml</span> inside the <span class='application'>SimplePolicyProject</span>"
+                      "details": "Open the policy named <span class='application'>MyActivityLogPolicy.policyxml</span> inside the <span class='application'>SimplePolicyProject</span>. If you are using ACE 12.0.2.0 or higher, you will see a pop-up message which informs you that new policy properties have been added to the product since this policy was first created. Click OK so that the new properties will be added to the policy. The new properties relate to sending Activity Log to ELK, so are not directly used by this tutorial, but it does no harm to have them present in the policy just in case you wish to go beyond the tutorial and try out these aspects for yourself!"
                     },
                     {
                       "details": "Edit the <code>File name</code> property of the policy:<br><ul><li>If you are using a Windows platform, set the <code>File name</code> property value to <code>C:\\MyServer\\ActivityLog.txt</code> and save the policy.</li><li>If you are using a UNIX platform, set the <code>File name</code> property value to <code>/MyServer/ActivityLog.txt</code> and save the policy.</li></ul>"
@@ -1337,7 +1337,7 @@
                       "details": "<b>(OPTIONAL ALTERNATIVE. Do this step if you did not run step 5)</b> Start an Integration Server by typing the following command into the Command Console:<br><ul><li>If you are using a Windows platform: <code>IntegrationServer --name MyServer --work-dir C:\\MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li><li>If you are using a UNIX platform: <code>IntegrationServer --name MyServer --work-dir /home/exampleuser/MyServer --admin-rest-api 7600 --http-port-number 7900 --console-log</code></li></ul>"
                     },
                     {
-                      "details": "<b>(OPTIONAL ALTERNATIVE. Do this step if you did not run step 5)</b> Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class='application'>SimpleDeploy.bar</span>"
+                      "details": "Connect to the Integration Server from the Integration Explorer view in the Toolkit, then drag and drop deploy the <span class='application'>SimpleDeploy.bar</span>"
                     }
                   ]
                 }
@@ -2131,18 +2131,18 @@
                       "details": "Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>DeployApplication.bar</span> which you will find inside the <span class='application'>ExampleApplication</span> application."
                     },
                     {
-                      "details": "Inspect the provided java application. Switch to the Java perspective and then open <span class='application'>ExampleACEAdminProgram.java</span> which you will find inside the Java project named <span class='application'>ExampleACEAdminProgram</span>. If required by your runtime environment, update the values of the two variables, <span class='resource'>nodeHostName</span> and <span class='resource'>nodePortNumber</span> which enable the Java program to communicate with your integration node. Have a look through the rest of the Java."
+                      "details": "Inspect the provided java application. Switch to the Java perspective and then open <span class='application'>ExampleACEAdminProgram.java</span> which you will find inside the Java project named <span class='application'>ExampleACEAdminProgram</span>. If required by your runtime environment, update the values of the two variables, <span class='resource'>nodeHostName</span> and <span class='resource'>nodePortNumber</span> which enable the Java program to communicate with your integration node. By default the code is configured to expect to use port 4414, but depending whether you are using a pre-existing integration node and also on the available ports on your machine, this may need to be changed. Have a look through the rest of the Java."
                     },
                     {
-                      "details": "Check the Java Build Path for the provided java application. Right-click the project <span class='application'>ExampleACEAdminProgram</span>, select <span class='application'>Properties</span> and choose the Java Build Path. You will see that the project has been configured to expect several jar files to be available from the default installation location on Windows at <span class='resource'>C:\\Program Files\\IBM\\ACE\\12.0.1.0</span>. If you are using a different platform or install location you will need to use the <span class='resource'>Remove</span> and <span class='resource'>Add External JARs</span> buttons to satisfy the required dependencies. The precise versions of these files may change in future, but at IBM App Connect Enterprise 12.0.1.0 the required libraries are as follows:",
+                      "details": "Check the Java Build Path for the provided java application. Right-click the project <span class='application'>ExampleACEAdminProgram</span>, select <span class='application'>Properties</span> and choose the Java Build Path. You will see that the project has been configured to expect several jar files to be available from the default installation location on Windows at <span class='resource'>C:\\Program Files\\IBM\\ACE\\12.0.2.0</span>. If you are using a different platform or install location you will need to use the <span class='resource'>Remove</span> and <span class='resource'>Add External JARs</span> buttons to satisfy the required dependencies. <span class='application'>The precise names and versions of these files may change in future (periodically updates will occur to pick up security fixes etc.), but at IBM App Connect Enterprise 12.0.2.0 the required libraries are as follows</span>:",
                       "substeps": {
                         "type": "unordered",
                         "details": [
                           {
-                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.1.0\\common\\classes</code>: IntegrationAPI.jar"
+                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.2.0\\common\\classes</code>: IntegrationAPI.jar"
                           },
                           {
-                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.1.0\\common\\jackson\\lib</code>: jackson-annotations-2.11.4.jar, jackson-core-2.11.4.jar, jackson-databind-2.11.4.jar, jackson-dataformat-yaml-2.11.4.jar, snakeyaml-1.27.jar"
+                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.2.0\\common\\jackson\\lib</code>: jackson-annotations-2.12.4.jar, jackson-core-2.12.4.jar, jackson-databind-2.12.4.jar, jackson-dataformat-yaml-2.12.4.jar, snakeyaml-1.29.jar"
                           },
                           {
                             "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.1.0\\common\\jnr\\lib</code>: asm-7.0.jar, jffi-1.2.19.jar, jffi-1.2.19-native.jar, jnr-a64asm-1.0.0.jar, jnr-constants-0.9.12.jar, jnr-enxio-0.21.jar, jnr-ffi-2.1.10.jar, jnr-posix-3.0.50.jar, jnr-unixsocket-0.23.jar, jnr-x86asm-1.0.2.jar"
@@ -2336,21 +2336,21 @@
                       "details": "Create an integration node by starting an App Connect Enterprise command console and executing the following commands:<br><code><span class='cmdname'>mqsicreatebroker TESTNODE</span></code><br><code><span class='cmdname'>mqsistart TESTNODE</span></code><br><code><span class='cmdname'>mqsicreateexecutiongroup TESTNODE -e default</span></code>"
                     },
                     {
-                      "details": "Inspect the provided java application. Switch to the Java perspective and then open <span class='application'>ExampleACEAdminProgram_HTTPClient.java</span> which you will find inside the Java project named <span class='application'>ExampleACEAdminProgram_HTTPClient</span>. If required by your runtime environment, update the value of the variable, <span class='resource'>nodeName</span>. By default this is set to the value <span class='resource'>TESTNODE</span> to match to the naming convention used in the instructions above. Also, note the parameter which is passed to <span class='application'>getMethod</span> in the code <code>getMethod(\"/apiv2/servers/default?depth=4\")</code>. This includes the value <span class='application'>default</span> to also match the name of the Integration Server used in the instructions above. Have a look through the rest of the Java. You will see that once the initial response has been returned, the IntegrationServerModel class is used to parse the reply and make various properties of the integration server easily accessible by the code."
+                      "details": "Inspect the provided java application. Switch to the Java perspective and then open <span class='application'>ExampleACEAdminProgram_HTTPClient.java</span> which you will find inside the Java project named <span class='application'>ExampleACEAdminProgram_HTTPClient</span>. If required by your runtime environment, update the value of the variable, <span class='resource'>nodeName</span>. By default this is set to the value <span class='resource'>TESTNODE</span> to match to the naming convention used in the instructions above. <span class='application'>You will need to change this if you are planning on communicating with a node of a different name!</span> Also, note the parameter which is passed to <span class='application'>getMethod</span> in the code <code>getMethod(\"/apiv2/servers/default?depth=4\")</code>. This includes the value <span class='application'>default</span> to also match the name of the Integration Server used in the instructions above. Have a look through the rest of the Java. You will see that once the initial response has been returned, the IntegrationServerModel class is used to parse the reply and make various properties of the integration server easily accessible by the code."
                     },
                     {
-                      "details": "Check the Java Build Path for the provided java application. Right-click the project <span class='application'>ExampleACEAdminProgram_HTTPClient</span>, select <span class='application'>Properties</span> and choose the Java Build Path. You will see that the project has been configured to expect several jar files to be available from the default installation location on Windows at <span class='resource'>C:\\Program Files\\IBM\\ACE\\12.0.1.0</span>. If you are using a different platform or install location you will need to use the <span class='resource'>Remove</span> and <span class='resource'>Add External JARs</span> buttons to satisfy the required dependencies. The precise versions of these files may change in future, but at IBM App Connect Enterprise 12.0.1.0 the required libraries are as follows:",
+                      "details": "Check the Java Build Path for the provided java application. Right-click the project <span class='application'>ExampleACEAdminProgram_HTTPClient</span>, select <span class='application'>Properties</span> and choose the Java Build Path. You will see that the project has been configured to expect several jar files to be available from the default installation location on Windows at <span class='resource'>C:\\Program Files\\IBM\\ACE\\12.0.2.0</span>. If you are using a different platform or install location you will need to use the <span class='resource'>Remove</span> and <span class='resource'>Add External JARs</span> buttons to satisfy the required dependencies.<span class='application'>The precise names and versions of these files may change in future (periodically updates will occur to pick up security fixes etc.), but at IBM App Connect Enterprise 12.0.2.0 the required libraries are as follows</span>:",
                       "substeps": {
                         "type": "unordered",
                         "details": [
                           {
-                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.1.0\\common\\classes</code>: IntegrationAPI.jar"
+                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.2.0\\common\\classes</code>: IntegrationAPI.jar"
                           },
                           {
-                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.1.0\\common\\jackson\\lib</code>: jackson-annotations-2.11.4.jar, jackson-core-2.11.4.jar, jackson-databind-2.11.4.jar, jackson-dataformat-yaml-2.11.4.jar, snakeyaml-1.27.jar"
+                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.2.0\\common\\jackson\\lib</code>: jackson-annotations-2.12.4.jar, jackson-core-2.12.4.jar, jackson-databind-2.12.4.jar, jackson-dataformat-yaml-2.12.4.jar, snakeyaml-1.29.jar"
                           },
                           {
-                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.1.0\\common\\jnr\\lib</code>: asm-7.0.jar, jffi-1.2.19.jar, jffi-1.2.19-native.jar, jnr-a64asm-1.0.0.jar, jnr-constants-0.9.12.jar, jnr-enxio-0.21.jar, jnr-ffi-2.1.10.jar, jnr-posix-3.0.50.jar, jnr-unixsocket-0.23.jar, jnr-x86asm-1.0.2.jar"
+                            "details": "From <code>C:\\Program Files\\IBM\\ACE\\12.0.2.0\\common\\jnr\\lib</code>: asm-7.0.jar, jffi-1.2.19.jar, jffi-1.2.19-native.jar, jnr-a64asm-1.0.0.jar, jnr-constants-0.9.12.jar, jnr-enxio-0.21.jar, jnr-ffi-2.1.10.jar, jnr-posix-3.0.50.jar, jnr-unixsocket-0.23.jar, jnr-x86asm-1.0.2.jar"
                           }
                         ]
                       }
@@ -3459,7 +3459,7 @@
                 "section": "Double-click on the Mapping node to show the transformation which this flow performs on its requests. The example here shows that both input and outputs are both JSON format, and the input has been modelled as containing two input fields which are mapped to two output fields of different labels. A Move transform has been used, so the data is unchanged, but the field names will change. There is no separate message model file for these input and output types; the map itself has been refined to specify these fields by adding user-defined elements under the JSONObject type."
               },
               {
-                "section": "Next, you will use the Flow exerciser to deploy send an HTTP request to the message flow, and to observe the transformation. Click Run to see those steps."
+                "section": "Next, you will use the Flow exerciser to deploy the message flow, send an HTTP request to it, and observe the transformation. Click Run to see those steps."
               }
             ]
           },
@@ -3503,13 +3503,24 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "The <span class='application'>HTTPInputApplication</span> application is shown in the Application Development view of your workspace.",
+                "section": "<b>Create a local Integration Server for testing the flow:</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Next we will test the message flow using a local integration server, which we can create from within the Toolkit. From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='application'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Test the message flow using the Flow Exerciser:</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
                     {
                       "name": "",
-                      "details": "Open the <span class='application'>HTTPInputMessageFlow</span>, and click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow."
+                      "details": "The <span class='application'>HTTPInputApplication</span> application is shown in the Application Development view of your workspace. Open the <span class='application'>HTTPInputMessageFlow</span>, and click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow."
                     },
                     {
                       "name": "",
@@ -3517,7 +3528,7 @@
                     },
                     {
                       "name": "",
-                      "details": "Choose the ExampleInputMessage1, edit the message data if you like, and click Send. Your request message is sent to the HTTP input node."
+                      "details": "Choose the ExampleInputMessage1 and click Send. Your request message is sent to the HTTP input node."
                     }
                   ]
                 }
@@ -3529,7 +3540,7 @@
                 "section": "Click on any connection to see the data that passed through that connection. You can see that the request (input) message data has two fields named InputField1 and InputField2. The response (output) message has converted this to fields named OutputField1 and OutputField2."
               },
               {
-                "section": "To stop recording the message path through the flow, click the Return flow to edit mode icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/stopFlowExerciser.png' alt='Return flow to edit mode' />."
+                "section": "To stop recording the message path through the flow, click the Return flow to edit mode icon."
               }
             ]
           },
@@ -6805,7 +6816,7 @@
               "section": "The tutorial requires an integration node owned server, or a standalone server."
             },
             {
-              "section": "In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. This tutorial provides an application to hold the message flow. This scenario uses the Timeout Notification node which requires your integration node or server to be associated with a local queue manager, so an MQ installation is required. There are no other pre-requisites needed by the scenario."
+              "section": "IMPORTANT NOTE: In this tutorial the TimeoutNotification node uses the Automatic operation mode, so it does not require a queue manager. If you were to extend this scenario to use a TimeoutNotification node which uses the Controlled operation mode, then a queue manager would be required. In this situation, information about the state of in-flight messages would be held on storage queues that are controlled by IBM MQ. If you were using timeout flows on an independent integration server, and your TimeoutNotification node uses the Controlled operation mode, then you can choose to use either a local default queue manager or a remote default queue manager. Interactions between an independent integration server and IBM MQ can use a client connection to a remote default queue manager. If you were using timeout flows on a node owned integration server, and your TimeoutNotification node uses the Controlled operation mode, then this means that you must install IBM MQ on the same computer as your integration node and use a local queue manager."
             }
           ]
         },
@@ -6867,11 +6878,11 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "Prepare a trace directory, create a queue manager and integration node, and then deploy the message flow",
+            "heading": "Prepare a trace directory, optionally create a queue manager and integration node, and then deploy the message flow",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
-                "section": "The Trace node uses a trace directory and the Timeout Notification node requires MQ queues to operate, so execute the following steps to prepare your environment accordingly:",
+                "section": "The Trace node uses a trace directory so execute the following steps to prepare your environment accordingly. The OPTIONAL steps below can be ignored if you are not planning to extend the core tutorial to investigate other operation modes of the Timeout Notification node (which require MQ queues to operate):",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -6879,7 +6890,7 @@
                       "details": "The message flow's Trace node will attempt to write a trace file to the directory <code><span class='cmdname'>C:\\temp</span></code>. Create this directory if it does not already exist, or edit the Trace node in the message flow to use a different directory suitable for your runtime environment."
                     },
                     {
-                      "details": "Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
+                      "details": "<span class='application'>OPTIONAL</span> If you planning to extend the core tutorial and investigate the <span class='application'>Controlled</span> operation mode of the Timeout Notification node, then you will need a queue manager. Create the default App Connect Enterprise queues in IBM MQ by completing the following steps:",
                       "substeps": {
                         "type": "ordered",
                         "details": [
@@ -6893,7 +6904,7 @@
                       }
                     },
                     {
-                      "details": "Create an integration node which is associated with the above queue manager by completing the following steps:",
+                      "details": "<span class='application'>OPTIONAL</span> If you are planning to extend the core tutorial and investigate the <span class='application'>Controlled</span> operation mode of the Timeout Notification node then create an integration node which is associated with the queue manager you created in the above OPTIONAL step by completing the following instructions:",
                       "substeps": {
                         "type": "ordered",
                         "details": [
@@ -6910,7 +6921,10 @@
                       }
                     },
                     {
-                      "details": "Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>TimeoutNotification.bar</span> which you will find inside the <span class='application'>ExampleTimeoutNotification</span> application."
+                      "details": "If you did not execute the OPTIONAL steps above, then from within the Toolkit, create a local integration server (without any relationship to MQ) for testing the flow. From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='application'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+                    },
+                    {
+                      "details": "Regardless of whether you are using a local integration server, or an integration node, now drag and drop deploy the provided BAR file named <span class='application'>TimeoutNotification.bar</span> which you will find inside the <span class='application'>ExampleTimeoutNotification</span> application."
                     }
                   ]
                 }
@@ -7179,7 +7193,7 @@
                             "details": "A saved input message is provided named <span class='resource'>InputMessage_Delay30secs</span> which contains this data:<br><span class='resource'>{\"Message\":{\"Delay\":30,\"Data\":\"Hello World\"}}</span><br>Select the input message and click Send and your message is sent to the HTTPInput node."
                           },
                           {
-                            "details": "You should immediately receive an HTTPReply message which looks like this:<br><span class='resource'>{\"ReplyMessage\":\"The Timeout Control message is acknowledged. The message will be propagated from the Timeout Notification node after a delay of 30 seconds\"}</span><br>When you click close, a green line should be displayed indicating the path taken by the message through the first section of the flow. The flow is designed for there to be a 30 second delay between this initial section of the flow being invoked over HTTP, and the second propagation which fires from the Timeout Notification node. If you are impatient, you can check the trace directory which was configured on the Prepare tab for the presence of the trace file named <span class='resource'>TraceTimeoutControl.txt</span>. After 30 seconds have passed, click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/viewPath.png' alt='' /> and you should then see a second green path highlighted between the TimeoutNotification node and the Trace node."
+                            "details": "You should immediately receive an HTTPReply message which looks like this:<br><span class='resource'>{\"ReplyMessage\":\"The Timeout Control message is acknowledged. The message will be propagated from the Timeout Notification node after a delay of 30 seconds\"}</span><br>When you click close, a blue line should be displayed indicating the path taken by the message through the first section of the flow. The flow is designed for there to be a 30 second delay between this initial section of the flow being invoked over HTTP, and the second propagation which fires from the Timeout Notification node. If you are impatient, you can check the trace directory which was configured on the Prepare tab for the presence of the trace file named <span class='resource'>TraceTimeoutControl.txt</span>. After 30 seconds have passed, click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/viewPath.png' alt='' /> and you should then see a second blue path highlighted between the TimeoutNotification node and the Trace node."
                           },
                           {
                             "details": "Once the second part of the flow has fired, using a text editor open the trace file <span class='resource'>C:\\temp\\TraceTimeoutControl.txt</span>, which should contain an entry that looks like this:<br><code>The flow propagation controlled by the Timeout Control node has reached the Trace node at 2019-08-06 17:16:03.629563</code><br><code>The Timeout StartTime was set to '17:16:03.328807'</code><br><code>The message data was:</code><br><code>( ['json' : 0x230a3a8f270]</code><br><code>  (0x01000000:Object):Message = (</code><br><code>    (0x03000000:NameValue):Delay = 30 (INTEGER)</code><br><code>    (0x03000000:NameValue):Data  = 'Hello World' (CHARACTER)</code><br><code>  )</code><br><code>)</code>"
@@ -7419,13 +7433,13 @@
                             "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
                           },
                           {
-                            "details": "A saved input message is provided named <span class='resource'>Input1</span> which contains this data:<br><span class='resource'>{\"Message1\":\"Hello\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. Close the dialog and a green line is shown plotting the path of the message."
+                            "details": "A saved input message is provided named <span class='resource'>Input1</span> which contains this data:<br><span class='resource'>{\"Message1\":\"Hello\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. Close the dialog and a blue line is shown plotting the path of the message."
                           },
                           {
                             "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' /> a second time."
                           },
                           {
-                            "details": "A second saved input message is provided named <span class='resource'>Input2</span> which contains this data:<br><span class='resource'>{\"Message2\":\"World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. Close the dialog and a green line is shown plotting the path of the second message. Note that after the second message, there was also a propagation out of the Collector node to the downstream trace node."
+                            "details": "A second saved input message is provided named <span class='resource'>Input2</span> which contains this data:<br><span class='resource'>{\"Message2\":\"World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. Close the dialog and a blue line is shown plotting the path of the second message. Note that after the second message, there was also a propagation out of the Collector node to the downstream trace node."
                           },
                           {
                             "details": "Once this second part of the flow has fired, using a text editor open the trace file <span class='resource'>C:\\temp\\TraceCollector_Out.txt</span>, which should contain an entry that starts like this:<br><code>The Out terminal of the Collector node has fired at 2019-08-06 20:15:11.190112</code><br><code>The combined message from the two collected messages is:</code><br><code>Hello World</code><br>... Following this, the trace also contains a listing of the logical tree structure, which includes all of the fields and headers for both input messages which are now collected together."
@@ -12976,7 +12990,7 @@
                   "type": "ordered",
                   "details": [
                     {
-                      "details": "Close <b>AutoMappingExample1_Mapping</b> and open <b>AutoMappingExample2_Mapping</b>. In the map source data structur, right click the <b>Data</b> element beneath the <b>JSON</b> message domain and select the <b>Auto Map</b> option. Leave the default setting for the Mapping Scope which is <b>Map all simple descendants of the selected elements</b>. In the Mapping Criteria section, select the option named <b>Create transforms when the names of inputs and outputs are more similar than</b> and move the slider to <b>40% match</b>. click Next and the dialog should report that it has successfully found 11 mapping suggestions. Click Finish and save the map."
+                      "details": "Close <b>AutoMappingExample1_Mapping</b> and open <b>AutoMappingExample2_Mapping</b>. In the map source data structure, right click the <b>Data</b> element beneath the <b>JSON</b> message domain and select the <b>Auto Map</b> option. Leave the default setting for the Mapping Scope which is <b>Map all simple descendants of the selected elements</b>. In the Mapping Criteria section, select the option named <b>Create transforms when the names of inputs and outputs are more similar than</b> and move the slider to <b>40% match</b>. click Next and the dialog should report that it has successfully found 11 mapping suggestions. Click Finish and save the map."
                     },
                     {
                       "details": "Switch to the message flow <b>AutoMappingExample2</b>. At the top of the flow canvas, click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' />. If prompted (which you will be if your Toolkit has known connections to more than one server), select the <span class='application'>TEST_SERVER</span> integration server that you just created and agree to the confirmation dialog which warns that the message flow is owned by an Application. After a few seconds another confirmation dialog will appear with a Ready to record message status. Read through the information on the dialog and click Close."
@@ -15693,7 +15707,7 @@
                             "details": "Return to your DB2 Command Window and make an insert into the EMPLOYEES table using this command:<br><code><span class='cmdname'>INSERT INTO MYSCHEMA.EMPLOYEES (PKEY, FIRSTNAME, LASTNAME, COUNTRY) VALUES (1, 'Ben', 'Thompson', 'GB')</span></code>"
                           },
                           {
-                            "details": "Click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> to show the path taken through the message flow. This should show a green line highlighting that the DatabaseInput node propagated data to the FileOutput node."
+                            "details": "Click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> to show the path taken through the message flow. This should show a blue line highlighting that the DatabaseInput node propagated data to the FileOutput node."
                           },
                           {
                             "details": "Check the output directory <span class='resource'>C:\\temp</span> and you should find an output file named <span class='resource'>Output.xml</span> has been created which contains this data:<br><span class='resource'>&lt;NS1:EMPLOYEES xmlns:NS1=\"http://users/myschema\"&gt;&lt;PKEY&gt;1&lt;/PKEY&gt;&lt;FIRSTNAME&gt;Ben&lt;/FIRSTNAME&gt;&lt;LASTNAME&gt;Thompson&lt;/LASTNAME&gt;&lt;COUNTRY&gt;GB&lt;/COUNTRY&gt;&lt;/NS1:EMPLOYEES&gt;</span>"
@@ -15942,7 +15956,7 @@
                             "details": "Copy the input file named <span class='resource'>input.xml</span> to the input directory which is being monitored by the FileInput node deployed as part of message flow <span class='resource'>MQOutput</span>, which by default is <span class='resource'>C:\\temp</span>."
                           },
                           {
-                            "details": "Click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> and a green line is plotted showing the path travelled by the message through the flow. You can click on the wires between nodes to view what the message data looked like at different points in the flow."
+                            "details": "Click the View Path icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/viewPath.png' alt='' /> and a blue line is plotted showing the path travelled by the message through the flow. You can click on the wires between nodes to view what the message data looked like at different points in the flow."
                           },
                           {
                             "details": "To inspect the result of the second message flow <span class='resource'>MQInput_MQGet.msgflow</span>, using a text editor open the trace file <span class='resource'>C:\\temp\\TraceMQInput_MQGet.txt</span>, which should contain three entries with correctly re-paired data like this:<br><code>================================================================================</code><br><code>The Trace node was reached at 2019-08-13 13:20:49.080488</code><br><code>The message from the MQInput node queue is placed in the Root of the logical message tree</code><br><code>The message from the MQGet node queue is placed in the location Environment.ReadByMQGetNodeOffQueue</code><br><code>The pairing is:  'Romeo' and 'Juliet'</code><br><code>================================================================================</code><br><code>================================================================================</code><br><code>The Trace node was reached at 2019-08-13 13:20:49.082225</code><br><code>The message from the MQInput node queue is placed in the Root of the logical message tree</code><br><code>The message from the MQGet node queue is placed in the location Environment.ReadByMQGetNodeOffQueue</code><br><code>The pairing is:  'Lennon' and 'McCartney'</code><br><code>================================================================================</code><br><code>================================================================================</code><br><code>The Trace node was reached at 2019-08-13 13:20:49.083049</code><br><code>The message from the MQInput node queue is placed in the Root of the logical message tree</code><br><code>The message from the MQGet node queue is placed in the location Environment.ReadByMQGetNodeOffQueue</code><br><code>The pairing is:  'Laurel' and 'Hardy'</code><br><code>================================================================================</code>"
@@ -16203,7 +16217,7 @@
                             "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
                           },
                           {
-                            "details": "A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>{\"Message\":\"Hello World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. Close the dialog and a green line is shown plotting the path of the message. You can click on the wires to inspect what the message looked like as it travelled through the flow. When you are finished return the flow to edit mode."
+                            "details": "A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>{\"Message\":\"Hello World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. Close the dialog and a blue line is shown plotting the path of the message. You can click on the wires to inspect what the message looked like as it travelled through the flow. When you are finished return the flow to edit mode."
                           },
                           {
                             "details": "The MQOutput node should have written a message to the queue OUTPUT on queue manager TESTQM.  You can check the queue depth using these commands:<br><code>runmqsc <span class='varname'>TESTQM</span></code><br><code>dis ql(OUTPUT) CURDEPTH</code><br>You can also read the message from the queue like this:<br><code>amqsget OUTPUT TESTQM</code><br><code>Sample AMQSGET0 start</code><br><code>message &lt;{\"Message\":\"Hello World\"}&gt;</code>"
@@ -16452,7 +16466,7 @@
                             "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
                           },
                           {
-                            "details": "A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>{\"Message\":\"Hello World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. The same data should be echoed in the response. Close the dialog and a green line is shown plotting the full path of the message through the flow."
+                            "details": "A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>{\"Message\":\"Hello World\"}</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. The same data should be echoed in the response. Close the dialog and a blue line is shown plotting the full path of the message through the flow."
                           },
                           {
                             "details": "Using a text editor open the trace file <span class='resource'>C:\\temp\\TracePublication.txt</span>, which should contain three entries, one for each of the paths in the Subscription flow:<br><code>================================================================================</code><br><code>A message arrived at the Trace node at 2019-08-12 21:53:11.597892</code><br><code>The flow propagation arrived through input queue 'SUBQ3'</code><br><code>The received message contained this data: 'Hello World'</code><br><code>================================================================================</code><br><code>================================================================================</code><br><code>A message arrived at the Trace node at 2019-08-12 21:53:11.597892</code><br><code>The flow propagation arrived through input queue 'SUBQ2'</code><br><code>The received message contained this data: 'Hello World'</code><br><code>================================================================================</code><br><code>================================================================================</code><br><code>A message arrived at the Trace node at 2019-08-12 21:53:11.597892</code><br><code>The flow propagation arrived through input queue 'SUBQ1'</code><br><code>The received message contained this data: 'Hello World'</code><br><code>================================================================================</code>"
@@ -16981,7 +16995,7 @@
                             "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />."
                           },
                           {
-                            "details": "A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>This can be anything</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. The same data should be echoed in the response. Close the dialog and a green line is shown plotting the full path of the message through the flow."
+                            "details": "A saved input message is provided named <span class='resource'>InputMessage</span> which contains this data:<br><span class='resource'>This can be anything</span><br>Select this input message and click Send and your message is sent to the HTTPInput node. The same data should be echoed in the response. Close the dialog and a blue line is shown plotting the full path of the message through the flow."
                           }
                         ]
                       }
