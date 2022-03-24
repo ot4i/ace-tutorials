@@ -370,7 +370,7 @@
           "shortDesc": "Learn how to create an IBM App Connect Enterprise REST API, by importing a document which conforms to the OpenAPI Specification v3",
           "detailsURL": "http://ot4i.github.io/openapi-import-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-import-tutorial",
-          "zipURL": "https://github.com/ot4i/openapi-import-tutorial/releases/download/v3.0/PI_OpenAPIImport.zip",
+          "zipURL": "https://github.com/ot4i/openapi-import-tutorial/releases/download/v3.0/PI_ImportOpenAPI.zip",
           "barFile": "",
           "visible": "true",
           "tags": "REST;OpenAPI",
@@ -380,8 +380,8 @@
           "editorResPaths": [
             {
               "id": "MainFlow",
-              "editor": "",
-              "wspath": "<workspace>/TutorialHelperFiles/ShoppingListAPI.json"
+              "editor": "text",
+              "wspath": "<workspace>/TutorialHelperFiles/json/ShoppingListAPI.json"
             }
           ],
           "deployedResources": [
@@ -1125,6 +1125,34 @@
             }
           ]
         },
+		{
+          "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application.",
+          "detailsURL": "https://ot4i.github.io/coordinated-reqreply-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/coordinated-reqreply-tutorial",
+          "zipURL": "https://github.com/ot4i/coordinated-reqreply-tutorial/releases/download/v3.0/PI_CoordinatedRequestReply.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "HTTP;MQ",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "CoordinatedRequestReplyTutorial",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "",
+              "wspath": "<workspace>/CoordinatedRequestReplyTutorial/RequestFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "CoordinatedRequestReplyTutorial"
+            }
+          ]
+        },		
         {
           "name": "Using Callable Flows to split synchronous flow processing",
           "version": "1.0",
@@ -1572,6 +1600,34 @@
             }
           ]
         },
+		{
+          "name": "Transformation using the auto map feature",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
+          "detailsURL": "https://ot4i.github.io/automap-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/automap-tutorial",
+          "zipURL": "https://github.com/ot4i/automap-tutorial/releases/download/v3.0/PI_AutoMapping.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "transformation;map",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "AutoMappingExample",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/AutoMappingExample/AutoMappingExample1.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "AutoMappingExample"
+            }
+          ]
+        },		
         {
           "name": "Routing - Using a Route node to route data in a message flow",
           "version": "1.0",
@@ -2232,7 +2288,7 @@
           "editorResPaths": [
             {
               "id": "MainCopybook",
-              "editor": "lpex",
+              "editor": "text",
               "wspath": "<workspace>/COBOL-Purchases/PurchaseData.cpy"
             }
           ],
@@ -2477,7 +2533,7 @@
           "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonarray-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-jcn-tutorial",
-          "zipURL": "https://github.com/ot4i/jsonarray-compute-tutorial/releases/download/v3.0/PI_jsonarrayjcn.zip",
+          "zipURL": "https://github.com/ot4i/jsonarray-jcn-tutorial/releases/download/v3.0/PI_jsonarrayjcn.zip",
           "barFile": "",
           "visible": "true",
           "tags": "JSON;java",
