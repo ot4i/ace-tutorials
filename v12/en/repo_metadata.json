@@ -311,8 +311,8 @@
               "path": "ExampleApplication"
             }
           ]
-        },		
-		{
+        },
+        {
           "name": "Using the Java IBM Integration API - Strategic classes",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -1153,7 +1153,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -1180,7 +1180,7 @@
               "path": "CoordinatedRequestReplyTutorial"
             }
           ]
-        },		
+        },
         {
           "name": "Using Callable Flows to split synchronous flow processing",
           "version": "1.0",
@@ -1628,7 +1628,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Transformation using the auto map feature",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -1655,7 +1655,7 @@
               "path": "AutoMappingExample"
             }
           ]
-        },		
+        },
         {
           "name": "Routing - Using a Route node to route data in a message flow",
           "version": "1.0",
@@ -2159,7 +2159,7 @@
               "path": "ApplicationFileExists"
             }
           ]
-        },		
+        },
         {
           "name": "File - Using the FileInput node with Whole File record detection",
           "version": "1.0",

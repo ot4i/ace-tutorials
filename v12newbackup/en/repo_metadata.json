@@ -285,6 +285,34 @@
           ]
         },
         {
+          "name": "Optimizing the startup time of an independent Integration Server",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to optimize the startup time of an independent integration server using the ibmint command (requires v12.0.4.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/optimize-startup-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/optimize-startup-tutorial",
+          "zipURL": "https://github.com/ot4i/optimize-startup-tutorial/releases/download/v3.0/PI_Optimize.zip",
+          "barFile": "<workspace>/ExampleApplication/Example.bar",
+          "visible": "true",
+          "tags": "Optimize;containers",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleApplication",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleApplication/ExampleFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleApplication"
+            }
+          ]
+        },		
+		{
           "name": "Using the Java IBM Integration API - Strategic classes",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -494,6 +522,29 @@
               "id": "MainFlow",
               "editor": "flow",
               "wspath": "<workspace>/LookupTable_UsingMappingGlobalCache/LookupCountyFullName.msgflow"
+            }
+          ],
+          "deployedResources": []
+        },
+        {
+          "name": "Using a Compute node to access a Lookup table stored in a shared variable in memory",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use ESQL shared variables to access a Lookup table that is cached in memory",
+          "detailsURL": "https://ot4i.github.io/shared-variable-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/shared-variable-tutorial",
+          "zipURL": "https://github.com/ot4i/shared-variable-tutorial/releases/download/v3.0/PI_SharedVariableCache.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "transformation;esql;cache",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "LookupTable_UsingESQLSharedVariable",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/LookupTable_UsingESQLSharedVariable/LookupCountyFullName.msgflow"
             }
           ],
           "deployedResources": []
@@ -1102,7 +1153,7 @@
             }
           ]
         },
-        {
+		{
           "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -1129,7 +1180,7 @@
               "path": "CoordinatedRequestReplyTutorial"
             }
           ]
-        },
+        },		
         {
           "name": "Using Callable Flows to split synchronous flow processing",
           "version": "1.0",
@@ -1577,7 +1628,7 @@
             }
           ]
         },
-        {
+		{
           "name": "Transformation using the auto map feature",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -1604,7 +1655,7 @@
               "path": "AutoMappingExample"
             }
           ]
-        },
+        },		
         {
           "name": "Routing - Using a Route node to route data in a message flow",
           "version": "1.0",
@@ -2081,6 +2132,34 @@
             }
           ]
         },
+        {
+          "name": "File - Using the FileExists node to selectively invoke the FileRead node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the FileExists node to trigger a message flow (requires v12.0.4.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/file-exists-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-exists-tutorial",
+          "zipURL": "https://github.com/ot4i/file-exists-tutorial/releases/download/v3.0/PI_FileExists.zip",
+          "barFile": "<workspace>/ApplicationFileExists/FileExists.bar",
+          "visible": "true",
+          "tags": "file",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ApplicationFileExists",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ApplicationFileExists/FlowFileExists.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ApplicationFileExists"
+            }
+          ]
+        },		
         {
           "name": "File - Using the FileInput node with Whole File record detection",
           "version": "1.0",

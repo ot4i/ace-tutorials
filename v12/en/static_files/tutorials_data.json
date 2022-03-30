@@ -1991,6 +1991,250 @@
       }
     }
   },
+  "Optimizing the startup time of an independent Integration Server": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Optimizing the startup time of an independent Integration Server",
+        "shortDescription": "Learn how to optimize the startup time of an independent integration server using the ibmint command (requires v12.0.4.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Command: ibmint optimize server"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Speed up the start time for an independent integration server running in a container, by determining functions of the server which are not required using the ibmint optimize command."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "",
+          "sections": [
+            {
+              "section": "This tutorial demonstrates how the ibmint command can be used to optimize the startup time for an independent integration server. The purpose of optimization is to speed up server startup in cloud container environments. The techniques discussed here only apply to independent integration servers and are not suitable for integration servers that are managed by an integration node. Server optimization is suitable when the server content is fixed and it is desireable to reduce the startup time of the process to be as short as possible based upon the server's current settings and content. The tutorial provides a simple example message flow which will be deployed and tested using a local independent integration server, initially created in the Toolkit. The tutorial then switches to a Command Console where the ibmint command will be used to demonstrate the process of optimizing startup. The tutorial deliberately breaks down the optimization task into two separate stages, in order to better identify and explain some of the most frequently used options. The first optimization stage demonstrates how the server itself can decide which components are unnecessary (based upon the server's configuration and deployed content). The second optimization stage goes a step further and demonstrates the impact of switching off the server's use of NodeJS, which causes a further speeding of startup, at the cost of switching off administrative API (and therefore Web UI) access to the server."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Optimizing the startup time for an independent integration server",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=solutions-optimizing-startup-time-independent-integration-server",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleApplication</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleApplication</span> provides a single message flow named <span class='application'>ExampleFlow</span> which is driven by an HTTP input, converts a JSON format message into an XML format message using a Compute node, and then sends the data back to the requesting HTTP client. The main purpose of the tutorial is not focussed around the development or function of the flow, but rather the process of optimizing an independent integration server which has had the message flow deployed."
+              },
+              {
+                "section": "<span class='uicontrol'>HTTP Input</span>: An Input node that receives an input message across HTTP in JSON format."
+              },
+              {
+                "section": "<span class='uicontrol'>Compute</span>: A Compute node that converts the JSON data into the XMLNSC domain, and reformats its data to be uppercase."
+              },
+              {
+                "section": "<span class='uicontrol'>HTTP Reply</span>: A Reply node that returns the XML message across HTTP."
+              },
+              {
+                "section": "Once imported using the link on the right, the provided project is ready to be deployed and testedusing the Toolkit's built-in Flow Exerciser. Once tested, the server will be optimized and we will observe the impact on the process startup time."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions from scratch",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Optimizing the startup time for an independent integration server",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=solutions-optimizing-startup-time-independent-integration-server",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "The following steps help you to prepare your environment ready for running the message flow.",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values."
+                    },
+                    {
+                      "details": "<b>It is important to select the default options for this wizard</b>, because we will be comparing the start-up times with these default options to the optimized server configuration later in the tutorial.Click Finish on the dialog and the local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+                    },
+                    {
+                      "details": "Right-click the integration server you just created (named TEST_SERVER) and choose the option to <code>Open Console Log</code>. The console will show several messages for the starting of the server, similar to the following output:<br><br><code>2022-03-29 09:55:56.064716: BIP1990I: Integration server 'TEST_SERVER' starting initialization; version '12.0.4.0' (64-bit)<br>2022-03-29 09:55:56.091108: BIP9905I: Initializing resource managers. <br>Listening for transport dt_socket at address: 9997<br>2022-03-29 09:56:02.801710: BIP9906I: Reading deployed resources. <br>2022-03-29 09:56:03.641175: BIP2866I: IBM App Connect Enterprise administration security is inactive. <br>2022-03-29 09:56:03.655721: BIP3132I: The HTTP Listener has started listening on port '7600' for 'RestAdmin http' connections. <br>2022-03-29 09:56:03.661341: BIP1991I: Integration server has finished initialization.</code><br>In this example, on the particular machine this was captured from, note that the integration server started up relatively slowly, in approximately 7.5 seconds. Of course, precise timings may vary dependent on the speed of your hardware. This startup time will reduce significantly when we optimize the server later in the tutorial."
+                    },
+                    {
+                      "details": "Next you will use the Flow exerciser to send HTTP requests to the message flow."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<h4>Use the Flow Exerciser to test the message flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Open <span class='resource'>ExampleFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. One saved message is provided, named InputJSON, which can be used to invoke the HTTP Input node..."
+                    },
+                    {
+                      "details": "The input message <span class='resource'>Input1</span> contains this data:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"message\": \"hello world\"<br>}</code><br><br>Select this input message and click Send and your message is sent to the HTTPInput node. You will receive an XML reply message structured like this:<br><code>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;&lt;Message&gt;HELLO WORLD&lt;Message&gt;<br></code><br>After you close the dialog, the path taken through the message flow will be highlighted."
+                    },
+                    {
+                      "details": "Now we have tested the message flow, we will optimize the server startup to match the content of the configured integration server. Before progressing to the next set of instructions, please STOP your integration server from the Toolkit. Click the Return Flow to Edit mode button, and then righ-click TEST_SERVER and select Stop. The next stages involve interacting with the integration server's work directory and ensuring the server is stopped will avoid any of the files being locked by another process."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<h4>Open a Command Console",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Open an IBM App Connect Enterprise command console and execute the following command, using the file system location of your Toolkit workspace in place of &lt;Your Toolkit Workspace Location&gt;<br><code>ibmint optimize server --work-directory &lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER --verbose</code><br><br>The response should look like this:<br><code>BIP15243I: Analyzing server configuration.<br>BIP15257I: The component 'NodeJS' is required for YAML configuration setting 'RestAdminListener/port' with value '7600'.<br>BIP15244I: Analyzing application 'ExampleApplication'.<br>BIP15250I: Analyzing message flow 'ExampleFlow'.<br>BIP15251I: Analyzing message flow node 'HTTP Input'.<br>BIP15251I: Analyzing message flow node 'HTTP Reply'.<br>BIP15251I: Analyzing message flow node 'Compute'.<br>BIP15254I: The component 'Nodes/ESQL' is required for message flow node 'Compute' of type 'ComIbmCompute'.<br>BIP15255I: The component 'Nodes/ESQL' is required for deployed resource 'ExampleFlow_Compute.esql'.<br>BIP15237I: The components file '&lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER\\server.components.yaml' was created. It may be further edited if required.<br>BIP8071I: Successful command completion.</code><br>"
+                    },
+                    {
+                      "details": "The optimization process generates a configuration file named <code>server.components.yaml</code> <b>(not to be confused with server.conf.yaml!)</b> which is written to the root of the server's working directory. Locate this file and explore its contents. For reference, it should look like this:<br><code>---<br>optimizeComponents: 40<br>optimizeVersion: '12.0.4.0'<br>reportExcludedComponents: true<br>serverComponentsVersion: 1<br>CLR: false<br>Deploy: false<br>JVM: false<br>NodeJS: true<br>Nodes: <br>&nbsp;&nbsp;.NET: false<br>&nbsp;&nbsp;Aggregation: false<br>&nbsp;&nbsp;Basic: false<br>&nbsp;&nbsp;CallableFlow: false<br>&nbsp;&nbsp;Connector: false<br>&nbsp;&nbsp;ESQL: true<br>&nbsp;&nbsp;Group: false<br>&nbsp;&nbsp;JMSTransform: false<br>&nbsp;&nbsp;MQ: false<br>&nbsp;&nbsp;REST: false<br>&nbsp;&nbsp;SecurityPEP: false<br>&nbsp;&nbsp;Timer: false<br>JavaNodes: <br>&nbsp;&nbsp;Adapters: false<br>&nbsp;&nbsp;CICS: false<br>&nbsp;&nbsp;CORBA: false<br>&nbsp;&nbsp;Collection: false<br>&nbsp;&nbsp;Email: false<br>&nbsp;&nbsp;File: false<br>&nbsp;&nbsp;IMS: false<br>&nbsp;&nbsp;JDBC: false<br>&nbsp;&nbsp;JMS: false<br>&nbsp;&nbsp;JavaCompute: false<br>&nbsp;&nbsp;Kafka: false<br>&nbsp;&nbsp;MQTT: false<br>&nbsp;&nbsp;Mapping: false<br>&nbsp;&nbsp;ODM: false<br>&nbsp;&nbsp;TCPIP: false<br>&nbsp;&nbsp;WSRR: false<br>&nbsp;&nbsp;XSLT: false<br>JavaScriptNodes: <br>&nbsp;&nbsp;LoopBack: false<br>&nbsp;&nbsp;Salesforce: false<br>ResourceManagers: <br>&nbsp;&nbsp;FTE: false<br>&nbsp;&nbsp;GlobalCache: false<br>FlowSecurityProviders: <br>&nbsp;&nbsp;LDAP: false<br>&nbsp;&nbsp;TFIM: false<br>&nbsp;&nbsp;WS-Trust: false</code><br>As you can see, in this particular example there are many parts of the integration server which do not need to be started, hence many entries with the value false in the list! In real-life scenarios, the greater the diversity of artifacts which you have deployed to an integration server, the larger the number of its capabilities which will need to be left switched on.  In particular, note that the list above has top level settings which apply to the <code>CLR</code>, <code>Deploy</code>, <code>JVM</code> and <code>NodeJS</code>. Each of these capabilities has been switched off apart from NodeJS. NodeJS is required in order to support the integration server's administrative web UI. We will discuss this further in the second optimization stage."
+                    },
+                    {
+                      "details": "We will now observe the impact of optimization. Staying in the Command console session, start up the integration server using the following command:<br><code>IntegrationServer --work-directory &lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER</code><br><br>The output of the command will look like this:<br><code>2022-03-28 15:17:16.387726: The components file 'server.components.yaml' is being loaded from the workpath '&lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER'.<br>2022-03-28 15:17:16.503410: BIP1990I: Integration server 'TEST_SERVER' starting initialization; version '12.0.4.0' (64-bit)<br>2022-03-28 15:17:16.535048: BIP9905I: Initializing resource managers.<br>2022-03-28 15:17:16.538193: BIP9397I: The runtime component 'JVM' has not been created.<br>2022-03-28 15:17:16.707109: BIP9397I: The runtime component 'GlobalCache' has not been created.<br>2022-03-28 15:17:16.715311: BIP9397I: The runtime component '.NET CLR' has not been created.<br>2022-03-28 15:17:16.740501: BIP9398I: The resources from 'imbcallableflow.lil' have not been loaded.<br>2022-03-28 15:17:16.748163: BIP9398I: The resources from 'imbdfagg.lil' have not been loaded.<br>2022-03-28 15:17:16.752472: BIP9398I: The resources from 'imbdfbas.lil' have not been loaded.<br>2022-03-28 15:17:16.756865: BIP9398I: The resources from 'imbdfcon.lil' have not been loaded.<br>2022-03-28 15:17:16.828112: BIP9398I: The resources from 'imbdfdotnet.lil' have not been loaded.<br>2022-03-28 15:17:16.834870: BIP9398I: The resources from 'imbdfjmt.lil' have not been loaded.<br>2022-03-28 15:17:16.842722: BIP9398I: The resources from 'imbdfmqm.lil' have not been loaded.<br>2022-03-28 15:17:16.849632: BIP9398I: The resources from 'imbdftcpip.lil' have not been loaded.<br>2022-03-28 15:17:16.863560: BIP9398I: The resources from 'imbfte.lil' have not been loaded.<br>2022-03-28 15:17:16.876128: BIP9398I: The resources from 'imbgroupnodes.lil' have not been loaded.<br>2022-03-28 15:17:16.930120: BIP9398I: The resources from 'imbpep.lil' have not been loaded.<br>2022-03-28 15:17:16.935818: BIP9398I: The resources from 'imbrestlil.lil' have not been loaded.<br>2022-03-28 15:17:16.944274: BIP9398I: The resources from 'imbtimer.lil' have not been loaded.<br>2022-03-28 15:17:16.954804: BIP9397I: The runtime component 'Salesforce' has not been created.<br>2022-03-28 15:17:16.963460: BIP9397I: The runtime component 'Loopback' has not been created.<br>2022-03-28 15:17:16.967450: BIP9397I: The runtime component 'MQTT' has not been created.<br>2022-03-28 15:17:16.982356: BIP9397I: The runtime component 'KAFKA' has not been created.<br>2022-03-28 15:17:16.999242: BIP9397I: The runtime component 'CICS XA' has not been created.<br>2022-03-28 15:17:17.013116: BIP9398I: The resources from 'ldapSecurityProvider.lsl' have not been loaded.<br>2022-03-28 15:17:17.025392: BIP9398I: The resources from 'tfimSecurityProvider.lsl' have not been loaded.<br>2022-03-28 15:17:17.029930: BIP9398I: The resources from 'wstrustSecurityProvider.lsl' have not been loaded.<br>2022-03-28 15:17:17.606684: BIP9906I: Reading deployed resources.<br>2022-03-28 15:17:17.619090: BIP9907I: Initializing deployed resources.<br>2022-03-28 15:17:17.625452: BIP2155I: About to 'Initialize' the deployed resource 'ExampleApplication' of type 'Application'.<br>2022-03-28 15:17:17.638108: BIP2155I: About to 'Start' the deployed resource 'ExampleApplication' of type 'Application'.<br>An http endpoint was registered on port '7800', path '/ExampleFlow'.<br>2022-03-28 15:17:17.745996: BIP3132I: The HTTP Listener has started listening on port '7800' for 'http' connections.<br>2022-03-28 15:17:17.750722: BIP1996I: Listening on HTTP URL '/ExampleFlow'.<br>Started native listener for HTTP input node on port 7800 for URL /ExampleFlow<br>2022-03-28 15:17:17.764856: BIP2269I: Deployed resource 'ExampleFlow' (uuid='ExampleFlow',type='MessageFlow') started successfully.<br>2022-03-28 15:17:18.711392: BIP2866I: IBM App Connect Enterprise administration security is inactive.<br>2022-03-28 15:17:18.735096: BIP3132I: The HTTP Listener has started listening on port '7600' for 'RestAdmin http' connections.<br>2022-03-28 15:17:18.744878: BIP1991I: Integration server has finished initialization.<br></code><br><b>In this example, note that the integration server started up significantly quicker than normal, in less than 2.5 seconds!</b> Of course, precise timings may vary dependent on the speed of your hardware and the degree to which your deployments can be optimized."
+                    },
+                    {
+                      "details": "Now, stop the server. For example on Windows platforms, you can do this using the Ctrl-C key combination in your Command Console session. Open the <code>server.components.yaml</code> file in the root of your integration server's work directory (&lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER) with a text editor and change the setting to now also turn off NodeJS. You can do this by changing the property <code>NodeJS: true</code> to become <code>NodeJS: false</code>. Resave the <code>server.components.yaml</code> file."
+                    },
+                    {
+                      "details": "We will now observe the impact of this second stage of optimization. Staying in the Command console session, start up the integration server using the following command:<br><code>IntegrationServer --work-directory &lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER</code><br><br>The output of the command will look like this:<br><code>2022-03-28 15:30:22.281892: The components file 'server.components.yaml' is being loaded from the workpath '&lt;Your Toolkit Workspace Location&gt;\\TEST_SERVER'.<br>2022-03-28 15:30:22.394812: BIP1990I: Integration server 'TEST_SERVER' starting initialization; version '12.0.4.0' (64-bit)<br>2022-03-28 15:30:22.427674: BIP9905I: Initializing resource managers.<br>2022-03-28 15:30:22.432956: BIP9397I: The runtime component 'JVM' has not been created.<br>2022-03-28 15:30:22.438894: BIP9397I: The runtime component 'NodeJS' has not been created.<br>2022-03-28 15:30:22.616908: BIP9397I: The runtime component 'GlobalCache' has not been created.<br>2022-03-28 15:30:22.622128: BIP9397I: The runtime component '.NET CLR' has not been created.<br>2022-03-28 15:30:22.645140: BIP9398I: The resources from 'imbcallableflow.lil' have not been loaded.<br>2022-03-28 15:30:22.649840: BIP9398I: The resources from 'imbdfagg.lil' have not been loaded.<br>2022-03-28 15:30:22.654376: BIP9398I: The resources from 'imbdfbas.lil' have not been loaded.<br>2022-03-28 15:30:22.668790: BIP9398I: The resources from 'imbdfcon.lil' have not been loaded.<br>2022-03-28 15:30:22.737942: BIP9398I: The resources from 'imbdfdotnet.lil' have not been loaded.<br>2022-03-28 15:30:22.743498: BIP9398I: The resources from 'imbdfjmt.lil' have not been loaded.<br>2022-03-28 15:30:22.753254: BIP9398I: The resources from 'imbdfmqm.lil' have not been loaded.<br>2022-03-28 15:30:22.770536: BIP9398I: The resources from 'imbdftcpip.lil' have not been loaded.<br>2022-03-28 15:30:22.778526: BIP9398I: The resources from 'imbfte.lil' have not been loaded.<br>2022-03-28 15:30:22.786524: BIP9398I: The resources from 'imbgroupnodes.lil' have not been loaded.<br>2022-03-28 15:30:22.821906: BIP9398I: The resources from 'imbpep.lil' have not been loaded.<br>2022-03-28 15:30:22.829522: BIP9398I: The resources from 'imbrestlil.lil' have not been loaded.<br>2022-03-28 15:30:22.840446: BIP9398I: The resources from 'imbtimer.lil' have not been loaded.<br>2022-03-28 15:30:22.854860: BIP9397I: The runtime component 'MQTT' has not been created.<br>2022-03-28 15:30:22.868124: BIP9397I: The runtime component 'KAFKA' has not been created.<br>2022-03-28 15:30:22.874736: BIP9397I: The runtime component 'CICS XA' has not been created.<br>2022-03-28 15:30:22.886930: BIP9398I: The resources from 'ldapSecurityProvider.lsl' have not been loaded.<br>2022-03-28 15:30:22.895040: BIP9398I: The resources from 'tfimSecurityProvider.lsl' have not been loaded.<br>2022-03-28 15:30:22.905736: BIP9398I: The resources from 'wstrustSecurityProvider.lsl' have not been loaded.<br>2022-03-28 15:30:22.920132: BIP9906I: Reading deployed resources.<br>2022-03-28 15:30:22.935340: BIP9907I: Initializing deployed resources.<br>2022-03-28 15:30:22.942242: BIP2155I: About to 'Initialize' the deployed resource 'ExampleApplication' of type 'Application'.<br>2022-03-28 15:30:22.958816: BIP2155I: About to 'Start' the deployed resource 'ExampleApplication' of type 'Application'.<br>An http endpoint was registered on port '7800', path '/ExampleFlow'.<br>2022-03-28 15:30:23.048384: BIP3132I: The HTTP Listener has started listening on port '7800' for 'http' connections.<br>2022-03-28 15:30:23.053708: BIP1996I: Listening on HTTP URL '/ExampleFlow'.<br>Started native listener for HTTP input node on port 7800 for URL /ExampleFlow<br>2022-03-28 15:30:23.068254: BIP2269I: Deployed resource 'ExampleFlow' (uuid='ExampleFlow',type='MessageFlow') started successfully.<br>2022-03-28 15:30:23.085772: BIP1991I: Integration server has finished initialization.<br></code><br><b>In this example, note that the integration server started up in less than a second!</b> Again, of course precise timings may vary dependent on the speed of your hardware and the degree to which your deployments can be optimized, but you should at least observe that the integration server start time has reduced even further than in the last test."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<h4>Optional: Return to the Toolkit",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Right-click the TEST_SERVER integration server from the Integration Explorer view (by default located in the bottom left corner of the Toolkit) and start the server. Attempt to drag and drop deploy the same application with which we have been testing (or any other BAR file which you have handy!) and you will be met with this exception message:<br><code>BIP2377E Integration server 'TEST_SERVER' has been optimized. It is not possible to deploy to an integration server that has been optimized.</code><br><br>This behaviour is implemented for the user's own protection, because optimizations which have been applied to a server are sensitive to the deployed content. This is not typically a problem for independent integration servers in containers because in situations where you wish to deploy something new, the container should be torn down and replaced with the new configuration. We deliberately highlight this behaviour here, just so that users bear it in mind if experimenting with this new capability!"
+                    },
+                    {
+                      "details": "Also in the Toolkit, right-click the TEST_SERVER integration server from the Integration Explorer view and choose the option to <code>Start Web User Interface</code>. Your browser will attempt to open a view of the integration server but the admin port will not be open, so the browser will report that it is unable to connect."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Optimizing the startup time for an independent integration server",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=solutions-optimizing-startup-time-independent-integration-server",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
   "Using the Java IBM Integration API - Strategic classes": {
     "version": "0.1",
     "pageContent": {
@@ -9477,6 +9721,258 @@
       }
     }
   },
+  "Using MQ and HTTP to link message flows in a coordinated request-reply scenario": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
+        "shortDescription": "Learn how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "15 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "HTTPInput node"
+          },
+          {
+            "title": "HTTPReply node"
+          },
+          {
+            "title": "MQGet node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to link together HTTP clients with a back-end application using MQ queues defined on a local queue manager."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "This tutorial demonstrates a simple architectural pattern for coordinating HTTP request and reply messages when exchanging information with a back-end application via MQ queues.  There are three message flows - a RequestFlow, a BackendApplicationFlow and a ReplyFlow. RequestFlow receives JSON data over HTTP, and stores the initial input data on a queue, before passing part of the data on to the BackendApplicationFlow using an MQ queue. The MQ message is written using the HTTP Reply Identifier as the MsgId value. When the BackendReplyApp responds, it follows the very common MQ Request-Reply convention of copying this identifier into the CorrelId of the MQ reply message. This means that the final ReplyFlow can recover the stored initial input data and unify part of this data with the repsonse from the backend and return it to the initial requesting HTTP client."
+            },
+            {
+              "section": "To simulate how a similar pattern might apply to real world scenarios, RequestFlow and ReplyFlow also execute simple message transformation from JSON to XML and vice versa. In this example, BackendApplicationFlow represents some kind of voting application. Personal information like a voter's name and address is held by the RequestFlow and ReplyFlow but is not passed to the BackendApplicationFlow."
+            },
+            {
+              "section": "The tutorial instructions are structured for an integration node owned server, that is associated with a local queue manager, but could be easily amended to run in an independent integration server if you prefer.There are no other pre-requisites needed by the scenario."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Developing integration solutions from scratch",
+              "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, a single project will be created in your workspace: An application named <span class='application'>CoordinatedRequestReplyTutorial</span>. The application contains three message flows: <span class='application'>RequestFlow</span>, <span class='application'>BackendApplicationFlow</span> and <span class='application'>ReplyFlow</span>."
+              },
+              {
+                "section": "<span class='application'>RequestFlow</span> receives a JSON input message over HTTP. The subflow named <span class='application'>StoreOriginalMessage</span> converts from HTTP to MQ and stores a copy of the input data on a queue named <b>STORE.QUEUE</b>. The following Compute node transforms into an XML output message and writes to BACKEND.QUEUE."
+              },
+              {
+                "section": "<span class='application'>BackendApplicationFlow</span> receives the XML message and stores the voting intention (A or B!) in an in-memory variable. The output message is given a field to represent the time at which the data was processed by carrying the current time value. The MQReply node at the end of the flow writes the message to the queue BACKEND.REPLY"
+              },
+              {
+                "section": "<span class='application'>ReplyFlow</span> parses the XML reply message, and uses its CorrelId to retrieve the original input message stored on <b>STORE.QUEUE</b> using an MQGet node in the subflow named <span class='application'>RetrieveOriginalMessage</span>, and combines the name of the voter with the ProcessingTime value that was returned by the back-end.  The reply message is returned back to the original requesting client over HTTP."
+              },
+              {
+                "section": "Once imported using the link on the right, the application <span class='application'>CoordinatedRequestReplyTutorial</span> is ready to be deployed and tested. Before doing this, we will configure an integration node using the instructions on the Prepare tab."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions from scratch",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Create a queue manager and integration node, and then deploy the message flows",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "The tutorial requires MQ definitions for three queues.  Execute the following steps to prepare your environment accordingly:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Create an IBM MQ queue manager and configure it by completing the following steps:",
+                      "substeps": {
+                        "type": "ordered",
+                        "details": [
+                          {
+                            "details": "Open the IBM App Connect Enterprise Console. If you don't already have one, create and start a queue manager:<br><code><span class='cmdname'>crtmqm</span> <span class='varname'>TESTQM</span></code><br><code><span class='cmdname'>strmqm</span> <span class='varname'>TESTQM</span></code>"
+                          },
+                          {
+                            "details": "Next create the two queues by typing the following commands:<br><code>runmqsc <span class='varname'>TESTQM</span></code><br><code>define ql(BACKEND.QUEUE)</code><br><code>define ql(BACKEND.REPLY)</code><br><code>define ql(STORE.QUEUE)</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "Create an integration node which is associated with the above queue manager by completing the following steps:",
+                      "substeps": {
+                        "type": "ordered",
+                        "details": [
+                          {
+                            "details": "In the console window, create an integration node by typing the following command:<br><code><span class='cmdname'>mqsicreatebroker</span> <span class='varname'>TESTNODE</span> -q <span class='varname'>TESTQM</span></code>"
+                          },
+                          {
+                            "details": "Start the integration node by typing the following command:<br><code><span class='cmdname'>mqsistart</span> <span class='varname'>TESTNODE</span></code>"
+                          },
+                          {
+                            "details": "Create an integration server associated with the integration node by typing the following command:<br><code><span class='cmdname'>mqsicreateexecutiongroup</span> <span class='varname'>TESTNODE</span> -e <span class='varname'>default</span></code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "Back in the Toolkit, drag and drop deploy the provided BAR file named <span class='application'>CoordinatedRequestReplyTutorial.bar</span> which you will find inside the <span class='application'>CoordinatedRequestReplyTutorial</span> application."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<h4>Use the Flow Exerciser to test the tutorial scenario",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Open <span class='application'>RequestFlow.msgflow</span>.",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                          },
+                          {
+                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow. Choose <b>VoteA</b>. The message data looks like this:<br><br><code>{<br>&nbsp;&nbsp;\"VoterName\": \"Joe Bloggs\",<br>&nbsp;&nbsp;\"VoterAddress\":\"Hursley Park Southampton SO21 2JN\",<br>&nbsp;&nbsp;\"VotingIntention\": \"A\"<br>}<br></code>"
+                          },
+                          {
+                            "details": "The HTTP Reply message will look like this:<br><code>{<br>&nbsp;&nbsp;\"Reply\": \"Thank you Joe Bloggs for voting. Your intention has been successfully registered! It was processed at 20:38:32\"<br>}</code><br>This scenario needs no further MQ output, so you can safely ignore the Listening for response status message and just click Close."
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "This tutorial has shown how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "HTTPInput node",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac04560_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "HTTPReply node",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac04585_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "MQGet node",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac20806_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
   "Using Callable Flows to split synchronous flow processing": {
     "version": "0.6",
     "pageContent": {
@@ -12850,6 +13346,233 @@
                 "name": "Clean Up",
                 "description": "Clean up and remove any changes in your workspace made by the tutorial.",
                 "method": "cleanUp()"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Transformation using the auto map feature": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "JSON object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Transformation using the auto map feature",
+        "shortDescription": "Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "5 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "AutoMappingExample",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Mapping node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Start learning some product basics with a very simple Toolkit use case",
+        "outcomeList": [
+          {
+            "title": "Use App Connect Enterprise to automatically map between source and target data structures using a graphical mapping tool which bases its auto map feature upon matching similar names and knowledge of synonyms."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "This tutorial focusses on how to use the auto map capabilities of the IBM App Connect Enterprise Graphical Mapping Node. It provides JSON schema and XML schema metadata for input and output message structures which include fields with similar but non-matching names. The detailed configuration for auto map is described and the mapped outcomes demonstrated."
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>AutoMappingExample</span> application will be imported into your workspace. The application contains two message flows named <span class='uicontrol'>AutoMappingExample1</span> and <span class='uicontrol'>AutoMappingExample2</span>. Each of these flows contains a mapping node, which has its source and target structures pre-configured, but the detailed mapping of individual fields has not yet been completed. This is deliberate as the instructions in the Run section will demonstrate how to use the auto-map feature in a variety of ways for completing the creation of these maps."
+              },
+              {
+                "section": "The <span class='uicontrol'>AutoMappingExample1</span> message flow will be opened for you."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions from scratch",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare an Integration Server to test the message flow",
+            "_prepareComment": "Creating an IntegrationServer:",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Later in this tutorial we will test the message flows using a local integration server, which is created from within the Toolkit. If you're using a Toolkit earlier than version 11.0.0.7, then you will need to open an App Connect Enterprise Command Console and start an integration server that way. This alternate option is detailed in the <a href='https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bn03995_.html'>IBM Documentation</a>, but we will progress in this tutorial assuming you're using our most up to date Toolkit capabilities."
+                    },
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "Try out the auto map feature in a variety of ways which demonstrate its detailed capabilities",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Demonstrate the option for exact matching</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Double click the mapping node in the <b>AutoMappingExample1</b> message flow and the map will open. In the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>MYLASTNAME</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. At the top of the dialog page a red cross will appear with the error <b>There are no matches satisfying the selected options</b>. Click Cancel."
+                    },
+                    {
+                      "details": "<b>Explanation for what we just saw:</b><br>The Name Matching options have specified that the names of input and output must be the same, although the check is not case sensitive. <code>MYLASTNAME</code> in the input JSON schema has no direct match in the output XML schema, whose closest match is <code>MYLASXXXX</code>."
+                    },
+                    {
+                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Demonstrate the option for non-exact matching, using a percentage match</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Back in the map (AutoMappingExample_Mapping.map), in the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>MYLASTNAME</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = SELECTED (Place the slider at the default 60%)<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. At the top of the dialog page a red cross will appear with the error <b>There are no matches satisfying the selected options</b>. Click Cancel."
+                    },
+                    {
+                      "details": "Move the slider from 60% down to 40%. Click Next. The dialog will now show a matching transform to <code>MYLASXXXXX</code>."
+                    },
+                    {
+                      "details": "<b>Explanation for what we just saw:</b><br>The Name Matching options have specified that the names of input and output do not need to be exactly the same.<br>In the first part of the test, with the slider set to a demand of 60%, there were no matches<br>In the second part of the test, with the slider set to a demand of 40%, there was a match to <code>MYLASXXXX</code> (5 out of 10 letters is greater than 40% similarity)."
+                    },
+                    {
+                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Demonstrate the option for case sensitive matching</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Back in the map (AutoMappingExample_Mapping.map), in the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>MyLaSxXxXx</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. At the top of the dialog page a red cross will appear with the error <b>There are no matches satisfying the selected options</b>."
+                    },
+                    {
+                      "details": "Change the options as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = NOT SELECTED</code><br><br>Click Next. The dialog will now show a matching transform to <code>MYLASXXXXX</code>."
+                    },
+                    {
+                      "details": "<b>Explanation for what we just saw:</b><br>In the first test, we were seeking an exact match to the letters, compared in a case sensitive fashion and so there was no exact match for <code>MyLaSxXxXx</code><br>In the second test, we changed the comparison to not be case sensitive and so there was a match between <code>MyLaSxXxXx</code> and <code>MYLASXXXXX</code>."
+                    },
+                    {
+                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Demonstrate the option for using a file of synonyms</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Back in the map (AutoMappingExample_Mapping.map), in the map source data structure (shown on the left side of the map), right click the field in the source which is named <code>name</code> and select the <b>Auto Map</b> option. The <b>Auto Map</b> wizard will open and the first page will be titled <b>Automatically map inputs to outputs</b>. Alter the settings on this page as follows:<br><code>Name Matching Options:<br>&nbsp;&nbsp;&nbsp;&nbsp;Case sensitive checkbox = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Alphanumeric characters = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outputs are the same = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the names of inputs and outpus are more similar than = NOT SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Create transforms when the input and output names are matched to synonyms defined in a file = SELECTED<br>&nbsp;&nbsp;&nbsp;&nbsp;Filename = &lt;YourToolkitWorkspaceLocation&gt;\\AutoMappingExample\\MySynonyms.txt</code><br><br>Click Next. The dialog will now show a matching transform to <code>label</code></b>."
+                    },
+                    {
+                      "details": "<b>Explanation for what we just saw:</b><br>The file <code>MySynonyms.txt</code> was used to correlate the source message field named <code>name</code> with the field in the target message named <code>label</code>."
+                    },
+                    {
+                      "details": "Now we have seen this, click Cancel to return back to the map view ready for the next demonstration."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Auto-map the message flow AutoMappingExample2 and then test using the Flow Exerciser</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Close <b>AutoMappingExample1_Mapping</b> and open <b>AutoMappingExample2_Mapping</b>. In the map source data structure, right click the <b>Data</b> element beneath the <b>JSON</b> message domain and select the <b>Auto Map</b> option. Leave the default setting for the Mapping Scope which is <b>Map all simple descendants of the selected elements</b>. In the Mapping Criteria section, select the option named <b>Create transforms when the names of inputs and outputs are more similar than</b> and move the slider to <b>40% match</b>. click Next and the dialog should report that it has successfully found 11 mapping suggestions. Click Finish and save the map."
+                    },
+                    {
+                      "details": "Switch to the message flow <b>AutoMappingExample2</b>. At the top of the flow canvas, click the Flow Exerciser icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' />. If prompted (which you will be if your Toolkit has known connections to more than one server), select the <span class='application'>TEST_SERVER</span> integration server that you just created and agree to the confirmation dialog which warns that the message flow is owned by an Application. After a few seconds another confirmation dialog will appear with a Ready to record message status. Read through the information on the dialog and click Close."
+                    },
+                    {
+                      "details": "Back at the top of the flow, click on the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> and when the dialog opens, select the provided input message:<br><code>{<br>&nbsp;&nbsp;\"courtesytitle\": \"Mr\",<br>&nbsp;&nbsp;\"firstname\": \"Joe\",<br>&nbsp;&nbsp;\"middlename\": \"Fred\",<br>&nbsp;&nbsp;\"lastname\": \"Bloggs\",<br>&nbsp;&nbsp;\"firstaddressline\": \"1 Normal Road\",<br>&nbsp;&nbsp;\"secondaddressline\": \"Average-ville\",<br>&nbsp;&nbsp;\"city\": \"Hursley\",<br>&nbsp;&nbsp;\"zipcode\": \"SO53 2JN\",<br>&nbsp;&nbsp;\"item-descr\": \"Laptop\",<br>&nbsp;&nbsp;\"item-quant\": \"1\",<br>&nbsp;&nbsp;\"item-price\": \"599.99\"<br>}<br></code><br>Click Send to push the data into the flow."
+                    },
+                    {
+                      "details": "You should receive a reply message from the flow. The JSON will have been transformed into an XML message:<br><code>&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;<br>&lt;out:OrderMessage xmlns:out=\"http://www.example.org/Order\"&gt;<br>&nbsp;&lt;out:Person&gt;<br>&nbsp;&nbsp;&lt;out:Title&gt;Mr&lt;/out:Title&gt;<br>&nbsp;&nbsp;&lt;out:Firstname&gt;Joe&lt;/out:Firstname&gt;<br>&nbsp;&nbsp;&lt;out:Middlename&gt;Fred&lt;/out:Middlename&gt;<br>&nbsp;&nbsp;&lt;out:Lastname&gt;Bloggs&lt;/out:Lastname&gt;<br>&nbsp;&lt;/out:Person&gt;<br>&nbsp;&lt;out:Address&gt;<br>&nbsp;&nbsp;&lt;out:FirstLine&gt;1 Normal Road&lt;/out:FirstLine&gt;<br>&nbsp;&nbsp;&lt;out:SecondLine&gt;Average-ville&lt;/out:SecondLine&gt;<br>&nbsp;&nbsp;&lt;out:City&gt;Hursley&lt;/out:City&gt;<br>&nbsp;&nbsp;&lt;out:Postcode>SO53 2JN&lt;/out:Postcode&gt;<br>&nbsp;&lt;/out:Address&gt;<br>&nbsp;&lt;out:Item&gt;<br>&nbsp;&nbsp;&lt;out:Description&gt;Laptop&lt;/out:Description&gt;<br>&nbsp;&nbsp;&lt;out:Quantity&gt;1&lt;/out:Quantity&gt;<br>&nbsp;&nbsp;&lt;out:Price&gt;599.99&lt;/out:Price&gt;<br>&nbsp;&lt;/out:Item&gt;<br>&lt;/out:OrderMessage&gt;</code>"
+                    }
+                  ]
+                }
               }
             ]
           }
@@ -16885,6 +17608,274 @@
                 "title": "IBM Documentation link to ",
                 "description": "JMSOutput node",
                 "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac24830_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "File - Using the FileExists node to selectively invoke the FileRead node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "File - Using the FileExists node to selectively invoke the FileRead node",
+        "shortDescription": "Learn how to use the FileExists node to trigger a message flow (requires v12.0.4.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "FileExists node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to trigger a message flow based upon the discovery of a file in a local directory."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "This tutorial demonstrates how the FileExists node works using a message flow that has two sections. The first part of the flow is driven by an HTTP input message in JSON format containing a country code that abbreviates the name of a country (such as UK or DE for example). The flow uses an in-memory cache (if populated with data) to translate the country code into the full name of the country which is returned in an HTTP reply. The second part of the flow is driven a FileExists message flow node which polls a directory, expecting to find a text file in a comma-separated-value format that contains a list of country codes and country names paired together. The FileExists node does not immediately parse the content of the file, but carries meta-data about the file downstream to later nodes in the flow. These later nodes compare the time when the file was last modified to the time when the in-memory cache was last updated. If the file is more recent then the cache is updated. If the file is older then the cache is not updated."
+            },
+            {
+              "section": "This tutorial provides an application to hold the message flow, and a message model for parsing the file in comma-separated-valye format. There are no other pre-requisites needed by the scenario."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Developing integration solutions from scratch",
+              "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, one project will be created in your workspace: An application named <span class='application'>ApplicationFileExists</span>"
+              },
+              {
+                "section": "<span class='application'>ApplicationFileExists</span> provides a single message flow named <span class='application'>FlowFileExists</span> which uses a FileExists node to poll a directory and triggers the message flow when it notices that a file has arrived. The file itself is not parsed, but information about the file is propagated through the flow. Downstream nodes use the time when the file was last modified to determine whether or not to update an in-memory cache. The following descriptions summarize the functionality of each message flow node:"
+              },
+              {
+                "section": "<span class='uicontrol'>HTTP Input</span>: An Input node that receives an input message across HTTP that contains a country code (an abbreviated country name)."
+              },
+              {
+                "section": "<span class='uicontrol'>TranslateCountryCode</span>: A Compute node that uses an ESQL shared variable as an in-memory cache providing a Lookup facility to retrieve the full country name, by using the abbreviated country code as a key."
+              },
+              {
+                "section": "<span class='uicontrol'>HTTP Reply</span>: A Reply node that returns a message across HTTP that contains the full country name, and to help you understand how the flow is operating, the time at which the cache was last updated."
+              },
+              {
+                "section": "<span class='uicontrol'>FilExists</span>: A FileExists node that triggers the flow when it notices that a file has been written to a directory which it is polling on a 20 second interval."
+              },
+              {
+                "section": "<span class='uicontrol'>Update Cache?</span>: A Filter node that compares the time when the file was last modified to the time when the in-memory cache was last updated, and depending on the comparison, routes the data in different directions."
+              },
+              {
+                "section": "<span class='uicontrol'>CacheNotUpdated</span>: A Trace node that records the fact that the cache does not need updating in a trace file."
+              },
+              {
+                "section": "<span class='uicontrol'>File Read</span>: A File Read node that reads the file and parses it using a DFDL message model, ready to populate the in-memory cache."
+              },
+              {
+                "section": "<span class='uicontrol'>Update Cache</span>: A Compute node that updates the shared variable in-memory cache with the content from the file."
+              },
+              {
+                "section": "<span class='uicontrol'>CacheUpdated</span>: A Trace node that records the fact that the cache has been updated in a trace file"
+              },
+              {
+                "section": "Once imported using the link on the right, the provided project is ready to be deployed and tested. The rest of these instructions will describe how to do this using the Toolkit's built-in Flow Exerciser."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions from scratch",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "FileExists node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-fileexists-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Long-lived variable",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-long-lived-variables",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "The following steps help you to prepare your environment ready for running the message flow.",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog. "
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Create a temporary directory and configure the message flow's trace nodes</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "The message flow includes two trace nodes (named CacheUpdated and CacheNotUpdated) which are both currently configured to write a trace file named <code>C:\\temp\\TraceFileExists.txt</code>. Make sure this temporary directory exists, or update the message flow nodes' properties to point to a different file location."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Create the directory which the FileExists node will poll</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "On Windows: Create the directory <code>C:\\temp\\FileExistsDemo</code>."
+                    },
+                    {
+                      "details": "On Linux: Create a suitable directory such as <code>/tmp/FileExistsDemo</code> and change the Input directory property of the FileExists node accordingly to point to the same directory."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Next you will use the Flow exerciser to send HTTP requests to the message flow."
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<h4>Use the Flow Exerciser to test the tutorial scenario",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Open <span class='resource'>FileExistsFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (if you have already deployed the flow you will be asked whether you want to redeploy it which should only be necessary if you have subsequently changed the flow since it was last deployed)."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. One saved message is provided, named Input1, which can be used to invoke the HTTP Input node..."
+                    },
+                    {
+                      "details": "The input message <span class='resource'>Input1</span> contains this data:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\"<br>}</code><br><br>Select this input message and click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message structured like this:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryName\": \"Unknown\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CacheInfo\": \"Cache has not yet been initialised\"<br>}</code><br><br>After you close the dialog, the path taken through the message flow will be highlighted."
+                    },
+                    {
+                      "details": "Copy the provided input file from <code>&lt;Integration Toolkit workspace&gt;/ApplicationFileExists/CountryCode.json</code> to the input directory that you created on your file system earlier. The file will be processed by the message flow to update its cache and will then be deleted. This may take a few seconds as the polling interval of the flow is set to 20 seconds."
+                    },
+                    {
+                      "details": "In the Flow Exerciser toolbar, click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> to highlight the message path through the message flow. You should now see a second path highlighted in the flow (FileExists > Update Cache? > File Read > Update Cache > CacheUpdated) demonstrating the actions of the FileExists node. The flow will have noticed that the in-memory cache had not previously been populated and will have used the content of the file you copied to populate the cache. The Trace node at the end of the flow named CacheUpdated should have created an entry in the trace file (file location discussed earlier in the Prepare section of this tutorial) with content similar to the following:<br><code>===== Trace at 2022-03-25 10:49:27.628266 =====<br>File Name = 'CountryCodes.txt'<br>File LastModified = GMTTIMESTAMP '2022-03-22 12:16:35.785'<br>Cache LastModified = GMTTIMESTAMP '2022-03-25 10:49:27.621446'<br>The flow has updated its cache, either because it has not previously been initialised, or because the FileExists node was triggered by a file whose LastModified timestamp was more recent than the time of the last cache update.<br></code>"
+                    },
+                    {
+                      "details": "Now that the cache has been populated we will re-test the bottom branch of the flow by clicking the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Using the same saved message, named Input1, we will repeat the earlier test but this time you should see a different reply message..."
+                    },
+                    {
+                      "details": "The input message <span class='resource'>Input1</span> contains this data:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\"<br>}</code><br><br>Select this input message and click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message structured like this (but with a different timestamp):<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryName\": \"United Kingdom\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CacheInfo\": \"Cache was last updated at GMTTIMESTAMP '2022-03-25 09:48:41.183447'\"<br>}</code><br><br>After you close the dialog, the path taken through the messageflow will be highlighted."
+                    },
+                    {
+                      "details": "You can now run a further test, demonstrating the last branch of the message flow. Repeat the copy of the provided input file from <code>&lt;Integration Toolkit workspace&gt;/ApplicationFileExists/CountryCode.json</code> to the input directory that you created on your file system earlier. This time, the cache won't need initialising and will have already been updated more recently than the Last Modified timestamp of the file, so after the flow propagates to the trace node named CacheNotUpdated, the last action of the flow will be to delete the file. If you check back in the trace file, you should see a slightly different trace message has been appended by the node CacheNotUpdated:<br><code>===== Trace at 2022-03-25 10:59:07.912014 =====<br>File Name = 'CountryCodes_NEW.txt'<br>File LastModified = GMTTIMESTAMP '2022-03-22 12:16:35.785'<br>There is nothing further for the flow to do at this time, because the FileExists node was triggered by a file whose LastModified timestamp was earlier than the latest cache update time.<br></code>"
+                    },
+                    {
+                      "details": "If you make an edit to the CountryCodes.txt file (for example, add a new country to the list) and resave the file so that it has been recently modified (after the last update to the cache), then you should be able to copy it to the input directory for the FileExists node and the flow will update its cache again."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "FileExists node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-fileexists-node",
                 "type": "web"
               },
               {
