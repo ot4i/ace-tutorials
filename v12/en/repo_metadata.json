@@ -285,6 +285,34 @@
           ]
         },
         {
+          "name": "Optimizing the startup time of an independent Integration Server",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to optimize the startup time of an independent integration server using the ibmint command (requires v12.0.4.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/optimize-startup-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/optimize-startup-tutorial",
+          "zipURL": "https://github.com/ot4i/optimize-startup-tutorial/releases/download/v3.0/PI_Optimize.zip",
+          "barFile": "<workspace>/ExampleApplication/Example.bar",
+          "visible": "true",
+          "tags": "Optimize;containers",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleApplication",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleApplication/ExampleFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleApplication"
+            }
+          ]
+        },		
+		{
           "name": "Using the Java IBM Integration API - Strategic classes",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2104,6 +2132,34 @@
             }
           ]
         },
+        {
+          "name": "File - Using the FileExists node to selectively invoke the FileRead node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the FileExists node to trigger a message flow (requires v12.0.4.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/file-exists-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-exists-tutorial",
+          "zipURL": "https://github.com/ot4i/file-exists-tutorial/releases/download/v3.0/PI_FileExists.zip",
+          "barFile": "<workspace>/ApplicationFileExists/FileExists.bar",
+          "visible": "true",
+          "tags": "file",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ApplicationFileExists",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ApplicationFileExists/FlowFileExists.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ApplicationFileExists"
+            }
+          ]
+        },		
         {
           "name": "File - Using the FileInput node with Whole File record detection",
           "version": "1.0",
