@@ -2137,7 +2137,7 @@
                       "details": "<b>It is important to select the default options for this wizard</b>, because we will be comparing the start-up times with these default options to the optimized server configuration later in the tutorial.Click Finish on the dialog and the local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
                     },
                     {
-                      "details": "Right-click the integration server you just created (named TEST_SERVER) and choose the option to <code>Open Console Log</code>. The console will show several messages for the starting of the server, similar to the following output:<br><br><code>2022-03-29 09:55:56.064716: BIP1990I: Integration server 'TEST_SERVER' starting initialization; version '12.0.4.0' (64-bit)<br>2022-03-29 09:55:56.091108: BIP9905I: Initializing resource managers. <br>Listening for transport dt_socket at address: 9997<br>2022-03-29 09:56:02.801710: BIP9906I: Reading deployed resources. <br>2022-03-29 09:56:03.641175: BIP2866I: IBM App Connect Enterprise administration security is inactive. <br>2022-03-29 09:56:03.655721: BIP3132I: The HTTP Listener has started listening on port '7600' for 'RestAdmin http' connections. <br>2022-03-29 09:56:03.661341: BIP1991I: Integration server has finished initialization.</code><br>In this example, on the particular machine this was captured from, note that the integration server started up relatively slowly, in approximately 7.5 seconds. Of course, precise timings may vary dependent on the speed of your hardware. This startup time will reduce significantly when we optimize the server later in the tutorial."
+                      "details": "Right-click the integration server you just created (named TEST_SERVER) and choose the option to <code>Open Console Log</code>. The console will show several messages for the starting of the server, similar to the following output:<br><br><code>2022-03-28 14:55:56.064716: BIP1990I: Integration server 'TEST_SERVER' starting initialization; version '12.0.4.0' (64-bit)<br>2022-03-28 14:55:56.091108: BIP9905I: Initializing resource managers. <br>Listening for transport dt_socket at address: 9997<br>2022-03-28 14:56:02.801710: BIP9906I: Reading deployed resources. <br>2022-03-28 14:56:03.641175: BIP2866I: IBM App Connect Enterprise administration security is inactive. <br>2022-03-28 14:56:03.655721: BIP3132I: The HTTP Listener has started listening on port '7600' for 'RestAdmin http' connections. <br>2022-03-28 14:56:03.661341: BIP1991I: Integration server has finished initialization.</code><br>In this example, on the particular machine this was captured from, note that the integration server started up relatively slowly, in approximately 7.5 seconds. Of course, precise timings may vary dependent on the speed of your hardware. This startup time will reduce significantly when we optimize the server later in the tutorial."
                     },
                     {
                       "details": "Next you will use the Flow exerciser to send HTTP requests to the message flow."
@@ -17679,10 +17679,10 @@
           "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
           "sections": [
             {
-              "section": "This tutorial demonstrates how the FileExists node works using a message flow that has two sections. The first part of the flow is driven by an HTTP input message in JSON format containing a country code that abbreviates the name of a country (such as UK or DE for example). The flow uses an in-memory cache (if populated with data) to translate the country code into the full name of the country which is returned in an HTTP reply. The second part of the flow is driven a FileExists message flow node which polls a directory, expecting to find a text file in a comma-separated-value format that contains a list of country codes and country names paired together. The FileExists node does not immediately parse the content of the file, but carries meta-data about the file downstream to later nodes in the flow. These later nodes compare the time when the file was last modified to the time when the in-memory cache was last updated. If the file is more recent then the cache is updated. If the file is older then the cache is not updated."
+              "section": "This tutorial demonstrates how the FileExists node works using a message flow that has two sections. The first part of the flow is driven by an HTTP input message in JSON format containing a country code that abbreviates the name of a country (such as UK or DE for example). The flow uses an in-memory cache (if populated with data) to translate the country code into the full name of the country which is returned in an HTTP reply. The second part of the flow is driven by a FileExists message flow node which polls a directory, expecting to find a text file in a comma-separated-value format that contains a list of country codes and country names paired together. The FileExists node does not immediately parse the content of the file, but carries meta-data about the file downstream to later nodes in the flow. These later nodes compare the time when the file was last modified to the time when the in-memory cache was last updated. If the file is more recent, then the cache is updated. However if the file is older, then the cache is not updated."
             },
             {
-              "section": "This tutorial provides an application to hold the message flow, and a message model for parsing the file in comma-separated-valye format. There are no other pre-requisites needed by the scenario."
+              "section": "This tutorial provides an application to hold the message flow, and a message model for parsing the file in comma-separated-value format. There are no other pre-requisites needed by the scenario."
             }
           ]
         },
@@ -17722,13 +17722,13 @@
                 "section": "<span class='uicontrol'>HTTP Reply</span>: A Reply node that returns a message across HTTP that contains the full country name, and to help you understand how the flow is operating, the time at which the cache was last updated."
               },
               {
-                "section": "<span class='uicontrol'>FilExists</span>: A FileExists node that triggers the flow when it notices that a file has been written to a directory which it is polling on a 20 second interval."
+                "section": "<span class='uicontrol'>FileExists</span>: A FileExists node that triggers the flow when it notices that a file has been written to a directory which it is polling on a 20 second interval."
               },
               {
                 "section": "<span class='uicontrol'>Update Cache?</span>: A Filter node that compares the time when the file was last modified to the time when the in-memory cache was last updated, and depending on the comparison, routes the data in different directions."
               },
               {
-                "section": "<span class='uicontrol'>CacheNotUpdated</span>: A Trace node that records the fact that the cache does not need updating in a trace file."
+                "section": "<span class='uicontrol'>CacheNotUpdated</span>: A Trace node that records that the cache does not need updating."
               },
               {
                 "section": "<span class='uicontrol'>File Read</span>: A File Read node that reads the file and parses it using a DFDL message model, ready to populate the in-memory cache."
@@ -17737,7 +17737,7 @@
                 "section": "<span class='uicontrol'>Update Cache</span>: A Compute node that updates the shared variable in-memory cache with the content from the file."
               },
               {
-                "section": "<span class='uicontrol'>CacheUpdated</span>: A Trace node that records the fact that the cache has been updated in a trace file"
+                "section": "<span class='uicontrol'>CacheUpdated</span>: A Trace node that records that the cache has been updated."
               },
               {
                 "section": "Once imported using the link on the right, the provided project is ready to be deployed and tested. The rest of these instructions will describe how to do this using the Toolkit's built-in Flow Exerciser."
@@ -17847,19 +17847,19 @@
                       "details": "The input message <span class='resource'>Input1</span> contains this data:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\"<br>}</code><br><br>Select this input message and click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message structured like this:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryName\": \"Unknown\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CacheInfo\": \"Cache has not yet been initialised\"<br>}</code><br><br>After you close the dialog, the path taken through the message flow will be highlighted."
                     },
                     {
-                      "details": "Copy the provided input file from <code>&lt;Integration Toolkit workspace&gt;/ApplicationFileExists/CountryCode.json</code> to the input directory that you created on your file system earlier. The file will be processed by the message flow to update its cache and will then be deleted. This may take a few seconds as the polling interval of the flow is set to 20 seconds."
+                      "details": "Copy the provided input file from <code>&lt;Integration Toolkit workspace&gt;/ApplicationFileExists/CountryCodes.txt</code> to the input directory that you created on your file system earlier. The file will be processed by the message flow to update its cache and will then be deleted. This may take a few seconds as the polling interval of the flow is set to 20 seconds."
                     },
                     {
-                      "details": "In the Flow Exerciser toolbar, click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> to highlight the message path through the message flow. You should now see a second path highlighted in the flow (FileExists > Update Cache? > File Read > Update Cache > CacheUpdated) demonstrating the actions of the FileExists node. The flow will have noticed that the in-memory cache had not previously been populated and will have used the content of the file you copied to populate the cache. The Trace node at the end of the flow named CacheUpdated should have created an entry in the trace file (file location discussed earlier in the Prepare section of this tutorial) with content similar to the following:<br><code>===== Trace at 2022-03-25 10:49:27.628266 =====<br>File Name = 'CountryCodes.txt'<br>File LastModified = GMTTIMESTAMP '2022-03-22 12:16:35.785'<br>Cache LastModified = GMTTIMESTAMP '2022-03-25 10:49:27.621446'<br>The flow has updated its cache, either because it has not previously been initialised, or because the FileExists node was triggered by a file whose LastModified timestamp was more recent than the time of the last cache update.<br></code>"
+                      "details": "In the Flow Exerciser toolbar, click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> to highlight the message path through the message flow. You should now see a second path highlighted in the flow (FileExists > Update Cache? > File Read > Update Cache > CacheUpdated) demonstrating the actions of the FileExists node. The flow will have noticed that the in-memory cache had not previously been populated and will have used the content of the file you copied to populate the cache. The Trace node at the end of the flow named CacheUpdated should have created an entry in the trace file (file location discussed earlier in the Prepare section of this tutorial) with content similar to the following:<br><code>===== Trace at 2022-03-30 15:32:44.841308 =====<br>File Name = 'CountryCodes.txt'<br>File LastModified = GMTTIMESTAMP '2022-03-30 11:24:28'<br>Cache LastModified = GMTTIMESTAMP '2022-03-30 15:32:44.840285'<br>The flow has updated its cache, either because it has not previously been initialised, or because the FileExists node was triggered by a file whose LastModified timestamp was more recent than the time of the last cache update.<br></code>"
                     },
                     {
                       "details": "Now that the cache has been populated we will re-test the bottom branch of the flow by clicking the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Using the same saved message, named Input1, we will repeat the earlier test but this time you should see a different reply message..."
                     },
                     {
-                      "details": "The input message <span class='resource'>Input1</span> contains this data:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\"<br>}</code><br><br>Select this input message and click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message structured like this (but with a different timestamp):<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryName\": \"United Kingdom\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CacheInfo\": \"Cache was last updated at GMTTIMESTAMP '2022-03-25 09:48:41.183447'\"<br>}</code><br><br>After you close the dialog, the path taken through the messageflow will be highlighted."
+                      "details": "The input message <span class='resource'>Input1</span> contains this data:<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\"<br>}</code><br><br>Select this input message and click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message structured like this (but with a different timestamp):<br><code>{<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryCode\": \"UK\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CountryName\": \"United Kingdom\",<br>&nbsp;&nbsp;&nbsp;&nbsp;\"CacheInfo\": \"Cache was last updated at GMTTIMESTAMP '2022-03-30 15:32:44.840285'\"<br>}</code><br><br>After you close the dialog, the path taken through the messageflow will be highlighted."
                     },
                     {
-                      "details": "You can now run a further test, demonstrating the last branch of the message flow. Repeat the copy of the provided input file from <code>&lt;Integration Toolkit workspace&gt;/ApplicationFileExists/CountryCode.json</code> to the input directory that you created on your file system earlier. This time, the cache won't need initialising and will have already been updated more recently than the Last Modified timestamp of the file, so after the flow propagates to the trace node named CacheNotUpdated, the last action of the flow will be to delete the file. If you check back in the trace file, you should see a slightly different trace message has been appended by the node CacheNotUpdated:<br><code>===== Trace at 2022-03-25 10:59:07.912014 =====<br>File Name = 'CountryCodes_NEW.txt'<br>File LastModified = GMTTIMESTAMP '2022-03-22 12:16:35.785'<br>There is nothing further for the flow to do at this time, because the FileExists node was triggered by a file whose LastModified timestamp was earlier than the latest cache update time.<br></code>"
+                      "details": "You can now run a further test, demonstrating the last branch of the message flow. Repeat the copy of the provided input file from <code>&lt;Integration Toolkit workspace&gt;/ApplicationFileExists/CountryCodes.txt</code> to the input directory that you created on your file system earlier. This time, the cache won't need initialising and will have already been updated more recently than the Last Modified timestamp of the file, so after the flow propagates to the trace node named CacheNotUpdated, the last action of the flow will be to delete the file. If you check back in the trace file, you should see a slightly different trace message has been appended by the node CacheNotUpdated:<br><code>===== Trace at 2022-03-30 15:36:44.946730 =====<br>File Name = 'CountryCodes.txt'<br>File LastModified = GMTTIMESTAMP '2022-03-30 11:24:28'<br>There is nothing further for the flow to do at this time, because the FileExists node was triggered by a file whose LastModified timestamp was earlier than the latest cache update time.<br></code>"
                     },
                     {
                       "details": "If you make an edit to the CountryCodes.txt file (for example, add a new country to the list) and resave the file so that it has been recently modified (after the last update to the cache), then you should be able to copy it to the input directory for the FileExists node and the flow will update its cache again."
@@ -24288,6 +24288,2037 @@
                 "title": "IBM Documentation link to ",
                 "description": "Validate node",
                 "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac20803_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the IBM Cloudant Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the IBM Cloudant Request node",
+        "shortDescription": "Learn how to use the IBM Cloudant Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "IBM Cloudant Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to IBM Cloudant and issue requests to create, retrieve, update, delete, or view objects in IBM Cloudant."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "IBM® Cloudant® is a highly scalable JSON (JavaScript Object Notation) database service, which stores JSON formatted documents. This tutorial demonstrates how to develop and run a message flow that connects to IBM Cloudant and issues synchronous requests to retrieve information. This tutorial requires access to an IBM Cloudant system. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store an IBM Cloudant policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the IBM Cloudant Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of IBM Cloudant."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using IBM Cloudant with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/SSTTDS_12.0?topic=applications-using-cloudant-app-connect-enterprise",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleCloudant</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleCloudant</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectCloudant</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleCloudant</span> contains a single message flow named <span class='application'>ExampleCloudantFlow</span>. To save you time, most of the message flow is ready for use, but the IBM Cloudant Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the IBM Cloudant Request communicates with Cloudant. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleCloudant</span> is very similar to <span class='application'>ExampleCloudant</span> but the message flow which it contains, named  <span class='application'>ExampleCloudantFlow</span> (which exposes a different URL Fragment), has already had its IBM Cloudant Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectCloudant</span> contains a single policy named <span class='application'>IBMCloudant1</span> which is used by the application <span class='application'>CompleteExampleCloudant</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using IBM Cloudant with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-cloudant-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "IBM Cloudant Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-cloudant-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Cloudant. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleCloudantFlow</span> in application <span class='application'>ExampleCloudant</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the IBM Cloudant Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Cloudant Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Cloudant and discovering information from it, will cause your Cloudant credentials to be saved in the vault, and your Cloudant connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectCloudant</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Cloudant system then a list of those connections would be displayed, but in this example the status of the IBM Cloudant connector is shown as <code>Not connected</code>. Underneath this you will see a list of Cloudant objects (such as Attachments, Databases, Documents and Views) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Documents</code> section and choose to <code>Retrieve documents</code>. The list of objects and actions will be replace with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Cloudant, and offer four optional fields for <strong>Cloudant username</strong>, <strong>Cloudant password</strong>, <strong>Cloudant host</strong> and <strong>Cloudant API Key</strong>. Type in the required details - the simplest combination would be to provide just the <strong>Cloudant host</strong> and <strong>Cloudant API Key</strong>. Click Connect."
+                    },
+                    {
+                      "details": "Connecting to Cloudant may take a few seconds, and you should then see a Database field which provides an enumerated drop-down list of the databases  defined in your Cloudant service instance. Pick one from the list. Reduce the value for Maximum number of items to retrieve to 1, which should also cause the radio button to select the option to <code>Process 1 item from the collection</code>. This will ensure that the data returned from Cloudant is relatively small, for the purpose of a simple example."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the IBM Cloudant Request node in the message flow have been updated. Save the message flow.  Explore the properties of the IBM Cloudant Request node. The Basic properties tab will now display a short description of <code>Retrieve documents</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>document</code>). The database name will also be shown. On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectCloudant}:IBMCloudant1</code>. The Filter properties tab will show the Filter Limit which we just selected."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectCloudant</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleCloudantFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Cloudant, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the IBM Cloudant Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the IBM Cloudant Request node to see the data which has been retrieved from the database. The structure of this JSON message will depend on the structure of the first document found in your selected database."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleCloudant to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Cloudant service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type cloudantdb --credential-name CompletePolicyProjectCloudant_IBMCloudant1 --api-key &lt;YourCloudantAPIKey&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>IBMCloudant1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectCloudant</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Cloudant host</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_CLOUDANT_HOST</code>. As the name suggests, replace this value with the host name of your Cloudant service instance, and save the policy.  Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectCloudant</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleCloudantFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Cloudant, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the IBM Cloudant Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the IBM Cloudant Request node to see the data which has been retrieved from the database. The structure of this JSON message will depend on the structure of the first document found in your selected database."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "IBM Cloudant Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-cloudant-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the Microsoft Azure Blob storage Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Microsoft Azure Blob storage Request node",
+        "shortDescription": "Learn how to use the Microsoft Azure Blob storage Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Microsoft Azure Blob storage Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Microsoft Azure Blob storage and issue requests to create, retrieve, update, delete, or view objects in Microsoft Azure Blob storage."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Microsoft Azure Blob storage is a Cloud Object Storage solution. This tutorial demonstrates how to develop and run a message flow that connects to Microsoft Azure Blob storage and issues synchronous requests to retrieve information. This tutorial requires access to Microsoft Azure Blob storage. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store a Microsoft Azure Blob storage policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Microsoft Azure Blob storage Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of Microsoft Azure Blob storage."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using Microsoft Azure Blob storage with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=cca-using-microsoft-azure-blob-storage-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Microsoft Azure Blob storage from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=umabsace-connecting-microsoft-azure-blob-storage-from-app-connect-enterprise",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleAzureBlobStorage</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleAzureBlobStorage</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectAzureBlobStorage</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleAzureBlobStorage</span> contains a single message flow named <span class='application'>ExampleAzureBlobStorageFlow</span>. To save you time, most of the message flow is ready for use, but the Microsoft Azure Blob storage Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the Microsoft Azure Blob storage Request communicates with Microsoft Azure Blob storage. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleAzureBlobStorage</span> is very similar to <span class='application'>ExampleAzureBlobStorage</span> but the message flow which it contains, named  <span class='application'>ExampleAzureBlobStorageFlow</span> (which exposes a different URL Fragment), has already had its Microsoft Azure Blob storage Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectAzureBlobStorage</span> contains a single policy named <span class='application'>MicrosoftAzureBlobstorage1</span> which is used by the application <span class='application'>CompleteExampleAzureBlobStorage</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using Microsoft Azure Blob storage with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=cca-using-microsoft-azure-blob-storage-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Microsoft Azure Blob Storage Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-microsoft-azure-blob-storage-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Microsoft Azure Blob storage. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleAzureBlobStorageFlow</span> in application <span class='application'>ExampleAzureBlobStorage</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Microsoft Azure Blob storage Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Microsoft Azure Blob storage Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Microsoft Azure Blob storage and discovering information from it, will cause your Microsoft Azure Blob storage credentials to be saved in the vault, and your Microsoft Azure Blob storage connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectAzureBlobStorage</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Microsoft Azure Blob storage system then a list of those connections would be displayed, but in this example the status of the Microsoft Azure Blob storage connector is shown as <code>Not connected</code>. Underneath this you will see a list of Microsoft Azure Blob storage objects (such as Append blobs, Blob services, Blobs, Containers, Page blobs, Snapshots and Versions) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Containers</code> section and choose to <code>Retrieve containers</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Microsoft Azure Blob storage, and offer a drop-down choice of <strong>Authorization method</strong> which can be either <code>Provide credentials for App Connect to use (BASIC)</code> or <code>Provide credentials for App Connect to use (API KEY)</code>. Select the second of these options and fill out the fields specifying your <strong>Storage account name</strong> and <strong>Storage account key</strong>. Click Connect."
+                    },
+                    {
+                      "details": "Connecting to Microsoft Azure Blob storage may take a few seconds, and you should then see a link to <strong>Add condition</strong>. Click this link and the display will update with a Where clause. Choose to select by <strong>Container name</strong> and type the name of a container which you have defined in your instance of Microsoft Azure Blob storage.  Reduce the value for Maximum number of items to retrieve to 1, which should also cause the radio button to select the option to <code>Process 1 item from the collection</code>."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Microsoft Azure Blob storage Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Microsoft Azure Blob storage Request node. The Basic properties tab will now display a short description of <code>Retrieve containers</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>container</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAzureBlobStorage}:MicrosoftAzureBlobstorage1</code>. The Filter properties tab will show the Filter Limit which we just selected."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectAzureBlobStorage</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleAzureBlobStorageFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Microsoft Azure Blob storage, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Microsoft Azure Blob storage Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Microsoft Azure Blob storage Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAzureBlobStorage to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Microsoft Azure Blob storage service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type azureblobstorage --credential-name CompletePolicyProjectAzureBlobStorage_MicrosoftAzureBlobstorage1 --api-key &lt;YourMicrosoftAzureBlobStorageAPIKey&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>MicrosoftAzureBlobstorage1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectAzureBlobStorage</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Storage account name</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_STORAGE_ACCOUNT_NAME</code>. As the name suggests, replace this value with the storage account name of your service instance, and save the policy.  Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAzureBlobStorage</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleAzureBlobStorageFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Microsoft Azure Blob Storage, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Microsoft Azure Blob storage Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Microsoft Azure Blob storage Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Microsoft Azure Blob Storage Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-microsoft-azure-blob-storage-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the Coupa Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Coupa Request node",
+        "shortDescription": "Learn how to use the Coupa Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Coupa Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Coupa and issue requests to create, retrieve, update, delete, or view objects in Coupa."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Coupa software allows you to manage and analyze your employees' spending, from procurement to invoicing and expenses. IBM App Connect Enterprise provides a Coupa Request node, which enables you to connect to Coupa and issue requests to create, retrieve, and update objects such as expense reports, exchange rates, and invoices. This tutorial demonstrates how to develop and run a message flow that connects to Coupa and issues synchronous requests to retrieve information. This tutorial requires access to Coupa. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store a Coupa policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Coupa Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of Coupa."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using Coupa with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-coupa-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Coupa from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-connecting-coupa-from-app-connect",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleCoupa</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleCoupa</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectCoupa</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleCoupa</span> contains a single message flow named <span class='application'>ExampleCoupaFlow</span>. To save you time, most of the message flow is ready for use, but the Coupa Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the Coupa Request communicates with Coupa. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleCoupa</span> is very similar to <span class='application'>ExampleCoupa</span> but the message flow which it contains, named  <span class='application'>ExampleCoupaFlow</span> (which exposes a different URL Fragment), has already had its Coupa Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectCoupa</span> contains a single policy named <span class='application'>Coupa1</span> which is used by the application <span class='application'>CompleteExampleCoupa</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using Coupa with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-coupa-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Coupa Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-coupa-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Coupa. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleCoupaFlow</span> in application <span class='application'>ExampleCoupa</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Coupa Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Coupa Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Coupa and discovering information from it, will cause your Coupa credentials to be saved in the vault, and your Coupa connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectCoupa</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Coupa system then a list of those connections would be displayed, but in this example the status of the Coupa connector is shown as <code>Not connected</code>. Underneath this you will see a list of Coupa objects (such as Addresses, Exchange rates, Expense reports, Inventory transactions, Invoices, Lookup values, Purchase orders, Remit-to addresses, Suppliers and Users) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Invoices</code> section and choose to <code>Retrieve invoices</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Coupa, and offer two mandatory fields for <strong>API URL</strong> and <strong>API Key</strong>. Type in these required details and then click Connect."
+                    },
+                    {
+                      "details": "Connecting to Coupa may take a few seconds, and you should then see displayed a mandatory field named <strong>Supplier</strong>, with a drop-down list of potential suppliers. Select one of the suppliers in your system for which you wish to retrieve invoices. Reduce the value for Maximum number of items to retrieve to 1, which should also cause the radio button to select the option to <code>Process 1 item from the collection</code>."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Coupa Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Coupa Request node. The Basic properties tab will now display a short description of <code>Retrieve invoices</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>invoices</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectCoupa}:Coupa1</code>. The Filter properties tab will show the Filter Limit which we just selected."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectCoupa</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleCoupaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Coupa, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Coupa Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Coupa Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleCoupa to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Coupa service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type coupa --credential-name CompletePolicyProjectCoupa_Coupa1 --api-key &lt;YourCoupaAPIKey&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>Coupa1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectCoupa</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>API URL</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_API_URL</code>. As the name suggests, replace this value with the URL for the Coupa REST API of your service instance, and save the policy.  Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectCoupa</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleCoupaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Coupa, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Coupa Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Coupa Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Coupa Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-coupa-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the Amazon S3 Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Amazon S3 Request node",
+        "shortDescription": "Learn how to use the Amazon S3 Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Amazon S3 Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Amazon S3 and issue requests to create, retrieve, update, delete, or view objects in Amazon S3."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Amazon Simple Storage Service (Amazon S3) is a simple storage service that provides object storage through a web service interface. It uses the scalable storage infrastructure of Amazon.com and enables you to store objects, download and use data with other AWS services, and build applications that call for internet storage.  IBM App Connect Enterprise provides an Amazon S3 Request node, which enables you to connect to Amazon S3 and issue synchronous requests to create, retrieve, update, delete, or view objects. This tutorial demonstrates how to develop and run a message flow that connects to Amazon S3 and issues synchronous requests to retrieve information. This tutorial requires access to Amazon S3. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store an Amazon S3 policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Amazon S3 Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of Amazon S3."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using Amazon S3 with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-amazon-s3-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Amazon S3 from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-connecting-amazon-s3-from-app-connect",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleAmazonS3</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleAmazonS3</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectAmazonS3</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleAmazonS3</span> contains a single message flow named <span class='application'>ExampleAmazonS3Flow</span>. To save you time, most of the message flow is ready for use, but the Amazon S3 Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the Amazon S3 Request communicates with Amazon S3. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleAmazonS3</span> is very similar to <span class='application'>ExampleAmazonS3</span> but the message flow which it contains, named  <span class='application'>ExampleAmazonS3Flow</span> (which exposes a different URL Fragment), has already had its AmazonS3 Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectAmazonS3</span> contains a single policy named <span class='application'>AmazonS31</span> which is used by the application <span class='application'>CompleteExampleAmazonS3</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using Amazon S3 with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-amazon-s3-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Amazon S3 Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-amazon-s3-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Amazon S3. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleAmazonS3Flow</span> in application <span class='application'>ExampleAmazonS3</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Amazon S3 Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Amazon S3 Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Amazon S3 and discovering information from it, will cause your Amazon S3 credentials to be saved in the vault, and your Amazon S3 connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectAmazonS3</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to an Amazon S3 system then a list of those connections would be displayed, but in this example the status of the Amazon S3 connector is shown as <code>Not connected</code>. Underneath this you will see a list of Amazon S3 objects (such as Buckets, Object ACLs, Object tags and Objects) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Buckets</code> section and choose to <code>Retrieve all buckets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Amazon S3, and offer two mandatory fields for <strong>Secret Access Key</strong> and <strong>Access key ID</strong>. Type in these required details and then click Connect."
+                    },
+                    {
+                      "details": "Connecting to Amazon S3 may take a few seconds. For this particular choice of action, because we are retrieving all buckets, there is no need for any further Where clause to be completed. Reduce the value for Maximum number of items to retrieve to 3, which should also cause the radio button to select the option to <code>Process 3 items from the collection</code>."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Amazon S3 Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Amazon S3 Request node. The Basic properties tab will now display a short description of <code>Retrieve all buckets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>bucketcollection</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAmazonS3}:AmazonS31</code>. The Filter properties tab will show the Filter Limit which we just selected."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectAmazonS3</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleAmazonS3Flow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Amazon S3, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Amazon S3 Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Amazon S3 Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAmazonS3 to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Amazon S3 service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type amazons3 --credential-name CompletePolicyProjectAmazonS3_AmazonS31 --secret-access--key &lt;YourAmazonS3SecretAccessKey&gt; --access-key-id &lt;YourAmazonS3AccessKeyId&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>AmazonS31.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectAmazonS3</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Region</strong> property is currently not configured (this is an optional field) but if you would like to focus your connection on a particular region you can fill out this field and resave the policy.  Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonS3</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleAmazonS3Flow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Amazon S3, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Amazon S3 Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Amazon S3 Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Amazon S3 Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-amazon-s3-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the Magento Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Magento Request node",
+        "shortDescription": "Learn how to use the Magento Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Magento Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Magento and issue requests to create, retrieve, update, delete, or view objects in Magento."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Magento is an e-commerce platform that integrates online and physical shopping experiences. IBM App Connect Enterprise provides a Magento Request node, which enables you to connect to Magento and issue synchronous requests to create, retrieve, update, delete, or view objects. This tutorial demonstrates how to develop and run a message flow that connects to Magento and issues synchronous requests to retrieve information. This tutorial requires access to Magento. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store a Magento policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Magento Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of Magento."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using Magento with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-magento-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Magento from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-connecting-magento-from-app-connect",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleMagento</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleMagento</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectMagento</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleMagento</span> contains a single message flow named <span class='application'>ExampleMagentoFlow</span>. To save you time, most of the message flow is ready for use, but the Magento Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the Magento Request communicates with Magento. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleMagento</span> is very similar to <span class='application'>ExampleMagento</span> but the message flow which it contains, named  <span class='application'>ExampleMagentoFlow</span> (which exposes a different URL Fragment), has already had its Magento Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectMagento</span> contains a single policy named <span class='application'>Magento1</span> which is used by the application <span class='application'>CompleteExampleMagento</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using Magento with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-magento-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Magento Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-magento-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Magento. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleMagentoFlow</span> in application <span class='application'>ExampleMagento</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Magento Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Magento Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Magento and discovering information from it, will cause your Magento credentials to be saved in the vault, and your Magento connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectMagento</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Magento system then a list of those connections would be displayed, but in this example the status of the Magento connector is shown as <code>Not connected</code>. Underneath this you will see a list of Magento objects (such as Attribute sets, Carts, Categories, Customer groups, Customers, Products, Sales credit memos, Sales invoices, Sales orders, Sales rule coupons, Sales rules and Sales shipments) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Products</code> section and choose to <code>Retrieve products</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Magento, and offer three mandatory fields for <strong>Store URL</strong>, <strong>User name</strong> and <strong>Password</strong>. Type in these required details and then click Connect."
+                    },
+                    {
+                      "details": "Connecting to Magento may take a few seconds. For this particular choice of action to Retrieve Products, once connected you will be shown a mandatory <strong>Attribute-Set</strong> property which will become part of the Where clause used to select the products from Magento. From the provided drop-down select a value for Attribute-Set. Next, reduce the value for Maximum number of items to retrieve to 3, which should also cause the radio button to select the option to <code>Process 3 items from the collection</code>."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Magento Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Magento Request node. The Basic properties tab will now display a short description of <code>Retrieve products</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>Product</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProject}:Magento1</code>. The Filter properties tab will show the Filter Limit which we just selected."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectMagento</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleMagentoFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Magento, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Magento Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Magento Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleMagento to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Magento service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type magento --credential-name CompletePolicyProjectMagento_Magento1 --username &lt;YourMagentoUsername&gt; --password &lt;YourMagentoPassword&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>Magento1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectMagento</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Store URL</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_STORE_URL</code>. As the name suggests, replace this value with the Store URL for your Magento service instance, and save the policy.Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectMagento</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleMagentoFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Magento, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Magento Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Magento Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Magento Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-magento-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the Salesforce Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Salesforce Request node",
+        "shortDescription": "Learn how to use the Salesforce Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Salesforce Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Salesforce and issue requests to create, retrieve, update, delete, or view objects in Salesforce."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Salesforce is a work management and project tracking app that provides projects, tasks, conversations, and dashboards to enable teams to collaborate and track progress online. IBM App Connect Enterprise provides a Salesforce Request node, which enables you to connect to Salesforce and issue synchronous requests to create, retrieve, update, delete, or view objects. This tutorial demonstrates how to develop and run a message flow that connects to Salesforce and issues synchronous requests to retrieve information. This tutorial requires access to Salesforce. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store a Salesforce policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Salesforce Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of Salesforce."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using Salesforce with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-salesforce-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Salesforce from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-connecting-salesforce-from-app-connect",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleSalesforce</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleSalesforce</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectSalesforce</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleSalesforce</span> contains a single message flow named <span class='application'>ExampleSalesforceFlow</span>. To save you time, most of the message flow is ready for use, but the Salesforce Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the Salesforce Request communicates with Salesforce. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleSalesforce</span> is very similar to <span class='application'>ExampleSalesforce</span> but the message flow which it contains, named  <span class='application'>ExampleSalesforceFlow</span> (which exposes a different URL Fragment), has already had its Salesforce Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectSalesforce</span> contains a single policy named <span class='application'>Salesforce1</span> which is used by the application <span class='application'>CompleteExampleSalesforce</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using Salesforce with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-salesforce-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Salesforce Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-salesforce-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Salesforce. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleSalesforceFlow</span> in application <span class='application'>ExampleSalesforce</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Salesforce Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Salesforce Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Salesforce and discovering information from it, will cause your Salesforce credentials to be saved in the vault, and your Salesforce connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectSalesforce</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Salesforce system then a list of those connections would be displayed, but in this example the status of the Salesforce connector is shown as <code>Not connected</code>. Underneath this you will see a list of Salesforce objects (such as Accounts, Attachments, Campaigns, Cases, Contacts, Content documents, Events, File shares, Files, Folders, Leads, Opportunities, Orders, Products and Solutions) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Contacts</code> section and choose to <code>Retrieve contacts</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Salesforce, and offer a drop-down choice of <strong>Authorization method</strong> which can be either <code>Provide a username, password, and client credentials (OAUTH 2.0 PASSWORD)</code> or <code>Provide credentials for App Connect to use (BASIC OAUTH)</code>. Select the first of these options, click continue, and fill out the fields specifying your <strong>Login URL</strong>, <strong>Username</strong>, <strong>Password</strong>, <strong>Client ID</strong> and <strong>Client secret</strong>. Click Connect."
+                    },
+                    {
+                      "details": "Connecting to Salesforce may take a few seconds. For this particular choice of action to Retrieve contacts, there are no mandatory properties required in the Where clause used to select the contacts from Salesforce, but to reduce the number of contacts retrieved you can apply a limit.  Reduce the value for Maximum number of items to retrieve to 1, which should also cause the radio button to select the option to <code>Process 1 item from the collection</code>."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Salesforce Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Salesforce Request node. The Basic properties tab will now display a short description of <code>Retrieve contacts</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>Contact</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectSalesforce}:Salesforce1</code>."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectSalesforce</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleSalesforceFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Salesforce, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Salesforce Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Salesforce Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleSalesforce to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Salesforce service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type salesforce --credential-name CompletePolicyProjectSalesforce_Salesforce1 --username &lt;YourSalesforceUsername&gt; --password &lt;YourSalesforcePassword&gt; --client-id &lt;YourSalesforceClientId&gt; --client-secret &lt;YourSalesforceClientSecret&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>Salesforce1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectSalesforce</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Store URL</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_SALESFORCE_URL</code>. As the name suggests, replace this value with the URL for your Salesforce service instance, and save the policy. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectSalesforce</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleSalesforceFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from Salesforce, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the Salesforce Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the Salesforce Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Salesforce Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-salesforce-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the IBM Maximo Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the IBM Maximo Request node",
+        "shortDescription": "Learn how to use the IBM Maximo Request node (requires v12.0.5.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "IBM Maximo Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to IBM Maximo and issue requests to create, retrieve, update, delete, or view objects in Maximo."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "IBM Maximo is an enterprise asset management solution that enterprises can use to track and manage assets throughout their life cycles, manage procurement, contracts, services, people, and work orders, and optimize work processes. IBM App Connect Enterprise provides an IBM Maximo Request node, which enables you to connect to Maximo and issue synchronous requests to create, retrieve, update, delete, or view objects. This tutorial demonstrates how to develop and run a message flow that connects to IBM Maximo and issues synchronous requests to retrieve information. This tutorial requires access to IBM Maximo. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store an IBM Maximo policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the IBM Maximo Request node will execute"
+            },
+            {
+              "section": "4. Select Filters which influence the way in which the message flow selects data"
+            },
+            {
+              "section": "5. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of IBM Maximo."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using IBM Maximo with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-ibm-maximo-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to IBM Maximo from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-connecting-ibm-maximo-from-app-connect",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleMaximo</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleMaximo</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectMaximo</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleMaximo</span> contains a single message flow named <span class='application'>ExampleMaximoFlow</span>. To save you time, most of the message flow is ready for use, but the IBM Maximo Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the IBM Maximo Request communicates with IBM Maximo. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleMaximo</span> is very similar to <span class='application'>ExampleMaximo</span> but the message flow which it contains, named  <span class='application'>ExampleMaximoFlow</span> (which exposes a different URL Fragment), has already had its IBM Maximo Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectMaximo</span> contains a single policy named <span class='application'>IBMMaximo1</span> which is used by the application <span class='application'>CompleteExampleMaximo</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using IBM Maximo with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-using-ibm-maximo-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "IBM Maximo Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-ibm-maximo-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with IBM Maximo. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleMaximoFlow</span> in application <span class='application'>ExampleMaximo</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the IBM Maximo Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every IBM Maximo Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to IBM Maximo and discovering information from it, will cause your Maximo credentials to be saved in the vault, and your Maximo connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectMaximo</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to an IBM Maximo system then a list of those connections would be displayed, but in this example the status of the Maximo connector is shown as <code>Not connected</code>. Underneath this you will see a list of IBM Maximo objects (such as Assets, Companies, Contracts, Crafts, Labors, Locations, Person groups, Person users, Service addresses, Service requests and Work orders) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Assets (mxapiasset)</code> section and choose to <code>Retrieve assets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to IBM Maximo, and offer a drop-down choice of <strong>Authorization method</strong> which can be either <code>Provide credentials for App Connect to use (BASIC)</code> or <code>Provide credentials for App Connect to use (API KEY)</code>. Select the first of these options, click continue, and fill out the fields specifying your <strong>Maximo URL</strong>, <strong>User name</strong> and <strong>Password</strong>. Click Connect."
+                    },
+                    {
+                      "details": "Connecting to IBM Maximo may take a few seconds. For this particular choice of action to Retrieve assets, there are no mandatory properties required in the Where clause used to select the assets from Maximo, but to reduce the number of assets retrieved, click the <strong>Add condition</strong> link and provide a value for <strong>Site (siteid)</strong> and repeat this with a second condition for <strong>Serial # (serialnum)</strong>."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the IBM Maximo Request node in the message flow have been updated. Save the message flow.  Explore the properties of the IBM Maximo Request node. The Basic properties tab will now display a short description of <code>Retrieve assets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>object</strong> (<code>mxapiasset</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectMaximo}:IBMMaximo1</code>."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectMaximo</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleMaximoFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from IBM Maximo, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the IBM Maximo Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the IBM Maximo Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleMaximo to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your IBM Maximo service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicreatecredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type maximo --credential-name CompletePolicyProjectMaximo_IBMMaximo1 --username &lt;YourMaximoUsername&gt; --password &lt;YourMaximoPassword&gt; --websphere-username \"\" --websphere-password \"\"</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>IBMMaximo1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectMaximo</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Store URL</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_MAXIMO_URL</code>. As the name suggests, replace this value with the URL for your IBM Maximo service instance, and save the policy. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectMaximo</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleMaximoFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from IBM Maximo, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the IBM Maximo Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the IBM Maximo Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "IBM Maximo Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-maximo-request-node",
                 "type": "web"
               },
               {

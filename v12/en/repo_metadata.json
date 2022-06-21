@@ -2912,8 +2912,8 @@
               "path": "Validate_Using_Schema_YAML"
             }
           ]
-        },		
-		{
+        },
+        {
           "name": "Discovery Connector - Using the IBM Cloudant Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2941,7 +2941,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Microsoft Azure Blob storage Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2969,7 +2969,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Coupa Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -2997,7 +2997,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Amazon S3 Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3025,7 +3025,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Magento Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3053,7 +3053,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Salesforce Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3081,7 +3081,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the IBM Maximo Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3108,7 +3108,7 @@
               "path": "ExampleMaximo"
             }
           ]
-        }				
+        }
       ]
     },
     {
