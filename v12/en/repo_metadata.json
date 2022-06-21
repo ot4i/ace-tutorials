@@ -2912,7 +2912,203 @@
               "path": "Validate_Using_Schema_YAML"
             }
           ]
-        }
+        },		
+		{
+          "name": "Discovery Connector - Using the IBM Cloudant Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the IBM Cloudant Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-cloudant-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-cloudant-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-cloudant-tutorial/releases/download/v3.0/PI_Cloudant.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Cloudant",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleCloudant:CompleteExampleCloudant:CompletePolicyProjectCloudant",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleCloudant/ExampleCloudantFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleCloudant"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the Microsoft Azure Blob storage Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Microsoft Azure Blob storage Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-azureblobstorage-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-azureblobstorage-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-azureblobstorage-tutorial/releases/download/v3.0/PI_AzureBlobStorage.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;AzureBlobStorage",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleAzureBlobStorage:CompleteExampleAzureBlobStorage:CompletePolicyProjectAzureBlobStorage",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleAzureBlobStorage/ExampleAzureBlobStorageFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleAzureBlobStorage"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the Coupa Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Coupa Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-coupa-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-coupa-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-coupa-tutorial/releases/download/v3.0/PI_Coupa.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Coupa",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleCoupa:CompleteExampleCoupa:CompletePolicyProjectCoupa",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleCoupa/ExampleCoupaFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleCoupa"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the Amazon S3 Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Amazon S3 Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-amazons3-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-amazons3-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-amazons3-tutorial/releases/download/v3.0/PI_AmazonS3.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;AmazonS3",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleAmazonS3:CompleteExampleAmazonS3:CompletePolicyProjectAmazonS3",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleAmazonS3/ExampleAmazonS3Flow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleAmazonS3"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the Magento Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Magento Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-magento-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-magento-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-magento-tutorial/releases/download/v3.0/PI_Magento.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Magento",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleMagento:CompleteExampleMagento:CompletePolicyProjectMagento",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleMagento/ExampleMagentoFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleMagento"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the Salesforce Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Salesforce Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-salesforce-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-salesforce-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-salesforce-tutorial/releases/download/v3.0/PI_Salesforce.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Salesforce",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleSalesforce:CompleteExampleSalesforce:CompletePolicyProjectSalesforce",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleSalesforce/ExampleSalesforceFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleSalesforce"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the IBM Maximo Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the IBM Maximo Request node (requires v12.0.5.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-maximo-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-maximo-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-maximo-tutorial/releases/download/v3.0/PI_Maximo.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Maximo",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleMaximo:CompleteExampleMaximo:CompletePolicyProjectMaximo",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleMaximo/ExampleMaximoFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleMaximo"
+            }
+          ]
+        }				
       ]
     },
     {
