@@ -3136,7 +3136,91 @@
               "path": "TestReadFlowApp"
             }
           ]
-        }
+        },
+		{
+		  "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to read subscribed data from an OPC Server",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create a simple message flow using OPC-UA-Input node for reading changed values of subscribed data from an OPC server.",
+          "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-input-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-input-tutorial",
+          "zipURL": "https://github.com/ot4i/acmfg-opc-ua-input-tutorial/releases/download/v3.0/PI_OPCUAINPUT.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Manufacturing;OPCUA",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ACMfg_InputNode_Testflow:ACE_Control_Flow",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ACMfg_InputNode_Testflow/InputNodeFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ACMfg_InputNode_Testflow"
+            }
+          ]
+        },		
+		{
+		  "name": "App Connect for Manufacturing - Using the OPC-UA-Write node to write data into an OPC Server",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create a simple message flow for writing data into an OPC server using the OPC-UA-Write Node.",
+          "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-write-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-write-tutorial",
+          "zipURL": "https://github.com/ot4i/acmfg-opc-ua-write-tutorial/releases/download/v3.0/PI_OPCUAWRITE.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Manufacturing;OPCUA",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ACMfg_WriteNode_Testflow:ACE_Control_Flow",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ACMfg_WriteNode_Testflow/ACMfg_WriteNodeFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ACMfg_WriteNode_Testflow"
+            }
+          ]
+        },			
+		{
+		  "name": "App Connect for Manufacturing - Using the OPC-UA-Method-Call node to call a method on an OPC Server",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create a simple message flow for calling a method on an OPC Server using the OPC-UA-Method-Call Node.",
+          "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-method-call-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-method-call-tutorial",
+          "zipURL": "https://github.com/ot4i/acmfg-opc-ua-method-call-tutorial/releases/download/v3.0/PI_OPCUAMETHOD.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Manufacturing;OPCUA",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ACMfg_MethodNode_Testflow:ACE_Control_Flow",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ACMfg_MethodNode_Testflow/MethodNodeFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ACMfg_MethodNode_Testflow"
+            }
+          ]
+        }		
       ]
     },
     {
