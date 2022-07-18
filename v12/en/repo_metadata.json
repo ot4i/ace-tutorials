@@ -3183,7 +3183,7 @@
             {
               "id": "MainFlow",
               "editor": "flow",
-              "wspath": "<workspace>/ACMfg_WriteNode_Testflow/ACMfg_WriteNodeFlow.msgflow"
+              "wspath": "<workspace>/ACMfg_WriteNode_TestFlow/ACMfg_WriteNode.msgflow"
             }
           ],
           "deployedResources": [
