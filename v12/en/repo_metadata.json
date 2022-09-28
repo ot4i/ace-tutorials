@@ -2160,7 +2160,7 @@
             }
           ]
         },
-		{
+        {
           "name": "File - Using the FileInput node with Whole File record detection",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3164,7 +3164,7 @@
               "path": "ExampleSAPOData"
             }
           ]
-        },		
+        },
         {
           "name": "Discovery Connector - Using the Slack Request node",
           "version": "1.0",
@@ -3193,7 +3193,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the ServiceNow Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3220,8 +3220,8 @@
               "path": "ExampleServiceNow"
             }
           ]
-        },	
-		{
+        },
+        {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server",
           "version": "1.0",
           "iibVersions": "12.*-12.*",

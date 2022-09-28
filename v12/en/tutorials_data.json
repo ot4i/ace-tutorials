@@ -26332,5 +26332,2571 @@
         }
       }
     }
+  },
+  "Discovery Connector - Using the Oracle E-Business Suite Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Oracle E-Business Suite Request node",
+        "shortDescription": "Learn how to use the Oracle E-Business Suite Request node (requires v12.0.6.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Oracle E-Business Suite Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Oracle E-Business Suite and issue requests to create, retrieve, update, delete, or view objects in Oracle E-Business Suite."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Oracle E-Business Suite (EBS) is a complete set of business applications for managing and automating customer relationship management, enterprise resource planning, order management, and financial module processes within your organization. The Oracle E-Business Suite Request node integrates with the order management and financial module processes. This tutorial demonstrates how to develop and run a message flow that connects to Oracle E-Business Suite and issues synchronous requests to retrieve information. This tutorial requires access to Oracle E-Business Suite. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store an Oracle E-Business Suite policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Oracle E-Business Suite Request node will execute"
+            },
+            {
+              "section": "4. Save the results of the connector discovery process"
+            },
+            {
+              "section": "5. Using the discovered JSON schemas, create a simple graphical map to prepare the data structure which is passed in to the Oracle E-Business Suite Request node"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of Oracle E-Business Suite."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Using Oracle E-Business Suite with IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=cca-using-oracle-e-business-suite-app-connect-enterprise",
+              "type": "web"
+            },
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Oracle E-Business Suite from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=uoebsace-connecting-oracle-e-business-suite-from-app-connect-enterprise",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleOracleEBS</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleOracleEBS</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectOracleEBS</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleOracleEBS</span> contains a single message flow named <span class='application'>ExampleOracleEBSFlow</span>. To save you time, most of the message flow is ready for use, but the Oracle E-Business Suite Request node has not yet been configured, and the graphical mapping node immediately before it has also not yet been configured. This tutorial will guide you through the configuration of these two nodes. The flow is driven by an HTTP input which expects to receive a short but specific JSON message, whose values will be used to drive the Oracle E-Business Suite Request node to issue a Get Order request. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results. The flow completes with an HTTPReply node which returns data back to the requesting HTTP client."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleOracleEBS</span> is very similar to <span class='application'>ExampleOracleEBS</span> but the message flow which it contains, named  <span class='application'>CompleteExampleOracleEBSFlow</span> (which exposes a different URL Fragment), has already had its Oracle E-Business Suite Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectOracleEBS</span> contains a single policy named <span class='application'>OracleE-BusinessSuite1</span> which is used by the application <span class='application'>CompleteExampleOracleEBS</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using Oracle E-Business Suite with IBM App Connect Enterprise",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=cca-using-oracle-e-business-suite-app-connect-enterprise",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Oracle E-Business Suite Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-oracle-e-business-suite-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Oracle E-Business Suite. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleOracleEBSFlow</span> in application <span class='application'>ExampleOracleEBS</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Oracle E-Business Suite Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Oracle E-Business Suite Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Oracle E-Business Suite and discovering information from it, will cause your Oracle E-Business Suite credentials to be saved in the vault, and your Oracle E-Business Suite connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectOracleEBS</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to an Oracle E-Business Suite system then a list of those connections would be displayed, but in this example the status of the Oracle E-Business Suite connector is shown as <code>Not connected</code>. Underneath this you will see a list of Oracle E-Business Suite objects (such as Customer sites, Customers, Deliveries, Invoices, Locations, Orders, Party contacts, Party organizations, Party sites, Receipts and Vendors) which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Orders</code> section and choose to <code>Get order</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "The page will refresh and display Connect to Oracle E-Business Suite. Fill out the fields specifying your <strong>Oracle E-Business Suite SOA service URL</strong>, <strong>Username</strong>, <strong>Password</strong> and <strong>Instance name</strong>. Click Connect."
+                    },
+                    {
+                      "details": "Connecting to Oracle E-Business Suite may take a few seconds. At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Oracle E-Business Suite Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Oracle E-Business Suite Request node. The Basic properties tab will now display a short description of <code>Get order</code>, along with the <strong>Action</strong> (<code>GET_ORDER</code>) and the <strong>Object</strong> (<code>OE_INBOUND_INT_Service__GET_ORDER</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectOracleEBS}:OracleE-BusinessSuite1</code>."
+                    },
+                    {
+                      "details": "Next, you will configure the Mapping node.  Double click the Mapping node to launch the New Message Map wizard. Click Next and on the following page (named <strong>Select map inputs and outputs</strong>), choose the input and output for the map. In the panel to <strong>Select map inputs</strong> expand the <code>ExampleOracleEBS</code> application and the <code>JSON Types</code> folder and tick the <strong>InputSchema_JsonType - InputSchema.json</strong>. In the panel to <strong>Select map outputs</strong> expand the <code>ExampleOracleEBS</code> application and the <code>JSON Types</code> folder and tick the <strong>ExampleOracleEBSFlow.Oracle_E-Business_Suite_Request.request.schema_JsonType - gen\\ExampleOracleEBSFlow.Oracle_E-Business_Suite_Request.request.schema.json</strong>. Click Finish and a map will be generated. Expand the source and target structures and map them together using Move transforms, by dragging and dropping elements from the source to the target. <br>Responsibility - SOAHeader.Responsibility<br>ResponsibilityApplication - SOAHeader.RespApplication<br>SecurityGroup - SOAHeader.SecurityGroup<br>NLSLanguage - SOAHeader.NLSLanguage<br>OrgId - SOAHeader.OrgId<br>OrderNumber - P_ORDER_NUMBER<br>Save the map."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectOracleEBS</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleOracleEBSFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The message values will be used to execute the Get order against Oracle E-Business Suite, so you will need to substitute values which are relevant for your system into the example provided here: <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message with details of the order. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Oracle E-Business Suite Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleOracleEBS to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Oracle E-Business Suite service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type oracleebs --credential-name CompletePolicyProjectOracleEBS_OracleEBS1 --username &lt;YourOracleEBSusername&gt; --password &lt;YourOracleEBSpassword&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>OracleE-BusinessSuite1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectOracleEBS</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>Oracle E-Business Suite SOA service URL</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_ORACLE_EBS_SOA_SERVICE_URL</code>. As the name suggests, replace this value with the SOA service URL of your service instance, and save the policy.  Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectOracleEBS</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleOracleEBSFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The message values will be used to execute the Get order against Oracle E-Business Suite, so you will need to substitute values which are relevant for your system into the example provided here: <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message with details of the order. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Oracle E-Business Suite Request node to see the data which has been retrieved."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Oracle E-Business Suite Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-oracle-e-business-suite-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the SAP OData Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the SAP OData Request node",
+        "shortDescription": "Learn how to use the SAP OData Request node (requires v12.0.6.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "SAP OData Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to SAP OData and issue requests to create, retrieve, update, delete, or view objects in SAP."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "SAP is an enterprise storage system (ERP). By using SAP OData services, you can create a connection and import data from the data sources. You can use the SAP OData Request node to connect to SAP OData and perform actions on objects, such as creating, retrieving, updating, and deleting customer sets. This tutorial demonstrates how to develop and run a message flow that connects to SAP and issues synchronous requests to retrieve SAP OData resources. This tutorial requires access to an SAP system. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store an SAP OData policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the SAP OData Request node will execute"
+            },
+            {
+              "section": "4. Save the results of the connector discovery process"
+            },
+            {
+              "section": "5. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of SAP."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to SAP OData from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-connecting-sap-odata-from-app-connect-enterprise",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleSAPOData</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleSAPOData</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectSAPOData</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleSAPOData</span> contains a single message flow named <span class='application'>ExampleSAPODataFlow</span>. To save you time, most of the message flow is ready for use, but the SAP OData Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the SAP OData Request communicates with SAP. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleSAPOData</span> is very similar to <span class='application'>ExampleSAPOData</span> but the message flow which it contains, named  <span class='application'>CompleteExampleSAPODataFlow</span> (which exposes a different URL Fragment), has already had its SAP OData Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectSAPOData</span> contains a single policy named <span class='application'>SAPviaOData1</span> which is used by the application <span class='application'>CompleteExampleSAPOData</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "SAP OData Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-sap-odata-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with SAP. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleSAPODataFlow</span> in application <span class='application'>ExampleSAPOData</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the SAP OData Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every SAPOData Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to SAP and discovering information from it, will cause your SAP credentials to be saved in the vault, and your SAP connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectSAPOData</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to an SAP system then a list of those connections would be displayed, but in this example the status of the SAP OData connector is shown as <code>Not connected</code>. To connect to SAP you will need to fill out the <code>SAP Gateway service URL</code>, the <code>User name</code> and <code>Password</code>. Underneath this you will see a list of SAP objects which can be expanded to see the actions which can be executed against these objects. In this tutorial, we will expand the <code>Customers</code> section and choose to <code>Retrieve all</code>. Click the Connect button."
+                    },
+                    {
+                      "details": "Connecting to SAP may take a few seconds. At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the SAP OData Request node in the message flow have been updated. Save the message flow.  Explore the properties of the SAP OData Request node. The Basic properties tab will now display a short description of <code>Retrieve CustomerSet</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>CustomerSet</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectSAPOData}:SAPviaOData1</code>."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectSAPOData</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleSAPODataFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from SAP, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the SAP OData Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the SAP OData Request node to see the data which has been retrieved displaying customer details (maximum of 3)."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleSAPOData to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your SAP service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type sapodata --credential-name CompletePolicyProjectSAPOData_SAPviaOData1 --username &lt;YourSAPusername&gt; --password &lt;YourSAPpassword&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Locate the policy named <span class='application'>SAPviaOData1.policyxml</span> inside the policy project named <span class='application'>CompletePolicyProjectSAPOData</span>, right-click the policy and select the option to Open With > Policy Editor. You will find the <strong>SAP Gateway service URL</strong> property is currently configured with the value <code>REPLACE_WITH_YOUR_SAP_GATEWAY_SERVICE_URL</code>. As the name suggests, replace this value with the SAP Gateway Service URL of your service instance, and save the policy.  Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectSAPOData</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleSAPODataFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from SAP, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the SAP OData Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the SAP OData Request node to see the data which has been retrieved displaying customer details (maximum of 3)."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "SAP OData Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-sap-odata-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the Slack Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the Slack Request node",
+        "shortDescription": "Learn how to use the Slack Request node (requires v12.0.6.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Slack Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to Slack and issue requests to send or retrieve messages, or to add, delete, or retrieve objects such as files, channels, users, and groups"
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "Slack is a web-based, real-time and archived messaging app. You can communicate in open or private channels, send direct messages to colleagues, and share files. This tutorial demonstrates how to develop and run a message flow that sonnects to Slack and sends a message to a channel. This tutorial requires access to Slack. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store a Slack policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the Slack Request node will execute"
+            },
+            {
+              "section": "4. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit the Slack Request node with your Slack channel id, edit connection information in the policy, and how to create credentials to access your own instance of Slack."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to Slack from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-connecting-slack-from-app-connect-enterprise",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleSlack</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleSlack</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectSlack</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleSlack</span> contains a single message flow named <span class='application'>ExampleSlackFlow</span>. To save you time, most of the message flow is ready for use, but the Slack Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input which expects to receive a short but specific JSON message, whose content will be used to send a message to a nominated Slack channel using the Slack Request node. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleSlack</span> is very similar to <span class='application'>ExampleSlack</span> but the message flow which it contains, named  <span class='application'>CompleteExampleSlackFlow</span> (which exposes a different URL Fragment), has already had its Slack Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials. If you want to use this message flow, there are instructions later for updating the channel id property, the connection details and credentials for your Slack instance."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectSlack</span> contains a single policy named <span class='application'>Slack1</span> which is used by the application <span class='application'>CompleteExampleSlack</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Slack Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-slack-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with Slack. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleSlackFlow</span> in application <span class='application'>ExampleSlack</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the Slack Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every Slack Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to Slack and discovering information from it, will cause your Slack credentials to be saved in the vault, and your Slack connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectSlack</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Slack system then a list of those connections would be displayed, but in this example the status of the Slack connector is shown as <code>Not connected</code>. <strong>Before you use the Slack Request node in a message flow as part of this tutorial, you will need to have access to a Slack workspace. If your team isn't using Slack yet, you can get started with Slack (without charge) and create a Slack workspace at https://slack.com/intl/en-gb/get-started#/.</strong>. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Messages</code> and choose the action <code>Send message</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "You will need to specify the basic access token to be used to authenticate App Connect with your Slack account. If you do not already have an access token, you can obtain one by following the instructions in the Slack connection details page of the App Connect documentation: https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-slack-connection-details"
+                    },
+                    {
+                      "details": "Paste your access token in to the field and you will be asked <code>Where do you want to post the message?</code> which you can specify by selecting an entry from the enumerated dropdown which lists all the available channels."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Slack Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Slack Request node. The Basic properties tab will now display a short description of <code>Send message</code>, along with the <strong>Action</strong> (<code>CREATE</code>) and the <strong>Object</strong> (<code>message</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectSlack}:Slack1</code>."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectSlack</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleSlackFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The data carried in the text object of an input message will be sent to your slack channel. Here is an example:<code><br>{&quot;text&quot;:&quot;This is a message from your App Connect Enterprise message flow!&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message which returns the same as the input. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Slack Request node and you should see a confirmation message with the timestamp at which the message was sent to Slack."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleSlack to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your Slack instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type slack --credential-name CompletePolicyProjectSlack_Slack1 --access-token &lt;YourSlackAccessToken&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectSlack</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleSlackFlow.msgflow</span> and on the Basic properties of the Slack Request node locate the connection property which is named <code>Where do you want to post the message?</code> and change its value from <code>REPLACE_WITH_YOUR_CHANNEL_ID</code> to the value of your Slack channel id by clicking the Edit button.  If you are using the Slack app, to find the Slack channel id, simply right click on the channel name in the left menu and click Copy link. Paste it somewhere and you will see the link contains the channel id like this: https://ibm-cloud.slack.com/archives/<YOUR_CHANNEL_ID>. Resave the message flow  <span class='resource'>CompleteExampleSlackFlow.msgflow</span>."
+                    },
+                    {
+                      "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow.  Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />.  Create a new test message to invoke the HTTP Input node. The data carried in the text object of an input message will be sent to your slack channel. Here is an example:<code><br>{&quot;text&quot;:&quot;This is a message from your App Connect Enterprise message flow!&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message which returns the same as the input. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Slack Request node and you should see a confirmation message with the timestamp at which the message was sent to Slack."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Slack Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-slack-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Discovery Connector - Using the ServiceNow Request node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Discovery Connector - Using the ServiceNow Request node",
+        "shortDescription": "Learn how to use the ServiceNow Request node (requires v12.0.6.0 or higher)",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Slack Request node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Use IBM App Connect Enterprise to connect to ServiceNow and issue requests to send or retrieve messages, or to add, delete, or retrieve objects such as files, channels, users, and groups"
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "ServiceNow is a cloud-based platform that supports service management for all departments in your business including IT, human resources, facilities, and field services. This tutorial demonstrates how to develop and run a message flow that connects to ServiceNow and retrieves asset information. This tutorial requires access to ServiceNow. The tutorial provides a partially completed message flow and detailed steps describing the development process step-by-step. A summary of what you will do is provided here:"
+            },
+            {
+              "section": "1. Create a local integration server which has a vault for storing credentials"
+            },
+            {
+              "section": "2. Launch the connector discovery process using a policy project which will be used to store a ServiceNow policy containing connection information."
+            },
+            {
+              "section": "3. Select the object and action which the ServiceNow Request node will execute"
+            },
+            {
+              "section": "4. Save the results of the connector discovery process"
+            },
+            {
+              "section": "6. Deploy and test the message flow, policy and credentials using the local integration server"
+            },
+            {
+              "section": "For the convenience of more experienced users, the tutorial also provides a more complete version of the message flow, for which the connector discovery process has already been completed.  Instructions describe how to edit connection information in the policy, and how to create credentials to access your own instance of ServiceNow."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Connecting to ServiceNow from IBM App Connect Enterprise",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=applications-connecting-servicenow-from-app-connect-enterprise",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, three projects will be imported into your workspace:"
+              },
+              {
+                "section": "1. An application named <span class='application'>ExampleServiceNow</span>"
+              },
+              {
+                "section": "2. An application named <span class='application'>CompleteExampleServiceNow</span>"
+              },
+              {
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectServiceNow</span>"
+              },
+              {
+                "section": "<span class='application'>ExampleServiceNow</span> contains a single message flow named <span class='application'>ExampleServiceNowFlow</span>. To save you time, most of the message flow is ready for use, but the ServiceNow Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the ServiceNow Request communicates with ServiceNow. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+              },
+              {
+                "section": "<span class='application'>CompleteExampleServiceNow</span> is very similar to <span class='application'>ExampleServiceNow</span> but the message flow which it contains, named  <span class='application'>CompleteExampleServiceNowFlow</span> (which exposes a different URL Fragment), has already had its ServiceNow Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials. If you want to use this message flow, there are instructions later for updating the connection details and credentials for your ServiceNow instance."
+              },
+              {
+                "section": "<span class='application'>CompletePolicyProjectServiceNow</span> contains a single policy named <span class='application'>ServiceNow1</span> which is used by the application <span class='application'>CompleteExampleServiceNow</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "ServiceNow Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-servicenow-request-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "<b>Create an Integration Server with a credential vault</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. We will leave most of the options with their default values. Type in a value (at least 8 characters long) for the Vault Key property. The instructions later in the tutorial will assume a value of <code>password123</code>. Untick the check box at the bottom of the dialog which is labelled <code>Start Integration Server</code>. Click Finish. The local Integration Server will be created using a project in your Toolkit's workspace as its work directory. We deliberately don't want to start up the server until later in the tutorial, because when the server process runs it will lock the vault from being used by other processes. Before running the server we want to use the Toolkit Connector Discovery process to populate the vault with the credentials needed for communication with ServiceNow. If you are already familiar with the Connector Discovery process you can now skip over the rest of the instructions in this Prepare section and move straight to the tutorial's Run section, Option 2."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Run the Connector Discovery process</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleServiceNowFlow</span> in application <span class='application'>ExampleServiceNow</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the ServiceNow Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every ServiceNow Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                    },
+                    {
+                      "details": "The Launch Connector Discovery wizard will open. The process of connecting to ServiceNow and discovering information from it, will cause your ServiceNow credentials to be saved in the vault, and your ServiceNow connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectServiceNow</code>"
+                          },
+                          {
+                            "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
+                          },
+                          {
+                            "details": "<strong>Vault Key:</strong> Type the same vault key which you used when creating your local integration server (named TEST_SERVER) earlier in the tutorial, for example <code>password123</code>"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "A new Configure connector node window will open. If you had previously connected to a ServiceNow system then a list of those connections would be displayed, but in this example the status of the ServiceNow connector is shown as <code>Not connected</code>. <strong>Before you use the ServiceNow Request node in a message flow as part of this tutorial, you will need to have access to ServiceNow. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Assets</code> and choose the action <code>Retrieve assets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button."
+                    },
+                    {
+                      "details": "You will need to specify the basic access token to be used to authenticate App Connect with your ServiceNow account. If you do not already have an access token, you can obtain one by following the instructions in the Slack connection details page of the App Connect documentation: https://www.ibm.com/docs/en/app-connect/12.0?topic=enterprise-slack-connection-details"
+                    },
+                    {
+                      "details": "Paste your access token in to the field and you will be asked <code>Where do you want to post the message?</code> which you can specify by selecting an entry from the enumerated dropdown which lists all the available channels."
+                    },
+                    {
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the ServiceNow Request node in the message flow have been updated. Save the message flow.  Explore the properties of the ServiceNow Request node. The Basic properties tab will now display a short description of <code>Send message</code>, along with the <strong>Action</strong> (<code>CREATE</code>) and the <strong>Object</strong> (<code>message</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectServiceNow}:ServiceNow1</code>."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
+                    },
+                    {
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectServiceNow</span> in to TEST_SERVER."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>ExampleServiceNowFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from ServiceNow, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the ServiceNow Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the ServiceNow Request node to see the data which has been retrieved displaying assets."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleServiceNow to test the tutorial scenario</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "In order to reuse the completed application which is provided with this tutorial, you must configure your integration server with credentials for communicating with your ServiceNow service instance.  Launch a command console session, and run the following command to create these credentials:<br><code>mqsicredentials --work-dir &lt;YourToolkitWorkspace&gt;\\TEST_SERVER  --vault-key password123 --create --credential-type servicenow --credential-name CompletePolicyProjectServiceNow_ServiceNow1 --username &lt;YourServiceNowUsername&gt; --password &lt;YourServiceNowPassword&gt;</code>"
+                    },
+                    {
+                      "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
+                    },
+                    {
+                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectServiceNow</span> to <code>TEST_SERVER</code>."
+                    },
+                    {
+                      "details": "Return to <span class='resource'>CompleteExampleServiceNowFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Any well-formed JSON will be fine, even something as simple as <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You will receive a JSON reply message which is simply an echo of the same data which you sent in. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from ServiceNow, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the ServiceNow Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the ServiceNow Request node to see the data which has been retrieved displaying assets."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "ServiceNow Request node",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=nodes-servicenow-request-node",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server",
+        "shortDescription": "Learn how to create a simple message flow for reading data from an OPC server using the OPC-UA-Read Node. This tutorial requires an installation of App Connect for Manufacturing.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Creating and starting an Integration Server"
+          },
+          {
+            "title": "Creating a data source connection"
+          },
+          {
+            "title": "Configuring the OPC-UA-Read node message flow"
+          },
+          {
+            "title": "Deploying the message flows"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Learn how to create a message flow to read data from an OPC server by using the App Connect for Manufacturing OPC-UA-Read node.",
+        "outcomeList": [
+          {
+            "title": "Learn how to create a message flow to read data from an OPC server by using the App Connect for Manufacturing OPC-UA-Read node."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to create a simple message flow to read data from an OPC server using the OPC-UA-Read Node.",
+          "sections": [
+            {
+              "section": "This tutorial assumes you have installed and configured App Connect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
+            },
+            {
+              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
+            },
+            {
+              "section": "You can try out this message flow by simply importing the two provided projects. One application project contains a control flow and another application project contains a read flow."
+            },
+            {
+              "section": "The tutorial will guide you through deploying and starting both flows."
+            },
+            {
+              "section": "The read flow is driven using its HTTP Input node, which triggers the flow to run. The OPC-UA-Read node then reads data from the connected OPC server. The response from the message flow is then returned to the HTTP client by the HTTP Reply node."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "Knowledge Center link to ",
+              "description": "Installing IBM App Connect for Manufacturing",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-installing-uninstalling",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_Read</span> and <span class='uicontrol'>App_OPCUA_Control</span> applications will be imported into your workspace."
+              },
+              {
+                "section": "The <span class='uicontrol'>App_OPCUA_Read</span> application contains <span class='uicontrol'>Flow_OPCUA_Read.msgflow</span> while <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing Message Flow applications",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare for Read Flow",
+            "_prepareComment": "Prepare for Read Flow",
+            "sections": [
+              {
+                "section": "Creating a Data Source connection to an OPC Server:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "To create a data source, complete the following steps."
+                    },
+                    {
+                      "details": "Ensure that your OPC UA server is up and running."
+                    },
+                    {
+                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
+                    },
+                    {
+                      "details": "Right-click the Source folder and select Add Mapping Node."
+                    },
+                    {
+                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
+                    },
+                    {
+                      "details": "Select Server URL Type as Endpoint"
+                    },
+                    {
+                      "details": "Specify your OPC Server URL: e.g. opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
+                    },
+                    {
+                      "details": "Keep the default values for the remaining data source properties and click Create DataSource"
+                    },
+                    {
+                      "details": "Check the data source activity in the Logging view for any issues."
+                    },
+                    {
+                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Creating and starting an Integration Server:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    },
+                    {
+                      "details": "Navigate to the folder where the server.conf yaml file is located."
+                    },
+                    {
+                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
+                    },
+                    {
+                      "details": "For Windows: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "For Linux/Unix: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
+                    },
+                    {
+                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
+                    },
+                    {
+                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting ",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "Configuring the OPC-UA-Read node message flow ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Read application, double-click Flow_OPCUA_Read.msgflow to open in the Flow Exerciser. The flow consists of 'HTTP Input' , 'OPC-UA-Read', and 'HTTP Reply'"
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Read node to open the OPC-UA-Read Node properties. "
+                    },
+                    {
+                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
+                    },
+                    {
+                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
+                    },
+                    {
+                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. Select the node from the source tree for which you want to read data "
+                    },
+                    {
+                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
+                    },
+                    {
+                      "details": "Specify a name for the node and click 'Ok' "
+                    },
+                    {
+                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
+                    },
+                    {
+                      "details": "Click 'Add Client Item to Read'. The client item is added to the Selected Client Items panel in the 'Select' view. "
+                    },
+                    {
+                      "details": "Save the flow"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploying the Control Flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to the Integration Server"
+                    },
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Control application right-click the Flow_OPCUA_Control.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the Integration Server that you have started, and Click 'Finish'."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment. The control flow application name is displayed under the selected integration server from the Integration Nodes view. "
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploying the OPC-UA-Read node message flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to an Integration Server."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Flow_OPCUA_Read.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_Read application name is displayed under the selected integration server from Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Testing the Read Flow using the Flow Exerciser",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that your Integration Server is started."
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser of the Flow_OPCUA_Read.msgflow."
+                    },
+                    {
+                      "details": "In the editor, click the Start Flow Exerciser icon in red: <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow. "
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                    },
+                    {
+                      "details": "You can right-click on 'InputMessage' to add a new message and then click on 'Send' button. Your request message is sent to the HTTP input node. After the request message is processed, the message path is automatically highlighted on the message flow."
+                    },
+                    {
+                      "details": "Click on any connection on the message box to see the data that passed through that connection."
+                    },
+                    {
+                      "details": "To stop recording the message path through the flow, click the 'Return flow to edit mode' icon."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-manufacturing-perspective",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting ",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "App Connect for Manufacturing - Using the OPC-UA-Input node to read subscribed data from an OPC Server": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to read subscribed data from an OPC Server",
+        "shortDescription": "Learn how to create a simple message flow by using the OPC-UA-Input node to read subscribed data from an OPC server. This tutorial requires an installation of App Connect for Manufacturing.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Creating and starting an Integration Server"
+          },
+          {
+            "title": "Creating a data source connection"
+          },
+          {
+            "title": "Configuring the OPC-UA-Input node message flow"
+          },
+          {
+            "title": "Deploying the message flows"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Learn how to create a message flow to read changed values of the subscribed data from an OPC server using the OPC-UA-Input node.",
+        "outcomeList": [
+          {
+            "title": "Learn how to create a message flow to read changed values of the subscribed data from an OPC server using the OPC-UA-Input node."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to create a simple message flow using the OPC-UA-Input node to read subscribed data from an OPC Server, when the data value changes.",
+          "sections": [
+            {
+              "section": "This tutorial assumes you have installed and configured App Connect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
+            },
+            {
+              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
+            },
+            {
+              "section": "You can try out this message flow by simply importing the two provided projects. One application project contains a control flow and another application project contains an input flow."
+            },
+            {
+              "section": "The tutorial will guide you through deploying and starting both flows."
+            },
+            {
+              "section": "The input flow is driven by using the OPC-UA-Input node. The OPC-UA-Input node triggers the flow to run when the value of the specified client item changes. The updated client item value is stored in an output file by using the File Output node."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM App Connect for Manufacturing overview",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+              "type": "web"
+            },
+            {
+              "title": "Knowledge Center link to ",
+              "description": "Installing and uninstalling IBM App Connect for Manufacturing",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-installing-uninstalling",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_Input</span> and <span class='uicontrol'>App_OPCUA_Control</span> applications will be imported into your workspace."
+              },
+              {
+                "section": "The <span class='uicontrol'>App_OPCUA_Input</span> application contains <span class='uicontrol'>Flow_OPCUA_Input.msgflow</span> while <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing Message Flow applications",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare for Input Flow",
+            "_prepareComment": "Prepare for Input Flow",
+            "sections": [
+              {
+                "section": "Creating a Data Source connection to an OPC Server",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "To create a data source, complete the following steps."
+                    },
+                    {
+                      "details": "Ensure that your OPC UA server is up and running."
+                    },
+                    {
+                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
+                    },
+                    {
+                      "details": "Right-click the Source folder and select Add Mapping Node."
+                    },
+                    {
+                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
+                    },
+                    {
+                      "details": "Select Server URL Type as Endpoint"
+                    },
+                    {
+                      "details": "Specify your OPC Server URL: For example: opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
+                    },
+                    {
+                      "details": "Keep the default values for the remaining data source properties and click Create DataSource"
+                    },
+                    {
+                      "details": "Check the data source activity in the Logging view for any issues."
+                    },
+                    {
+                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Creating and starting an Integration Server:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    },
+                    {
+                      "details": "Navigate to the folder where the server.conf yaml file is located."
+                    },
+                    {
+                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
+                    },
+                    {
+                      "details": "For Windows: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "For Linux/Unix: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
+                    },
+                    {
+                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
+                    },
+                    {
+                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting ",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "Configure the Input Message flow ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Input application, double-click Flow_OPCUA_Input.msgflow to open in the Flow Exerciser. The flow consists of 'OPC-UA-Input', and 'File Output' nodes. "
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Input node to open the OPC-UA-Input Node properties. "
+                    },
+                    {
+                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
+                    },
+                    {
+                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
+                    },
+                    {
+                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. Select the node from the source tree for which you want to read data "
+                    },
+                    {
+                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
+                    },
+                    {
+                      "details": "Specify a name for the node and click 'Ok' "
+                    },
+                    {
+                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
+                    },
+                    {
+                      "details": "Click 'Add Trigger Item' and the Add Trigger Item wizard window loads. Select the default values and click OK."
+                    },
+                    {
+                      "details": "Navigate back to the Flow Exerciser and double-click the File Output node. The File Output node properties window loads."
+                    },
+                    {
+                      "details": "Click the Basic tab. Specify the directory, file name of the output file where the subscribed data values should be stored and set the 'Select the mode for writing to file' as 'Write directly to the output file (append if file exists)'."
+                    },
+                    {
+                      "details": "Save the flow"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploying the OPC-UA-Input node message flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to an Integration Server."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Flow_OPCUA_Input.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_Input application name is displayed under the selected integration server from Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Test the Input Flow ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "The OPC-UA-Input node automatically triggers the flow to run when the value of the specified client item changes on the OPC Server."
+                    },
+                    {
+                      "details": "The updated client item value is stored in an output file by using the File Output node."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to the Manufacturing Perspective",
+                "description": "Using the Manufacturing Perspective",
+                "type": "web",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "App Connect for Manufacturing - Using the OPC-UA-Write node to write data into an OPC Server": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "App Connect for Manufacturing - Using the OPC-UA-Write node to write data into an OPC Server",
+        "shortDescription": "Learn how to create a simple message flow for writing data into an OPC server using the OPC-UA-Write Node.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Creating and starting an Integration Serve"
+          },
+          {
+            "title": "Creating a data source connection"
+          },
+          {
+            "title": "Configuring the OPC-UA-Write node message flow"
+          },
+          {
+            "title": "Deploying the message flows"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Learn how to create a message flow to write data into an OPC server by using the OPC-UA-Write node.",
+        "outcomeList": [
+          {
+            "title": "Learn how to create a message flow to write data into an OPC server by using the OPC-UA-Write node."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to create a simple message flow  using the OPC-UA-Write Node to write data in to an OPC server.",
+          "sections": [
+            {
+              "section": "This tutorial assumes you have installed and configured AppConnect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
+            },
+            {
+              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
+            },
+            {
+              "section": "You can try out this message flow by simply importing the two provided projects.  One application project contains a control and another application project contains a write flow."
+            },
+            {
+              "section": "The tutorial will guide you through deploying and starting both flows."
+            },
+            {
+              "section": "The write flow is driven by using the HTTP Input node, which triggers the flow to run. The OPC-UA-Write node writes data into the connected OPC Server. The response from the message flow is then returned to the HTTP client by the HTTP Reply node."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM App Connect for Manufacturing overview",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_Write</span> and <span class='uicontrol'>App_OPCUA_Control</span> applications will be imported into your workspace."
+              },
+              {
+                "section": "The <span class='uicontrol'>App_OPCUA_Write</span> application contains <span class='uicontrol'>Flow_OPCUA_Write.msgflow</span> while <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing Message Flow applications",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare for Write Flow",
+            "_prepareComment": "Prepare for Write Flow",
+            "sections": [
+              {
+                "section": "Creating a Data Source connection to an OPC Server",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "To create a data source, complete the following steps."
+                    },
+                    {
+                      "details": "Ensure that your OPC UA server is up and running."
+                    },
+                    {
+                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
+                    },
+                    {
+                      "details": "Right-click the Source folder and select Add Mapping Node."
+                    },
+                    {
+                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
+                    },
+                    {
+                      "details": "Select Server URL Type as Endpoint"
+                    },
+                    {
+                      "details": "Specify your OPC Server URL. For example: opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
+                    },
+                    {
+                      "details": "Keep the default values for the remaining data source properties and click Create Data Source."
+                    },
+                    {
+                      "details": "Check the data source activity in the Logging view for any issues."
+                    },
+                    {
+                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Creating and starting an Integration Server:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    },
+                    {
+                      "details": "Navigate to the folder where the server.conf yaml file is located."
+                    },
+                    {
+                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
+                    },
+                    {
+                      "details": "For Windows: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "For Linux/Unix: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
+                    },
+                    {
+                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
+                    },
+                    {
+                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to the Manufacturing Perspective",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting ",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "Configuring the OPC-UA-Write node message flow ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Write application, double-click Flow_OPCUA_Write.msgflow to open in the Flow Exerciser. The flow consists of 'HTTP Input' , 'Compute', 'OPC-UA-Write', and 'HTTP Reply'"
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Write node to open the OPC-UA-Write Node properties. "
+                    },
+                    {
+                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
+                    },
+                    {
+                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
+                    },
+                    {
+                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. Select the node from the source tree for which you want to write the data.For example, an integer data. "
+                    },
+                    {
+                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
+                    },
+                    {
+                      "details": "Specify a name for the node and click 'Ok' "
+                    },
+                    {
+                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
+                    },
+                    {
+                      "details": "Click 'Add Client Item to Write'. The client item is added to the Selected Client Items panel in the 'Select' view. Take note of the selected client item, for example, '/Item/ua_int_32'."
+                    },
+                    {
+                      "details": "Save the flow"
+                    },
+                    {
+                      "details": "Double-click the Compute node from the WriteNodeFlow.msgflow."
+                    },
+                    {
+                      "details": "Uncomment the following lines in the Compute Node script and replace the name, path and data values with the Client Item name, path selected by you in the above steps. For example: <br> -- SET itemRef5.(XMLNSC.Attribute)wrns:name='ua_int_32';<br>-- SET itemRef5.(XMLNSC.Attribute)wrns:path='/Item/ua_int_32';<br>-- SET itemRef5.Data = 256;"
+                    },
+                    {
+                      "details": "Update the data value based on your requirement for the selected Client Item."
+                    },
+                    {
+                      "details": "Save the flow"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploy the Control Flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to the Integration Server"
+                    },
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Control application right-click the Flow_OPCUA_Control.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the Integration Server that you have started, and Click 'Finish'."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment. The control flow application name is displayed under the selected integration server from the Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploying the OPC-UA-Write node message flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to an Integration Server."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Flow_OPCUA_Write.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_Write application name is displayed under the selected integration server from Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Testing the Write Flow using the Flow Exerciser ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that your Integration Server is started."
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser of the Flow_OPCUA_Write.msgflow."
+                    },
+                    {
+                      "details": "In the editor, click the Start Flow Exerciser icon in red: <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow. "
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                    },
+                    {
+                      "details": "You can right-click on 'InputMessage' to add a new message and then click on 'Send' button. Your request message is sent to the HTTP input node. After the request message is processed, the message path is automatically highlighted on the message flow."
+                    },
+                    {
+                      "details": "Click on any connection on the message box to see the data that passed through that connection."
+                    },
+                    {
+                      "details": "To stop recording the message path through the flow, click the 'Return flow to edit mode' icon."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to the Manufacturing Perspective",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-manufacturing-perspective",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting ",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "App Connect for Manufacturing - Using the OPC-UA-Method-Call node to call a method on an OPC Server": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "App Connect for Manufacturing - Using the OPC-UA-Method-Call node to call a method on an OPC Server",
+        "shortDescription": "Learn how to create a simple message flow to call a method on an OPC server using the OPC-UA-Method-Call node.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "10 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Creating and starting an Integration Server"
+          },
+          {
+            "title": "Creating a data source connection"
+          },
+          {
+            "title": "Configuring the OPC-UA-Method-Call node message flow"
+          },
+          {
+            "title": "Deploying the message flows"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Learn how to create a message flow to call a method on an OPC server using the OPC-UA-Method-Call node.",
+        "outcomeList": [
+          {
+            "title": "Learn how to create a message flow to call a method on an OPC server using the OPC-UA-Method-Call node."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to create a simple message flow for calling a method on an OPC server using the OPC-UA-Method-Call Node, by providing the required parameters.",
+          "sections": [
+            {
+              "section": "This tutorial assumes you have installed and configured AppConnect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
+            },
+            {
+              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
+            },
+            {
+              "section": "You can try out this message flow by simply importing the two provided projects.  One application project contains a control flow and another application project contains a method call flow."
+            },
+            {
+              "section": "The tutorial will guide you through deploying and starting both flows."
+            },
+            {
+              "section": "The method call flow is driven by using the HTTP Input node, which triggers the flow to run. The OPC-UA-Method-Call node invokes a method from the connected OPC server. The response from the message flow is then returned to the HTTP client by the HTTP Reply node."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM App Connect for Manufacturing overview",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_MethodCall</span> and <span class='uicontrol'>App_OPCUA_Control</span> applications will be imported into your workspace."
+              },
+              {
+                "section": "The <span class='uicontrol'>App_OPCUA_MethodCall</span> application contains <span class='uicontrol'>Flow_OPCUA_MethodCall.msgflow</span> and <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing Message Flow applications",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare for Method Call Flow",
+            "_prepareComment": "Prepare for Method Call Flow",
+            "sections": [
+              {
+                "section": "Creating a Data Source connection to an OPC Server",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "To create a data source, complete the following steps."
+                    },
+                    {
+                      "details": "Ensure that your OPC UA server is up and running."
+                    },
+                    {
+                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
+                    },
+                    {
+                      "details": "Right-click the Source folder and select Add Mapping Node."
+                    },
+                    {
+                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
+                    },
+                    {
+                      "details": "Select Server URL Type as Endpoint"
+                    },
+                    {
+                      "details": "Specify your OPC Server URL. For example: opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
+                    },
+                    {
+                      "details": "Keep the default values for the remaining data source properties and click Create Data Source."
+                    },
+                    {
+                      "details": "Check the data source activity in the Logging view for any issues."
+                    },
+                    {
+                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Creating and starting an Integration Server:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    },
+                    {
+                      "details": "Navigate to the folder where the server.conf yaml file is located."
+                    },
+                    {
+                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
+                    },
+                    {
+                      "details": "For Windows: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "For Linux/Unix: <br>ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName:<br>'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'"
+                    },
+                    {
+                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
+                    },
+                    {
+                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
+                    },
+                    {
+                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "Configure the Method-Call Message flow ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_MethodCall application, double-click Flow_OPCUA_MethodCall.msgflow to open in the Flow Exerciser. The flow consists of 'HTTP Input' , 'OPC-UA-Method-Call', and 'HTTP Reply'"
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Method-Call node to open the OPC-UA-Method-Call Node properties. "
+                    },
+                    {
+                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
+                    },
+                    {
+                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
+                    },
+                    {
+                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. Select the node from the source tree for which you want to call the  method "
+                    },
+                    {
+                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
+                    },
+                    {
+                      "details": "Specify a name for the node and click 'Ok' "
+                    },
+                    {
+                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
+                    },
+                    {
+                      "details": "Click on 'Select for method call'."
+                    },
+                    {
+                      "details": "Update the method call arguments using one of the following methods: "
+                    },
+                    {
+                      "details": "i.  From the message flow, in the OPC-UA-Method-Call Node properties, select appropriate method and update the arguments if required. Save the flow."
+                    },
+                    {
+                      "details": "ii. Alternately, you can also use the Compute node to specify the method arguments."
+                    },
+                    {
+                      "details": "iii.Double-click the Compute node from the Flow_OPCUA_MethodCall.msgflow."
+                    },
+                    {
+                      "details": "Uncomment the following lines in the Compute Node script and replace the path , method, argument values with the Client Item name, method name selected by you in the above steps. Add the required arguments based on your requirement. For example: <br> --SET OutputRoot.XMLNSC.CallMethod.path='/Item/method1';<br>--SET OutputRoot.XMLNSC.CallMethod.Method='6:MyMethod';<br>--SET OutputRoot.XMLNSC.CallMethod.Argument[1]= 'cos';<br>--SET OutputRoot.XMLNSC.CallMethod.Argument[2]=0;"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploying the Control Flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to the Integration Server"
+                    },
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Control application right-click the Flow_OPCUA_Control.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the Integration Server that you have started, and Click 'Finish'."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment. The control flow application name is displayed under the selected integration server from the Integration Nodes view. "
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Deploying the OPC-UA-Method-Call node message flow",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to an Integration Server."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Flow_OPCUA_MethodCall.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_MethodCall application name is displayed under the selected integration server from Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "Testing the method call flow using the Flow Exerciser ",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that your Integration Server is started."
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser of the Flow_OPCUA_MethodCall.msgflow."
+                    },
+                    {
+                      "details": "In the editor, click the Start Flow Exerciser icon in red: <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow. "
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                    },
+                    {
+                      "details": "You can right-click on 'InputMessage' to add a new message and then click on 'Send' button. Your request message is sent to the HTTP input node. After the request message is processed, the message path is automatically highlighted on the message flow."
+                    },
+                    {
+                      "details": "Click on any connection on the message box to see the data that passed through that connection."
+                    },
+                    {
+                      "details": "To stop recording the message path through the flow, click the 'Return flow to edit mode' icon."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to the Manufacturing Perspective",
+                "description": "Using the Manufacturing Perspective",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-manufacturing-perspective",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 }
