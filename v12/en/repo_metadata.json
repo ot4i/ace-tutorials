@@ -2188,7 +2188,7 @@
             }
           ]
         },
-		{
+        {
           "name": "File - Using the FileInput node with Whole File record detection",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3109,7 +3109,7 @@
             }
           ]
         },
-	    {
+        {
           "name": "Discovery Connector - Using the Salesforce Input node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3304,7 +3304,7 @@
               "path": "ExampleServiceNowInput"
             }
           ]
-        },		
+        },
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server",
           "version": "1.0",
