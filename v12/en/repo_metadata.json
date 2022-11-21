@@ -3419,6 +3419,34 @@
         }
       ]
     },
+        {
+          "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to subscribe to alarms and events from an OPC Server",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create a simple message flow by using the OPC-UA-Input node to subscribe to alarms and events from an OPC server.",
+          "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-alarm-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-alarm-tutorial",
+          "zipURL": "https://github.com/ot4i/acmfg-opc-ua-alarm-tutorial/releases/download/v3.0/PI_OPCUA_ALARMSEVENTS.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Manufacturing;OPCUA",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "App_OPCUA_Control:App_OPCUA_Input_AlarmEvent",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/App_OPCUA_Input_AlarmEvent/Flow_OPCUA_InputAE.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "App_OPCUA_Input_AlarmEvent"
+            }
+          ]
+        },
     {
       "name": "Scenarios",
       "description": "Explore powerful App Connect Enterprise capabilities through integrated scenarios",
