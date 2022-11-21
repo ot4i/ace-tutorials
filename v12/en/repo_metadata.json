@@ -3416,9 +3416,7 @@
               "path": "App_OPCUA_MethodCall"
             }
           ]
-        }
-      ]
-    },
+        },
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to subscribe to alarms and events from an OPC Server",
           "version": "1.0",
@@ -3446,7 +3444,9 @@
               "path": "App_OPCUA_Input_AlarmEvent"
             }
           ]
-        },
+        }
+      ]
+    },
     {
       "name": "Scenarios",
       "description": "Explore powerful App Connect Enterprise capabilities through integrated scenarios",
