@@ -17947,7 +17947,7 @@
           "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
           "sections": [
             {
-              "section": "This tutorial demonstrates how the File Exists node can be used with its <strong>List mode</strong> property in order to discover meta-data about a list of files which are discovered in an input directory. This information is sent downstream to later nodes in the flow. The File Iterator node is used to loop over the list of files, and for each entry in the list propagates a LocalEnvironment that is compatible with driving the behaviour of a subsequent FileRead node to read and parse that specific file. The File Iterator node allows each file to be processed one at a time. If an exception occurs for a particular propagation, the exception is stored, and the remaining file entries are processed to completion. In the provided example, a Filter node is used after the File Iterator node to determine whether the file was last modified before today. If the file was last modified before today then the Filter node propagates down its True terminal and after logging some information using the node Trace2, the file will be deleted.  If the file was last modified today, then the Filter node propagates down its False terminal and the File Read node will parse the file and log its contents using the node Trace3."
+              "section": "This tutorial demonstrates how the File Exists node can be used with its <code>List mode</code> property in order to discover meta-data about a list of files which are discovered in an input directory. This information is sent downstream to later nodes in the flow. The File Iterator node is used to loop over the list of files, and for each entry in the list propagates a LocalEnvironment that is compatible with driving the behaviour of a subsequent FileRead node to read and parse that specific file. The File Iterator node allows each file to be processed one at a time. If an exception occurs for a particular propagation, the exception is stored, and the remaining file entries are processed to completion. In the provided example, a Filter node is used after the File Iterator node to determine whether the file was last modified before today. If the file was last modified before today then the Filter node propagates down its True terminal and after logging some information using the node Trace2, the file will be deleted.  If the file was last modified today, then the Filter node propagates down its False terminal and the File Read node will parse the file and log its contents using the node Trace3."
             },
             {
               "section": "This tutorial provides an application to hold the message flow, and three input files. There are no other pre-requisites needed by the scenario."
@@ -26398,7 +26398,7 @@
                 "section": "2. A policy project named <span class='application'>SalesforcePolicyProject</span>"
               },
               {
-                "section": "<span class='application'>ExampleSalesforceInput</span> contains two message flows named <span class='application'>ExampleSalesforceInputFlow</span> and <span class='application'>ExampleSalesforceRequestFlow</span>. To save you time, most of these two message flows have been developed and are configured ready for use, but the Salesforce Input node in <span class='application'>ExampleSalesforceInputFlow</span> and the Salesforce Request node in <span class='application'>ExampleSalesforceRequestFlow</span> have not yet been configured. This tutorial will guide you through the configuration of these two nodes. The <span class='application'>ExampleSalesforceRequestFlow</span> flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by replying with a fixed message back to the requesting client. Second in the flow sequence, the Salesforce Request communicates with Salesforce to create a new contact. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results. When the contact is created, this will trigger the <span class='application'>ExampleSalesforceInputFlow</span> flow using a Salesforce Input node. This node has its three output terminals (Failure, Out and Catch) wired to three separate Trace nodes to capture the results."
+                "section": "<span class='application'>ExampleSalesforceInput</span> contains two message flows named <span class='application'>ExampleSalesforceFlowInputFlow</span> and <span class='application'>ExampleSalesforceFlowRequestFlow</span>. To save you time, most of these two message flows have been developed and are configured ready for use, but the Salesforce Input node in <span class='application'>ExampleSalesforceFlowInputFlow</span> and the Salesforce Request node in <span class='application'>ExampleSalesforceFlowRequestFlow</span> have not yet been configured. This tutorial will guide you through the configuration of these two nodes. The <span class='application'>ExampleSalesforceFlowRequestFlow</span> flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by replying with a fixed message back to the requesting client. Second in the flow sequence, the Salesforce Request communicates with Salesforce to create a new contact. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results. When the contact is created, this will trigger the <span class='application'>ExampleSalesforceFlowInputFlow</span> flow using a Salesforce Input node. This node has its three output terminals (Failure, Out and Catch) wired to three separate Trace nodes to capture the results."
               },
               {
                 "section": "<span class='application'>SalesforcePolicyProject</span> will be empty when first imported. Through the actions of the tutorial it will end up containing a single policy named <span class='application'>Salesforce1</span> which will be used by the two message flows in application <span class='application'>ExampleSalesforceInput</span>."
@@ -26485,17 +26485,6 @@
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this last step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Salesforce Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Salesforce Request node. The Basic properties tab will now display a short description of <code>Create contact</code>, along with the <strong>Action</strong> (<code>CREATE</code>) and the <strong>object</strong> (<code>Contact</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{SalesforcePolicyProject}:Salesforce1</code>."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Create a mapping using one of the discovered JSON schema</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "In addition to configuring the properties of the Salesforce Request node, the discovery process will also have caused JSON schema files to have been generated in the project ExampleSalesforceInput. These JSON schemas represent the format of JSON messages which are expected to enter and leave the Salesforce Request node. Next we will configure the node Mapping1 using one of these schemas. Double click the node Mapping1, and stick  with the defaults shown on the first page of the wizard which is launched and click Next. On the next page, in the Select map outputs pane, expand ExampleSalesforceRequest and beneath it expand JSON Types and from the options select <code>ExampleSalesforceRequestFlow.Salesforce_Request.request.schema_JsonType - gen\\ExampleSalesforceRequestFlow.Salesforce_Request.request.schema.json</code> and click Finish. For a new contact creation, we will assign various properties of the contact using this map. Expand the message model, locate the following elements, and add Assigns with the following values:<br>Find element named <code>LastName</code> and assign the value <code>Normalverbraucher</code><br>Find element named <code>FirstName</code> and assign the value <code>Otto</code><br>Find element named <code>Department</code> and assign the value <code>Sales</code><br>Find element named <code>Phone</code> and assign the value <code>+44 999 1234567</code><br>Find element named <code>Email</code> and assign the value <code>OttoN@nospam.com</code><br>"
                     }
                   ]
                 }
@@ -27121,7 +27110,7 @@
                       "details": "Return to <span class='resource'>ExampleOracleEBSFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
                     },
                     {
-                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The message values will be used to execute the Get order against Oracle E-Business Suite, so you will need to substitute values which are relevant for your system into the example provided here: <br><code>{&quot;Responsibility&quot;: &quot;ISL_RECEIVABLES_MANAGER&quot;, &quot;ResponsibilityApplication&quot;: &quot;ar&quot;, &quot;SecurityGroup&quot;: &quot;STANDARD&quot;, &quot;NLSLanguage&quot;: &quot;AMERICAN&quot;, &quot;OrgId&quot;: &quot;82&quot;, &quot;OrderNumber&quot;:&quot;35230&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message with details of the order. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Oracle E-Business Suite Request node to see the data which has been retrieved."
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The message values will be used to execute the Get order against Oracle E-Business Suite, so you will need to substitute values which are relevant for your system into the example provided here: <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message with details of the order. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Oracle E-Business Suite Request node to see the data which has been retrieved."
                     }
                   ]
                 }
@@ -27144,7 +27133,7 @@
                       "details": "Return to <span class='resource'>CompleteExampleOracleEBSFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
                     },
                     {
-                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The message values will be used to execute the Get order against Oracle E-Business Suite, so you will need to substitute values which are relevant for your system into the example provided here: <br><code>{&quot;Responsibility&quot;: &quot;ISL_RECEIVABLES_MANAGER&quot;, &quot;ResponsibilityApplication&quot;: &quot;ar&quot;, &quot;SecurityGroup&quot;: &quot;STANDARD&quot;, &quot;NLSLanguage&quot;: &quot;AMERICAN&quot;, &quot;OrgId&quot;: &quot;82&quot;, &quot;OrderNumber&quot;:&quot;35230&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message with details of the order. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Oracle E-Business Suite Request node to see the data which has been retrieved."
+                      "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. The message values will be used to execute the Get order against Oracle E-Business Suite, so you will need to substitute values which are relevant for your system into the example provided here: <code>{&quot;hello&quot;:&quot;world&quot;}</code>. Click Send and your message is sent to the HTTPInput node. You should receive a JSON reply message with details of the order. You will also see a highlighted path through the flow. Click on the highlighted path coming out of the Oracle E-Business Suite Request node to see the data which has been retrieved."
                     }
                   ]
                 }
@@ -29718,405 +29707,6 @@
                 "description": "Using the Manufacturing Perspective",
                 "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-manufacturing-perspective",
                 "type": "web"
-              },
-              {
-                "title": "IBM Documentation link to Troubleshooting",
-                "description": "Troubleshooting and Logging",
-                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
-                "type": "web"
-              }
-            ]
-          }
-        }
-      }
-    }
-  },
-  "App Connect for Manufacturing - Using the OPC-UA-Input node to subscribe to alarms and events from an OPC Server": {
-    "version": "0.1",
-    "pageContent": {
-      "_comments": "object that contains data for page labels, buttons, etc.",
-      "navItems": {
-        "_common": {
-          "buttonBackToGallery": {
-            "name": "Back To Gallery",
-            "method": "backToGallery()",
-            "idName": "backToGallery"
-          },
-          "buttonStartTutorial": {
-            "name": "Start Tutorial",
-            "method": "startTutorialFromDetailsScreen()",
-            "idName": "startTutorial"
-          },
-          "buttonViewDetails": {
-            "name": "View Details",
-            "method": "viewDetails()",
-            "idName": "stepsViewDetails"
-          }
-        }
-      }
-    },
-    "tutorial": {
-      "_common": {
-        "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to subscribe to alarms and events from an OPC Server",
-        "shortDescription": "Create a simple message flow by using the OPC-UA-Input node to subscribe to alarms and events from an OPC server. This tutorial requires an installation of App Connect for Manufacturing. If you are familiar with the development of flows using the Manufacturing nodes, you can directly refer to the Run section to learn how to subscribe to alarms or events.",
-        "durationText": "This tutorial takes approximately",
-        "durationTime": "10 minutes",
-        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
-        "resourceToOpen": "MainFlow",
-        "helpLink": {
-          "text": "IBM Documentation",
-          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=overview-supported-opc-ua-features"
-        }
-      },
-      "pageDetails": {
-        "topicsName": "Tutorial Topics",
-        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
-        "topicList": [
-          {
-            "title": "Creating and starting an Integration Server"
-          },
-          {
-            "title": "Creating a data source connection"
-          },
-          {
-            "title": "Configuring the OPC-UA-Input node message flow to subscribe to alarms or events"
-          },
-          {
-            "title": "Deploying the message flows"
-          }
-        ],
-        "outcomesName": "Learning outcomes",
-        "_outcomesComment": "Learn how to create a message flow to subscribe to Alarms and Events from an OPC server using the OPC-UA-Input node.",
-        "outcomeList": [
-          {
-            "title": "Learn how to create a message flow to subscribe to Alarms and Events from an OPC server using the OPC-UA-Input node."
-          }
-        ],
-        "summary": {
-          "overviewName": "OVERVIEW",
-          "_overviewComment": "This tutorial demonstrates how to create a simple message flow using the OPC-UA-Input node to subscribe to Alarms and Events from an OPC server using the OPC-UA-Input node.",
-          "sections": [
-            {
-              "section": "This tutorial assumes you have installed and configured App Connect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
-            },
-            {
-              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
-            },
-            {
-              "section": "You can try out this message flow by simply importing the two provided projects. One application project contains a control flow and another application project contains an input flow."
-            },
-            {
-              "section": "The tutorial will guide you through deploying and starting both flows."
-            },
-            {
-              "section": "The input flow is driven by using the OPC-UA-Input node. The OPC-UA-Input node triggers the flow to run when the subscribed alarm or event is triggered. A developer can choose to take different actions in the message flow based on whether it is an alarm or an event, and the data received. For example, an alarm may need to be acknowledged by calling a method on the OPC Server."
-            }
-          ]
-        },
-        "helpLinks": {
-          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
-          "title": "Find out more",
-          "details": [
-            {
-              "title": "Knowledge Center link to ",
-              "description": "IBM App Connect for Manufacturing overview",
-              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
-              "type": "web"
-            },
-            {
-              "title": "Knowledge Center link to ",
-              "description": "Installing and uninstalling IBM App Connect for Manufacturing",
-              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-installing-uninstalling",
-              "type": "web"
-            }
-          ]
-        }
-      },
-      "pageSteps": {
-        "create": {
-          "overview": {
-            "name": "Create",
-            "heading": "Import project",
-            "_createComment": "A description of what will happen when the user clicks Import.",
-            "sections": [
-              {
-                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_Input_AlarmEvent</span> and <span class='uicontrol'>App_OPCUA_Control</span> applications will be imported into your workspace."
-              },
-              {
-                "section": "The <span class='uicontrol'>App_OPCUA_Input_AlarmEvent</span> application contains <span class='uicontrol'>Flow_OPCUA_InputAE.msgflow</span> while <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
-              }
-            ]
-          },
-          "helpLinks": {
-            "title": "Find out more",
-            "details": [
-              {
-                "title": "IBM Documentation link to ",
-                "description": "Installing and uninstalling IBM AppConnect for Manufacturing",
-                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-installing-uninstalling",
-                "type": "web"
-              },
-              {
-                "title": "IBM Documentation link to ",
-                "description": "Developing Message Flow applications",
-                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
-                "type": "web"
-              }
-            ]
-          },
-          "actions": {
-            "title": "Create Actions",
-            "details": [
-              {
-                "name": "Import",
-                "method": "importArtifacts()"
-              }
-            ]
-          }
-        },
-        "prepare": {
-          "overview": {
-            "name": "Prepare",
-            "heading": "Prepare for Input Flow",
-            "_prepareComment": "Prepare for Input Flow",
-            "sections": [
-              {
-                "section": "Creating a Data Source connection to an OPC Server",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "To create a data source, complete the following steps."
-                    },
-                    {
-                      "details": "Ensure that your OPC UA server is up and running."
-                    },
-                    {
-                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
-                    },
-                    {
-                      "details": "Right-click the Source folder and select Add Mapping Node."
-                    },
-                    {
-                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
-                    },
-                    {
-                      "details": "Select Server URL Type as Endpoint"
-                    },
-                    {
-                      "details": "Specify your OPC Server URL: For example: opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
-                    },
-                    {
-                      "details": "Keep the default values for the remaining data source properties and click Create DataSource"
-                    },
-                    {
-                      "details": "Check the data source activity in the Logging view for any issues."
-                    },
-                    {
-                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "Creating and starting an Integration Server:",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
-                    },
-                    {
-                      "details": "Navigate to the folder where the server.conf yaml file is located."
-                    },
-                    {
-                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
-                    },
-                    {
-                      "details": "For Windows: <br><code>&nbsp;&nbsp;ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName: 'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'</code>"
-                    },
-                    {
-                      "details": "For Linux/Unix: <br><code>&nbsp;&nbsp;ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName: 'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'</code>"
-                    },
-                    {
-                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
-                    },
-                    {
-                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
-                    },
-                    {
-                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "helpLinks": {
-            "title": "Find out more",
-            "details": [
-              {
-                "title": "IBM Documentation link to ",
-                "description": "Using the Manufacturing Perspective",
-                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
-                "type": "web"
-              },
-              {
-                "title": "IBM Documentation link to Troubleshooting ",
-                "description": "Troubleshooting and Logging",
-                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
-                "type": "web"
-              }
-            ]
-          }
-        },
-        "run": {
-          "overview": {
-            "name": "Run",
-            "heading": "Configure, Deploy and Test the Input Flow",
-            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
-            "sections": [
-              {
-                "section": "<b> Configure the Input Message flow to subscribe to alarms/events </b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "From the Application Development view, under the App_OPCUA_Input_AlarmEvent application, double-click Flow_OPCUA_InputAE.msgflow to open in the Flow Exerciser. The flow consists of 'OPC-UA-Input', and 'File Output' nodes. "
-                    },
-                    {
-                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Input node to open the OPC-UA-Input Node properties. "
-                    },
-                    {
-                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
-                    },
-                    {
-                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
-                    },
-                    {
-                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. In Source Items, the <b> red flash </b> means that the object emits events or alarms. This can be used to have a trigger item triggered by an event of that object."
-                    },
-                    {
-                      "details": "From the 'Source Item Tree', select the required node that triggers events / alarms as described above."
-                    },
-                    {
-                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
-                    },
-                    {
-                      "details": "Specify a name for the node and click 'Ok' "
-                    },
-                    {
-                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
-                    },
-                    {
-                      "details": "Once a client item is created using a source object that trigger events, even the client item will have <b> red flash </b>."
-                    },
-                    {
-                      "details": "Click and select the client item."
-                    },
-                    {
-                      "details": "Click 'Add Trigger Item' and the Add Trigger Item wizard window loads. "
-                    },
-                    {
-                      "details": "Here you can select or add values for <b> Triggered By </b> , <b> Processing Parameter </b> , <b> Event Data </b> and <b> Additional Items </b> "
-                    },
-                    {
-                      "details": "<b> Triggered By:</b> User must select one of the Events or Value Change options from the drop down list, that would trigger Input Node. This could be different event / alarm types or by Value change.For example, in case of UACPP Simulation server, if you select  /Objects/Server/3:AreaAirConditioner/3:AirConditioner_1 , then the Triggered By list shows 3:ControllerEventType / BaseEventType / OffNormalAlarmType . You need to select one of these event types. The Event Data that will be sent along with the event, will vary based on the event type that you select."
-                    },
-                    {
-                      "details": "<b> Processing Parameter:</b> [Optional] Users have an option to specify value for this property. The specified value is passed as is to the output of the InputNode in the message flow. This value of the ProcessingParameter can then be accessed and used as per the Use Case in the messageflow."
-                    },
-                    {
-                      "details": "<b> Event Data: </b> All the data items that can be delivered with an Event. Properties and variables of the event type object in OPC Server are listed in the Event Data list."
-                    },
-                    {
-                      "details": "At least one checkbox from Event Data must be selected. The event that comes in will have the values attached to it for the selected options. For example, event data can be EventId, EventType, Message etc."
-                    },
-                    {
-                      "details": "<b> Additional Items: </b> After clicking the Add button, the Manufacturing perspective opens again. You can add the additional items by clicking on the 'Add Item to Trigger'. This way additional values can be added to the same trigger item and are listed under the 'Additional Items' list. These values will come along with the trigger (Event)."
-                    },
-                    {
-                      "details": "If we click OK button then the item will be added in Trigger Item List."
-                    },
-                    {
-                      "details": "Note that the above items added are the additional items. The input node will be triggered by selected Event object in the <b> Triggered By </b> (and not by changes in the client items in the Additional Items List). The data received will have the value for the main event as well as for the additional items."
-                    },
-                    {
-                      "details": "When we try to edit the Trigger Item, it won’t allow to change the Triggered By value (it is disabled). But it will allow to click on 'Add button' to add more items."
-                    },
-                    {
-                      "details": "If we select a source item that does not emit event, then the Triggered By value is shown as Value Change. If the source item has both Value and Event, then both will be seen in the drop down."
-                    },
-                    {
-                      "details": "Navigate back to the Flow Exerciser and double-click the File Output node. The File Output node properties window loads."
-                    },
-                    {
-                      "details": "Click the Basic tab. Specify the directory, file name of the output file where the subscribed event data values should be stored and set the 'Select the mode for writing to file' as 'Write directly to the output file (append if file exists)'."
-                    },
-                    {
-                      "details": "Save the flow"
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Deploying the OPC-UA-Input node message flow</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "Ensure that you are connected to an Integration Server."
-                    },
-                    {
-                      "details": "From the Application Development view , right-click the Flow_OPCUA_InputAE.msgflow and select 'Deploy'."
-                    },
-                    {
-                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
-                    },
-                    {
-                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_Input_AlarmEvent application name is displayed under the selected integration server from Integration Nodes view."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Test the Input Flow</b> ",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "The OPC-UA-Input node automatically triggers the flow to run when the specified alarm or event is triggered by the OPC Server."
-                    },
-                    {
-                      "details": "The Alarm / Event data is stored in an output file by using the File Output node."
-                    }
-                  ]
-                }
-              },
-              {
-                "section": "<b>Additional Steps for Alarms</b>",
-                "steps": {
-                  "type": "ordered",
-                  "details": [
-                    {
-                      "details": "If you have subscribed to Alarms, then you may need to acknowledge the alarm or invoke some methods on the OPCServer as per configuration on the OPCServer."
-                    },
-                    {
-                      "details": "This can be done by adding an OPC-UA-Method-Call node in the above flow and invoking the method to acknowledge the alarm or calling any other required method. "
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "helpLinks": {
-            "title": "Find out more",
-            "details": [
-              {
-                "title": "IBM Documentation link to the Manufacturing Perspective",
-                "description": "Using the Manufacturing Perspective",
-                "type": "web",
-                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview"
               },
               {
                 "title": "IBM Documentation link to Troubleshooting",
