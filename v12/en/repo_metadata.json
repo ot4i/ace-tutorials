@@ -3446,6 +3446,62 @@
           ]
         },
 		{
+          "name": "Discovery Connector - Using the GitHub Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the GitHub Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-github-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-github-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-github-tutorial/releases/download/v3.0/PI_GitHub.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;GitHub",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleGitHub:CompleteExampleGitHub:CompletePolicyProjectGitHub",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleGitHub/ExampleGitHubFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleGitHub"
+            }
+          ]
+        },		
+        {
+          "name": "Discovery Connector - Using the Gmail Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Gmail Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-gmail-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-gmail-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-gmail-tutorial/releases/download/v3.0/PI_Gmail.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Gmail",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleGmail:CompleteExampleGmail:CompletePolicyProjectGmail",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleGmail/ExampleGmailFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleGmail"
+            }
+          ]
+        },
+		{
           "name": "Discovery Connector - Using the Google Cloud Pub/Sub Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
