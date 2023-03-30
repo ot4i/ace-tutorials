@@ -3446,6 +3446,62 @@
           ]
         },
 		{
+          "name": "Discovery Connector - Using the Confluence Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Confluence Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-confluence-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-confluence-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-confluence-tutorial/releases/download/v3.0/PI_Confluence.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Confluence",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleConfluence:CompleteExampleConfluence:CompletePolicyProjectConfluence",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleConfluence/ExampleConfluenceFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleConfluence"
+            }
+          ]
+        },
+        {
+          "name": "Discovery Connector - Using the Dropbox Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Dropbox Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-dropbox-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-dropbox-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-dropbox-tutorial/releases/download/v3.0/PI_Dropbox.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Dropbox",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleDropbox:CompleteExampleDropbox:CompletePolicyProjectDropbox",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleDropbox/ExampleDropboxFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleDropbox"
+            }
+          ]
+        },
+		{
           "name": "Discovery Connector - Using the GitHub Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3697,34 +3753,6 @@
             }
           ]
         },		
-        {
-          "name": "Discovery Connector - Using the Confluence Request node",
-          "version": "1.0",
-          "iibVersions": "12.*-12.*",
-          "shortDesc": "Learn how to use the Confluence Request node (requires v12.0.8.0 or higher)",
-          "detailsURL": "https://ot4i.github.io/discovery-confluence-tutorial/v12/en/details.html",
-          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-confluence-tutorial",
-          "zipURL": "https://github.com/ot4i/discovery-confluence-tutorial/releases/download/v3.0/PI_Confluence.zip",
-          "barFile": "",
-          "visible": "true",
-          "tags": "Discovery;Confluence",
-          "isPattern": "false",
-          "isFavorite": "true",
-          "projects": "ExampleConfluence:CompleteExampleConfluence:CompletePolicyProjectConfluence",
-          "editorResPaths": [
-            {
-              "id": "MainFlow",
-              "editor": "flow",
-              "wspath": "<workspace>/ExampleConfluence/ExampleConfluenceFlow.msgflow"
-            }
-          ],
-          "deployedResources": [
-            {
-              "type": "application",
-              "path": "ExampleConfluence"
-            }
-          ]
-        },
 		{
           "name": "Discovery Connector - Using the Oracle Human Capital Management Request node",
           "version": "1.0",
