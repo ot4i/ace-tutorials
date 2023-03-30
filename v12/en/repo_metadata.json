@@ -3444,6 +3444,202 @@
               "path": "ExampleAsana"
             }
           ]
+        },
+		{
+          "name": "Discovery Connector - Using the Google Cloud Pub/Sub Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Google Cloud Pub/Sub Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-googlepubsub-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-googlepubsub-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-googlepubsub-tutorial/releases/download/v3.0/PI_GoogleCloudPubSub.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;GooglePubSub",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleGoogleCloudPubSub:CompleteExampleGoogleCloudPubSub:CompletePolicyProjectGoogleCloudPubSub",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleGoogleCloudPubSub/ExampleGoogleCloudPubSubFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleGoogleCloudPubSub"
+            }
+          ]
+        },
+        {
+          "name": "Discovery Connector - Using the Google Cloud Storage Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Google Cloud Storage Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-googlecloudstorage-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-googlecloudstorage-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-googlecloudstorage-tutorial/releases/download/v3.0/PI_GoogleCloudStorage.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;GoogleCloudStorage",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleGoogleCloudStorage:CompleteExampleGoogleCloudStorage:CompletePolicyProjectGoogleCloudStorage",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleGoogleCloudStorage/ExampleGoogleCloudStorageFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleGoogleCloudStorage"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the Google Drive Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Google Drive Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-googledrive-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-googledrive-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-googledrive-tutorial/releases/download/v3.0/PI_GoogleDrive.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;GoogleDrive",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleGoogleDrive:CompleteExampleGoogleDrive:CompletePolicyProjectGoogleDrive",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleGoogleDrive/ExampleGoogleDriveFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleGoogleDrive"
+            }
+          ]
+        },
+        {
+          "name": "Discovery Connector - Using the IBM OpenPages with Watson Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the IBM OpenPages with Watson Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-openpages-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-openpages-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-openpages-tutorial/releases/download/v3.0/PI_IBMOpenPages.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;IBMOpenPages",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleIBMOpenPages:CompleteExampleIBMOpenPages:CompletePolicyProjectIBMOpenPages",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleIBMOpenPages/ExampleIBMOpenPagesFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleIBMOpenPages"
+            }
+          ]
+        },
+        {
+          "name": "Discovery Connector - Using the Jira Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Jira Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-jira-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-jira-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-jira-tutorial/releases/download/v3.0/PI_Jira.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Jira",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleJira:CompleteExampleJira:CompletePolicyProjectJira",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleJira/ExampleJiraFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleJira"
+            }
+          ]
+        },
+        {
+          "name": "Discovery Connector - Using the Marketo Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Marketo Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-marketo-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-marketo-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-marketo-tutorial/releases/download/v3.0/PI_Marketo.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Marketo",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleMarketo:CompleteExampleMarketo:CompletePolicyProjectMarketo",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleMarketo/ExampleMarketoFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleMarketo"
+            }
+          ]
+        },
+        {
+          "name": "Discovery Connector - Using the monday.com Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the monday.com Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-mondaydotcom-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-mondaydotcom-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-mondaydotcom-tutorial/releases/download/v3.0/PI_mondaydotcom.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;monday.com",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "Examplemondaydotcom:CompleteExamplemondaydotcom:CompletePolicyProjectmondaydotcom",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/Examplemondaydotcom/ExamplemondaydotcomFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "Examplemondaydotcom"
+            }
+          ]
         },		
         {
           "name": "Discovery Connector - Using the Confluence Request node",
@@ -3473,34 +3669,90 @@
             }
           ]
         },
-        {
-          "name": "Discovery Connector - Using the Zendesk Service Request node",
+		{
+          "name": "Discovery Connector - Using the Oracle Human Capital Management Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
-          "shortDesc": "Learn how to use the Zendesk Service Request node (requires v12.0.8.0 or higher)",
-          "detailsURL": "https://ot4i.github.io/discovery-zendeskservice-tutorial/v12/en/details.html",
-          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-zendeskservice-tutorial",
-          "zipURL": "https://github.com/ot4i/discovery-zendeskservice-tutorial/releases/download/v3.0/PI_ZendeskService.zip",
+          "shortDesc": "Learn how to use the Oracle Human Capital Management Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-oraclehumancapitalmanagement-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-oraclehumancapitalmanagement-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-oraclehumancapitalmanagement-tutorial/releases/download/v3.0/PI_OracleHumanCapitalManagement.zip",
           "barFile": "",
           "visible": "true",
-          "tags": "Discovery;ZendeskService",
+          "tags": "Discovery;OracleHumanCapitalManagement",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "ExampleZendeskService:CompleteExampleZendeskService:CompletePolicyProjectZendeskService",
+          "projects": "ExampleOracleHumanCapitalManagement:CompleteExampleOracleHumanCapitalManagement:CompletePolicyProjectOracleHumanCapitalManagement",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "flow",
-              "wspath": "<workspace>/ExampleZendeskService/ExampleZendeskServiceFlow.msgflow"
+              "wspath": "<workspace>/ExampleOracleHumanCapitalManagement/ExampleOracleHumanCapitalManagementFlow.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "ExampleZendeskService"
+              "path": "ExampleOracleHumanCapitalManagement"
             }
           ]
-        },		
+        },
+		{
+          "name": "Discovery Connector - Using the Trello Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Trello Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-trello-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-trello-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-trello-tutorial/releases/download/v3.0/PI_Trello.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Trello",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleTrello:CompleteExampleTrello:CompletePolicyProjectTrello",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleTrello/ExampleTrelloFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleTrello"
+            }
+          ]
+        },
+		{
+          "name": "Discovery Connector - Using the UKG Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the UKG Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-ukg-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-ukg-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-ukg-tutorial/releases/download/v3.0/PI_UKG.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;UKG",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleUKG:CompleteExampleUKG:CompletePolicyProjectUKG",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleUKG/ExampleUKGFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleUKG"
+            }
+          ]
+        },
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server",
           "version": "1.0",
