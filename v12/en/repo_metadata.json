@@ -3837,6 +3837,34 @@
             }
           ]
         },
+		{
+          "name": "Discovery Connector - Using the Zendesk Service Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the Zendesk Service Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-zendeskservice-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-zendeskservice-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-zendeskservice-tutorial/releases/download/v3.0/PI_ZendeskService.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;Zendesk",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleZendeskService:CompleteExampleZendeskService:CompletePolicyProjectZendeskService",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleZendeskService/ExampleZendeskServiceFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleZendeskService"
+            }
+          ]
+        },
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server",
           "version": "1.0",
