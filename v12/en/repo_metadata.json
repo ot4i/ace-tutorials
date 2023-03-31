@@ -3501,6 +3501,34 @@
             }
           ]
         },
+        {
+          "name": "Discovery Connector - Using the flexEngage Request node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to use the flexEngage Request node (requires v12.0.8.0 or higher)",
+          "detailsURL": "https://ot4i.github.io/discovery-flexengage-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-flexengage-tutorial",
+          "zipURL": "https://github.com/ot4i/discovery-flexengage-tutorial/releases/download/v3.0/PI_flexEngage.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Discovery;flexEngage",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "ExampleflexEngage:CompleteExampleflexEngage:CompletePolicyProjectflexEngage",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/ExampleflexEngage/ExampleflexEngageFlow.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "ExampleflexEngage"
+            }
+          ]
+        },
 		{
           "name": "Discovery Connector - Using the GitHub Request node",
           "version": "1.0",
