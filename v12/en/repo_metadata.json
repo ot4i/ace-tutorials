@@ -3362,10 +3362,10 @@
           ]
         },		
         {
-          "name": "Discovery Connector - Using the Amazon Lambda Request node",
+          "name": "Discovery Connector - Using the AWS Lambda Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
-          "shortDesc": "Learn how to use the Amazon Lambda Request node (requires v12.0.8.0 or higher)",
+          "shortDesc": "Learn how to use the AWS Lambda Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-amazonlambda-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-amazonlambda-tutorial",
           "zipURL": "https://github.com/ot4i/discovery-amazonlambda-tutorial/releases/download/v3.0/PI_AmazonLambda.zip",
