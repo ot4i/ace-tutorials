@@ -28424,7 +28424,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -28464,7 +28464,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Amazon CloudWatch system then a list of those connections would be displayed, but in this example the status of the Amazon CloudWatch connector is shown as <code>Not connected</code>. <strong>Before you use the Amazon CloudWatch Request node in a message flow as part of this tutorial, you will need to have access to Amazon CloudWatch. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Alarms</code> and choose the action <code>Retrieve composite alarms</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Amazon CloudWatch account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Amazon CloudWatch system then a list of those connections would be displayed, but in this example the status of the Amazon CloudWatch connector is shown as <code>Not connected</code>. Before you use the Amazon CloudWatch Request node in a message flow as part of this tutorial, you will need to have access to Amazon CloudWatch. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Alarms</code> and choose the action <code>Retrieve composite alarms</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Amazon CloudWatch account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Amazon CloudWatch Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Amazon CloudWatch Request node. The Basic properties tab will now display a short description of <code>Retrieve composite alarms</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>compositealarms</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAmazonCloudWatch}:AmazonCloudWatch1</code>."
@@ -28483,7 +28483,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAmazonCloudWatchFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -28503,7 +28503,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAmazonCloudWatch to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAmazonCloudWatchFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -28514,7 +28514,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonCloudWatch</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>AmazonCloudWatch1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectAmazonCloudWatch</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Region</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonCloudWatch</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleAmazonCloudWatchFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -28694,7 +28694,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -28734,7 +28734,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Amazon EC2 system then a list of those connections would be displayed, but in this example the status of the Amazon EC2 connector is shown as <code>Not connected</code>. <strong>Before you use the Amazon EC2 Request node in a message flow as part of this tutorial, you will need to have access to Amazon EC2. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Security Groups</code> and choose the action <code>Retrieve security groups</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Amazon EC2 account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Amazon EC2 system then a list of those connections would be displayed, but in this example the status of the Amazon EC2 connector is shown as <code>Not connected</code>. Before you use the Amazon EC2 Request node in a message flow as part of this tutorial, you will need to have access to Amazon EC2. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Security Groups</code> and choose the action <code>Retrieve security groups</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Amazon EC2 account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Amazon EC2 Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Amazon EC2 Request node. The Basic properties tab will now display a short description of <code>Retrieve security groups</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>SecurityGroup</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAmazonEC2}:AmazonEC21</code>."
@@ -28753,7 +28753,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAmazonEC2Flow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -28773,7 +28773,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAmazonEC2 to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAmazonEC2Flow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -28784,7 +28784,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonEC2</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>AmazonEC21.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectAmazonEC2</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Region</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonEC2</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleAmazonEC2Flow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -28964,7 +28964,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -29004,7 +29004,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a AWS Lambda system then a list of those connections would be displayed, but in this example the status of the AWS Lambda connector is shown as <code>Not connected</code>. <strong>Before you use the AWS Lambda Request node in a message flow as part of this tutorial, you will need to have access to AWS Lambda. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Functions</code> and choose the action <code>Retrieve functions</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your AWS Lambda account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a AWS Lambda system then a list of those connections would be displayed, but in this example the status of the AWS Lambda connector is shown as <code>Not connected</code>. Before you use the AWS Lambda Request node in a message flow as part of this tutorial, you will need to have access to AWS Lambda. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Functions</code> and choose the action <code>Retrieve functions</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your AWS Lambda account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the AWS Lambda Request node in the message flow have been updated. Save the message flow.  Explore the properties of the AWS Lambda Request node. The Basic properties tab will now display a short description of <code>Retrieve functions</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>function</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAWSLambda}:AWSLambda1</code>."
@@ -29023,7 +29023,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAWSLambdaFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29043,7 +29043,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAWSLambda to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAWSLambdaFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29054,7 +29054,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAWSLambda</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>AWSLambda1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectAmazonLambda</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Region</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonLambda</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleAWSLambdaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -29234,7 +29234,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -29274,7 +29274,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Anaplan system then a list of those connections would be displayed, but in this example the status of the Anaplan connector is shown as <code>Not connected</code>. <strong>Before you use the Anaplan Request node in a message flow as part of this tutorial, you will need to have access to Anaplan. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Files</code> and choose the action <code>Download file content</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. A field named Authorization method will appear. Select your chosen authorization option, for example <code>Provide credentials for App Connect to use (BASIC)</code> and click Continue. Fill out the requested connection information for your Anaplan account including the <code>Username</code>, and <code>Password</code>. You may need to wait a few seconds for the connection to be made. Further dropdown options will be presented for <code>Workspace</code>, <code>Model</code> and <code>file</code>. Once you have made these selections, to keep things as simple as possible change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Anaplan system then a list of those connections would be displayed, but in this example the status of the Anaplan connector is shown as <code>Not connected</code>. Before you use the Anaplan Request node in a message flow as part of this tutorial, you will need to have access to Anaplan. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Files</code> and choose the action <code>Download file content</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. A field named Authorization method will appear. Select your chosen authorization option, for example <code>Provide credentials for App Connect to use (BASIC)</code> and click Continue. Fill out the requested connection information for your Anaplan account including the <code>Username</code>, and <code>Password</code>. You may need to wait a few seconds for the connection to be made. Further dropdown options will be presented for <code>Workspace</code>, <code>Model</code> and <code>file</code>. Once you have made these selections, to keep things as simple as possible change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Anaplan Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Anaplan Request node. The Basic properties tab will now display a short description of <code>Download file content</code>, along with the <strong>Action</strong> (<code>DOWNLOADFILECONTENT</code>) and the <strong>Object</strong> (<code>file</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAnaplan}:Anaplan1</code>."
@@ -29293,7 +29293,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAnaplanFlow </b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29313,7 +29313,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAnaplan to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAnaplanFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29324,7 +29324,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAnaplan</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Anaplan1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectAnaplan</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAnaplan</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleAnaplanFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -29504,7 +29504,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -29544,7 +29544,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Asana system then a list of those connections would be displayed, but in this example the status of the Asana connector is shown as <code>Not connected</code>. <strong>Before you use the Asana Request node in a message flow as part of this tutorial, you will need to have access to Asana. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Users</code> and choose the action <code>Retrieve users</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Asana account including the <code>Access token</code>, <code>Refresh token</code>, <code>Client ID</code>, and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made. A dropdown field named Workspace will appear from which you should choose a value. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Asana system then a list of those connections would be displayed, but in this example the status of the Asana connector is shown as <code>Not connected</code>. Before you use the Asana Request node in a message flow as part of this tutorial, you will need to have access to Asana. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Users</code> and choose the action <code>Retrieve users</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Asana account including the <code>Access token</code>, <code>Refresh token</code>, <code>Client ID</code>, and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made. A dropdown field named Workspace will appear from which you should choose a value. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Asana Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Asana Request node. The Basic properties tab will now display a short description of <code>Retrieve users</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>Users</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAsana}:Asana1</code>."
@@ -29563,7 +29563,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAsanaFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29583,7 +29583,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleAsana to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAsanaFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29594,7 +29594,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAsana</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Asana1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectAsana</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAsana</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleAsanaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -29774,7 +29774,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -29814,7 +29814,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Confluence system then a list of those connections would be displayed, but in this example the status of the Confluence connector is shown as <code>Not connected</code>. <strong>Before you use the Confluence Request node in a message flow as part of this tutorial, you will need to have access to Confluence. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Attachments</code> and choose the action <code>Retrieve attachment</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Confluence account including the <code>Endpoint URL</code>, <code>User name</code>, and <code>Password or API token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Confluence system then a list of those connections would be displayed, but in this example the status of the Confluence connector is shown as <code>Not connected</code>. Before you use the Confluence Request node in a message flow as part of this tutorial, you will need to have access to Confluence. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Attachments</code> and choose the action <code>Retrieve attachment</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Confluence account including the <code>Endpoint URL</code>, <code>User name</code>, and <code>Password or API token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Confluence Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Confluence Request node. The Basic properties tab will now display a short description of <code>Retrieve attachments</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>Attachment</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectConfluence}:Confluence1</code>."
@@ -29833,7 +29833,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleConfluenceFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29853,7 +29853,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleConfluence to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleConfluenceFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29864,7 +29864,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectConfluence</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Confluence1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectConfluence</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Endpoint URL</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectConfluence</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleConfluenceFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -30044,7 +30044,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -30084,7 +30084,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Dropbox system then a list of those connections would be displayed, but in this example the status of the Dropbox connector is shown as <code>Not connected</code>. <strong>Before you use the Dropbox Request node in a message flow as part of this tutorial, you will need to have access to Dropbox. Underneath where the panel says <code>Not connected</code>, expand the section and choose the action <code>Download file content</code> and a Connect button will appear. Click the Connect button and fill out the requested connection information for your Dropbox account including the <code>Access token</code>, <code>Refresh token</code>, <code>Client ID</code>, and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Dropbox system then a list of those connections would be displayed, but in this example the status of the Dropbox connector is shown as <code>Not connected</code>. Before you use the Dropbox Request node in a message flow as part of this tutorial, you will need to have access to Dropbox. Underneath where the panel says <code>Not connected</code>, expand the section and choose the action <code>Download file content</code> and a Connect button will appear. Click the Connect button and fill out the requested connection information for your Dropbox account including the <code>Access token</code>, <code>Refresh token</code>, <code>Client ID</code>, and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Dropbox Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Dropbox Request node. The Basic properties tab will now display a short description of <code>Retrieve tickets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>ticket</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectDropbox}:Dropbox1</code>."
@@ -30103,7 +30103,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleDropboxFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30123,7 +30123,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleDropbox to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleDropboxFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30134,7 +30134,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectDropbox</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Dropbox1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectDropbox</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectDropbox</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleDropboxFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -30314,7 +30314,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -30354,7 +30354,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a flexEngage system then a list of those connections would be displayed, but in this example the status of the flexEngage connector is shown as <code>Not connected</code>. <strong>Before you use the flexEngage Request node in a message flow as part of this tutorial, you will need to have access to flexEngage. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Order events</code> and choose the action <code>Retrieve order events</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your flexEngage account including the <code>Type</code> (which will be a choice of flexEngage Staging Environment or flexEngage Production Environment), <code>Client ID</code>, <code>Client secret</code> and <code>Merchant ID</code>. You may need to wait a few seconds for the connection to be made. You will then be presented with a Where clause to retrieve order events with a particular <code>Order ID</code>. You will also see a condition to filter the assets to be returned, select the <code>Maximum number of items to retrieve</code> to be 1."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a flexEngage system then a list of those connections would be displayed, but in this example the status of the flexEngage connector is shown as <code>Not connected</code>. Before you use the flexEngage Request node in a message flow as part of this tutorial, you will need to have access to flexEngage. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Order events</code> and choose the action <code>Retrieve order events</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your flexEngage account including the <code>Type</code> (which will be a choice of flexEngage Staging Environment or flexEngage Production Environment), <code>Client ID</code>, <code>Client secret</code> and <code>Merchant ID</code>. You may need to wait a few seconds for the connection to be made. You will then be presented with a Where clause to retrieve order events with a particular <code>Order ID</code>. You will also see a condition to filter the assets to be returned, select the <code>Maximum number of items to retrieve</code> to be 1."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the flexEngage Request node in the message flow have been updated. Save the message flow.  Explore the properties of the flexEngage Request node. The Basic properties tab will now display a short description of <code>Retrieve order events</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>OrderEvent</code>). On the Filter properties tab, the <strong>Filter options</strong> will have been configured with the Order ID where clause. On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectflexEngage}:flexEngage1</code>."
@@ -30373,7 +30373,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleflexEngageFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30393,7 +30393,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleflexEngage to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleflexEngageFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30404,7 +30404,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectflexEngage</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>flexEngage1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectflexEngage</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Merchant ID</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectflexEngage</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleflexEngageFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -30584,7 +30584,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -30624,7 +30624,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a GitHub system then a list of those connections would be displayed, but in this example the status of the GitHub connector is shown as <code>Not connected</code>. <strong>Before you use the GitHub Request node in a message flow as part of this tutorial, you will need to have access to GitHub. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Issues</code> and choose the action <code>Retrieve issues</code>. Select an <code>Organization</code> and <code>Repository</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Select your chosen Type, for example <code>GitHub Cloud</code>, and your chosen Authorization type, for example <code>Provide credentials for App Connect to use (BASIC)</code>. Fill out the requested connection information for your GitHub account, for example <code>Personal access token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a GitHub system then a list of those connections would be displayed, but in this example the status of the GitHub connector is shown as <code>Not connected</code>. Before you use the GitHub Request node in a message flow as part of this tutorial, you will need to have access to GitHub. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Issues</code> and choose the action <code>Retrieve issues</code>. Select an <code>Organization</code> and <code>Repository</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Select your chosen Type, for example <code>GitHub Cloud</code>, and your chosen Authorization type, for example <code>Provide credentials for App Connect to use (BASIC)</code>. Fill out the requested connection information for your GitHub account, for example <code>Personal access token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the GitHub Request node in the message flow have been updated. Save the message flow.  Explore the properties of the GitHub Request node. The Basic properties tab will now display a short description of <code>Retrieve issues</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>Issue</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectGitHub}:GitHub1</code>."
@@ -30643,7 +30643,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleGitHubFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30663,7 +30663,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleGitHub to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleGitHubFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30674,7 +30674,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGitHub</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>GitHub1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectGitHub</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Endpoint URL</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGitHub</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleGitHubFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -30854,7 +30854,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -30894,7 +30894,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Gmail system then a list of those connections would be displayed, but in this example the status of the Gmail connector is shown as <code>Not connected</code>. <strong>Before you use the Gmail Request node in a message flow as part of this tutorial, you will need to have access to Gmail. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Email</code> and choose the action <code>Retrieve emails</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Gmail account including the <code>Application client ID</code>, <code>Application client secret</code>, <code>OAuth access token</code> and <code>OAuth refresh token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Gmail system then a list of those connections would be displayed, but in this example the status of the Gmail connector is shown as <code>Not connected</code>. Before you use the Gmail Request node in a message flow as part of this tutorial, you will need to have access to Gmail. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Email</code> and choose the action <code>Retrieve emails</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Gmail account including the <code>Application client ID</code>, <code>Application client secret</code>, <code>OAuth access token</code> and <code>OAuth refresh token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Gmail Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Gmail Request node. The Basic properties tab will now display a short description of <code>Retrieve emails</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>mail</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectGmail}:Gmail1</code>."
@@ -30913,7 +30913,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleGmailFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30933,7 +30933,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleGmail to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleGmailFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -30944,7 +30944,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGmail</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Gmail1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectGmail</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGmail</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleGmailFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -31124,7 +31124,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -31164,7 +31164,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Google Cloud Pub/Sub system then a list of those connections would be displayed, but in this example the status of the Google Cloud Pub/Sub connector is shown as <code>Not connected</code>. <strong>Before you use the Google Cloud Pub/Sub Request node in a message flow as part of this tutorial, you will need to have access to Google Cloud Pub/Sub. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Topics</code> and choose the action <code>Retrieve topics</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Google Cloud Pub/Sub account including the <code>Client email</code>, <code>Private key</code>, and <code>Project ID</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Google Cloud Pub/Sub system then a list of those connections would be displayed, but in this example the status of the Google Cloud Pub/Sub connector is shown as <code>Not connected</code>. Before you use the Google Cloud Pub/Sub Request node in a message flow as part of this tutorial, you will need to have access to Google Cloud Pub/Sub. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Topics</code> and choose the action <code>Retrieve topics</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Google Cloud Pub/Sub account including the <code>Client email</code>, <code>Private key</code>, and <code>Project ID</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Google Cloud Pub/Sub Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Google Cloud Pub/Sub Request node. The Basic properties tab will now display a short description of <code>Retrieve topics</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>topic</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectGoogleCloudPubSub}:GoogleCloudPubSub1</code>."
@@ -31183,7 +31183,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleGoogleCloudPubSubFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -31203,7 +31203,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleGoogleCloudPubSub to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleGoogleCloudPubSubFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -31214,7 +31214,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGoogleCloudPubSub</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>GoogleCloudPubSub1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectGoogleCloudPubSub</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Project ID</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectCloudPubSub</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleGoogleCloudPubSubFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -31394,7 +31394,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -31434,7 +31434,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Google Cloud Storage system then a list of those connections would be displayed, but in this example the status of the Google Cloud Storage connector is shown as <code>Not connected</code>. <strong>Before you use the Google Cloud Storage Request node in a message flow as part of this tutorial, you will need to have access to Google Cloud Storage. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Buckets</code> and choose the action <code>Retrieve buckets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Google Cloud Storage account including the <code>Secret</code>, and <code>Access ID</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Google Cloud Storage system then a list of those connections would be displayed, but in this example the status of the Google Cloud Storage connector is shown as <code>Not connected</code>. Before you use the Google Cloud Storage Request node in a message flow as part of this tutorial, you will need to have access to Google Cloud Storage. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Buckets</code> and choose the action <code>Retrieve buckets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Google Cloud Storage account including the <code>Secret</code>, and <code>Access ID</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Google Cloud Storage Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Google Cloud Storage Request node. The Basic properties tab will now display a short description of <code>Retrieve buckets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>Bucket</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectGoogleCloudStorage}:GoogleCloudStorage1</code>."
@@ -31453,7 +31453,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleGoogleCloudStorageFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -31473,7 +31473,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleGoogleCloudStorage to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleGoogleCloudStorageFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -31484,7 +31484,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGoogleCloudStorage</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>GoogleCloudStorage1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectGoogleCloudStorage</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGoogleCloudStorage</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleGoogleCloudStorageFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -31664,7 +31664,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -31704,7 +31704,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Google Drive system then a list of those connections would be displayed, but in this example the status of the Google Drive connector is shown as <code>Not connected</code>. <strong>Before you use the Google Drive Request node in a message flow as part of this tutorial, you will need to have access to Google Drive. Underneath where the panel says <code>Not connected</code>, expand the section named <code>File</code> and choose the action <code>Download file</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Select your chosen API Version, for example <code>V3</code>. Fill out the requested connection information for your Google Drive account including the <code>Application client ID</code>, <code>Application client secret</code>, <code>OAuth access token</code>, and <code>OAuth refresh token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Google Drive system then a list of those connections would be displayed, but in this example the status of the Google Drive connector is shown as <code>Not connected</code>. Before you use the Google Drive Request node in a message flow as part of this tutorial, you will need to have access to Google Drive. Underneath where the panel says <code>Not connected</code>, expand the section named <code>File</code> and choose the action <code>Download file</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Select your chosen API Version, for example <code>V3</code>. Fill out the requested connection information for your Google Drive account including the <code>Application client ID</code>, <code>Application client secret</code>, <code>OAuth access token</code>, and <code>OAuth refresh token</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Google Drive Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Google Drive Request node. The Basic properties tab will now display a short description of <code>Retrieve tickets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>ticket</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectGoogleDrive}:GoogleDrive1</code>."
@@ -31723,7 +31723,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleGoogleDriveFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -31743,7 +31743,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleGoogleDrive to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleGoogleDriveFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -31754,7 +31754,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGoogleDrive</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>GoogleDrive1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectGoogleDrive</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectGoogleDrive</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleGoogleDriveFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -31934,7 +31934,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -31974,7 +31974,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a IBM Open Pages system then a list of those connections would be displayed, but in this example the status of the IBM Open Pages connector is shown as <code>Not connected</code>. <strong>Before you use the IBM OpenPages Request node in a message flow as part of this tutorial, you will need to have access to IBM Open Pages. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Acion items</code> and choose the action <code>Retrieve action items</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Select your chosen Type, for example <code>OpenPages (cloud-hosted or on-premises)</code>, select your chosen Authorization type of <code>Provide credentials for App Connect to use (BASIC)</code>. Fill out the requested connection information for your IBM Open Pages account including the <code>Endpoint URL</code>, <code>Username</code>, and <code>Password</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a IBM Open Pages system then a list of those connections would be displayed, but in this example the status of the IBM Open Pages connector is shown as <code>Not connected</code>. Before you use the IBM OpenPages Request node in a message flow as part of this tutorial, you will need to have access to IBM Open Pages. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Acion items</code> and choose the action <code>Retrieve action items</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Select your chosen Type, for example <code>OpenPages (cloud-hosted or on-premises)</code>, select your chosen Authorization type of <code>Provide credentials for App Connect to use (BASIC)</code>. Fill out the requested connection information for your IBM Open Pages account including the <code>Endpoint URL</code>, <code>Username</code>, and <code>Password</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the IBM OpenPages Request node in the message flow have been updated. Save the message flow.  Explore the properties of the IBM OpenPages Request node. The Basic properties tab will now display a short description of <code>Retrieve action items</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>SOXTask</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectIBMOpenPages}:IBMOpenPageswithWatson1</code>."
@@ -31993,7 +31993,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleIBMOpenPagesFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32013,7 +32013,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleIBMOpenPages to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleIBMOpenPagesFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32024,7 +32024,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectIBMOpenPages</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>IBMOpenPageswithWatson1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectIBMOpenPages</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Endpoint URL</code>, <code>Instance name</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectIBMOpenPages</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleIBMOpenPagesFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -32204,7 +32204,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -32244,7 +32244,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Jira system then a list of those connections would be displayed, but in this example the status of the Jira connector is shown as <code>Not connected</code>. <strong>Before you use the Jira Request node in a message flow as part of this tutorial, you will need to have access to Jira. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Issues</code> and choose the action <code>Retrieve issue</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Jira account including the <code>Jira host and port</code>, <code>User name</code>, <code>Password (Jira Server) or API token (Jira Cloud)</code>, and optionally <code>Agent name</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Jira system then a list of those connections would be displayed, but in this example the status of the Jira connector is shown as <code>Not connected</code>. Before you use the Jira Request node in a message flow as part of this tutorial, you will need to have access to Jira. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Issues</code> and choose the action <code>Retrieve issue</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Jira account including the <code>Jira host and port</code>, <code>User name</code>, <code>Password (Jira Server) or API token (Jira Cloud)</code>, and optionally <code>Agent name</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Jira Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Jira Request node. The Basic properties tab will now display a short description of <code>Retrieve issues</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>ticket</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectJira}:Jira1</code>."
@@ -32263,7 +32263,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleJiraFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32283,7 +32283,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleJira to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleJiraFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32294,7 +32294,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectJira</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Jira1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectJira</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Jira host and port</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectJira</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleJiraFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -32474,7 +32474,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -32514,7 +32514,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Marketo system then a list of those connections would be displayed, but in this example the status of the Marketo connector is shown as <code>Not connected</code>. <strong>Before you use the Marketo Request node in a message flow as part of this tutorial, you will need to have access to Marketo. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Leads</code> and choose the action <code>Retrieve leads</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Marketo account including the <code>Client ID</code>, <code>Client secret</code>, <code>Identity URL</code>, and <code>Endpoint URL</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Marketo system then a list of those connections would be displayed, but in this example the status of the Marketo connector is shown as <code>Not connected</code>. Before you use the Marketo Request node in a message flow as part of this tutorial, you will need to have access to Marketo. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Leads</code> and choose the action <code>Retrieve leads</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Marketo account including the <code>Client ID</code>, <code>Client secret</code>, <code>Identity URL</code>, and <code>Endpoint URL</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Marketo Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Marketo Request node. The Basic properties tab will now display a short description of <code>Retrieve leads</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>leads</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectMarketo}:Marketo1</code>."
@@ -32533,7 +32533,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleMarketoFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32553,7 +32553,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleMarketo to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleMarketoFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32564,7 +32564,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectMarketo</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Marketo1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectMarketo</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Identity URL</code>, <code>Endpoint URL</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectMarketo</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleMarketoFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -32744,7 +32744,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -32784,7 +32784,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a monday.com system then a list of those connections would be displayed, but in this example the status of the monday.com connector is shown as <code>Not connected</code>. <strong>Before you use the monday.com Request node in a message flow as part of this tutorial, you will need to have access to monday.com. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Boards</code> and choose the action <code>Retrieve boards</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. A field named Authorization method will appear. Select your chosen authorization option, for example <code>Provide a username, password and client credentials (OAUTH 2.0 PASSWORD)</code> and click Continue. Fill out the requested connection information for your monday.com account including the <code>Endpoint URL</code>, <code>Username</code>, <code>Password</code>, <code>Client ID</code> and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a monday.com system then a list of those connections would be displayed, but in this example the status of the monday.com connector is shown as <code>Not connected</code>. Before you use the monday.com Request node in a message flow as part of this tutorial, you will need to have access to monday.com. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Boards</code> and choose the action <code>Retrieve boards</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. A field named Authorization method will appear. Select your chosen authorization option, for example <code>Provide a username, password and client credentials (OAUTH 2.0 PASSWORD)</code> and click Continue. Fill out the requested connection information for your monday.com account including the <code>Endpoint URL</code>, <code>Username</code>, <code>Password</code>, <code>Client ID</code> and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the monday.com Request node in the message flow have been updated. Save the message flow.  Explore the properties of the monday.com Request node. The Basic properties tab will now display a short description of <code>Retrieve boards</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>Board</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectmondaydotcom}:monday.com1</code>."
@@ -32803,7 +32803,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExamplemondaydotcomFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32823,7 +32823,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExamplemondaydotcom to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExamplemondaydotcomFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -32834,7 +32834,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectmondaydotcom</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>monday.com1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectmondaydotcom</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectmondaydotcom</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExamplemondaydotcomFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -33014,7 +33014,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -33054,7 +33054,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Oracle Human Capital Management system then a list of those connections would be displayed, but in this example the status of the Oracle Human Capital Management connector is shown as <code>Not connected</code>. <strong>Before you use the Oracle Human Capital Management Request node in a message flow as part of this tutorial, you will need to have access to Oracle Human Capital Management. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Workers</code> and choose the action <code>Retrieve workers</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Oracle Human Capital Management account including the <code>Endpoint URL</code>, <code>Username</code>, and <code>Password</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Oracle Human Capital Management system then a list of those connections would be displayed, but in this example the status of the Oracle Human Capital Management connector is shown as <code>Not connected</code>. Before you use the Oracle Human Capital Management Request node in a message flow as part of this tutorial, you will need to have access to Oracle Human Capital Management. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Workers</code> and choose the action <code>Retrieve workers</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Oracle Human Capital Management account including the <code>Endpoint URL</code>, <code>Username</code>, and <code>Password</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Oracle Human Capital Management Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Oracle Human Capital Management Request node. The Basic properties tab will now display a short description of <code>Retrieve tickets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>ticket</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectOracleHumanCapitalManagement}:OracleHumanCapitalManagement1</code>."
@@ -33073,7 +33073,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleOracleHumanCapitalManagementFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33093,7 +33093,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleOracleHumanCapitalManagement to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleOracleHumanCapitalManagementFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33104,7 +33104,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectOracleHumanCapitalManagement</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>OracleHumanCapitalManagement1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectOracleHumanCapitalManagement</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Endpoint URL</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectOracleHumanCapitalManagement</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleOracleHumanCapitalManagementFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -33284,7 +33284,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -33324,7 +33324,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Trello system then a list of those connections would be displayed, but in this example the status of the Trello connector is shown as <code>Not connected</code>. <strong>Before you use the Trello Request node in a message flow as part of this tutorial, you will need to have access to Trello. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Boards</code> and choose the action <code>Retrieve boards</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Trello account including the <code>Application key</code>, and <code>Access token</code>. You may need to wait a few seconds for the connection to be made. A dropdown will appear asking you to select the Team for which the boards will be retrieved. Choose your team and for simplicity change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Trello system then a list of those connections would be displayed, but in this example the status of the Trello connector is shown as <code>Not connected</code>. Before you use the Trello Request node in a message flow as part of this tutorial, you will need to have access to Trello. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Boards</code> and choose the action <code>Retrieve boards</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your Trello account including the <code>Application key</code>, and <code>Access token</code>. You may need to wait a few seconds for the connection to be made. A dropdown will appear asking you to select the Team for which the boards will be retrieved. Choose your team and for simplicity change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Trello Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Trello Request node. The Basic properties tab will now display a short description of <code>Retrieve boards</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>Board</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectTrello}:Trello1</code>."
@@ -33343,7 +33343,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleTrelloFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33363,7 +33363,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleTrello to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleTrelloFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33374,7 +33374,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectTrello</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>Trello1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectTrello</span>. The policy has already been configured with a reference to the credential which you just created. There are no other policy settings which need to be updated. Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectTrello</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleTrelloFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -33554,7 +33554,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -33594,7 +33594,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a UKG system then a list of those connections would be displayed, but in this example the status of the UKG connector is shown as <code>Not connected</code>. <strong>Before you use the UKG Request node in a message flow as part of this tutorial, you will need to have access to UKG. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Employees</code> and choose the action <code>Retrieve employees</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your UKG account including the <code>Endpoint URL</code>, <code>User name</code>, <code>User password</code>, <code>Client ID</code>, <code>Client secret</code> and <code>Application key</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a UKG system then a list of those connections would be displayed, but in this example the status of the UKG connector is shown as <code>Not connected</code>. Before you use the UKG Request node in a message flow as part of this tutorial, you will need to have access to UKG. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Employees</code> and choose the action <code>Retrieve employees</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your UKG account including the <code>Endpoint URL</code>, <code>User name</code>, <code>User password</code>, <code>Client ID</code>, <code>Client secret</code> and <code>Application key</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the UKG Request node in the message flow have been updated. Save the message flow.  Explore the properties of the UKG Request node. The Basic properties tab will now display a short description of <code>Retrieve employees</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>employee</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectUKG}:UKG1</code>."
@@ -33613,7 +33613,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleUKGFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33633,7 +33633,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleUKG to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleUKGFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33644,7 +33644,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectUKG</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>UKG1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectUKG</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Endpoint URL</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectUKG</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleUKGFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
@@ -33824,7 +33824,7 @@
         "prepare": {
           "overview": {
             "name": "Prepare",
-            "heading": "This section describes how to complete the message flow configuration using the Connector Discovery process",
+            "heading": "This section describes how to use the Connector Discovery process. If you would prefer you can skip this Prepare section and go straight to the Run section of the tutorial and follow Option 2 which uses a completed message flow.",
             "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
             "sections": [
               {
@@ -33864,7 +33864,7 @@
                       }
                     },
                     {
-                      "details": "A new Configure connector node window will open. If you had previously connected to a Zendesk Service system then a list of those connections would be displayed, but in this example the status of the Zendesk Service connector is shown as <code>Not connected</code>. <strong>Before you use the Zendesk Service Request node in a message flow as part of this tutorial, you will need to have access to Zendesk. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Asset</code> and choose the action <code>Retrieve tickets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. A field named Authorization method will appear. Select your chosen authorization option, for example <code>Provide a username, password and client credentials (OAUTH 2.0 PASSWORD)</code> and click Continue. Fill out the requested connection information for your Zendesk Service account including the <code>Endpoint URL</code>, <code>Username</code>, <code>Password</code>, <code>Client ID</code> and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
+                      "details": "A new Configure connector node window will open. If you had previously connected to a Zendesk Service system then a list of those connections would be displayed, but in this example the status of the Zendesk Service connector is shown as <code>Not connected</code>. Before you use the Zendesk Service Request node in a message flow as part of this tutorial, you will need to have access to Zendesk. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Asset</code> and choose the action <code>Retrieve tickets</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. A field named Authorization method will appear. Select your chosen authorization option, for example <code>Provide a username, password and client credentials (OAUTH 2.0 PASSWORD)</code> and click Continue. Fill out the requested connection information for your Zendesk Service account including the <code>Endpoint URL</code>, <code>Username</code>, <code>Password</code>, <code>Client ID</code> and <code>Client secret</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
                       "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the Zendesk Service Request node in the message flow have been updated. Save the message flow.  Explore the properties of the Zendesk Service Request node. The Basic properties tab will now display a short description of <code>Retrieve tickets</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>ticket</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectZendeskService}:ZendeskService1</code>."
@@ -33883,7 +33883,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Use the Flow Exerciser to test the tutorial scenario</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleZendeskServiceFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33903,7 +33903,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Using the alternative provided application named CompleteExampleZendeskService to test the tutorial scenario</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleZendeskServiceFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -33914,7 +33914,7 @@
                       "details": "Back in the Toolkit, in the Integration Explorer view, right-click <code>TEST_SERVER</code> and select the option to Start."
                     },
                     {
-                      "details": "Drag and drop deploy the policy project <span class='application'>CompletePolicyProjectZendeskService</span> to <code>TEST_SERVER</code>."
+                      "details": "Open the policy named <span class='application'>ZendeskService1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectZendeskService</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Subdomain</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectZendeskService</span> to <code>TEST_SERVER</code>."
                     },
                     {
                       "details": "Return to <span class='resource'>CompleteExampleZendeskServiceFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
