@@ -3555,7 +3555,7 @@
       }
     }
   },
-  "Using a HTTP Input to drive a message flow": {
+  "Using an HTTP Input to drive a message flow": {
     "version": "0.6",
     "pageContent": {
       "comments": "JSON object that contains data for page labels, buttons, etc.",
@@ -3581,7 +3581,7 @@
     },
     "tutorial": {
       "_common": {
-        "name": "Using a HTTP Input to drive a message flow",
+        "name": "Using an HTTP Input to drive a message flow",
         "shortDescription": "Learn how to use HTTPInput and HTTPReply nodes to expose an http URL that can drive a message flow",
         "durationText": "This tutorial takes approximately",
         "durationTime": "5 minutes",
@@ -28818,7 +28818,7 @@
       }
     }
   },
-  "Discovery Connector - Using the Amazon Lambda Request node": {
+  "Discovery Connector - Using the AWS Lambda Request node": {
     "version": "0.1",
     "pageContent": {
       "_comments": "object that contains data for page labels, buttons, etc.",
@@ -28921,22 +28921,22 @@
                 "section": "When you click Import, three projects will be imported into your workspace:"
               },
               {
-                "section": "1. An application named <span class='application'>ExampleAWSLambda</span>"
+                "section": "1. An application named <span class='application'>ExampleAmazonLambda</span>"
               },
               {
-                "section": "2. An application named <span class='application'>CompleteExampleAWSLambda</span>"
+                "section": "2. An application named <span class='application'>CompleteExampleAmazonLambda</span>"
               },
               {
-                "section": "3. A policy project named <span class='application'>CompletePolicyProjectAWSLambda</span>"
+                "section": "3. A policy project named <span class='application'>CompletePolicyProjectAmazonLambda</span>"
               },
               {
-                "section": "<span class='application'>ExampleAWSLambda</span> contains a single message flow named <span class='application'>ExampleAWSLambdaFlow</span>. To save you time, most of the message flow is ready for use, but the AWS Lambda Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the AWS Lambda Request node communicates with AWS Lambda. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
+                "section": "<span class='application'>ExampleAmazonLambda</span> contains a single message flow named <span class='application'>ExampleAmazonLambdaFlow</span>. To save you time, most of the message flow is ready for use, but the AWS Lambda Request node has not yet been configured. This tutorial will guide you through the configuration of the node. The flow is driven by an HTTP input containing any well-formed JSON data, and uses a FlowOrder node to first acknowledge the input by echoing the same data back to the requesting client. Second in the flow sequence, the AWS Lambda Request node communicates with AWS Lambda. This node has its three output terminals (Failure, Out and NoData) wired to three separate Trace nodes to capture the results."
               },
               {
-                "section": "<span class='application'>CompleteExampleAWSLambda</span> is very similar to <span class='application'>ExampleAWSLambda</span> but the message flow which it contains, named  <span class='application'>CompleteExampleAWSLambdaFlow</span> (which exposes a different URL Fragment), has already had its AWS Lambda Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials. If you want to use this message flow, there are instructions later for updating the connection details and credentials for your AWS Lambda instance."
+                "section": "<span class='application'>CompleteExampleAmazonLambda</span> is very similar to <span class='application'>ExampleAmazonLambda</span> but the message flow which it contains, named  <span class='application'>CompleteExampleAmazonLambdaFlow</span> (which exposes a different URL Fragment), has already had its AWS Lambda Request node configured, and an associated policy with connection information has already been generated. If you're already familiar with connector discovery, this application may be helpful to demonstrate some administration concepts such as reusing discovered artifacts, editting policies and updating credentials. If you want to use this message flow, there are instructions later for updating the connection details and credentials for your AWS Lambda instance."
               },
               {
-                "section": "<span class='application'>CompletePolicyProjectAWSLambda</span> contains a single policy named <span class='application'>AWSLambda1</span> which is used by the application <span class='application'>CompleteExampleAWSLambda</span>."
+                "section": "<span class='application'>CompletePolicyProjectAmazonLambda</span> contains a single policy named <span class='application'>AWSLambda1</span> which is used by the application <span class='application'>CompleteExampleAmazonLambda</span>."
               }
             ]
           },
@@ -28984,7 +28984,7 @@
                   "type": "ordered",
                   "details": [
                     {
-                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleAWSLambdaFlow</span> in application <span class='application'>ExampleAWSLambda</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the AWS Lambda Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every AWS Lambda Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
+                      "details": "When you imported the tutorial projects in the previous section, <span class='application'>ExampleAmazonLambdaFlow</span> in application <span class='application'>ExampleAmazonLambda</span> will have been opened for you. First, check the properties of the three trace nodes in the messge flow, which are configured ready for deployment on a Windows system (their <code>File path</code> property is set to use the directory <code>C:\\temp</code>). If you are running on a different operating system, or if the file directory is not convenient for you, then feel free to change it. Next, select the AWS Lambda Request node and view its Properties window at the base of the screen. At this stage you should see an error stating that an action must be specified. Every AWS Lambda Request node (in fact, every Discovery Connector node) requires configuration to define what action it should execute against what object in the endpoint system. You make these decisions using the Connector Discovery process. Click the Launch Connector Discovery button."
                     },
                     {
                       "details": "The Launch Connector Discovery wizard will open. The process of connecting to AWS Lambda and discovering information from it, will cause your AWS Lambda credentials to be saved in the vault, and your AWS Lambda connection information to be saved in a policy. Fill out the three required property values shown below and then click the Launch Discovery button:",
@@ -28992,7 +28992,7 @@
                         "type": "unordered",
                         "details": [
                           {
-                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectAWSLambda</code>"
+                            "details": "<strong>Policy Project:</strong> Click the New button and create a policy project named <code>ExamplePolicyProjectAmazonLambda</code>"
                           },
                           {
                             "details": "<strong>Work directory:</strong> Click the Browse button and navigate to the TEST_SERVER directory in your Toolkit workspace. For example, this would be C:\\workspace\\TEST_SERVER if your Toolkit workspace were at C:\\workspace."
@@ -29007,7 +29007,7 @@
                       "details": "A new Configure connector node window will open. If you had previously connected to a AWS Lambda system then a list of those connections would be displayed, but in this example the status of the AWS Lambda connector is shown as <code>Not connected</code>. Before you use the AWS Lambda Request node in a message flow as part of this tutorial, you will need to have access to AWS Lambda. Underneath where the panel says <code>Not connected</code>, expand the section named <code>Functions</code> and choose the action <code>Retrieve functions</code>. The list of objects and actions will be replaced with a Connect button. Click the Connect button. Fill out the requested connection information for your AWS Lambda account including the <code>Secret access key</code>, <code>Access key ID</code>, and <code>Region</code>. You may need to wait a few seconds for the connection to be made. If you would like you can add a condition to filter the assets to be returned, but to keep things as simple as possible we don't need such a Where clause; just change the <code>Maximum number of items to retrieve</code> from its initial setting of 10 down to 1, and change the radio button to <code>Process 1 item from the collection</code>."
                     },
                     {
-                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the AWS Lambda Request node in the message flow have been updated. Save the message flow.  Explore the properties of the AWS Lambda Request node. The Basic properties tab will now display a short description of <code>Retrieve functions</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>function</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAWSLambda}:AWSLambda1</code>."
+                      "details": "At the top of the window click the Save button, and you should see a confirmation message briefly appear. Close the Configure connector window and return to the Toolkit. <strong>It is important to remember this step</strong> otherwise the vault will remain locked and you will be unable to start your integration server TEST_SERVER when you come to test the flow in the last section of the tutorial. You will now find that the properties of the AWS Lambda Request node in the message flow have been updated. Save the message flow.  Explore the properties of the AWS Lambda Request node. The Basic properties tab will now display a short description of <code>Retrieve functions</code>, along with the <strong>Action</strong> (<code>RETRIEVEALL</code>) and the <strong>Object</strong> (<code>function</code>). On the Connection properties tab, the <strong>Policy</strong> will have been configured as <code>{ExamplePolicyProjectAmazonLambda}:AWSLambda1</code>."
                     }
                   ]
                 }
@@ -29023,7 +29023,7 @@
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAWSLambdaFlow</b>",
+                "section": "<b>Option 1: Test out the tutorial scenario using ExampleAmazonLambdaFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29031,10 +29031,10 @@
                       "details": "In the Integration Explorer view of the Toolkit, right-click TEST_SERVER and select the option to Start."
                     },
                     {
-                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectAWSLambda</span> in to TEST_SERVER."
+                      "details": "Once the server has started, drag and drop deploy the policy project <span class='application'>ExamplePolicyProjectAmazonLambda</span> in to TEST_SERVER."
                     },
                     {
-                      "details": "Return to <span class='resource'>ExampleAWSLambdaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                      "details": "Return to <span class='resource'>ExampleAmazonLambdaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
                     },
                     {
                       "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Use an empty JSON input message like this: <code>{}</code>. Click Send and your message is sent to the HTTPInput node. You will receive an empty JSON message echoed back as a reply. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from AWS Lambda, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the AWS Lambda Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the AWS Lambda Request node to see the data which has been retrieved."
@@ -29043,7 +29043,7 @@
                 }
               },
               {
-                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAWSLambdaFlow</b>",
+                "section": "<b>Option 2: Test out the tutorial scenario using CompleteExampleAmazonLambdaFlow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -29057,7 +29057,7 @@
                       "details": "Open the policy named <span class='application'>AWSLambda1.policyxml</span> which is found inside the policy project <span class='application'>CompletePolicyProjectAmazonLambda</span>. The policy has already been configured with a reference to the credential which you just created. Edit the following properties with relevant values for your own endpoint system: <code>Region</code>. Save the policy then drag and drop deploy the policy project <span class='application'>CompletePolicyProjectAmazonLambda</span> to <code>TEST_SERVER</code>."
                     },
                     {
-                      "details": "Return to <span class='resource'>CompleteExampleAWSLambdaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
+                      "details": "Return to <span class='resource'>CompleteExampleAmazonLambdaFlow.msgflow</span> and click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow."
                     },
                     {
                       "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Create a new test message to invoke the HTTP Input node. Use an empty JSON input message like this: <code>{}</code>. Click Send and your message is sent to the HTTPInput node. You will receive an empty JSON message echoed back as a reply. You may also see a highlighted path through the flow. Sometimes there may be a short pause before the data is returned from AWS Lambda, so you may need to click the View Path icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/viewPath.png' alt='View path' /> in the Flow Exerciser toolbar in order to see the highlighted path carry on past the AWS Lambda Request node and into a Trace node at the end of the message flow. Click on the highlighted path coming out of the AWS Lambda Request node to see the data which has been retrieved."
