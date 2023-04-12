@@ -4032,6 +4032,62 @@
               "path": "App_OPCUA_Input_AlarmEvent"
             }
           ]
+        },
+        {
+          "name": "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the Java Compute node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create a simple message flow which uses the OPC-UA-Read node and Java Compute node to connect to an ODM Server.",
+          "detailsURL": "https://ot4i.github.io/acmfg-odm-jcn-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-odm-jcn-tutorial",
+          "zipURL": "https://github.com/ot4i/acmfg-odm-jcn-tutorial/releases/download/v3.0/PI_ACMFG_ODMJCN.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Manufacturing;OPCUA;ODM",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "App_OPCUA_Control:App_OPCUA_ODM_JCN:App_OPCUA_ODM_JCNJava:Policy_OPCUA_ODM_Project",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/App_OPCUA_ODM_JCN/Flow_OPCUA_ODM_JCN.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "App_OPCUA_ODM_JCN"
+            }
+          ]
+        },
+        {
+          "name": "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the ODM Rules Node",
+          "version": "1.0",
+          "iibVersions": "12.*-12.*",
+          "shortDesc": "Learn how to create a simple message flow which uses the OPC-UA-Read node and ODM Rules node to connect to an ODM Server.",
+          "detailsURL": "https://ot4i.github.io/acmfg-odm-rulesnode-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-odm-rulesnode-tutorial",
+          "zipURL": "https://github.com/ot4i/acmfg-opc-ua-alarm-tutorial/releases/download/v3.0/PI_ACMFG_ODM.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "Manufacturing;OPCUA;ODM",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "App_OPCUA_Control:App_OPCUA_ODM:Policy_OPCUA_ODM_Project",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/App_OPCUA_ODM/Flow_OPCUA_ODM.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "App_OPCUA_ODM"
+            }
+          ]
         }
       ]
     },
