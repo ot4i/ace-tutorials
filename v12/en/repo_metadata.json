@@ -3332,7 +3332,7 @@
               "path": "ExampleAmazonCloudWatch"
             }
           ]
-        },		
+        },
         {
           "name": "Discovery Connector - Using the Amazon EC2 Request node",
           "version": "1.0",
@@ -3360,7 +3360,7 @@
               "path": "ExampleAmazonEC2"
             }
           ]
-        },		
+        },
         {
           "name": "Discovery Connector - Using the AWS Lambda Request node",
           "version": "1.0",
@@ -3388,7 +3388,7 @@
               "path": "ExampleAmazonLambda"
             }
           ]
-        },		
+        },
         {
           "name": "Discovery Connector - Using the Anaplan Request node",
           "version": "1.0",
@@ -3445,7 +3445,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Confluence Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3529,7 +3529,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the GitHub Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3556,7 +3556,7 @@
               "path": "ExampleGitHub"
             }
           ]
-        },		
+        },
         {
           "name": "Discovery Connector - Using the Gmail Request node",
           "version": "1.0",
@@ -3585,7 +3585,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Google Cloud Pub/Sub Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3641,7 +3641,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Google Drive Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3780,8 +3780,8 @@
               "path": "Examplemondaydotcom"
             }
           ]
-        },		
-		{
+        },
+        {
           "name": "Discovery Connector - Using the Oracle Human Capital Management Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3809,7 +3809,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Trello Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3837,7 +3837,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the UKG Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
@@ -3865,7 +3865,7 @@
             }
           ]
         },
-		{
+        {
           "name": "Discovery Connector - Using the Zendesk Service Request node",
           "version": "1.0",
           "iibVersions": "12.*-12.*",
