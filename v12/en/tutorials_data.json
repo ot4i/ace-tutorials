@@ -35799,5 +35799,1106 @@
         }
       }
     }
+  },
+  "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the Java Compute node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the Java Compute node",
+        "shortDescription": "Create one simple message flow by using the OPC-UA-Read node and Java Compute node to connect to an ODM Server. This tutorial requires an installation of App Connect for Manufacturing and set up of the IBM Operational Decision Manager. This tutorial assumes you are familiar with the creation of Rules in the Rules Designer and deploying the Rules on the Rules Execution Server.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "20 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Creating and deploying rules on ODM Rules Server"
+          },
+          {
+            "title": "Creating and starting an Integration Server"
+          },
+          {
+            "title": "Creating secure vault to store ODM credentials"
+          },
+          {
+            "title": "Creating a data source connection"
+          },
+          {
+            "title": "Creating a policy project"
+          },
+          {
+            "title": "Configuring the OPC-UA-Read node message flow and integrating with the Java Compute node."
+          },
+          {
+            "title": "Deploying the message flows"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Learn how to create one simple message flow by using the OPC-UA-Read node and Java Compute node to connect to an ODM Server.",
+        "outcomeList": [
+          {
+            "title": "Learn how to create one simple message flow by using the OPC-UA-Read node and Java Compute node to connect to an ODM Server."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to create one simple message flow by using the OPC-UA-Read node and Java Compute node to connect to an ODM Server. ",
+          "sections": [
+            {
+              "section": "This tutorial assumes you have installed and configured IBM Operational Decision Manager(ODM) and that you are familiar with Rules development and deployment on the Rules Server. For more information, see Installing IBM ODM in the help links provided below."
+            },
+            {
+              "section": "This tutorial assumes you have installed and configured App Connect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
+            },
+            {
+              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
+            },
+            {
+              "section": "You can try out this message flow by simply importing the three provided projects. One application project contains a control flow and another application project contains a read flow using the OPC-UA-Read and Java Compute node.The third project is a Policy project."
+            },
+            {
+              "section": "The tutorial will guide you through deploying and starting both flows."
+            },
+            {
+              "section": "The read flow is driven using its HTTP Input node, which triggers the flow to run. The OPC-UA-Read node then reads data from the connected OPC server. Next, the Java Compute node is invoked for the execution of the Decision Rules. The response from the message flow is then returned to the HTTP client by the HTTP Reply node."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM App Connect for Manufacturing overview",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+              "type": "web"
+            },
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM Operational Decision Manager",
+              "link": "https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-overview-operational-decision-manager",
+              "type": "web"
+            },
+            {
+              "title": "Knowledge Center link to ",
+              "description": "Integrating with IBM Operational Decision Manager using Java Compute Node in ACE",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=uodmobr-executing-odm-business-rules-by-using-javacompute-node",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_ODM_JCN</span> , <span class='uicontrol'>App_OPCUA_Control</span> and <span class='uicontrol'>Policy_OPCUA_ODM_Project</span> applications will be imported into your workspace."
+              },
+              {
+                "section": "The <span class='uicontrol'>App_OPCUA_ODM_JCN</span> application contains <span class='uicontrol'>Flow_OPCUA_ODM_JCN.msgflow</span> while <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
+              },
+              {
+                "section": "The <span class='uicontrol'>Policy_OPCUA_ODM_Project</span> project contains an ODM policy that specifies the parameters to connect to the ODM Rules Server."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Installing and uninstalling IBM AppConnect for Manufacturing",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-installing-uninstalling",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing Message Flow applications",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Installing IBM Operational Decision Manager",
+                "link": "https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-installing",
+                "type": "web"
+              },
+              {
+                "title": "Knowledge Center link to ",
+                "description": "IBM App Connect for Manufacturing overview",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+                "type": "web"
+              },
+              {
+                "title": "Knowledge Center link to ",
+                "description": "IBM Operational Decision Manager",
+                "link": "https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-overview-operational-decision-manager",
+                "type": "web"
+              },
+              {
+                "title": "Knowledge Center link to ",
+                "description": "Integrating with IBM Operational Decision Manager using Java Compute Node in ACE",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=uodmobr-executing-odm-business-rules-by-using-javacompute-node",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare for the flow using Java Compute node",
+            "_prepareComment": "Prepare for flow using Java Compute node",
+            "sections": [
+              {
+                "section": "<b>Creating and Deploying Rules project</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "This section assumes you have installed and configured IBM Operational Decision Manager. It also assumes knowledge and understanding of creating rules project, specifying XOM object, creating BOM from XOM, defining the rule operation , specifying rules using action rule / Decision Table etc., and finally the deployment of the rule set.  "
+                    },
+                    {
+                      "details": "For further information on Rules, please refer to https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-decision-server-rules"
+                    },
+                    {
+                      "details": "In the sample example, we create XOM using the Java definition in 'SimpleACObject.java' which is located under the Independent Resources --> SimpleAirConditioner/src, under the Application Development. "
+                    },
+                    {
+                      "details": "Sample Rule project for reference is located under the <b>Independent Resources</b> as ODM_JCN and SimpleAirConditioner, under the Application Development. You can export both these projects as an archive file and import in the Rules Designer using the import option for Existing project into workspace. After import, you can refer to the example Decision Table, Deployment Configuration, DecisionOperation and VariableSet."
+                    },
+                    {
+                      "details": "Please note that these examples are provided for learning purpose only. The actual Java definition and rules will depend on your specific OPC Server and configurations."
+                    },
+                    {
+                      "details": "In this example, we have specified the 'temperature' and 'humidity' as input values and the outcome of the Decision Rule is expected in the 'status' parameter."
+                    },
+                    {
+                      "details": "Following steps describe how to create the Rules from the sample SimpleACObject.java."
+                    },
+                    {
+                      "details": "Export the above Java class as a Jar file."
+                    },
+                    {
+                      "details": "Import the exported Jar file in the Rules project --> Import XOM  , using the Rules Designer."
+                    },
+                    {
+                      "details": "Create BOM from the XOM created in the above step."
+                    },
+                    {
+                      "details": "Add the Decision Operation. Add a new Variable set and specify the input output parameters for the rule set."
+                    },
+                    {
+                      "details": "In our sample example, we need to specify the <b> ACObject </b> as Input-Output parameter. This implies that the object that we pass as parameter to the ODM Rules Java API will contain the output result as well."
+                    },
+                    {
+                      "details": "Create the rule using option such as Action Rule or Decision Table. For example, rule in the Decision table could return Status of the ACObject as 'ALARM' if the temperature is greater than a certain value."
+                    },
+                    {
+                      "details": "Finally, deploy the Rule Set on the Rules Execution server."
+                    },
+                    {
+                      "details": "For more details on the creating XOM and BOM  please refer to https://www.ibm.com/docs/en/odmoc?topic=model-overview-dynamic-execution-object-xom"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating a Data Source connection to an OPC Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "To create a data source, complete the following steps."
+                    },
+                    {
+                      "details": "Ensure that your OPC UA server is up and running."
+                    },
+                    {
+                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
+                    },
+                    {
+                      "details": "Right-click the Source folder and select Add Mapping Node."
+                    },
+                    {
+                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
+                    },
+                    {
+                      "details": "Select Server URL Type as Endpoint"
+                    },
+                    {
+                      "details": "Specify your OPC Server URL: For example: opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
+                    },
+                    {
+                      "details": "Keep the default values for the remaining data source properties and click Create DataSource"
+                    },
+                    {
+                      "details": "Check the data source activity in the Logging view for any issues."
+                    },
+                    {
+                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating and starting an Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    },
+                    {
+                      "details": "Navigate to the folder where the server.conf yaml file is located."
+                    },
+                    {
+                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
+                    },
+                    {
+                      "details": "For Windows: <br><code>&nbsp;&nbsp;ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName: 'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'</code>"
+                    },
+                    {
+                      "details": "For Linux/Unix: <br><code>&nbsp;&nbsp;ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName: 'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'</code>"
+                    },
+                    {
+                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
+                    },
+                    {
+                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
+                    },
+                    {
+                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating secure vault using mqsicredentials for the Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "For the integration server created in the above section, we need to create a secure vault and add the credentials of the ODM Rules Server.For example, in the below command secure vault with vault key <b>testODMVault1</b> is created. Credential Type is <b>odm</b>.Specify any credential-name and appropriate username and password to connect to the ODM Rules Server."
+                    },
+                    {
+                      "details": "mqsivault --work-dir C:\\TESTSERVER --create --vault-key testODMVault1"
+                    },
+                    {
+                      "details": "mqsicredentials --work-dir C:\\TESTSERVER --vault-key testODMVault1 --create --credential-type odm --credential-name odmCred --username user --password pass"
+                    },
+                    {
+                      "details": "Restart the Integration server by specifying the vault-key created above. "
+                    },
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code>  --vault-key testODMVault1<br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating a policy project</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Create a Policy Project with a Policy of type 'ODM Server' and Template as 'ODM Server'. Sample Policy project is provided with the tutorial and will be imported along with the other applications. "
+                    },
+                    {
+                      "details": "Please provide the required parameters for the Policy project as described in https://www.ibm.com/docs/en/app-connect/11.0.0?topic=properties-odm-server-policy-odmserver"
+                    },
+                    {
+                      "details": "<b>Rule Execution Server URL</b> specifies the URL of the Rules Execution Server. For example,http://localhost:9080/res/ "
+                    },
+                    {
+                      "details": "<b>ODM Jars URL</b> specifies the file location of the IBM ODM Execution Server Client Jar files to be used by the policy. For example: C:\\IBM\\ODM\\executionserver\\lib. You will need to copy these jars from the ODM Execution server to the Toolkit machine as well as to the machine that is running the Integration Server and specify that folder location."
+                    },
+                    {
+                      "details": "<b>secureIdentity </b> specifies the secure identity containing the credentials to be used for accessing the Rule Execution Server. In our sample example, credential name is <b>odmCred</b> as described in the section <b>Creating secure vault using mqsicredentials for the Integration Server</b> "
+                    },
+                    {
+                      "details": "Rest of the properties can be selected as default."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "ODM Server Policy",
+                "link": "https://www.ibm.com/docs/en/app-connect/11.0.0?topic=properties-odm-server-policy-odmserver",
+                "type": "web"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "Configure, Deploy and Test the Read Flow using the ODMRules node",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b> Configure the ODM Rules Message flow  </b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_ODM_JCN application, double-click Flow_OPCUA_ODM_JCN.msgflow to open in the Flow Exerciser."
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Read node to open the OPC-UA-Read Node properties. "
+                    },
+                    {
+                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
+                    },
+                    {
+                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
+                    },
+                    {
+                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. Select the node from the source tree for which you want to read data "
+                    },
+                    {
+                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
+                    },
+                    {
+                      "details": "Specify a name for the node and click 'Ok' "
+                    },
+                    {
+                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
+                    },
+                    {
+                      "details": "Click 'Add Client Item to Read'. The client item is added to the Selected Client Items panel in the 'Select' view. "
+                    },
+                    {
+                      "details": "In our example project, /Item/AC1_temperature and /Item/AC1_humidity are the two client items corresponding to the Temperature and Humidity of an AirConditioner system."
+                    },
+                    {
+                      "details": "These client item names are referenced in the sample 'Java Compute' Node. You will need to update the Java Compute node in case the client items have names other than the ones mentioned above."
+                    },
+                    {
+                      "details": "From the OPC-UA-Read node, select the <b>Input Message Parsing</b> and select the <b>Message domain</b> as 'XMLNSC : For XML messages (namespace aware, validation, low memory use)'"
+                    },
+                    {
+                      "details": "Double-click the Java Compute node 'Java Compute1'.The next steps describe how you can add a new Java Compute node and select the required ruleset. "
+                    },
+                    {
+                      "details": "&nbsp;&nbsp;&nbsp;<b>a) </b> Double-click the new Java Compute node 'Java Compute1'. The <b> Java Compute node class </b> window loads.<br>&nbsp;&nbsp;&nbsp;<b>b) </b>Select the package as 'default' from the Browse button. Select the other values as default  and click 'Next'.<br>&nbsp;&nbsp;&nbsp<b>c) </b>From the <b>JavaCompute node class template</b> window, select <b>'Process via Operational Decision Manager ruleset'</b>.<br>&nbsp;&nbsp;&nbsp<b>d) </b>Specify the required parameters to connect to the ODM Server and click 'Next'.'.<br>&nbsp;&nbsp;&nbsp<b>e) </b>If the connection is successful, the window <b>'Select a ruleset for the Java ODM Template' </b> loads.<br>&nbsp;&nbsp;&nbsp<b>f) </b>Select the appropriate Rules application, Rule application version, Ruleset, Ruleset version.<br>&nbsp;&nbsp;&nbsp<b>g)</b>The appropriate ruleset parameters are then loaded.<br>&nbsp;&nbsp;&nbsp;<b>h) </b>Please make sure to select or check the option for <b>'Download the jar files associated with this ruleset jars and add them to the Java project'.</b>.<br>&nbsp;&nbsp;&nbsp<b>i) </b>Click 'Next' and select the default values in the <b> Java Settings window</b>.<br>&nbsp;&nbsp;&nbsp<b>j) </b>Click 'Next' and click on 'Finish' to complete the set up of the Java Compute node.<br>&nbsp;&nbsp;&nbsp<b>k) </b>The above steps will auto-generate the code for the above Java Compute node and it will also download the Java XOM API jar under the App_OPCUA_ODM_JCN --> Other Resources folder.<br>&nbsp;&nbsp;&nbsp<b>m) </b>For details on connecting to the ODM Server using Java Compute node, please refer to the Knowledge Center Link: https://www.ibm.com/docs/en/app-connect/12.0?topic=uodmobr-executing-odm-business-rules-by-using-javacompute-node"
+                    },
+                    {
+                      "details": "From the auto-generated code for 'Java Compute1' , <b>onSetup</b> function already contains the code to connect to the ODM Server using the specified policy and to retrieve the specified ODM Rule from the Server. You will need to update the <b>'evaluate'</b> function to read data and call the ruleset operation. Please refer to the sample example code as described in the next step."
+                    },
+                    {
+                      "details": "Sample example code is presented in the Java Compute node 'Java Compute' which is shared as the disconnected node in the flow."
+                    },
+                    {
+                      "details": "Please refer to the <b>'evaluate'</b> function of the sample example. <br><b>'evaluate'</b> function contains code to read AC1_temperature and AC1_humidity passed from OPC-UA-Read node.It constructs the ACObject using these values and then populates the input parameter for the Ruleset using 'ruleInParameters'. It then executes the ruleset by passing the 'ruleInParameters'. The returned object ACObject is retrieved from the 'ruleOutParameters' and is passed to the next node for further processing."
+                    },
+                    {
+                      "details": "Save the flow."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Deploying the Control Flow</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to the Integration Server"
+                    },
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Control application right-click the Flow_OPCUA_Control.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the Integration Server that you have started, and Click 'Finish'."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment. The control flow application name is displayed under the selected integration server from the Integration Nodes view. "
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Deploying the Policy project and ODM Rules node message flow</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to an Integration Server."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Policy project for ODM server policy created earlier, and select 'Deploy'."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Flow_OPCUA_ODM_JCN.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_ODM_JCN , App_OPCUA_Control and Policy_OPCUA_ODM_Project are displayed under the selected integration server from Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Testing the Flow_OPCUA_ODM_JCN Flow using the Flow Exerciser</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that your Integration Server is started."
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser of the Flow_OPCUA_ODM_JCN.msgflow."
+                    },
+                    {
+                      "details": "In the editor, click the Start Flow Exerciser icon in red: <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow. "
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                    },
+                    {
+                      "details": "You can right-click on 'InputMessage' to add a new message and then click on 'Send' button. Your request message is sent to the HTTP input node. After the request message is processed, the message path is automatically highlighted on the message flow."
+                    },
+                    {
+                      "details": "Click on any connection on the message box to see the data that passed through that connection."
+                    },
+                    {
+                      "details": "Click on the link between Java Compute node and the HTTP Reply node to view the 'ACObjectStatus' object under the message tree."
+                    },
+                    {
+                      "details": "To stop recording the message path through the flow, click the 'Return flow to edit mode' icon."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to the Manufacturing Perspective",
+                "description": "Using the Manufacturing Perspective",
+                "type": "web",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              },
+              {
+                "title": "Knowledge Center link to ",
+                "description": "Integrating with IBM Operational Decision Manager using Java Compute Node in ACE",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=uodmobr-executing-odm-business-rules-by-using-javacompute-node",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the ODM Rules Node": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the ODM Rules Node",
+        "shortDescription": "Create one simple message flow by using the OPC-UA-Read node and ODM Rules node to connect to an ODM Server. This tutorial requires an installation of App Connect for Manufacturing and set up of the IBM Operational Decision Manager. This tutorial assumes you are familiar with the creation of Rules in the Rules Designer and deploying the Rules on the Rules Execution Server.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "20 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial Topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Creating and deploying rules on ODM Rules Server"
+          },
+          {
+            "title": "Creating and starting an Integration Server"
+          },
+          {
+            "title": "Creating secure vault to store ODM credentials"
+          },
+          {
+            "title": "Creating a data source connection"
+          },
+          {
+            "title": "Creating a policy project"
+          },
+          {
+            "title": "Configuring the OPC-UA-Read node message flow and integrating with the ODM Rules node."
+          },
+          {
+            "title": "Deploying the message flows"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "Learn how to create one simple message flow by using the OPC-UA-Read node and ODM Rules node to connect to an ODM Server.",
+        "outcomeList": [
+          {
+            "title": "Learn how to create one simple message flow by using the OPC-UA-Read node and ODM Rules node to connect to an ODM Server."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "This tutorial demonstrates how to create one simple message flow by using the OPC-UA-Read node and ODM Rules node to connect to an ODM Server. ",
+          "sections": [
+            {
+              "section": "This tutorial assumes you have installed and configured IBM Operational Decision Manager(ODM) and that you are familiar with Rules development and deployment on the Rules Server. For more information, see Installing IBM ODM in the help links provided below."
+            },
+            {
+              "section": "This tutorial assumes you have installed and configured App Connect for Manufacturing. For more information, see Installing IBM App Connect for Manufacturing in the help links provided below."
+            },
+            {
+              "section": "You must create an integration server before you can deploy integration solutions and related resources. You will also need to connect your Toolkit to an OPC server."
+            },
+            {
+              "section": "You can try out this message flow by simply importing the three provided projects. One application project contains a control flow and another application project contains a read flow using the OPC-UA-Read and ODM Rules node.The third project is a Policy project."
+            },
+            {
+              "section": "The tutorial will guide you through deploying and starting both flows."
+            },
+            {
+              "section": "The read flow is driven using its HTTP Input node, which triggers the flow to run. The OPC-UA-Read node then reads data from the connected OPC server. Next, the ODM Rules node is invoked for the execution of the Decision Rules. The response from the message flow is then returned to the HTTP client by the HTTP Reply node."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM App Connect for Manufacturing overview",
+              "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+              "type": "web"
+            },
+            {
+              "title": "Knowledge Center link to ",
+              "description": "IBM Operational Decision Manager",
+              "link": "https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-overview-operational-decision-manager",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import project",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "Click <span class='uicontrol'>Import</span> and the <span class='uicontrol'>App_OPCUA_ODM</span> , <span class='uicontrol'>App_OPCUA_Control</span> and <span class='uicontrol'>Policy_OPCUA_ODM_Project</span> applications will be imported into your workspace."
+              },
+              {
+                "section": "The <span class='uicontrol'>App_OPCUA_ODM</span> application contains <span class='uicontrol'>Flow_OPCUA_ODM.msgflow</span> while <span class='uicontrol'>App_OPCUA_Control</span> contains <span class='uicontrol'>Flow_OPCUA_Control.msgflow</span>."
+              },
+              {
+                "section": "The <span class='uicontrol'>Policy_OPCUA_ODM_Project</span> project contains an ODM policy that specifies the parameters to connect to the ODM Rules Server."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Installing and uninstalling IBM AppConnect for Manufacturing",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-installing-uninstalling",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing Message Flow applications",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-developing-message-flow-applications",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Installing IBM Operational Decision Manager",
+                "link": "https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-installing",
+                "type": "web"
+              },
+              {
+                "title": "Knowledge Center link to ",
+                "description": "IBM App Connect for Manufacturing overview",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview",
+                "type": "web"
+              },
+              {
+                "title": "Knowledge Center link to ",
+                "description": "IBM Operational Decision Manager",
+                "link": "https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-overview-operational-decision-manager",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Prepare for the flow using ODM Rules node",
+            "_prepareComment": "Prepare for flow using ODM Rules node",
+            "sections": [
+              {
+                "section": "<b>Creating and Deploying Rules project</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "This section assumes you have installed and configured IBM Operational Decision Manager. It also assumes knowledge and understanding of creating rules project, specifying XOM object, creating BOM from XOM, defining the rule operation , specifying rules using action rule / Decision Table etc., and finally the deployment of the rule set.  "
+                    },
+                    {
+                      "details": "For further information on Rules, please refer to https://www.ibm.com/docs/en/odm/8.11.1?topic=8111-decision-server-rules"
+                    },
+                    {
+                      "details": "In the sample example, we create XOM using the XML schema definition 'SimpleAirConditionerObject.xsd' which is located under the App_OPCUA_ODM --> XML and DFDL Schemas, under the Application Development. "
+                    },
+                    {
+                      "details": "Sample Rule project for reference is located under the <b>Independent Resources</b> as ODM_Rules_Project, under the Application Development. You can export this project as an archive file and import in the Rules Designer using the import option for Existing project into workspace. After import, you can refer to the example Decision Table, Deployment Configuration, DecisionOperation and VariableSet."
+                    },
+                    {
+                      "details": "Please note that these examples are provided for learning purpose only. The actual schema and rules will depend on your specific OPC Server and configurations."
+                    },
+                    {
+                      "details": "In this example, we have specified the 'temperature' and 'humidity' as input values and the outcome of the Decision Rule is expected in the 'status' parameter."
+                    },
+                    {
+                      "details": "For more details on the creating XOM and BOM  please refer to https://www.ibm.com/docs/en/odmoc?topic=model-overview-dynamic-execution-object-xom"
+                    },
+                    {
+                      "details": "Following steps describe how to create the Rules from the sample SimpleAirConditionerObject.xsd."
+                    },
+                    {
+                      "details": "Import the sample SimpleAirConditionerObject.xsd in the Rules project --> Import XOM  , using the Rules Designer."
+                    },
+                    {
+                      "details": "Create BOM from the XOM created in the above step."
+                    },
+                    {
+                      "details": "Add the Decision Operation. Add a new Variable set and specify the input output parameters for the rule set."
+                    },
+                    {
+                      "details": "In our sample example, we need to specify the AirConditionerObject as Input-Output parameter. This implies that the object that we pass as parameter to the ODM Rules node will contain the output result as well."
+                    },
+                    {
+                      "details": "Create the rule using option such as Action Rule or Decision Table. For example, rule in the Decision table could return Status of the AirConditionerObject as 'ALARM' if the temperature is greater than a certain value."
+                    },
+                    {
+                      "details": "Finally, deploy the Rule Set on the Rules Execution server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating a Data Source connection to an OPC Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "To create a data source, complete the following steps."
+                    },
+                    {
+                      "details": "Ensure that your OPC UA server is up and running."
+                    },
+                    {
+                      "details": "In the IBM App Connect Enterprise Toolkit, navigate to the Manufacturing Perspective > DataSources."
+                    },
+                    {
+                      "details": "Right-click the Source folder and select Add Mapping Node."
+                    },
+                    {
+                      "details": "Specify a name for the mapping node and click OK. The new data source gets created under the DataSource Properties window."
+                    },
+                    {
+                      "details": "Select Server URL Type as Endpoint"
+                    },
+                    {
+                      "details": "Specify your OPC Server URL: For example: opc.tcp://TEST_OPC_SERVER:port/OPCUA/SimulationServer"
+                    },
+                    {
+                      "details": "Keep the default values for the remaining data source properties and click Create DataSource"
+                    },
+                    {
+                      "details": "Check the data source activity in the Logging view for any issues."
+                    },
+                    {
+                      "details": "On successful connection of a data source, App Connect for Manufacturing allows you to create Client Item and map it to the available source item from the OPC server."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating and starting an Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code> <br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    },
+                    {
+                      "details": "Navigate to the folder where the server.conf yaml file is located."
+                    },
+                    {
+                      "details": "For example : Modify C:\\TESTSERVER\\server.conf.yaml in windows and /opt/TESTSERVER/server.conf.yaml in linux/unix to add the following lines under 'ConnectorProviders' to add App Connect for Manufacturing connector provider properties.:"
+                    },
+                    {
+                      "details": "For Windows: <br><code>&nbsp;&nbsp;ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName: 'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: 'C:\\Program Files\\IBM\\ACMfg\\3.0.1.0\\runtime\\amd64_nt_4'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'</code>"
+                    },
+                    {
+                      "details": "For Linux/Unix: <br><code>&nbsp;&nbsp;ACMfg:<br>&nbsp;&nbsp;&nbsp;&nbsp;connectorClassName: 'com.ibm.industrypack.industryclient.connector.ICConnectorFactory'<br>&nbsp;&nbsp;&nbsp;&nbsp;jarsURL: '/opt/IBM/ACMfg-3.0.1.0/runtime/amd64_linux_2'<br>&nbsp;&nbsp;&nbsp;&nbsp;property1: 'trustCertificate=true'<br>&nbsp;&nbsp;&nbsp;&nbsp;property2: 'allowEndpointMismatch=true;discardData=false'</code>"
+                    },
+                    {
+                      "details": "Note: The jarsURL is the installation directory of App Connect for Manufacturing that points to the amd64_nt_n folder."
+                    },
+                    {
+                      "details": "Save the above server.conf.yaml file and restart the Integration server using the command mentioned in step 1"
+                    },
+                    {
+                      "details": "In the App Connect Enterprise Toolkit Integration Explorer view, right click the folder <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/IntegrationServers.png' alt='' /> and select the menu item  <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/ConnectToAnIntegrationServer.png' alt='' />. In the connection details panel, specify the <b>Host name</b> to be <b>localhost</b>, the <b>Port</b> to be <b>7600</b> and click Finish. This will connect your Toolkit and display the integration server that you started in the last step <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/ace/TESTSERVER.png' alt='' />"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating secure vault using mqsicredentials for the Integration Server</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "For the integration server created in the above section, we need to create a secure vault and add the credentials of the ODM Rules Server.For example, in the below command secure vault with vault key <b>testODMVault1</b> is created. Credential Type is <b>odm</b>.Specify any credential-name and appropriate username and password to connect to the ODM Rules Server."
+                    },
+                    {
+                      "details": "mqsivault --work-dir C:\\TESTSERVER --create --vault-key testODMVault1"
+                    },
+                    {
+                      "details": "mqsicredentials --work-dir C:\\TESTSERVER --vault-key testODMVault1 --create --credential-type odm --credential-name odmCred --username user --password pass"
+                    },
+                    {
+                      "details": "Restart the Integration server by specifying the vault-key created above. "
+                    },
+                    {
+                      "details": "Assuming you are using a Windows platform, open an App Connect Enterprise Command Console and start an integration server using the following command:<br><code>IntegrationServer --work-dir C:\\TESTSERVER --name TESTSERVER --admin-rest-api 7600 --http-port-number 7800 --console-log</code>  --vault-key testODMVault1<br>where <b>C:\\TESTSERVER</b> is a folder on your file system that the server will use for its working directory."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Creating a policy project</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Create a Policy Project with a Policy of type 'ODM Server' and Template as 'ODM Server'. Sample Policy project is provided with the tutorial and will be imported along with the other applications. "
+                    },
+                    {
+                      "details": "Please provide the required parameters for the Policy project as described in https://www.ibm.com/docs/en/app-connect/11.0.0?topic=properties-odm-server-policy-odmserver"
+                    },
+                    {
+                      "details": "<b>Rule Execution Server URL</b> specifies the URL of the Rules Execution Server. For example,http://localhost:9080/res/ "
+                    },
+                    {
+                      "details": "<b>ODM Jars URL</b> specifies the file location of the IBM ODM Execution Server Client Jar files to be used by the policy. For example: C:\\IBM\\ODM\\executionserver\\lib. You will need to copy these jars from the ODM Execution server to the Toolkit machine as well as to the machine that is running the Integration Server and specify that folder location."
+                    },
+                    {
+                      "details": "<b>secureIdentity </b> specifies the secure identity containing the credentials to be used for accessing the Rule Execution Server. In our sample example, credential name is <b>odmCred</b> as described in the section <b>Creating secure vault using mqsicredentials for the Integration Server</b> "
+                    },
+                    {
+                      "details": "Rest of the properties can be selected as default."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "ODM Server Policy",
+                "link": "https://www.ibm.com/docs/en/app-connect/11.0.0?topic=properties-odm-server-policy-odmserver",
+                "type": "web"
+              }
+            ]
+          }
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "Configure, Deploy and Test the Read Flow using the ODMRules node",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "section": "<b> Configure the ODM Rules Message flow  </b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_ODM application, double-click Flow_OPCUA_ODM.msgflow to open in the Flow Exerciser. The flow consists of 'HTTP Input' , 'OPC-UA-Read', 'Compute' ,' ODM Rules' , 'Compute1' nodes and 'HTTP Reply' node"
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser and double-click the OPC-UA-Read node to open the OPC-UA-Read Node properties. "
+                    },
+                    {
+                      "details": "From the node properties window, click 'Add' to open the Manufacturing perspective."
+                    },
+                    {
+                      "details": "Select the appropriate 'Data source' that was created earlier in the Prepare section."
+                    },
+                    {
+                      "details": "Click on 'Refresh Source Item Tree' to load the Source Items. Select the node from the source tree for which you want to read data "
+                    },
+                    {
+                      "details": "From the 'Client Items' tree, right-click on the 'Item' node and select 'Add Mapping Node'"
+                    },
+                    {
+                      "details": "Specify a name for the node and click 'Ok' "
+                    },
+                    {
+                      "details": "Click 'Create Client Item' from the 'Client Item Properties' tab"
+                    },
+                    {
+                      "details": "Click 'Add Client Item to Read'. The client item is added to the Selected Client Items panel in the 'Select' view. "
+                    },
+                    {
+                      "details": "In our example project, /Item/AC1_temperature and /Item/AC1_humidity are the two client items corresponding to the Temperature and Humidity of an AirConditioner system."
+                    },
+                    {
+                      "details": "These client item names are referenced in the first Compute Node. You will need to update Compute node in case the client items have names other than the ones mentioned above."
+                    },
+                    {
+                      "details": "From the OPC-UA-Read node, select the <b>Input Message Parsing</b> and select the <b>Message domain</b> as 'XMLNSC : For XML messages (namespace aware, validation, low memory use)'"
+                    },
+                    {
+                      "details": "Navigate back to the Flow Exerciser and click on the first Compute node in the flow. In the Compute Node Properties, specify the 'Compute Mode' as 'LocalEnvironment and Message'"
+                    },
+                    {
+                      "details": "Navigate back to the Flow Exerciser and double-click the first Compute node in the flow. In the Compute node, read the values passed from the Read Node and populate the object to be passed as parameter to the ODM Rules node. In our sample example, we use the ACObject object to be passed to the ODM Rules node. The schema for this object is that specified in the XOM for the Rule and that is specified in the ODM Rules Node as described next."
+                    },
+                    {
+                      "details": "Navigate back to the Flow Exerciser and double-click on the ODM Rules node. The ODM Rules node properties window loads. "
+                    },
+                    {
+                      "details": "Specify the properties of the ODM Rules node as described in  https://www.ibm.com/docs/en/app-connect/11.0.0?topic=nodes-odmrules-node "
+                    },
+                    {
+                      "details": "<b>Policy</b> specifies the ODM Server policy that is created to access the Rules Server as described in the section for <b>Creating a policy project</b>."
+                    },
+                    {
+                      "details": "<b>Ruleset path </b> configuration enables us to connect to the Rules server and select the required rule application and rule set to be applied on the invocation of the ODM Rules node."
+                    },
+                    {
+                      "details": "After selecting the Ruleset path, the appropriate Parameters are loaded. "
+                    },
+                    {
+                      "details": "Click on the <b> Data Location </b> to load the XPath Expression Builder Window. Specify the XPath Expression. For example: '$LocalEnvironment/ACObject'. This is the object that needs to be created in the first Compute node as described above. Click on 'Finish' to close the window."
+                    },
+                    {
+                      "details": "Navigate back to the Flow Exerciser and click on the second Compute node in the flow. In the Compute Node Properties, specify the 'Compute Mode' as 'Message' for our sample example."
+                    },
+                    {
+                      "details": "From the Flow exerciser, double click on the second Compute node in the flow. In this Compute node, we can read the value returned from the ODM Rules node and captured in the object specified above."
+                    },
+                    {
+                      "details": "Save the flow"
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Deploying the Control Flow</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to the Integration Server"
+                    },
+                    {
+                      "details": "From the Application Development view, under the App_OPCUA_Control application right-click the Flow_OPCUA_Control.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the Integration Server that you have started, and Click 'Finish'."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment. The control flow application name is displayed under the selected integration server from the Integration Nodes view. "
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Deploying the Policy project and ODM Rules node message flow</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that you are connected to an Integration Server."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Policy project for ODM server policy created earlier, and select 'Deploy'."
+                    },
+                    {
+                      "details": "From the Application Development view , right-click the Flow_OPCUA_ODM.msgflow and select 'Deploy'."
+                    },
+                    {
+                      "details": "In the Deploy window, select the integration server that you have started, and click Finish."
+                    },
+                    {
+                      "details": "Click 'Ok' to confirm the deployment.The App_OPCUA_ODM , App_OPCUA_Control and Policy_OPCUA_ODM_Project are displayed under the selected integration server from Integration Nodes view."
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "<b>Testing the Flow_OPCUA_ODM Flow using the Flow Exerciser</b>",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Ensure that your Integration Server is started."
+                    },
+                    {
+                      "details": "Navigate to the Flow Exerciser of the Flow_OPCUA_ODM.msgflow."
+                    },
+                    {
+                      "details": "In the editor, click the Start Flow Exerciser icon in red: <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow. "
+                    },
+                    {
+                      "details": "Click the Send Message icon <img src='https://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+                    },
+                    {
+                      "details": "You can right-click on 'InputMessage' to add a new message and then click on 'Send' button. Your request message is sent to the HTTP input node. After the request message is processed, the message path is automatically highlighted on the message flow."
+                    },
+                    {
+                      "details": "Click on any connection on the message box to see the data that passed through that connection."
+                    },
+                    {
+                      "details": "Click on the link between first Compute node and the ODM Rules node to view the Input Ruleset parameter object ACObject in the LocalEnvironment tree."
+                    },
+                    {
+                      "details": "Click on the link between ODM Rules node and the second Compute node to view the returned 'Status' in the Ruleset parameter object ACObject in the LocalEnvironment tree."
+                    },
+                    {
+                      "details": "To stop recording the message path through the flow, click the 'Return flow to edit mode' icon."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to the Manufacturing Perspective",
+                "description": "Using the Manufacturing Perspective",
+                "type": "web",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-app-connect-overview"
+              },
+              {
+                "title": "IBM Documentation link to Troubleshooting",
+                "description": "Troubleshooting and Logging",
+                "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 }
