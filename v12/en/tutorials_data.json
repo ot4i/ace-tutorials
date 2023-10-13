@@ -36183,11 +36183,11 @@
         "run": {
           "overview": {
             "name": "Run",
-            "heading": "Configure, Deploy and Test the Read Flow using the ODMRules node",
+            "heading": "Configure, Deploy and Test the Read Flow using the JavaCompute node",
             "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
             "sections": [
               {
-                "section": "<b> Configure the ODM Rules Message flow  </b>",
+                "section": "<b> Configure the Flow_OPCUA_ODM_JCN.msgflow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
@@ -36269,7 +36269,7 @@
                 }
               },
               {
-                "section": "<b>Deploying the Policy project and ODM Rules node message flow</b>",
+                "section": "<b>Deploying the Policy project and Flow_OPCUA_ODM_JCN.msgflow</b>",
                 "steps": {
                   "type": "ordered",
                   "details": [
