@@ -9,6 +9,15 @@
 <script>
 function myFunction() {
   document.getElementById("demo").innerHTML = "Hello there :)";
+	   var result = null;
+	   try 
+	   {          
+		   result = javaSetSelectedTutorialFunction( "fixed" );
+	   }
+	   catch(e)
+	   {
+		   alert( 'a java error in changeFunc occurred: ' + e.message );
+	   }  
 }
 </script>
 
