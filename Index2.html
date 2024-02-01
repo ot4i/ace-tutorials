@@ -12,11 +12,12 @@ function backToGallery() {
 	   var result = null;
 	   try 
 	   {          
-		   result = javaBackToGalleryFunction();
+		   result = javaGeneratePatternFunction();
+		   alert(result);
 	   }
 	   catch(e)
 	   {
-		   alert( 'a java error in changeFunc occurred: ' + e.message );
+		   alert( 'A java error occurred: ' + e.message );
 	   }  
 }
 </script>
