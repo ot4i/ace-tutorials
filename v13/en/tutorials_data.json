@@ -6358,7 +6358,7 @@
           "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
           "sections": [
             {
-              "section": "This tutorial demonstrates a simple message flow that receives a JSON message over HTTP, and uses a LoopBackRequest node to insert the document into a NoSQL Cloudant database. This tutorial describes how to use npm to install a LoopBack connector for Cloudant, and the required configuration to let the LoopBackRequest node locate and authenticate a connection with a Cloudant database instance running on IBM Bluemix."
+              "section": "This tutorial demonstrates a simple message flow that receives a JSON message over HTTP, and uses a LoopBackRequest node to insert the document into a NoSQL Cloudant database. This tutorial describes how to use npm to install a LoopBack connector for Cloudant, and the required configuration to let the LoopBackRequest node locate and authenticate a connection with a Cloudant database instance running on IBM Cloud. Note that this is just one example for using the generic LoopBack Request node where interacting with Cloudant is a convenient simple example. If you are reading this due to seeking a Cloudant solution then please note that subsequently the product (version 12.0.5.0) has now also added an IBM Cloudant discovery request node which you may find is easier to use."
             }
           ]
         },
@@ -6441,10 +6441,10 @@
                   "type": "ordered",
                   "details": [
                     {
-                      "details": "This tutorial assumes the availability of a non-partitioned Cloudant database. You can use IBM Cloud to provide this (free of charge). Sign into IBM Cloud, find Cloudant in the Databases section of the Catalog, and create an instance of the Cloudant service. "
+                      "details": "This tutorial assumes the availability of a non-partitioned Cloudant database. You can use IBM Cloud to provide this (free of charge using the Lite Plan). Sign into IBM Cloud, find Cloudant in the Databases section of the Catalog, and create an instance of the Cloudant service. <em>IMPORTANT: When you create your instance of the Cloudant service on IBM Cloud, you must select an Authentication method of <em>IAM and legacy credentials</em>. This specification ensures that you will be able to login to Cloudant using HTTP Basic authentication.</em>."
                     },
                     {
-                      "details": "Navigate to the Service Credentials section. If this is a new instance of Cloudant you will need to generate some new Service credentials. If you are generating new credentials you can choose the default options. When you view the Service credentials, you will find connection details that we will be using to tell ACE how to communicate with your IBM Cloud Cloudant instance. They will look similar to the following JSON (don't be surprised if you see some additional fields listed as well - for example related to the use of IAM):<br><span class='resource'>{<br>&quot;username&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix&quot;,<br>  &quot;password&quot;: &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&quot;,<br>  &quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,<br>  &quot;port&quot;: 443,<br>  &quot;url&quot;: &quot;https://aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;<br>}</span>"
+                      "details": "Navigate to the Service Credentials section. If this is a new instance of Cloudant you will need to generate some new Service credentials. If you are generating new credentials you can choose the default options. When you view the Service credentials, you will find connection details that we will be using to tell ACE how to communicate with your IBM Cloud Cloudant instance. They will look similar to the JSON shown below (don't be surprised if you see some additional fields listed as well - for example related to the use of IAM). At this stage <em>check that you have the host, port, username and password properties</em>. If you are missing the password and port properties it is likely that your IBM Cloud Cloudant instance has only been enabled for IAM credentials (if this happens go back to the previous instruction because you will need to recreate the Lite plan service instance with the correct authentication method). The service credentials should look like this:<br><span class='resource'>{<br>&quot;username&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix&quot;,<br>  &quot;password&quot;: &quot;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&quot;,<br>  &quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,<br>  &quot;port&quot;: 443,<br>  &quot;url&quot;: &quot;https://aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudant.com&quot;<br>}</span>"
                     },
                     {
                       "details": "Switch to the Cloudant dashboard part of the service and create a database called <code>share_price</code>."
@@ -6464,13 +6464,13 @@
                       "details": "If you don't already have one, create a datasources.json file in the connectors/loopback folder of your ACE workpath (by default on Windows, this will be at C:\\ProgramData\\IBM\\MQSI\\connectors\\loopback). This is where ACE stores connection information for Loopback Request node instances."
                     },
                     {
-                      "details": "Add a stanza to the datasources.json file:<br><code><span class='cmdname'> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;host&quot;: &quot;aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix.cloudantnosqldb.appdomain.cloud&quot;,&quot;port&quot;: 443,&quot;connector&quot;: &quot;cloudant&quot;}}</code>"
+                      "details": "Add a stanza to the datasources.json file:<br><code><span class='cmdname'> { &quot;CLOUDANT&quot;:{&quot;database&quot;: &quot;share_price&quot;,&quot;name&quot;: &quot;CLOUDANT&quot;,&quot;url&quot;: &quot;https://&lt;username&gt;:&lt;password&gt;@&lt;hostname&gt;,&quot;connector&quot;: &quot;cloudant&quot;}}</code><br>You will need to substitute into the above text your own values in place of &lt;username&gt;,&lt;password&gt; and &lt;hostname&gt;"
                     },
                     {
                       "details": "From your command console, create an integration node (if you don't already have one):<code><span class='cmdname'> mqsicreatebroker TESTNODE</span></code>"
                     },
                     {
-                      "details": "From your command console, configure ACE with your Cloudant security credentials like this:<br><code><span class='cmdname'> mqsisetdbparms TESTNODE -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>"
+                      "details": "Note: Previous versions of this tutorial utilized the mqsisetdbparms command for storing the credentials used to access Cloudant, but for simplicity the instructions above have been altered to carry these credentials in the datasource.json directly. For this reason, the following command is no longer required but is kept here for reference purposes only:<br><code><span class='cmdname'> mqsisetdbparms TESTNODE -n loopback::CLOUDANT_SEC_ID -u aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa-bluemix -p bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb </span></code>"
                     },
                     {
                       "details": "From your command console, start your node: <code><span class='cmdname'> mqsistart TESTNODE</span></code>"
@@ -6625,7 +6625,7 @@
               "section": "This tutorial demonstrates a simple message flow which retrieves existing Account records from a Salesforce system using the SalesforceRequest node. The flow exposes a HTTP service which accepts some filter properties to limit the number of Account records returned. The records are returned as an array of JSON objects."
             },
             {
-              "section": "The SalesforceRequest node in IBM App Connect Enterprise allows message flows to be developed that can Create, Retrieve, Update and Delete records for the different objects that exist in a Salesforce system, such as Account, Contact and Lead. Records may be retrieved by Salesforce ID, by custom external ID, or by SOQL WHERE clause. Records may be updated by Salesforce ID or by custom external ID. Records may be deleted by Salesforce ID."
+              "section": "The SalesforceRequest node in IBM App Connect Enterprise allows message flows to be developed that can Create, Retrieve, Update and Delete records for the different objects that exist in a Salesforce system, such as Account, Contact and Lead. Records may be retrieved by Salesforce ID, by custom external ID, or by using a Salesforce Object Query Language (SOQL) WHERE clause. Records may be updated by Salesforce ID or by custom external ID. Records may be deleted by Salesforce ID."
             },
             {
               "section": "The SalesforceRequest node uses the Force.com REST API to exchange data with Salesforce, and so the input and output message trees for the SalesforceRequest node are in the JSON domain."
@@ -8327,7 +8327,7 @@
               "section": "This tutorial demonstrates a simple message flow that Produces a message using a KafkaProducer node. A seperate flow then consumes the message using a KafkaConsumer node."
             },
             {
-              "section": "This tutorial requires an Apache Kafka server.  This could be the Event Streams service available on IBM Cloud (which is a fully managed service built with the open source Apache Kafka project), or your own stand alone Kafka implementation."
+              "section": "This tutorial requires an Apache Kafka server.  This could be the IBM Cloud Event Streams service available on IBM Cloud (which is a fully managed service built with the open source Apache Kafka project), or your own stand alone Kafka implementation."
             },
             {
               "section": "In IBM App Connect Enterprise, an application is a container for all the resources that are required to create a solution. An application can contain IBM App Connect Enterprise resources, such as flows, message definitions, libraries, and JAR files. An application is used to hold the message flow in this tutorial."
@@ -8416,7 +8416,7 @@
                       "details": "Within your own Apache Kafka server, e.g. IBM Cloud Event Streams Service, record the Bootstrap server name. Create a topic if you don't already have one and remember its name ready for step 3."
                     },
                     {
-                      "details": "If you are using Event Streams, the connection from ACE must be secured using SASL_SSL. Open the Event Streams Service Credentials and remember the user and password ready for step 5. "
+                      "details": "If you are using IBM Cloud Event Streams, the connection from ACE must be secured using SASL_SSL. Open the IBM Cloud Event Streams service in your web browser and in the contents page at the left side of the screen, navigate to the section named <code>Service Credentials</code>. If you haven't yet created some credentials click <code>New credential</code> to create a new set of credentials (for simplicity choose the Manager role and click the Add button). Once the service credentials have been created, click the Copy button and paste the snippet of JSON to somewhere convenient such as a text editor. The particular properties which you wlil need are <code>bootstrap_endpoints</code>, <code>password</code> and <code>user</code> (which will be hard-coded to the value <code>token</code>). "
                     },
                     {
                       "details": "Open message flows <span class='application'>KafkaProducerFlow.msgflow</span> and <span class='application'>KafkaConsumerFlow.msgflow</span>.  Make the following changes to the Kafka nodes.",
@@ -8430,16 +8430,19 @@
                             "details": "Bootstrap servers*  set this to the one listed in the Credentials above."
                           },
                           {
-                            "details": "If using Message Hub, switch to the Security tab and set the Security protocol to be \"SASL_SSL\" and leave the default value for SSL protocol to be \"TLSv1.2\". "
+                            "details": "If you are using IBM Cloud Event Streams, switch to the Security tab and set the Security protocol to be \"SASL_SSL\" and leave the default value for SSL protocol to be \"TLSv1.2\". "
+                          },
+                          {
+                            "details": "Also on the Security tab set the Security identity to be KAFKA"
                           }
                         ]
                       }
                     },
                     {
-                      "details": "Within the <span class='application'>KafkaConsumerFlow.msgflow</span> you will also need to change the File Output node, Directory and File name."
+                      "details": "Within the <span class='application'>KafkaConsumerFlow.msgflow</span> you will also need to change the File Output node properties for <code>Directory</code> and <code>File name or pattern</code>."
                     },
                     {
-                      "details": "If you are using IBM Cloud Event Streams or if your Kafka Server needs to authenticate the connection from ACE, then you will need to provide credentials using the mqsisetdbparms command from the ACE Command Console.",
+                      "details": "If you are using IBM Cloud Event Streams or if your Kafka Server needs to authenticate the connection from ACE, then you will need to provide credentials from the ACE Command Console using either the mqsisetdbparms command or the mqsicredentials command (if you are using the integration server's vault to encrypt the stored credentials).",
                       "substeps": {
                         "type": "unordered",
                         "details": [
@@ -8450,6 +8453,12 @@
                             "details": "mqsisetdbparms <span class='varname'>integrationNodeName</span> -n kafka::KAFKA::<span class='varname'>integrationServerName</span> -u <span class='varname'>token</span> -p <span class='varname'>password</span>"
                           },
                           {
+                            "details": "Alternatively if your node-owned integration server has a vault defined (for more information about configuring a vault, please consult the documentation), then issue the following command:"
+                          },
+                          {
+                            "details": "mqsicredentials <span class='varname'>integrationNodeName</span> --integration-server <span class='varname'>integrationServerName</span> --create --credential-type kafka --credential-name KAFKA --username <span class='varname'>token</span> --password <span class='varname'>password</span> --vault-key <span class='varname'>yourvaultkey</span>"
+                          },
+                          {
                             "details": "Restart the Integration Node."
                           },
                           {
@@ -8457,6 +8466,12 @@
                           },
                           {
                             "details": "mqsisetdbparms -w <span class='varname'>work-directory</span> -n kafka::KAFKA -u <span class='varname'>token</span> -p <span class='varname'>password</span>"
+                          },
+                          {
+                            "details": "Alternatively if your stand-alone integration server has a vault defined (for more information about configuring a vault, please consult the documentation), then issue the following command:"
+                          },
+                          {
+                            "details": "mqsicredentials --work-dir <span class='varname'>work-directory</span> --create --credential-type kafka --credential-name KAFKA --username <span class='varname'>token</span> --password <span class='varname'>password</span> --vault-key <span class='varname'>yourvaultkey</span>"
                           },
                           {
                             "details": "Restart the Integration Server."
@@ -8529,7 +8544,7 @@
                 }
               },
               {
-                "section": "This tutorial showed the KafkaConsumer and KafkaProducer nodes running in the same integration server. Remember if you experiment with other topologies you may need to run the mqsisetdbparms command accordingly, as the credentials for the Kafka nodes are scoped to the integration server."
+                "section": "This tutorial showed the KafkaConsumer and KafkaProducer nodes running in the same integration server. Remember if you experiment with other topologies you may need to run the mqsisetdbparms command or mqsicredentials command accordingly, as the credentials for the Kafka nodes are scoped to the integration server."
               }
             ]
           },
@@ -17947,7 +17962,7 @@
           "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
           "sections": [
             {
-              "section": "This tutorial demonstrates how the File Exists node can be used with its <strong>List mode</strong> property in order to discover meta-data about a list of files which are discovered in an input directory. This information is sent downstream to later nodes in the flow. The File Iterator node is used to loop over the list of files, and for each entry in the list propagates a LocalEnvironment that is compatible with driving the behaviour of a subsequent FileRead node to read and parse that specific file. The File Iterator node allows each file to be processed one at a time. If an exception occurs for a particular propagation, the exception is stored, and the remaining file entries are processed to completion. In the provided example, a Filter node is used after the File Iterator node to determine whether the file was last modified before today. If the file was last modified before today then the Filter node propagates down its True terminal and after logging some information using the node Trace2, the file will be deleted.  If the file was last modified today, then the Filter node propagates down its False terminal and the File Read node will parse the file and log its contents using the node Trace3."
+              "section": "This tutorial demonstrates how the File Exists node can be used with its List mode property in order to discover meta-data about a list of files which are discovered in an input directory. This information is sent downstream to later nodes in the flow. The File Iterator node is used to loop over the list of files, and for each entry in the list propagates a LocalEnvironment that is compatible with driving the behaviour of a subsequent FileRead node to read and parse that specific file. The File Iterator node allows each file to be processed one at a time. If an exception occurs for a particular propagation, the exception is stored, and the remaining file entries are processed to completion. In the provided example, a Filter node is used after the File Iterator node to determine whether the file was last modified before today. If the file was last modified before today then the Filter node propagates down its True terminal and after logging some information using the node Trace2, the file will be deleted.  If the file was last modified today, then the Filter node propagates down its False terminal and the File Read node will parse the file and log its contents using the node Trace3."
             },
             {
               "section": "This tutorial provides an application to hold the message flow, and three input files. There are no other pre-requisites needed by the scenario."
@@ -36893,6 +36908,202 @@
                 "title": "IBM Documentation link to Troubleshooting",
                 "description": "Troubleshooting and Logging",
                 "link": "https://www.ibm.com/docs/en/app-connect/12.0?topic=manufacturing-troubleshooting-support",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Using a Tree Transform node to explore context trees": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Using a Tree Transform node to explore context trees",
+        "shortDescription": "Learn how to use the Tree Transform node whilst investigating how context trees aid usability.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "5 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Validate node"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Learn about IBM App Connect Enterprise logical message trees and how to easily transform between them."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "This tutorial develops and then demonstrates a simple message flow that uses very basic XML and JSON messages to help explain the concept of how the ACE in memory logical message tree works. The message flow, which is driven using HTTP data, is initially used to transform between XML and JSON using the new Tree Transform node. The flow is then extended to use a new Context tree which is shown using a Trace node. In the next stage of the tutorial a Jira Request node is added to the message flow which demonstrates how Context trees can help with mapping tasks. Finally a Compute node is inserted into the message flow and the new ESQL content-assist feature is used to map from a new Context tree back into a traditional logical message tree."
+            },
+            {
+              "section": "The tutorial utilizes a local independent integration server in the Toolkit. The server uses an external directory vault to store a credential which is needed to interact with Jira."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Developing integration solutions by using applications",
+              "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click Import, one project will be created in your workspace: An application named <span class='application'>ExampleValidateJSON</span>."
+              },
+              {
+                "section": "<span class='application'>ExampleValidateJSON</span> provides a single message flow named <span class='resource'>ValidateJSON</span> which receives data using an HTTPInput node. This node is configured to expect a JSON message which conforms to the JSON schema named <span class='resource'>OrderSchema.json</span> although the HTTPInput node itself is not set up to validate the message immediately. The next node in the flow is a Validate node which checks the input JSON against the JSON schema. The message is sent down the Match or Failure terminal depending on whether validation passes or fails. Next the graphical mapping node generates a suitable reply which is returned using the HTTPReply node at the end of the flow."
+              },
+              {
+                "section": "Once imported, the provided project is ready to be deployed and tested, as described on the Prepare tab."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions by using applications",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Create a local integration server",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "Prepare the scenario by executing the following steps:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>. Leave all the options with their default values and click Finish. The local Integration Server will be started, using a project in your Toolkit's workspace as the work directory. Click OK to dismiss the Success dialog."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "Use the Flow Exerciser to test out the flow:",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "Open <span class='resource'>ValidateJSON.msgflow</span>.",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (when challenged you do not need to redeploy the flow again)."
+                          },
+                          {
+                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Two saved messages are provided."
+                          },
+                          {
+                            "details": "The input message <span class='resource'>ValidationFail</span> contains this data:<br><code>{<br>\"Initials\":\"Fred\",<br>\"Surname\":\"Bloggs\",<br>\"Item\": {<br>\"Code\": 123,<br>\"Description\": \"Crystal Ball\",<br>\"Category\": \"Futuristic Equipment\",<br>\"Price\": \"99.99\",<br>\"Quantity\": 1<br>}<br>}</code><br>Note that the Price is provided as a String, although the JSON schema model defines it to be a number. Select this input messages and click Send and your message is sent to the HTTPInput node. You will receive a reply message stating that the message failed validation. After you close the dialog, the path taken through the messageflow will be highlighted."
+                          },
+                          {
+                            "details": "The input message <span class='resource'>ValidationPass</span> contains this data:<br><code>{<br>\"Initials\":\"Fred\",<br>\"Surname\":\"Bloggs\",<br>\"Item\": {<br>\"Code\": 123,<br>\"Description\": \"Crystal Ball\",<br>\"Category\": \"Futuristic Equipment\",<br>\"Price\": 99.99,<br>\"Quantity\": 1<br>}<br>}</code><br>This version of the message conforms correctly to the JSON schema model which defines the Price as a number. Select this input messages and click Send and your message is sent to the HTTPInput node. You will receive a reply message stating that the message passed validation. After you close the dialog, the path taken through the messageflow will be highlighted."
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "This tutorial has shown the Validate node check a message against a JSON schema."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Validate node",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/ac20803_.htm",
+                "type": "web"
+              },
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
                 "type": "web"
               }
             ]
