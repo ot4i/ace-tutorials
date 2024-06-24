@@ -4107,7 +4107,7 @@
             {
               "id": "MainFlow",
               "editor": "flow",
-              "wspath": "<workspace>/TreeTransformerApplication/TreeTransformerFlow.msgflow"
+              "wspath": "<workspace>/TreeTransformApplication/TreeTransformFlow.msgflow"
             }
           ],
           "deployedResources": [
