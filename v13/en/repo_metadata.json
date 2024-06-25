@@ -4102,18 +4102,18 @@
           "tags": "validation",
           "isPattern": "false",
           "isFavorite": "true",
-          "projects": "TreeTransformerApplication",
+          "projects": "TreeTransformApplication",
           "editorResPaths": [
             {
               "id": "MainFlow",
               "editor": "flow",
-              "wspath": "<workspace>/TreeTransformerApplication/TreeTransformerFlow.msgflow"
+              "wspath": "<workspace>/TreeTransformApplication/TreeTransform.msgflow"
             }
           ],
           "deployedResources": [
             {
               "type": "application",
-              "path": "TreeTransformerApplication"
+              "path": "TreeTransformApplication"
             }
           ]
         }
