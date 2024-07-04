@@ -14,7 +14,7 @@
         {
           "name": "Getting started - Creating a very simple message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to quickly create a very simple message flow",
           "detailsURL": "https://ot4i.github.io/simple-flow-tutorial/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/simple-flow-tutorial",
@@ -42,7 +42,7 @@
         {
           "name": "Getting started - Creating an Integration Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn some basics about integration servers and how to use them",
           "detailsURL": "https://ot4i.github.io/integration-server-tutorial/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/integration-server-tutorial",
@@ -70,7 +70,7 @@
         {
           "name": "Getting started - Creating a Simple Unit Test",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn some basics about how to do test driven development and create unit tests",
           "detailsURL": "https://ot4i.github.io/unit-test-simple-tutorial/v12/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-simple-tutorial",
@@ -93,7 +93,7 @@
         {
           "name": "Getting Started - Cloning a GitHub repository in the Toolkit",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to clone a repository from GitHub which contains an IBM App Connect Enterprise Toolkit project",
           "detailsURL": "https://ot4i.github.io/egit-tutorial/v12/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/egit-tutorial",
@@ -116,7 +116,7 @@
         {
           "name": "Getting started - Exploring the Web UI",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn some basics about administration using the Web UI",
           "detailsURL": "https://ot4i.github.io/webui-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/webui-tutorial",
@@ -152,7 +152,7 @@
         {
           "name": "Getting started - Exploring the Admin REST API",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn some basics about administration using the Admin REST API",
           "detailsURL": "https://ot4i.github.io/adminrestapi-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/adminrestapi-tutorial",
@@ -180,7 +180,7 @@
         {
           "name": "Getting started - Policy Projects and Policies",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn about configuring behavior using Policies",
           "detailsURL": "https://ot4i.github.io/policy-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/policy-tutorial",
@@ -208,7 +208,7 @@
         {
           "name": "Getting started - Policy Projects and Policies with Overrides",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn about configuring behavior using Policies and the hierarchy of policy overrides",
           "detailsURL": "https://ot4i.github.io/policy-overrides-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/policy-overrides-tutorial",
@@ -231,7 +231,7 @@
         {
           "name": "Getting started - Message Flow Statistics",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to view performance information using Message Flow Statistics",
           "detailsURL": "https://ot4i.github.io/flow-stats-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/flow-stats-tutorial",
@@ -259,7 +259,7 @@
         {
           "name": "Getting started - Resource Statistics",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to view performance information using Resource Statistics",
           "detailsURL": "https://ot4i.github.io/resource-stats-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/resource-stats-tutorial",
@@ -287,7 +287,7 @@
         {
           "name": "Optimizing the startup time of an independent Integration Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to optimize the startup time of an independent integration server using the ibmint command (requires v12.0.4.0 or higher)",
           "detailsURL": "https://ot4i.github.io/optimize-startup-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/optimize-startup-tutorial",
@@ -315,7 +315,7 @@
         {
           "name": "Using the Java IBM Integration API - Strategic classes",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Java IBM Integration API's strategic com.ibm.integration.admin.proxy.* classes",
           "detailsURL": "https://ot4i.github.io/intapiv11-model-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/intapiv11-model-tutorial",
@@ -343,7 +343,7 @@
         {
           "name": "Using the Java IBM Integration API - HTTP classes",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Java IBM Integration API's strategic com.ibm.integration.admin.http.* classes",
           "detailsURL": "https://ot4i.github.io/intapiv11-http-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/intapiv11-http-tutorial",
@@ -366,7 +366,7 @@
         {
           "name": "OpenAPI Specification v3 - Using an example REST API",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use an IBM App Connect Enterprise REST API, which has been built to conform to the OpenAPI Specification",
           "detailsURL": "http://ot4i.github.io/openapi-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-tutorial",
@@ -394,7 +394,7 @@
         {
           "name": "OpenAPI Specification v3 - Creating a REST API from a document import",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create an IBM App Connect Enterprise REST API, by importing a document which conforms to the OpenAPI Specification v3",
           "detailsURL": "http://ot4i.github.io/openapi-import-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-import-tutorial",
@@ -422,7 +422,7 @@
         {
           "name": "OpenAPI Specification v3 - Adding an operation to a REST API using the API Editor",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the API Editor to add an operation to an IBM App Connect Enterprise REST API which conforms to the OpenAPI Specification v3",
           "detailsURL": "http://ot4i.github.io/openapi-addoperation-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/openapi-addoperation-tutorial",
@@ -450,7 +450,7 @@
         {
           "name": "Using a REST API to manage a set of records",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a REST API with a simple example managing a set of records.",
           "detailsURL": "http://ot4i.github.io/rest-api-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/rest-api-tutorial",
@@ -478,7 +478,7 @@
         {
           "name": "Using an HTTP Input to drive a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use HTTPInput and HTTPReply nodes to expose an http URL that can drive a message flow.",
           "detailsURL": "https://ot4i.github.io/http-input-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/http-input-tutorial",
@@ -506,7 +506,7 @@
         {
           "name": "Using a Mapping node to access a Lookup table that is stored in the Global Cache",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Mapping node to graphically access a Lookup table stored in the Global Cache",
           "detailsURL": "https://ot4i.github.io/mapping-cache-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/mapping-cache-tutorial",
@@ -529,7 +529,7 @@
         {
           "name": "Using a Compute node to access a Lookup table stored in a shared variable in memory",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use ESQL shared variables to access a Lookup table that is cached in memory",
           "detailsURL": "https://ot4i.github.io/shared-variable-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/shared-variable-tutorial",
@@ -552,7 +552,7 @@
         {
           "name": "Using a JavaCompute node to split up a large input file",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Split a large input message into individual records, using Java transformation code, in a memory-efficient manner.",
           "detailsURL": "https://ot4i.github.io/large-messaging-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/large-messaging-tutorial",
@@ -580,7 +580,7 @@
         {
           "name": "Using a ResetContentDescriptor node to associate a new parser with a message in a flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the ResetContentDescriptor node to associate a new parser with a message, shown in this example of reacting to a parser exception on input to a flow.",
           "detailsURL": "https://ot4i.github.io/rcd-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/rcd-tutorial",
@@ -608,7 +608,7 @@
         {
           "name": "Using a FlowOrder node to control the order of execution paths in a flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FlowOrder node to control the order of execution paths in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/floworder-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/floworder-tutorial",
@@ -636,7 +636,7 @@
         {
           "name": "Using a Validate node to check a message against an XML schema",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Validate node to check a message against an XML schema in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/validate-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/validate-tutorial",
@@ -664,7 +664,7 @@
         {
           "name": "Using a Validate node to check a message against a JSON schema",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Validate node to check a message against a JSON schema in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/validate-json-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/validate-json-tutorial",
@@ -692,7 +692,7 @@
         {
           "name": "Using a Throw node to throw an exception in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the throw node to throw an exception and use the Compute node to navigate the resulting ExceptionList.",
           "detailsURL": "https://ot4i.github.io/throw-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/throw-tutorial",
@@ -720,7 +720,7 @@
         {
           "name": "Using a TryCatch node to catch an exception thrown within a section of a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the TryCatch node to isolate exceptions which are thrown from different parts of a message flow.",
           "detailsURL": "https://ot4i.github.io/trycatch-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/trycatch-tutorial",
@@ -748,7 +748,7 @@
         {
           "name": "Using a WorkLoad Management Policy to restrict the maximum throughput of a flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Workload Management Policy to restrict the maximum rate at which a message flow can run.",
           "detailsURL": "https://ot4i.github.io/wlm-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/wlm-tutorial",
@@ -776,7 +776,7 @@
         {
           "name": "Using a LoopBack Request node to insert data into a Cloudant database",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the LoopBackRequest node to create a JSON document in a Cloudant database.",
           "detailsURL": "https://ot4i.github.io/loopback-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/loopback-tutorial",
@@ -804,7 +804,7 @@
         {
           "name": "Using a SalesforceRequest node to retrieve records from Salesforce.com",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the SalesforceRequest node to retrieve records from Salesforce.com",
           "detailsURL": "http://ot4i.github.io/salesforce-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/salesforce-tutorial",
@@ -836,7 +836,7 @@
         {
           "name": "Using a Sequence node to inject a sequence number into a message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Sequence node to inject sequence numbers into message data as it goes through a message flow.",
           "detailsURL": "https://ot4i.github.io/sequence-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/sequence-tutorial",
@@ -868,7 +868,7 @@
         {
           "name": "Using a Resequence node to reorder messages going through a flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Resequence node to control the sequence in which a group of incoming messages are propagated through the message flow.",
           "detailsURL": "https://ot4i.github.io/resequence-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/resequence-tutorial",
@@ -900,7 +900,7 @@
         {
           "name": "Using a Timeout Notification node to automatically start a flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Timeout Notification node to automatically start a flow after a regular configurable time interval.",
           "detailsURL": "https://ot4i.github.io/timeout-notification-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/timeout-notification-tutorial",
@@ -928,7 +928,7 @@
         {
           "name": "Using a Timeout Control node to start a flow after an interval",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Timeout Control node to control timed flow starts using propagations from a Timeout Notification node.",
           "detailsURL": "https://ot4i.github.io/timeout-control-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/timeout-control-tutorial",
@@ -956,7 +956,7 @@
         {
           "name": "Using a Collector node to gather together messages in a flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Collector node to gather together two separate HTTP input messages which arrive in to a message flow at different times.",
           "detailsURL": "https://ot4i.github.io/collector-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/collector-tutorial",
@@ -984,7 +984,7 @@
         {
           "name": "Using a Java User-Defined Node which reads a User-Defined Policy",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to deploy user-defined nodes using a provided example which reads values from a user-defined policy.",
           "detailsURL": "https://ot4i.github.io/userdefinednode-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/userdefinednode-tutorial",
@@ -1012,7 +1012,7 @@
         {
           "name": "Using the KafkaProducer and KafkaConsumer nodes with a Kafka topic",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a KafkaProducer and KafkaConsumer node to produce and consume messages using a Kafka topic.",
           "detailsURL": "https://ot4i.github.io/kafka-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/kafka-tutorial",
@@ -1044,7 +1044,7 @@
         {
           "name": "Using the MQTTSubscribe node to receive MQTT messages from MQTT topics",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the MQTTSubscribe node to receive messages from an MQTT server.",
           "barFile": "<workspace>/MQTTSubscribe/MQTTSubscribe.bar",
           "visible": "true",
@@ -1073,7 +1073,7 @@
         {
           "name": "Using the TCP/IP nodes to integrate with TCP/IP sockets",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use TCP/IP nodes for integration with external applications using TCPIP sockets.",
           "detailsURL": "https://ot4i.github.io/tcpip-input-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/tcpip-input-tutorial",
@@ -1096,7 +1096,7 @@
         {
           "name": "Using custom keywords with message flows",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to assign custom keywords to message flows and then once deployed, read the keywords using the Java Integration API",
           "detailsURL": "https://ot4i.github.io/keywords-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/keywords-tutorial",
@@ -1124,7 +1124,7 @@
         {
           "name": "Using HTTPS and certificates with the HTTPInput, HTTPReply and HTTPRequest nodes",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a Public Key Infrastructure using self-signed certificates in order to send data securely across HTTPS.",
           "detailsURL": "https://ot4i.github.io/https-certificates-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/https-certificates-tutorial",
@@ -1156,7 +1156,7 @@
         {
           "name": "Using MQ and HTTP to link message flows in a coordinated request-reply scenario",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use an MQ queue to store messages which link together HTTP request and reply flows with a back end application.",
           "detailsURL": "https://ot4i.github.io/coordinated-reqreply-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/coordinated-reqreply-tutorial",
@@ -1184,7 +1184,7 @@
         {
           "name": "Using Callable Flows to split synchronous flow processing",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to split synchronous flow processing using CallableFlow nodes.",
           "detailsURL": "http://ot4i.github.io/callable-flows-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/callable-flows-tutorial",
@@ -1220,7 +1220,7 @@
         {
           "name": "Call a REST API using the RESTRequest node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a RESTRequest node to call a REST API",
           "detailsURL": "https://ot4i.github.io/restrequest-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/restrequest-tutorial",
@@ -1256,7 +1256,7 @@
         {
           "name": "Call a REST API using the RESTAsyncRequest node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a RESTAsyncRequest node to call a REST API and a RESTAsyncResponse node to receive the response",
           "detailsURL": "https://ot4i.github.io/restrequest-async-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/restrequest-async-tutorial",
@@ -1292,7 +1292,7 @@
         {
           "name": "Aggregation nodes using MQ nodes with back-end services",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Aggregation nodes to fan-out and fan-in messages using MQ nodes.",
           "detailsURL": "https://ot4i.github.io/aggregation-mq-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/aggregation-mq-tutorial",
@@ -1328,7 +1328,7 @@
         {
           "name": "Aggregation nodes using HTTPAsyncRequest nodes with back-end services",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous HTTP nodes.",
           "detailsURL": "https://ot4i.github.io/aggregation-httpasync-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/aggregation-httpasync-tutorial",
@@ -1368,7 +1368,7 @@
         {
           "name": "Aggregation nodes using RESTAsyncRequest nodes with back-end services",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous REST nodes.",
           "detailsURL": "https://ot4i.github.io/aggregation-restasync-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/aggregation-restasync-tutorial",
@@ -1404,7 +1404,7 @@
         {
           "name": "Aggregation nodes using SOAPAsyncRequest nodes with back-end services",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous SOAP nodes.",
           "detailsURL": "https://ot4i.github.io/aggregation-soapasync-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/aggregation-soapasync-tutorial",
@@ -1427,7 +1427,7 @@
         {
           "name": "Aggregation nodes using CallableFlowAsyncInvoke nodes with back-end services",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Aggregation nodes to fan-out and fan-in messages using asynchronous Callable Flow nodes.",
           "detailsURL": "https://ot4i.github.io/aggregation-callableasync-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/aggregation-callableasync-tutorial",
@@ -1463,7 +1463,7 @@
         {
           "name": "Transformation using a Map in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Mapping node to transform data.",
           "detailsURL": "https://ot4i.github.io/transformation-map-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/transformation-map-tutorial",
@@ -1491,7 +1491,7 @@
         {
           "name": "Transformation using ESQL in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Compute node to transform data using ESQL.",
           "detailsURL": "https://ot4i.github.io/transformation-esql-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/transformation-esql-tutorial",
@@ -1519,7 +1519,7 @@
         {
           "name": "Transformation using Java in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a JavaCompute node to transform data using Java.",
           "detailsURL": "https://ot4i.github.io/transformation-java-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/transformation-java-tutorial",
@@ -1547,7 +1547,7 @@
         {
           "name": "Transformation using Java (JAXB) in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a JavaCompute node to transform data using Java (JAXB).",
           "detailsURL": "https://ot4i.github.io/transformation-javaJAXB-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/transformation-javaJAXB-tutorial",
@@ -1575,7 +1575,7 @@
         {
           "name": "Transformation using XSL in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use an XSL Transform node to transform data using XSL.",
           "detailsURL": "https://ot4i.github.io/transformation-XSL-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/transformation-XSL-tutorial",
@@ -1603,7 +1603,7 @@
         {
           "name": "Transformation using .NET in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a .NETCompute node to transform data using C#. (Windows platforms only)",
           "detailsURL": "https://ot4i.github.io/transformation-dotnet-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/transformation-dotnet-tutorial",
@@ -1631,7 +1631,7 @@
         {
           "name": "Transformation using the auto map feature",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/automap-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/automap-tutorial",
@@ -1659,7 +1659,7 @@
         {
           "name": "Routing - Using a Route node to route data in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Route node to route messages in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/routing-route-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/routing-route-tutorial",
@@ -1687,7 +1687,7 @@
         {
           "name": "Routing - Using a RouteToLabel node to route data in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the RouteToLabel node to route messages in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/routing-routetolabel-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/routing-routetolabel-tutorial",
@@ -1715,7 +1715,7 @@
         {
           "name": "Routing - Using a Filter node to route data in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Filter node to route messages in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/routing-filter-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/routing-filter-tutorial",
@@ -1743,7 +1743,7 @@
         {
           "name": "Routing - Using a Compute node to route data in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Compute node to route messages in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/routing-compute-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/routing-compute-tutorial",
@@ -1771,7 +1771,7 @@
         {
           "name": "Routing - Using a JavaCompute node to route data in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the JavaCompute node to route messages in a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/routing-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/routing-jcn-tutorial",
@@ -1799,7 +1799,7 @@
         {
           "name": "Databases - Using a DatabaseRetrieve node to retrieve data from DB2 via JDBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the DatabaseRetrieve node to retrieve data from DB2 using a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/db-databaseretrieve-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-databaseretrieve-tutorial",
@@ -1827,7 +1827,7 @@
         {
           "name": "Databases - Using a DatabaseRoute node to route messages based on data from DB2 via JDBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the DatabaseRoute node to route messages based on data from DB2 using a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/db-databaseroute-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-databaseroute-tutorial",
@@ -1855,7 +1855,7 @@
         {
           "name": "Databases - Using a Mapping node to insert data into a DB2 database via JDBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Mapping node to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/db-databasemapping-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-databasemapping-tutorial",
@@ -1883,7 +1883,7 @@
         {
           "name": "Databases - Using a JavaCompute node to insert data into a DB2 database via JDBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the JavaCompute node to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/db-databasejcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-databasejcn-tutorial",
@@ -1911,7 +1911,7 @@
         {
           "name": "Databases - Using a Compute node to insert data into a DB2 database via ODBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use Compute node ESQL to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/db-databasecompute-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-databasecompute-tutorial",
@@ -1939,7 +1939,7 @@
         {
           "name": "Databases - Using a Database node to insert data into a DB2 database via ODBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use Database node ESQL to insert data into DB2 using a message flow driven by a JSON message over HTTP.",
           "detailsURL": "https://ot4i.github.io/db-database-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-database-tutorial",
@@ -1967,7 +1967,7 @@
         {
           "name": "Databases - Using a DatabaseInput node to trigger a flow on insert into DB2 via ODBC",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a DatabaseInput node to trigger a flow when data is inserted into DB2.",
           "detailsURL": "https://ot4i.github.io/db-databaseinput-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/db-databaseinput-tutorial",
@@ -1995,7 +1995,7 @@
         {
           "name": "MQ - Using the MQInput, MQGet and MQOutput nodes with messages and queues",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the MQInput, MQGet and MQOutput nodes to interact with queues defined on a local queue manager.",
           "detailsURL": "https://ot4i.github.io/mq-outputinputget-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/mq-outputinputget-tutorial",
@@ -2023,7 +2023,7 @@
         {
           "name": "MQ - Using the LocalEnvironment and MQEndpoint Policy to override MQOutput configuration",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the LocalEnvironment tree to dynamically configure the output queue written to by the MQOutput node and how to use an MQEndpoint Policy to override its queue manager connection.",
           "detailsURL": "https://ot4i.github.io/mq-outputoverrides-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/mq-outputoverrides-tutorial",
@@ -2051,7 +2051,7 @@
         {
           "name": "MQ - Using the Publication node to publish messages on a topic",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Publication node to publish messages on an MQ topic defined on a local queue manager.",
           "detailsURL": "https://ot4i.github.io/mq-publication-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/mq-publication-tutorial",
@@ -2079,7 +2079,7 @@
         {
           "name": "JMS - Using the JMSOutput and JMSInput nodes with messages and queues",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the JMSOutput and JMSInput nodes to interact with queues defined on an IBM MQ queue manager.",
           "detailsURL": "https://ot4i.github.io/jms-outputinput-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jms-outputinput-tutorial",
@@ -2107,7 +2107,7 @@
         {
           "name": "JMS - Using the JMSOutput and JMSReceive nodes with messages and queues",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the JMSOutput and JMSReceive nodes to interact with queues defined on an IBM MQ queue manager.",
           "detailsURL": "https://ot4i.github.io/jms-outputreceive-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jms-outputreceive-tutorial",
@@ -2135,7 +2135,7 @@
         {
           "name": "File - Using the FileExists node to selectively invoke the FileRead node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FileExists node to trigger a message flow (requires v12.0.4.0 or higher)",
           "detailsURL": "https://ot4i.github.io/file-exists-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-exists-tutorial",
@@ -2163,7 +2163,7 @@
         {
           "name": "File - Using the FileExists node and the FileIterator node together in a message flow",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FileIterator node to iterate over file listings generated by the FileExists node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/file-iterator-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-iterator-tutorial",
@@ -2191,7 +2191,7 @@
         {
           "name": "File - Using the FileInput node with Whole File record detection",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FileInput node to parse the whole content of a file.",
           "detailsURL": "https://ot4i.github.io/file-inputwholefile-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-inputwholefile-tutorial",
@@ -2223,7 +2223,7 @@
         {
           "name": "File - Using the FileInput node with Fixed Length record detection",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FileInput node to parse fixed length records from a file.",
           "detailsURL": "https://ot4i.github.io/file-inputfixedlength-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-inputfixedlength-tutorial",
@@ -2251,7 +2251,7 @@
         {
           "name": "File - Using the FileInput node with Delimited record detection",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FileInput node to parse delimited records from a file.",
           "detailsURL": "https://ot4i.github.io/file-inputdelimited-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-inputdelimited-tutorial",
@@ -2279,7 +2279,7 @@
         {
           "name": "File - Using the FileInput node with Parsed Record Sequence record detection",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the FileInput node to parse records from a file using a message model.",
           "detailsURL": "https://ot4i.github.io/file-inputparsedrecordsequence-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/file-inputparsedrecordsequence-tutorial",
@@ -2307,7 +2307,7 @@
         {
           "name": "Integration services (SOAP/HTTP inputs)",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn about integration services that use SOAP/HTTP inputs.",
           "detailsURL": "https://ot4i.github.io/integration-services-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/integration-services-tutorial",
@@ -2335,7 +2335,7 @@
         {
           "name": "Modeling CSV data by using DFDL",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to model CSV data using Data Format Description Language (DFDL).",
           "detailsURL": "https://ot4i.github.io/dfdl-csv-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/dfdl-csv-tutorial",
@@ -2358,7 +2358,7 @@
         {
           "name": "Modeling COBOL data by using DFDL",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to model COBOL data by using Data Format Description Language (DFDL).",
           "detailsURL": "https://ot4i.github.io/dfdl-cobol-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/dfdl-cobol-tutorial",
@@ -2381,7 +2381,7 @@
         {
           "name": "Modeling EDIFACT data by using DFDL",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to model EDIFACT data by using Data Format Description Language (DFDL).",
           "detailsURL": "https://ot4i.github.io/dfdl-edifact-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/dfdl-edifact-tutorial",
@@ -2404,7 +2404,7 @@
         {
           "name": "Modeling HL7 data by using DFDL",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to model HL7 healthcare data using Data Format Description Language (DFDL).",
           "detailsURL": "https://ot4i.github.io/dfdl-hl7-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/dfdl-hl7-tutorial",
@@ -2427,7 +2427,7 @@
         {
           "name": "Modeling Toshiba 4690 TLog data by using DFDL",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to model Toshiba 4690 Point of Sale Transaction Log data by using Data Format Description Language (DFDL).",
           "detailsURL": "https://ot4i.github.io/dfdl-tlog-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/dfdl-tlog-tutorial",
@@ -2450,7 +2450,7 @@
         {
           "name": "Modeling ISO 8583 data by using DFDL",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to model ISO 8583 data by using Data Format Description Language (DFDL).X",
           "detailsURL": "https://ot4i.github.io/dfdl-iso8583-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/dfdl-iso8583-tutorial",
@@ -2473,7 +2473,7 @@
         {
           "name": "JSON - Using a Compute node to create a JSON Object message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Compute node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonobject-compute-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-compute-tutorial",
@@ -2501,7 +2501,7 @@
         {
           "name": "JSON - Using a Compute node to create a JSON Array message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Compute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonarray-compute-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-compute-tutorial",
@@ -2529,7 +2529,7 @@
         {
           "name": "JSON - Using a Mapping node to create a JSON Object message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Mapping node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonobject-mapping-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-mapping-tutorial",
@@ -2557,7 +2557,7 @@
         {
           "name": "JSON - Using a Mapping node to create a JSON Array message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a Mapping node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonarray-mapping-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-mapping-tutorial",
@@ -2585,7 +2585,7 @@
         {
           "name": "JSON - Using a JavaCompute node to create a JSON Object message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Object message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonobject-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonobject-jcn-tutorial",
@@ -2613,7 +2613,7 @@
         {
           "name": "JSON - Using a JavaCompute node to create a JSON Array message",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use a JavaCompute node to create a new JSON Array message in a message flow driven by an XML message over HTTP.",
           "detailsURL": "https://ot4i.github.io/jsonarray-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/jsonarray-jcn-tutorial",
@@ -2641,7 +2641,7 @@
         {
           "name": "Unit Testing - Generating test data and unit tests from the runtime",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to record messages passing through the runtime, and use them to automate the generation of large volumes of unit tests.",
           "detailsURL": "https://ot4i.github.io/unit-test-record-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-record-tutorial",
@@ -2669,7 +2669,7 @@
         {
           "name": "Unit Testing - Creating a Message Assembly file for use with Test Driven Development",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Message Assembly Editor for viewing, creating and updating Message Assembly (.mxml) files for use with Test Driven Development.",
           "detailsURL": "https://ot4i.github.io/unit-test-messageassembly-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-messageassembly-tutorial",
@@ -2697,7 +2697,7 @@
         {
           "name": "Unit Testing - Building and executing unit tests outside the Toolkit",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to build and execute IBM App Connect Enterprise unit tests outside the Toolkit development environment.",
           "detailsURL": "https://ot4i.github.io/unit-test-gradle-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-gradle-tutorial",
@@ -2725,7 +2725,7 @@
         {
           "name": "Unit Testing - Testing multiple message flow nodes using propagate and evaluate",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how unit tests can be used for testing a sequence of multiple message flow nodes.",
           "detailsURL": "https://ot4i.github.io/unit-test-multiple-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-multiple-tutorial",
@@ -2753,7 +2753,7 @@
         {
           "name": "Unit Testing - Running Test Cases in Test Projects and Integration Server JUnit configuration",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to structure Test Cases inside Test projects, and how to configure test execution options for Integration Server JUnits.",
           "detailsURL": "https://ot4i.github.io/unit-test-testproject-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/unit-test-testproject-tutorial",
@@ -2781,7 +2781,7 @@
         {
           "name": "Commands - Using the ibmint command to package BAR files, apply overrides and deploy",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the ibmint command to prepare and deploy integration artifacts outside of the IBM App Connect Enterprise Toolkit",
           "detailsURL": "https://ot4i.github.io/ibmint-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/ibmint-tutorial",
@@ -2809,7 +2809,7 @@
         {
           "name": "Commands - Migrate from earlier product versions using the mqsiextractcomponents command",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the mqsiextractcomponents command to create integration nodes and servers based on existing IBM Integration Bus 10 and IBM App Connect Enterprise 11 topologies.",
           "detailsURL": "https://ot4i.github.io/migrate-extract-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/migrate-extract-tutorial",
@@ -2832,7 +2832,7 @@
         {
           "name": "JSON Input Validation using an OpenAPI Specification in JSON format",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against an OpenAPI Specification document in JSON format.",
           "detailsURL": "https://ot4i.github.io/json-validation-oasjson-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-oasjson-tutorial",
@@ -2860,7 +2860,7 @@
         {
           "name": "JSON Input Validation using an OpenAPI Specification in YAML format",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against an OpenAPI Specification document in YAML format.",
           "detailsURL": "https://ot4i.github.io/json-validation-oasyaml-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-oasyaml-tutorial",
@@ -2888,7 +2888,7 @@
         {
           "name": "JSON Input Validation using a JSON Schema in JSON format",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against a JSON schema in JSON format.",
           "detailsURL": "https://ot4i.github.io/json-validation-schemajson-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-schemajson-tutorial",
@@ -2916,7 +2916,7 @@
         {
           "name": "JSON Input Validation using a JSON Schema in YAML format",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to validate input JSON messages over HTTP by checking them against a JSON schema in YAML format.",
           "detailsURL": "https://ot4i.github.io/json-validation-schemayaml-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/json-validation-schemayaml-tutorial",
@@ -2944,7 +2944,7 @@
         {
           "name": "Discovery Connector - Using the IBM Cloudant Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the IBM Cloudant Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-cloudant-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-cloudant-tutorial",
@@ -2972,7 +2972,7 @@
         {
           "name": "Discovery Connector - Using the Microsoft Azure Blob storage Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Microsoft Azure Blob storage Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-azureblobstorage-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-azureblobstorage-tutorial",
@@ -3000,7 +3000,7 @@
         {
           "name": "Discovery Connector - Using the Coupa Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Coupa Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-coupa-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-coupa-tutorial",
@@ -3028,7 +3028,7 @@
         {
           "name": "Discovery Connector - Using the Amazon S3 Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Amazon S3 Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-amazons3-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-amazons3-tutorial",
@@ -3056,7 +3056,7 @@
         {
           "name": "Discovery Connector - Using the Magento Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Magento Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-magento-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-magento-tutorial",
@@ -3084,7 +3084,7 @@
         {
           "name": "Discovery Connector - Using the Salesforce Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Salesforce Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-salesforce-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-salesforce-tutorial",
@@ -3112,7 +3112,7 @@
         {
           "name": "Discovery Connector - Using the Salesforce Input node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Salesforce Input node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-salesforceinput-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-salesforceinput-tutorial",
@@ -3140,7 +3140,7 @@
         {
           "name": "Discovery Connector - Using the IBM Maximo Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the IBM Maximo Request node (requires v12.0.5.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-maximo-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-maximo-tutorial",
@@ -3168,7 +3168,7 @@
         {
           "name": "Discovery Connector - Using the Oracle E-Business Suite Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Oracle E-Business Suite Request node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-oracleebs-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-oracleebs-tutorial",
@@ -3196,7 +3196,7 @@
         {
           "name": "Discovery Connector - Using the SAP OData Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the SAP OData Request node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-sapodata-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-sapodata-tutorial",
@@ -3224,7 +3224,7 @@
         {
           "name": "Discovery Connector - Using the Slack Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Slack Request node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-slack-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-slack-tutorial",
@@ -3252,7 +3252,7 @@
         {
           "name": "Discovery Connector - Using the ServiceNow Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the ServiceNow Request node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-servicenow-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-servicenow-tutorial",
@@ -3280,7 +3280,7 @@
         {
           "name": "Discovery Connector - Using the ServiceNow Input node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the ServiceNow Input node (requires v12.0.6.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-servicenowinput-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-servicenowinput-tutorial",
@@ -3308,7 +3308,7 @@
         {
           "name": "Discovery Connector - Using the Amazon CloudWatch Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Amazon CloudWatch Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-amazoncloudwatch-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-amazoncloudwatch-tutorial",
@@ -3336,7 +3336,7 @@
         {
           "name": "Discovery Connector - Using the Amazon EC2 Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Amazon EC2 Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-amazonec2-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-amazonec2-tutorial",
@@ -3364,7 +3364,7 @@
         {
           "name": "Discovery Connector - Using the AWS Lambda Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the AWS Lambda Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-amazonlambda-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-amazonlambda-tutorial",
@@ -3392,7 +3392,7 @@
         {
           "name": "Discovery Connector - Using the Anaplan Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Anaplan Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-anaplan-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-anaplan-tutorial",
@@ -3420,7 +3420,7 @@
         {
           "name": "Discovery Connector - Using the Asana Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Asana Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-asana-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-asana-tutorial",
@@ -3448,7 +3448,7 @@
         {
           "name": "Discovery Connector - Using the Confluence Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Confluence Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-confluence-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-confluence-tutorial",
@@ -3476,7 +3476,7 @@
         {
           "name": "Discovery Connector - Using the Dropbox Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Dropbox Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-dropbox-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-dropbox-tutorial",
@@ -3504,7 +3504,7 @@
         {
           "name": "Discovery Connector - Using the flexEngage Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the flexEngage Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-flexengage-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-flexengage-tutorial",
@@ -3532,7 +3532,7 @@
         {
           "name": "Discovery Connector - Using the GitHub Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the GitHub Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-github-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-github-tutorial",
@@ -3560,7 +3560,7 @@
         {
           "name": "Discovery Connector - Using the Gmail Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Gmail Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-gmail-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-gmail-tutorial",
@@ -3588,7 +3588,7 @@
         {
           "name": "Discovery Connector - Using the Google Cloud Pub/Sub Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Google Cloud Pub/Sub Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-googlepubsub-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-googlepubsub-tutorial",
@@ -3616,7 +3616,7 @@
         {
           "name": "Discovery Connector - Using the Google Cloud Storage Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Google Cloud Storage Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-googlecloudstorage-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-googlecloudstorage-tutorial",
@@ -3644,7 +3644,7 @@
         {
           "name": "Discovery Connector - Using the Google Drive Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Google Drive Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-googledrive-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-googledrive-tutorial",
@@ -3672,7 +3672,7 @@
         {
           "name": "Discovery Connector - Using the IBM OpenPages with Watson Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the IBM OpenPages with Watson Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-openpages-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-openpages-tutorial",
@@ -3700,7 +3700,7 @@
         {
           "name": "Discovery Connector - Using the Jira Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Jira Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-jira-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-jira-tutorial",
@@ -3728,7 +3728,7 @@
         {
           "name": "Discovery Connector - Using the Marketo Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Marketo Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-marketo-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-marketo-tutorial",
@@ -3756,7 +3756,7 @@
         {
           "name": "Discovery Connector - Using the monday.com Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the monday.com Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-mondaydotcom-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-mondaydotcom-tutorial",
@@ -3784,7 +3784,7 @@
         {
           "name": "Discovery Connector - Using the Oracle Human Capital Management Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Oracle Human Capital Management Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-oraclehumancapitalmanagement-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-oraclehumancapitalmanagement-tutorial",
@@ -3812,7 +3812,7 @@
         {
           "name": "Discovery Connector - Using the Trello Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Trello Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-trello-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-trello-tutorial",
@@ -3840,7 +3840,7 @@
         {
           "name": "Discovery Connector - Using the UKG Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the UKG Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-ukg-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-ukg-tutorial",
@@ -3868,7 +3868,7 @@
         {
           "name": "Discovery Connector - Using the Zendesk Service Request node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to use the Zendesk Service Request node (requires v12.0.8.0 or higher)",
           "detailsURL": "https://ot4i.github.io/discovery-zendeskservice-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/discovery-zendeskservice-tutorial",
@@ -3896,7 +3896,7 @@
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Read node to read data from an OPC Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow for reading data from an OPC server using the OPC-UA-Read Node.",
           "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-read-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-read-tutorial",
@@ -3924,7 +3924,7 @@
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to read subscribed data from an OPC Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow using OPC-UA-Input node for reading changed values of subscribed data from an OPC server.",
           "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-input-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-input-tutorial",
@@ -3952,7 +3952,7 @@
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Write node to write data into an OPC Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow for writing data into an OPC server using the OPC-UA-Write Node.",
           "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-write-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-write-tutorial",
@@ -3980,7 +3980,7 @@
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Method-Call node to call a method on an OPC Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow for calling a method on an OPC Server using the OPC-UA-Method-Call Node.",
           "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-method-call-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-method-call-tutorial",
@@ -4008,7 +4008,7 @@
         {
           "name": "App Connect for Manufacturing - Using the OPC-UA-Input node to subscribe to alarms and events from an OPC Server",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow by using the OPC-UA-Input node to subscribe to alarms and events from an OPC server.",
           "detailsURL": "https://ot4i.github.io/acmfg-opc-ua-alarm-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-opc-ua-alarm-tutorial",
@@ -4036,7 +4036,7 @@
         {
           "name": "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the Java Compute node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow which uses the OPC-UA-Read node and Java Compute node to connect to an ODM Server.",
           "detailsURL": "https://ot4i.github.io/acmfg-odm-jcn-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-odm-jcn-tutorial",
@@ -4064,7 +4064,7 @@
         {
           "name": "App Connect for Manufacturing - Integration with the IBM Operational Decision Manager (ODM) using the ODM Rules Node",
           "version": "1.0",
-          "iibVersions": "12.*-12.*",
+          "iibVersions": "13.*-13.*",
           "shortDesc": "Learn how to create a simple message flow which uses the OPC-UA-Read node and ODM Rules node to connect to an ODM Server.",
           "detailsURL": "https://ot4i.github.io/acmfg-odm-rulesnode-tutorial/v12/en/details.html",
           "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/acmfg-odm-rulesnode-tutorial",
@@ -4086,34 +4086,6 @@
             {
               "type": "application",
               "path": "App_OPCUA_ODM"
-            }
-          ]
-        },
-        {
-          "name": "Using a Tree Transform node to explore context trees",
-          "version": "1.0",
-          "iibVersions": "13.*-13.*",
-          "shortDesc": "Learn how to use the Tree Transform node whilst investigating how context trees aid usability.",
-          "detailsURL": "https://ot4i.github.io/treetransform-tutorial/v12/en/details.html",
-          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/treetransform-tutorial",
-          "zipURL": "https://github.com/ot4i/treetransform-tutorial/releases/download/v3.0/PI_ExampleTreeTransform.zip",
-          "barFile": "",
-          "visible": "true",
-          "tags": "validation",
-          "isPattern": "false",
-          "isFavorite": "true",
-          "projects": "TreeTransformApplication",
-          "editorResPaths": [
-            {
-              "id": "MainFlow",
-              "editor": "flow",
-              "wspath": "<workspace>/TreeTransformApplication/TreeTransform.msgflow"
-            }
-          ],
-          "deployedResources": [
-            {
-              "type": "application",
-              "path": "TreeTransformApplication"
             }
           ]
         }
