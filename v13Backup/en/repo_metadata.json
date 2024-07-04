@@ -4088,6 +4088,34 @@
               "path": "App_OPCUA_ODM"
             }
           ]
+        },
+        {
+          "name": "Using a Tree Transform node to explore context trees",
+          "version": "1.0",
+          "iibVersions": "13.*-13.*",
+          "shortDesc": "Learn how to use the Tree Transform node whilst investigating how context trees aid usability.",
+          "detailsURL": "https://ot4i.github.io/treetransform-tutorial/v12/en/details.html",
+          "stepsURL": "https://ot4i.github.io/ace-tutorials/v12/en/#/./tutorials/treetransform-tutorial",
+          "zipURL": "https://github.com/ot4i/treetransform-tutorial/releases/download/v3.0/PI_ExampleTreeTransform.zip",
+          "barFile": "",
+          "visible": "true",
+          "tags": "validation",
+          "isPattern": "false",
+          "isFavorite": "true",
+          "projects": "TreeTransformApplication",
+          "editorResPaths": [
+            {
+              "id": "MainFlow",
+              "editor": "flow",
+              "wspath": "<workspace>/TreeTransformApplication/TreeTransform.msgflow"
+            }
+          ],
+          "deployedResources": [
+            {
+              "type": "application",
+              "path": "TreeTransformApplication"
+            }
+          ]
         }
       ]
     },

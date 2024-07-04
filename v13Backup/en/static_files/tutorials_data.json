@@ -36915,5 +36915,274 @@
         }
       }
     }
+  },
+  "Using a Tree Transform node to explore context trees": {
+    "version": "0.1",
+    "pageContent": {
+      "_comments": "object that contains data for page labels, buttons, etc.",
+      "navItems": {
+        "_common": {
+          "buttonBackToGallery": {
+            "name": "Back To Gallery",
+            "method": "backToGallery()",
+            "idName": "backToGallery"
+          },
+          "buttonStartTutorial": {
+            "name": "Start Tutorial",
+            "method": "startTutorialFromDetailsScreen()",
+            "idName": "startTutorial"
+          },
+          "buttonViewDetails": {
+            "name": "View Details",
+            "method": "viewDetails()",
+            "idName": "stepsViewDetails"
+          }
+        }
+      }
+    },
+    "tutorial": {
+      "_common": {
+        "name": "Using a Tree Transform node to explore context trees",
+        "shortDescription": "Learn how to use the Tree Transform node whilst investigating how context trees aid usability.",
+        "durationText": "This tutorial takes approximately",
+        "durationTime": "20 minutes",
+        "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+        "resourceToOpen": "MainFlow",
+        "helpLink": {
+          "text": "IBM Documentation",
+          "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/acesw_home.html"
+        }
+      },
+      "pageDetails": {
+        "topicsName": "Tutorial topics",
+        "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+        "topicList": [
+          {
+            "title": "Tree Transform message flow node"
+          },
+          {
+            "title": "Jira Request message flow node"
+          },
+          {
+            "title": "The traditional logical message tree and the new ACE 13 in-memory Context tree"
+          }
+        ],
+        "outcomesName": "Learning outcomes",
+        "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+        "outcomeList": [
+          {
+            "title": "Learn about how to easily transform between XML and JSON"
+          },
+          {
+            "title": "In the Toolkit learn how to automatically exploit JSON schemas when doing mapping tasks with the Discovery connector nodes."
+          }
+        ],
+        "summary": {
+          "overviewName": "OVERVIEW",
+          "_overviewComment": "A short description of what happens in this tutorial, and an optional short explanation of the ACE concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections": [
+            {
+              "section": "This tutorial provides a basic message flow that uses very simple XML and JSON messages to help explain the concept of how ACE can transform data using the in-memory logical message tree which is passed from one message flow node to the next. The message flow, driven using HTTP data, is initially used to transform between XML and JSON using the new Tree Transform node. The flow is then extended in a variety of ways to use the new Context tree."
+            },
+            {
+              "section": "In the later stages of the tutorial a Jira Request node is added to the flow in order to demonstrate how Context trees can help with mapping tasks. Finally a Compute node is inserted into the message flow and the new ESQL content-assist feature is used to map from the Context tree back into a traditional logical message tree."
+            }
+          ]
+        },
+        "helpLinks": {
+          "_helpLinksComment": "Helplinks that have a type:web attribute are rendered as web links. Otherwise, links are assumed to be to embedded Help topics in the Knowledge Center.",
+          "title": "Find out more",
+          "details": [
+            {
+              "title": "IBM Documentation link to ",
+              "description": "Developing integration solutions by using applications",
+              "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+              "type": "web"
+            }
+          ]
+        }
+      },
+      "pageSteps": {
+        "create": {
+          "overview": {
+            "name": "Create",
+            "heading": "Import projects",
+            "_createComment": "A description of what will happen when the user clicks Import.",
+            "sections": [
+              {
+                "section": "When you click the Import button, a project will be created in your workspace: An application named <span class='application'>TreeTransformApplication</span>."
+              },
+              {
+                "section": "<span class='application'>TreeTransformApplication</span> provides three separate message flows named <span class='application'>TreeTransformValidateJSON</span>, <span class='application'>TreeTransformValidateXML</span> and <span class='application'>TreeTransform</span>. Each message flow receives data over HTTP and listens on a separate URL so you can deploy them all at the same time without any risk of interference. The tutorial begins by demonstrating two very simple message formats: one using XML and one using JSON. An XML schema is provided which describes the XML structure. A JSON schema is provided which describes the JSON structure."
+              },
+              {
+                "section": "The message flow named <span class='application'>TreeTransformValidateXML</span> demonstrates the correct validation of both valid and invalid data using the provided XML schema."
+              },
+              {
+                "section": "The message flow named <span class='application'>TreeTransformValidateJSON</span> demonstrates the correct validation of both valid and invalid data using the provided JSON schema."
+              },
+              {
+                "section": "Having established these core principles, the message flow named <span class='application'>TreeTransform</span> demonstrates how to use the new TreeTransform node, and its ability to easily transform an XML input message into a JSON output message."
+              },
+              {
+                "section": "Next the tutorial describes how to add a Jira Request node into the message flow. In previous versions of the ACE product, the Discovery Connector nodes have needed configuration to inform them about the JSON structures created by earlier preceding nodes in the message flow. The TreeTransform node is used to construct a new Context tree. Context trees are helpful in simplifying message flow development when using Discovery Connector nodes."
+              },
+              {
+                "section": "The final part of the tutorial further enhances the message flow by placing a Compute node after the Jira Request node and demonstrates the new ESQL Content Assist facility to take values from the Context tree and map them back in to a traditional message assembly."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Developing integration solutions by using applications",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/bi12002_.htm",
+                "type": "web"
+              }
+            ]
+          },
+          "actions": {
+            "title": "Create Actions",
+            "details": [
+              {
+                "name": "Import",
+                "method": "importArtifacts()"
+              }
+            ]
+          }
+        },
+        "prepare": {
+          "overview": {
+            "name": "Prepare",
+            "heading": "Create a local integration server in the Toolkit ready to execute the message flows:",
+            "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+            "sections": [
+              {
+                "section": "Execute the following instructions:",
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "From the Integration Explorer view in the bottom left corner of the Toolkit, right-click the Integration Servers folder and select the option to <span class='uicontrol'>Create a local integration server</span>."
+                    },
+                    {
+                      "details": "Select the option to <span class='uicontrol'>Access an external directory vault</span>. Ticking this box will enable the property <span class='uicontrol'>External directory vault location</span>, which by default will specify the value <span class='uicontrol'>TEST_EXT_DIR_VAULT</span>. Keep this choice, as it will conveniently result in a project in your Toolkit workspace which we will use later in the tutorial to store some credentials when connecting to Jira."
+                    },
+                    {
+                      "details": "Specify an <span class='uicontrol'>External directory vault key</span>. This key is used to secure the vault so it needs to be a password which you will remember."
+                    },
+                    {
+                      "details": "Click the <span class='uicontrol'>Create vault</span> button. The vault will be created and the text on the button will change to read <span class='uicontrol'>Test access</span>. Click the button to test out access if you wish! Click the <span class='uicontrol'>Finish</span> button to finish creating the local integration server."
+                    },
+                    {
+                      "details": "In the Integration Explorer view in the bottom left corner, you should now see <span class='uicontrol'>TEST_SERVER</span> in the Integration Servers folder and <span class='uicontrol'>TEST_EXT_DIR_VAULT</span> should be shown in the External Directory Vaults folder."
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "helpLinks": {}
+        },
+        "run": {
+          "overview": {
+            "name": "Run",
+            "heading": "Send data through the provided flows ",
+            "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+            "sections": [
+              {
+                "steps": {
+                  "type": "ordered",
+                  "details": [
+                    {
+                      "details": "This is an optional step that will help you gain experience with the provided XML data structure. Open <span class='application'>TreeTransformValidateXML.msgflow</span>.",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (if asked, agree to the question about deploying the whole application which contains the flow)."
+                          },
+                          {
+                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Two saved messages are provided."
+                          },
+                          {
+                            "details": "The input message which is named <span class='application'>Valid XML</span> contains this data:<br><code>&lt;Problem&gt;<br>&nbsp;&nbsp;&lt;Description&gt;This is a short summary description&lt;/Description&gt;<br>&lt;/Problem&gt;</code><br>This XML message matches with the XML message model which is provided in the file <span class='application'>ModelXML.xsd</span> inside the application <span class='application'>TreeTransformApplication</span>. Select this input message and click Send and the message will be sent to the HTTPInput node. You will receive the same data echoed back to you as a reply."
+                          },
+                          {
+                            "details": "The input message which is named <span class='application'>Invalid XML</span> contains this data:<br><code>&lt;ThisFieldIsNotInTheSchema&gt;<br>&nbsp;&nbsp;&lt;Description&gt;This is a short summary description&lt;/Description&gt;<br>&lt;/ThisFieldIsNotInTheSchema&gt;</code><br>This XML message does not match with the XML message model which is provided in the file <span class='application'>ModelXML.xsd</span> inside the application <span class='application'>TreeTransformApplication</span> because the root tag name is incorrect. Select this input message and click Send and the message will be sent to the HTTPInput node. You will receive a reply message telling you that validation failed. Click the button to Return the message flow to edit mode."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "This is an optional step that will help you gain experience with the provided JSON data structure. Open <span class='application'>TreeTransformValidateJSON.msgflow</span>.",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (if asked, agree to the question about deploying the whole application which contains the flow)."
+                          },
+                          {
+                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. Two saved messages are provided."
+                          },
+                          {
+                            "details": "The input message which is named <span class='application'>Valid JSON</span> contains this data:<br>{&nbsp;&nbsp;\"Problem\": {<br>&nbsp;&nbsp;&nbsp;&nbsp;\"Description\":\"This is a short summary description\"<br>&nbsp;&nbsp;}<br>}</code><br>This JSON message matches with the JSON message model which is provided in the file <span class='application'>ModelJSON.json</span> inside the application TreeTransformApplication. Select this input message and click Send and the message will be sent to the HTTPInput node. You will receive the same data echoed back to you as a reply."
+                          },
+                          {
+                            "details": "The input message <span class='resource'>Invalid JSON</span> contains this data:<br>{&nbsp;&nbsp;\"ThisFieldIsNotInTheJSONSchema\": {<br>&nbsp;&nbsp;&nbsp;&nbsp;\"Description\":\"This is a short summary description\"<br>&nbsp;&nbsp;}<br>}</code><br>This JSON message matches with the JSON message model which is provided in the file <span class='application'>ModelJSON.json</span> inside the application <span class='application'>TreeTransformApplication</span>. Select this input message and click Send and the message will be sent to the HTTPInput node.  You will receive a reply message telling you that validation failed. Click the button to Return the message flow to edit mode."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "details": "Having run some basic tests to familiarize ourselves with the XML and JSON messages, you will notice that despite one being XML and one being JSON, they are logically equivalent to one another. The root element of each message (named <code>Problem</code>) is the same. The child element of each message (named <code>Description</code>) is the same. Open <span class='application'>TreeTransform.msgflow</span>.",
+                      "substeps": {
+                        "type": "unordered",
+                        "details": [
+                          {
+                            "details": "Take a look at the message flow nodes and their properties. You will find that the TreeTransform node has been configured to convert data in the Input tree from the XMLNSC message domain into data in the Output tree in the JSON message domain. Also note that currently the Output Message Location field is set to the option Message Assembly. For now, leave these settings exactly as they are. The first test we run will use traditional logical message trees, but later in the tutorial we will return to this node and switch this option to use the new Context tree."
+                          },
+                          {
+                            "details": "Take a look at the Trace message flow node. The node has been configured for you to write to an output file. By default this has been configured for writing to the location of <code>C:\temp\\TreeTransform\\Trace.txt</code> on a Windows file system. If you are using a Linux platform you will need to change the File path accordingly. The trace node's Pattern property has been set up to record both the traditional logical tree structure which is passed in to the trace node as well as the newer context tree."
+                          },
+                          {
+                            "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start testing the flow (if asked, agree to the question about deploying the whole application which contains the flow)."
+                          },
+                          {
+                            "details": "Click the Send Message icon <img src='http://ot4i.github.io/ot4i.tutorials/dist/images/icons/iib/sendMessage.png' alt='' />. a single saved message is provided."
+                          },
+                          {
+                            "details": "The input message which is named <span class='application'>Input</span> contains this XML data:<br><code>&lt;Problem&gt;<br>&nbsp;&nbsp;&lt;Description&gt;This is a short summary description&lt;/Description&gt;<br>&lt;/Problem&gt;</code><br>. Select this input message and click Send and the message will be sent to the HTTPInput node. You will receive a reply message in JSON format. Click Close on the Progress Information dialog and the path which the message took through the message flow will be displayed."
+                          },
+                          {
+                            "details": "Navigate to the location where the Trace node was configured to write its file output and open the trace file. You will find the trace of the logical message tree and the context tree will look like this:<br><code>==================================================<br>== The traditional Logical Tree structure is as follows ...<br>==================================================<br>( ['GENERICROOT' : 0x28f0ed9ddf0]<br>&nbsp;&nbsp;(0x01000000:Object):JSON = ( ['json' : 0x28f4e5c2fe0]<br>&nbsp;&nbsp;&nbsp;&nbsp;(0x01000000:Object):Data = (<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(0x01000000:Object):Problem = (<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(0x03000000:NameValue):Description = 'This is a short summary description' (CHARACTER)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br>&nbsp;&nbsp;)<br>)<br>==================================================<br>== The Context Tree new with v13 is as follows ...<br>==================================================<br>( ['MQROOT' : 0x28f0ed9b6f0]<br>&nbsp;&nbsp;(0x01000000:Name):node-output =<br> )<br></code>"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "section": "This tutorial has shown the Validate node check a message against a JSON schema."
+              }
+            ]
+          },
+          "helpLinks": {
+            "title": "Find out more",
+            "details": [
+              {
+                "title": "IBM Documentation link to ",
+                "description": "Testing your message flow by using the Flow exerciser",
+                "link": "https://www.ibm.com/docs/SSTTDS_12.0/com.ibm.etools.mft.doc/rt26110_.htm",
+                "type": "web"
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 }
