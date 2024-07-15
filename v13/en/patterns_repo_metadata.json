@@ -10,7 +10,7 @@
       "descriptionUrl": "https://ot4i.github.io/tutorials/en/categories/Tools_Category_overview.htm",
       "iibVersions": "",
       "visible": "true",
-      "tutorials": [
+      "patterns": [
         {
           "name": "Database to Email Pattern",
           "version": "1.0",
