@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "./static/css/main.6837ec56.chunk.css",
-    "main.js": "./static/js/main.0406a337.chunk.js",
-    "main.js.map": "./static/js/main.0406a337.chunk.js.map",
+    "main.js": "./static/js/main.866fd08f.chunk.js",
+    "main.js.map": "./static/js/main.866fd08f.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.b38031d7.js",
     "runtime-main.js.map": "./static/js/runtime-main.b38031d7.js.map",
     "static/js/2.ae05752b.chunk.js": "./static/js/2.ae05752b.chunk.js",
@@ -44,16 +44,19 @@
     "static/media/default.sm.656f87de.svg": "./static/media/default.sm.656f87de.svg",
     "static/media/deploy.lg.aa52c499.svg": "./static/media/deploy.lg.aa52c499.svg",
     "static/media/deploy.sm.4dfea0b1.svg": "./static/media/deploy.sm.4dfea0b1.svg",
+    "static/media/integration-server.a0c10e36.svg": "./static/media/integration-server.a0c10e36.svg",
     "static/media/message-flow-v2.e2228c74.svg": "./static/media/message-flow-v2.e2228c74.svg",
+    "static/media/message-flow.5f698a38.svg": "./static/media/message-flow.5f698a38.svg",
     "static/media/no-search-results.lg.63ced869.svg": "./static/media/no-search-results.lg.63ced869.svg",
     "static/media/no-search-results.sm.6ac317f1.svg": "./static/media/no-search-results.sm.6ac317f1.svg",
     "static/media/not-authorized.lg.4121d6e6.svg": "./static/media/not-authorized.lg.4121d6e6.svg",
-    "static/media/not-authorized.sm.4f76e357.svg": "./static/media/not-authorized.sm.4f76e357.svg"
+    "static/media/not-authorized.sm.4f76e357.svg": "./static/media/not-authorized.sm.4f76e357.svg",
+    "static/media/rest-api.a2bc73f0.svg": "./static/media/rest-api.a2bc73f0.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b38031d7.js",
     "static/js/2.ae05752b.chunk.js",
     "static/css/main.6837ec56.chunk.css",
-    "static/js/main.0406a337.chunk.js"
+    "static/js/main.866fd08f.chunk.js"
   ]
 }
