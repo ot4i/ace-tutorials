@@ -1392,21 +1392,6 @@
           "isFavorite": "true"
         },
         {
-          "name": "RAG Pattern",
-          "version": "1.0",
-          "iibVersions": "13.*-13.*",
-          "shortDesc": "The RAG pattern includes an indexing flow that loads text data into a vector database, and a REST API flow that retrieves relevant information from the vector database to enrich AI-generated responses. Note: The pattern is only supported on IBM App Connect Enterprise 13.0.5.0 and above.",
-          "category": "AI Patterns",
-          "detailsURL": "patterns/AI/RAG",
-          "stepsURL": "https://github.com/ot4i/ace-patterns/blob/gh-pages/en/AI/RAG.htm",
-          "zipURL": "https://github.com/ot4i/ace-patterns/releases/download/v1.0.0/RAG.patternzip",
-          "barFile": "",
-          "visible": "true",
-          "tags": "AI;RAG",
-          "isPattern": "true",
-          "isFavorite": "true"
-        },
-        {
           "name": "Canonical Data Model Pattern",
           "version": "1.0",
           "iibVersions": "13.*-13.*",
