@@ -1395,7 +1395,7 @@
           "name": "RAG Pattern",
           "version": "1.0",
           "iibVersions": "13.*-13.*",
-          "shortDesc": "The RAG pattern includes an indexing flow that loads text data into a vector database, and a REST API flow that retrieves relevant information from the vector database to enrich AI-generated responses. Note: The pattern is only supported on IBM App Connect Enterprise 13.0.5.0 and above.",
+          "shortDesc": "The RAG pattern provides an intelligent integration solution that you can use to incorporate artificial intelligence capabilities into a message flow. This pattern contains an indexing flow that loads text data into a Pinecone vector database, and a Query API flow that retrieves relevant information from the database. The information that is retrieved from the database is used as additional context to augment the prompt in IBM watsonx, which enhances the quality and relevance of the model responses. The RAG pattern is supported on IBM App Connect Enterprise 13.0.5.0 and later versions.",
           "category": "AI Patterns",
           "detailsURL": "patterns/AI/RAG",
           "stepsURL": "https://github.com/ot4i/ace-patterns/blob/gh-pages/en/AI/RAG.htm",
